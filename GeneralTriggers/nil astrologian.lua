@@ -18,6 +18,11 @@ local obj1 = {
 \
 -- *************************************************************************************\
 \
+--[[ ** Verson 3 **\
+* filter added to `onentitychanneling` to ignore friendly targets\
+* cleaned up code to make it more readable and simplify fall through\
+]]\
+\
 --[[ ** Verson 2 **\
 * complete refactor\
 * added reactions for Anamnesis Anyder\
@@ -68,7 +73,15 @@ local obj1 = {
 		return nil\
 end\
 \
--- if action on cooldown\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip if action on cooldown\
 local actionskill = ActionList:Get(1, 7559)\
 if actionskill.cdmax - actionskill.cd > 1 then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -135,13 +148,28 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then if contentTable[localmapid][eventArgs.spellID] then if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then actionskill:Cast(Player.id) end end end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
-";
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(Player.id)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
 		["executeType"] = 2;
 		["name"] = "Cast: Knockback";
 		["time"] = 0;
@@ -162,6 +190,14 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 33 or Player.alive == false or (xivopeners_ast ~= nil and xivopeners_ast.openerStarted == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -190,21 +226,28 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
-										Player:ClearTarget()\
-										self.eventConditionMismatch = true -- suppressing the log\
-										self.used = true\
-										return nil\
-								end\
-    end\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		Player:ClearTarget()\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Stop Casting";
@@ -226,6 +269,14 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 33 or Player.alive == false or Player.level < 74 or (xivopeners_ast ~= nil and xivopeners_ast.openerStarted == true) or (MissingBuff(Player,839) and MissingBuff(Player,840)) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -324,16 +375,28 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then actionskill:Cast(Player.id) end\
-    end\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(Player.id)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Celestial Intersection";

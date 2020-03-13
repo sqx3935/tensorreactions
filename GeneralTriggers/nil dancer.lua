@@ -18,6 +18,11 @@ local obj1 = {
 \
 -- *************************************************************************************\
 \
+--[[ ** Verson 3 **\
+* filter added to `onentitychanneling` to ignore friendly targets\
+* cleaned up code to make it more readable and simplify fall through\
+]]\
+\
 --[[ ** Verson 2 **\
 * complete refactor\
 * added reactions for Anamnesis Anyder\
@@ -70,6 +75,14 @@ local obj1 = {
 		return nil\
 end\
 \
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
 -- if action on cooldown\
 local actionskill = ActionList:Get(1, 7551)\
 if actionskill.cdmax - actionskill.cd > 1 then\
@@ -78,20 +91,20 @@ if actionskill.cdmax - actionskill.cd > 1 then\
 		return nil\
 end\
 \
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent ~= nil then\
-		local cinfo = ent.castinginfo\
-		if cinfo.castinginterruptible == true and cinfo.casttime <= 4 then\
-				-- if sally installed, use hotbar, otherwise use base\
-				-- TODO: not on hotbar, soon as it is use this line\
-				--if SallyDNC ~= nil then SallyDNC.HotBarConfig.ShieldSamba.enabled = false else	actionskill:Cast(eventArgs.entityID) end \
-				actionskill:Cast(eventArgs.entityID)\
-  end\
+-- keep in queue if event time does not match, otherwise complete the reation\
+local cinfo = ent.castinginfo\
+if cinfo.castinginterruptible == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil";
+if cinfo.casttime <= 4  then \
+		actionskill:Cast(eventArgs.entityID)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
 		["executeType"] = 2;
 		["name"] = "Cast: Head Graze";
 		["time"] = 0;
@@ -112,6 +125,14 @@ return nil";
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 38 or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -184,21 +205,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										-- if sally installed, use hotbar, otherwise use base\
-										if SallyDNC ~= nil then SallyDNC.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end \
-\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		-- if sally installed, use hotbar, otherwise use base\
+		if SallyDNC ~= nil then SallyDNC.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end \
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Knockback";
@@ -220,6 +249,14 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 38 or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -410,21 +447,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										-- if sally installed, use hotbar, otherwise use base\
-										if SallyDNC ~= nil then SallyDNC.HotBarConfig.ShieldSamba.enabled = false else	actionskill:Cast(Player.id) end \
-\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		-- if sally installed, use hotbar, otherwise use base\
+		if SallyDNC ~= nil then SallyDNC.HotBarConfig.ShieldSamba.enabled = false else	actionskill:Cast(Player.id) end \
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Shield Samba";
@@ -446,6 +491,14 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 38 or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -474,21 +527,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
-										Player:ClearTarget()\
-										self.eventConditionMismatch = true -- suppressing the log\
-										self.used = true\
-										return nil\
-								end\
-    end\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		Player:ClearTarget()\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
+\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Stop Casting";

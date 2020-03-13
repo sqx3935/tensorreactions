@@ -18,6 +18,11 @@ local obj1 = {
 \
 -- *************************************************************************************\
 \
+--[[ ** Verson 3 **\
+* filter added to `onentitychanneling` to ignore friendly targets\
+* cleaned up code to make it more readable and simplify fall through\
+]]\
+\
 --[[ ** Verson 2 **\
 * massive refactor\
 ]]\
@@ -67,9 +72,9 @@ local obj1 = {
 		return nil\
 end\
 \
--- if action on cooldown\
-local actionskill = ActionList:Get(1, 7559)\
-if actionskill.cdmax - actionskill.cd > 1 then\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -77,77 +82,50 @@ end\
 \
 -- Map, spell id, timer\
 local contentTable = {\
-    -- The Royal City of Rabanastre\
-    [734] = {\
-        [9660] = 4, -- Command Tower\
+    -- The Rak'tika Greatwood\
+    [817] = {\
+        [17856] = 1.5, -- Petro Eyes\
     },\
-    -- The Ridorana Lighthouse\
-    [776] = {\
-        [11344] = 4, -- Tsunami\
-        [11369] = 4, -- Ventilate\
+    -- Dohn Mheg\
+    [821] = {\
+        [13552] = 1.5, -- Imp Choir\
     },\
-    -- The Qitana Ravel\
-    [823] = {\
-        [15520] = 4, -- Heaving Breath\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [15596] = 4, -- High Pressure\
-    },\
-    -- The Halo\
-    [850] = {\
-        [15941] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [851] = {\
-        [16339] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [852] = {\
-        [16630] = 4, -- Geocrush\
-    },\
-    -- The Halo\
-    [854] = {\
-        [15962] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [855] = {\
-        [16370] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [856] = {\
-        [16659] = 4, -- Geocrush\
-        [16694] = 4, -- Dual Earthen Fists\
-    },\
-    -- The Copied Factory\
-    [882] = {\
-        [18627] = 4, -- Shockwave\
-    },\
-    -- The Gandof Thunder Plains\
-    [906] = {\
-        [19404] = 3.5, -- Levinforce\
+    -- The Orbonne Monastery\
+    [826] = {\
+        [14200] = 1.5, -- Devitalize\
+        [14423] = 1.5, -- Judgment Blade\
+        [14430] = 1.5, -- Mortal Blow\
     },\
     -- Cinder Drift\
     [912] = {\
-        [19182] = 4, -- Screech\
+        [19198] = 1.5, -- Negative Aura\
     },\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										actionskill:Cast(Player.id)\
-\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		Player:ClearTarget()\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
+\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Stop Casting";
@@ -174,6 +152,14 @@ return nil\
 		return nil\
 end\
 \
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
 -- if action on cooldown\
 local actionskill = ActionList:Get(1, 7559)\
 if actionskill.cdmax - actionskill.cd > 1 then\
@@ -241,20 +227,28 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										actionskill:Cast(Player.id)\
-\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(Player.id)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Knockback";
@@ -311,12 +305,28 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then if contentTable[localmapid][eventArgs.spellID] then if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then actionskill:Cast() end end end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil";
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(Player.id)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
 		["executeType"] = 2;
 		["name"] = "Cast: Temperance";
 		["time"] = 0;

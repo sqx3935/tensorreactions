@@ -18,6 +18,11 @@ local obj1 = {
 \
 -- *************************************************************************************\
 \
+--[[ ** Verson 4 **\
+* filter added to `onentitychanneling` to ignore friendly targets\
+* cleaned up code to make it more readable and simplify fall through\
+]]\
+\
 --[[ ** Verson 3 **\
 * fixed an opps on the player alive check\
 ]]\
@@ -65,7 +70,15 @@ local obj1 = {
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 21 or Player.level < 32 or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true) then\
+		["execute"] = "if Player.job ~= 21 or Player.level < 32 or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -138,21 +151,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										-- if sally installed, use hotbar, otherwise use base\
-										if SallyWAR ~= nil then SallyWAR.HotBarConfig.Armslength.enabled = false else	actionskill:Cast() end \
-\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		-- if sally installed, use hotbar, otherwise use base\
+		if SallyWAR ~= nil then SallyWAR.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Knockback";
@@ -173,7 +194,15 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 21 or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true)  or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
+		["execute"] = "if Player.job ~= 21 or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true)  or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -202,21 +231,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
-										Player:ClearTarget()\
-										self.eventConditionMismatch = true -- suppressing the log\
-										self.used = true\
-										return nil\
-								end\
-    end\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		Player:ClearTarget()\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
+\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Stop Casting";
@@ -237,7 +274,15 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 21 or Player.level < 18 or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
+		["execute"] = "if Player.job ~= 21 or Player.level < 18 or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -251,18 +296,20 @@ if actionskill.cdmax - actionskill.cd > 1 then\
 		return nil\
 end\
 \
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent ~= nil then\
-		local cinfo = ent.castinginfo\
-		if cinfo.castinginterruptible == true and cinfo.casttime <= 4 then\
-				-- if sally installed, use hotbar, otherwise use base\
-				if SallyWAR ~= nil then SallyWAR.HotBarConfig.Interject.enabled = false else	actionskill:Cast(eventArgs.entityID) end\
-  end\
+-- keep in queue if event time does not match, otherwise complete the reation\
+local cinfo = ent.castinginfo\
+if cinfo.castinginterruptible == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil";
+if cinfo.casttime <= 4  then \
+		actionskill:Cast(eventArgs.entityID)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
 		["executeType"] = 2;
 		["name"] = "Cast: Interject";
 		["time"] = 0;
@@ -319,11 +366,7 @@ end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true\
-return nil\
-\
-\
-\
-";
+return nil";
 		["executeType"] = 2;
 		["name"] = "Cast: Equilibrium";
 		["time"] = 0;
@@ -343,7 +386,7 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 21 or Player.level < 56 or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
+		["execute"] = "if Player.job ~= 21 or Player.level < 56 or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\

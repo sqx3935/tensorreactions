@@ -111,6 +111,11 @@ local obj1 = {
 \
 -- *************************************************************************************\
 \
+--[[ ** Verson 4 **\
+* filter added to `onentitychanneling` to ignore friendly targets\
+* cleaned up code to make it more readable and simplify fall through\
+]]\
+\
 --[[ ** Version 3 **\
 * added E8S adds to omni list\
 * added E8S electric to cd blacklist\
@@ -382,7 +387,7 @@ end\
 \
 function data.nilsPlayground.ResetSallyNIN()\
     -- issues command to let ACT know to rest\
-    --SendTextCommand(\"/echo end\")\
+    SendTextCommand(\"/echo end\")\
 \
     -- reset quick toggles to default\
 				if SallyNIN ~= nil then\
@@ -1124,9 +1129,17 @@ self.used = true";
 		return nil\
 end\
 \
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
 -- if action on cooldown\
 local actionskill = ActionList:Get(1, 7548)\
-if data.nilsPlayground.skillCooldownDifference(actionskill.cd, actionskill.cdmax) > 1 then\
+if actionskill.cdmax - actionskill.cd > 1 then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1180,6 +1193,10 @@ local contentTable = {\
     [882] = {\
         [18627] = 4, -- Shockwave\
     },\
+    -- The Gandof Thunder Plains\
+    [906] = {\
+        [19404] = 3.5, -- Levinforce\
+    },\
     -- Cinder Drift\
     [912] = {\
         [19182] = 4, -- Screech\
@@ -1187,24 +1204,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-		if contentTable[localmapid][eventArgs.spellID] then\
-  		if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-						-- if sallynin installed, use hotbar, otherwise use base\
-						if SallyNIN ~= nil then SallyNIN.HotBarConfig.Armslength.enabled = false else	actionskill:Cast() end \
-\
-						self.eventConditionMismatch = true -- suppressing the log\
-						self.used = true\
-						return nil\
-				end\
-  end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		-- if sally installed, use hotbar, otherwise use base\
+		if SallyNIN ~= nil then SallyNIN.HotBarConfig.Armslength.enabled = false else	actionskill:Cast() end\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Knockback";
@@ -1231,9 +1253,17 @@ return nil\
 		return nil\
 end\
 \
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
 -- if action on cooldown\
 local actionskill = ActionList:Get(1, 7549)\
-if data.nilsPlayground.skillCooldownDifference(actionskill.cd, actionskill.cdmax) > 1 then\
+if actionskill.cdmax - actionskill.cd > 1 then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1338,26 +1368,33 @@ local contentTable = {\
     },\
 }\
 \
-\
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										-- if sallynin installed, use hotbar, otherwise use base\
-										if SallyNIN ~= nil then SallyNIN.HotBarConfig.Feint.enabled = false else	actionskill:Cast(eventArgs.entityID) end \
-\
-										self.eventConditionMismatch = true -- suppressing the log\
-										self.used = true\
-										return nil\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		\
+		-- if sallynin installed, use hotbar, otherwise use base\
+		if SallyNIN ~= nil then SallyNIN.HotBarConfig.Feint.enabled = false else	actionskill:Cast(eventArgs.entityID) end \
+\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
+\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Feint";
@@ -1384,9 +1421,17 @@ return nil\
 		return nil\
 end\
 \
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
 -- if action on cooldown\
 local actionskill = ActionList:Get(1, 7863)\
-if data.nilsPlayground.skillCooldownDifference(actionskill.cd, actionskill.cdmax) > 1 then\
+if actionskill.cdmax - actionskill.cd > 1 then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1426,25 +1471,28 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										-- if sally installed, use hotbar, otherwise use base\
-									-- TODO enable when added to hotbar	if SallyNIN ~= nil then SallyNIN.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast(Player.id) end \
-\
-										actionskill:Cast(eventArgs.entityID)\
-										self.eventConditionMismatch = true -- suppressing the log\
-										self.used = true\
-										return nil\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil";
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(eventArgs.entityID)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
 		["executeType"] = 2;
 		["name"] = "Cast: Leg Sweep";
 		["time"] = 0;
@@ -1544,6 +1592,14 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1764,25 +1820,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										-- if sallynin installed, use hotbar, otherwise use base\
-										if SallyNIN ~= nil then SallyNIN.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast() end \
-\
-										self.eventConditionMismatch = true -- suppressing the log\
-										self.used = true\
-										return nil\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
 \
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		-- if sally installed, use hotbar, otherwise use base\
+		if SallyNIN ~= nil then SallyNIN.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast() end \
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: ShadeShift";
@@ -1804,6 +1864,14 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1832,21 +1900,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
-										Player:ClearTarget()\
-										self.eventConditionMismatch = true -- suppressing the log\
-										self.used = true\
-										return nil\
-								end\
-    end\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		Player:ClearTarget()\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
+\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Stop Casting";
@@ -1934,8 +2010,8 @@ if TimeSince(data.nilsPlayground.Toggles.AssassinateMove.LastMoved) > 500 then\
 		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
+--self.eventConditionMismatch = true -- suppressing the log\
+--self.used = true \
 return nil\
 ";
 		["executeType"] = 2;
@@ -1972,7 +2048,7 @@ return nil";
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 5;
+		["timeout"] = 10;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
@@ -2042,7 +2118,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2185,6 +2261,64 @@ return nil";
 		};
 		["conditions"] = {
 		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+if data.nilDataLoaded == nil or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+local target = Player:GetTarget()\
+if target == nil or not table.valid(target) or not target.attackable then\
+\
+		-- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
+		if SallyNIN ~= nil and data.nilsPlayground.Toggles.AOEBlackList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
+\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+if data.nilsPlayground.OmniList[target.contentid] then\
+		if SallyNIN ~= nil then	SallyNIN.SkillSettings.Omni.enabled = true end\
+\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
+if SallyNIN ~= nil and data.nilsPlayground.Toggles.AOEBlackList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+";
+		["executeType"] = 2;
+		["name"] = "QT: Omni Whitelist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
+	};
+	[22] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
 		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
@@ -2240,64 +2374,6 @@ return nil";
 		["used"] = false;
 		["uuid"] = "7c8e218d-2938-377f-911d-9478a4881107";
 	};
-	[22] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilDataLoaded == nil or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-local target = Player:GetTarget()\
-if target == nil or not table.valid(target) or not target.attackable then\
-\
-		-- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
-		if SallyNIN ~= nil and data.nilsPlayground.Toggles.AOEBlackList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilsPlayground.OmniList[target.contentid] then\
-		if SallyNIN ~= nil then	SallyNIN.SkillSettings.Omni.enabled = true end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
-if SallyNIN ~= nil and data.nilsPlayground.Toggles.AOEBlackList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-";
-		["executeType"] = 2;
-		["name"] = "QT: Omni Whitelist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
-	};
 	[23] = {
 		["actions"] = {
 		};
@@ -2323,7 +2399,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "--[[disabled trick window\
 turns off trick window if TTK can be calculated and target will die in less than 90 seconds\
@@ -2461,7 +2537,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "-- still a WIP, works until burn boss is on then something breaks, need time to debug\
 \

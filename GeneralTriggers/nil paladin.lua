@@ -5,6 +5,42 @@ local multiRefObjects = {
 local obj1 = {
 	[1] = {
 		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "-- ** Contributors **\
+--[[\
+		* Nil (maintainer)\
+		* \
+]]\
+\
+-- *************************************************************************************\
+\
+--[[ ** Verson 3 **\
+* filter added to `onentitychanneling` to ignore friendly targets\
+* cleaned up code to make it more readable and simplify fall through\
+]]\
+\
+--[[ ** Verson 2 **\
+* massive refactor\
+]]\
+";
+		["executeType"] = 2;
+		["name"] = "pld-general-changes";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 0;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "8543c476-d39a-6f5f-be09-1a47fd72470e";
+	};
+	[2] = {
+		["actions"] = {
 			[1] = {
 				["aType"] = 1;
 				["actionID"] = 3542;
@@ -96,7 +132,7 @@ local obj1 = {
 		["used"] = false;
 		["uuid"] = "8417c82a-162c-0635-a56d-edc0345798c5";
 	};
-	[2] = {
+	[3] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -239,7 +275,7 @@ local obj1 = {
 		["used"] = false;
 		["uuid"] = "a6ca7546-6305-d740-9fa9-2c26ad414850";
 	};
-	[3] = {
+	[4] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -533,7 +569,7 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "e6c867ff-4dd2-b4d2-af99-eb476da60186";
 	};
-	[4] = {
+	[5] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -906,7 +942,7 @@ return eventArgs.targetID == Player.id";
 		["used"] = false;
 		["uuid"] = "31da4b86-0fc2-2ee2-ab40-de133293d1b8";
 	};
-	[5] = {
+	[6] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -1200,7 +1236,7 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "7fa04205-81f9-fd58-8c33-81888a67f018";
 	};
-	[6] = {
+	[7] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -1572,7 +1608,7 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "2400afdd-fdbc-7595-8a9b-bc8a4b8554c2";
 	};
-	[7] = {
+	[8] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -1844,7 +1880,7 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "643a9896-e0c5-7f24-81a9-e01cdb2f9e52";
 	};
-	[8] = {
+	[9] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -2088,7 +2124,7 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "e0917374-e5b8-b0d9-8a9d-78adfbdf53a2";
 	};
-	[9] = {
+	[10] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -2408,7 +2444,7 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "44ca67a6-54ed-4fc1-88d7-0210433364ad";
 	};
-	[10] = {
+	[11] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -2702,7 +2738,7 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "eb49f56b-f857-dd40-8dd0-abe0d827ce9a";
 	};
-	[11] = {
+	[12] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -3073,7 +3109,7 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "90e84dc2-c0fb-9b4e-a2e3-98395916b91a";
 	};
-	[12] = {
+	[13] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 1;
@@ -3266,37 +3302,6 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["used"] = false;
 		["uuid"] = "ed7e930e-bb10-aa3a-9e3f-15f823c759a4";
 	};
-	[13] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "-- ** Contributors **\
---[[\
-		* Nil (maintainer)\
-		* \
-]]\
-\
--- *************************************************************************************\
-\
---[[ ** Verson 2 **\
-* massive refactor\
-]]\
-";
-		["executeType"] = 2;
-		["name"] = "pld-general-changes";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 0;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "8543c476-d39a-6f5f-be09-1a47fd72470e";
-	};
 	[14] = {
 		["actions"] = {
 		};
@@ -3325,6 +3330,14 @@ return e and e.castinginfo.casttime - e.castinginfo.channeltime < 4.0";
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 19 or Player.level < 32 or (xivopeners_pld ~= nil and xivopeners_pld.openerStarted == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -3397,20 +3410,28 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
 \
-										actionskill:Cast()\
-\
-								end\
-    end\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(Player.id)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Knockback";
@@ -3432,6 +3453,14 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 19 or (xivopeners_pld ~= nil and xivopeners_pld.openerStarted == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -3460,21 +3489,29 @@ local contentTable = {\
 }\
 \
 local localmapid = Player.localmapid\
-local ent = EntityList:Get(eventArgs.entityID)\
-if contentTable[localmapid] and ent ~= nil then\
-    if contentTable[localmapid][eventArgs.spellID] then\
-        if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then\
-										Player:ClearTarget()\
-										self.eventConditionMismatch = true -- suppressing the log\
-										self.used = true\
-										return nil\
-								end\
-    end\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		Player:ClearTarget()\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
+\
 ";
 		["executeType"] = 2;
 		["name"] = "Cast: Stop Casting";
@@ -3501,6 +3538,14 @@ return nil\
 		return nil\
 end\
 \
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
 -- if action on cooldown\
 local actionskill = ActionList:Get(1, 7538)\
 if actionskill.cdmax - actionskill.cd > 1 then\
@@ -3509,17 +3554,20 @@ if actionskill.cdmax - actionskill.cd > 1 then\
 		return nil\
 end\
 \
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent ~= nil then\
-		local cinfo = ent.castinginfo\
-		if cinfo.castinginterruptible == true and cinfo.casttime <= 4 then\
-					actionskill:Cast(eventArgs.entityID)\
-  end\
+-- keep in queue if event time does not match, otherwise complete the reation\
+local cinfo = ent.castinginfo\
+if cinfo.castinginterruptible == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
 end\
 \
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil";
+if cinfo.casttime <= 4  then \
+		actionskill:Cast(eventArgs.entityID)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
 		["executeType"] = 2;
 		["name"] = "Cast: Interject";
 		["time"] = 0;
