@@ -452,10 +452,6 @@ function data.nilsPlayground.TurnOffTrickAttackWindow(byTimeline)\
   data.nilsPlayground.Toggles.TrickAttackWindow.LastMoved =  Now()\
 \
   if SallyNIN ~= nil then\
-\
-				if SallyNIN.SkillSettings.SaveCD.enabled == true and SallyNIN.SkillSettings.TrickAttack.enabled == false and\
- SallyNIN.SkillSettings.ShadowFang.enabled == false and SallyNIN.SkillSettings.Bushin.enabled == false then return nil end\
-\
 				SallyNIN.SkillSettings.SaveCD.enabled = true\
 				SallyNIN.SkillSettings.TrickAttack.enabled = false\
 				SallyNIN.SkillSettings.ShadowFang.enabled = false\
@@ -469,9 +465,6 @@ function data.nilsPlayground.TurnOnTrickAttackWindow()\
 		data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive = false\
 \
 		if SallyNIN ~= nil then\
-\
-				if SallyNIN.SkillSettings.SaveCD.enabled == false and SallyNIN.SkillSettings.TrickAttack.enabled == true and\
- SallyNIN.SkillSettings.ShadowFang.enabled == true and SallyNIN.SkillSettings.Bushin.enabled == true then return nil end\
 \
 				SallyNIN.SkillSettings.SaveCD.enabled = false\
 				SallyNIN.SkillSettings.TrickAttack.enabled = true\
@@ -1233,7 +1226,7 @@ end\
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 10;
+		["timeout"] = 20;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
@@ -1520,10 +1513,10 @@ end\
 \
 -- if action on cooldown\
 local actionSecondWind = ActionList:Get(1, 7541)\
-local availableSecondWind = data.nilsPlayground.skillCooldownDifference(actionSecondWind.cd, actionSecondWind.cdmax) <= 1\
+local availableSecondWind = actionSecondWind.cdmax - actionSecondWind.cd <= 1\
 \
-local actionBloodbath = ActionList:Get(1, 7541)\
-local availableBloodbath = data.nilsPlayground.skillCooldownDifference(actionBloodbath.cd, actionBloodbath.cdmax) <= 1\
+local actionBloodbath = ActionList:Get(1, 7542)\
+local availableBloodbath = actionBloodbath.cdmax - actionBloodbath.cd <= 1\
 \
 if availableSecondWind == false and availableBloodbath == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -1861,7 +1854,7 @@ end\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2062,7 +2055,7 @@ return nil";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -2120,7 +2113,7 @@ return nil\
 		};
 		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -2178,7 +2171,7 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -2261,7 +2254,7 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2295,7 +2288,7 @@ if data.nilsPlayground.OmniList[target.contentid] then\
 end\
 \
 -- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
-if SallyNIN ~= nil and data.nilsPlayground.Toggles.AOEBlackList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
+if SallyNIN ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \

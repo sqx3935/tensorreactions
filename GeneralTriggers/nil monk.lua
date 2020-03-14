@@ -926,8 +926,9 @@ end\
 local actionSecondWind = ActionList:Get(1, 7541)\
 local availableSecondWind = actionSecondWind.cdmax - actionSecondWind.cd <= 1\
 \
-local actionBloodbath = ActionList:Get(1, 7541)\
+local actionBloodbath = ActionList:Get(1, 7542)\
 local availableBloodbath = actionBloodbath.cdmax - actionBloodbath.cd <= 1\
+\
 \
 if availableSecondWind == false and availableBloodbath == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
