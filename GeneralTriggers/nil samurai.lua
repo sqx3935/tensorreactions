@@ -459,7 +459,7 @@ local obj1 = {
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -581,7 +581,7 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -683,7 +683,7 @@ end\
 		};
 		["enabled"] = false;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) or HasBuff(eventArgs.entityID, 1195) then\
+		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) or HasBuff(eventArgs.entityID, 1195) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -849,7 +849,7 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -946,7 +946,7 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1025,7 +1025,7 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1352,7 +1352,7 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1424,6 +1424,124 @@ end";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "a4fbb6eb-ed5b-fe78-8477-e9aaf3169d80";
+	};
+	[12] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 9;
+		["execute"] = "if Player.job ~= 34 or SallySAM == nil then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- reset hotbar\
+SallySAM.HotBarConfig.Armslength.enabled = true\
+SallySAM.HotBarConfig.Bloodbath.enabled = true\
+SallySAM.HotBarConfig.Feint.enabled = true\
+SallySAM.HotBarConfig.Gyoten.enabled = true\
+SallySAM.HotBarConfig.Hagakure.enabled = true\
+SallySAM.HotBarConfig.Kaiten.enabled = true\
+SallySAM.HotBarConfig.LB.enabled = true\
+SallySAM.HotBarConfig.LegSweep.enabled = true\
+SallySAM.HotBarConfig.Meditate.enabled = true\
+SallySAM.HotBarConfig.Meikyo.enabled = true\
+SallySAM.HotBarConfig.Potion.enabled = true\
+SallySAM.HotBarConfig.SecondWind.enabled = true\
+SallySAM.HotBarConfig.Sprint.enabled = true\
+SallySAM.HotBarConfig.ThirdEye.enabled = true\
+SallySAM.HotBarConfig.TrueNorth.enabled = true\
+SallySAM.HotBarConfig.Yaten.enabled = true\
+\
+-- reset skill profile\
+SallySAM.SkillSettings.Guren.enabled = true\
+SallySAM.SkillSettings.Hagakure.enabled = true\
+SallySAM.SkillSettings.Higanbana.enabled = true\
+SallySAM.SkillSettings.Ikishoten.enabled = true\
+SallySAM.SkillSettings.Kaiten.enabled = true\
+SallySAM.SkillSettings.Kyuten.enabled = true\
+SallySAM.SkillSettings.Meikyo.enabled = true\
+SallySAM.SkillSettings.Opener.enabled = false -- \
+SallySAM.SkillSettings.Potion.enabled = true\
+SallySAM.SkillSettings.SaveCD.enabled = false -- \
+SallySAM.SkillSettings.Senei.enabled = true\
+SallySAM.SkillSettings.Shinten.enabled = true\
+SallySAM.SkillSettings.Shoha.enabled = true\
+SallySAM.SkillSettings.SmartTrueNorth.enabled = true\
+SallySAM.SkillSettings.Tsubame.enabled = true\
+SallySAM.SkillSettings.UseAOE.enabled = true\
+\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: toggles on wipe";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "fabca588-a3a1-1249-9113-0c3c759201c1";
+	};
+	[13] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
+\
+if Player.job ~= 34 or Player.alive == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+data.nilsPlayground.timeOfDeath = Now()\
+\
+if SallySAM ~= nil then\
+  -- reset hotbar\
+  SallySAM.HotBarConfig.Armslength.enabled = true\
+  SallySAM.HotBarConfig.Bloodbath.enabled = true\
+  SallySAM.HotBarConfig.Feint.enabled = true\
+  SallySAM.HotBarConfig.Gyoten.enabled = true\
+  SallySAM.HotBarConfig.Hagakure.enabled = true\
+  SallySAM.HotBarConfig.Kaiten.enabled = true\
+  SallySAM.HotBarConfig.LB.enabled = true\
+  SallySAM.HotBarConfig.LegSweep.enabled = true\
+  SallySAM.HotBarConfig.Meditate.enabled = true\
+  SallySAM.HotBarConfig.Meikyo.enabled = true\
+  SallySAM.HotBarConfig.Potion.enabled = true\
+  SallySAM.HotBarConfig.SecondWind.enabled = true\
+  SallySAM.HotBarConfig.Sprint.enabled = true\
+  SallySAM.HotBarConfig.ThirdEye.enabled = true\
+  SallySAM.HotBarConfig.TrueNorth.enabled = true\
+  SallySAM.HotBarConfig.Yaten.enabled = true\
+end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "d410fcfe-88e5-8add-b671-8468c962a41a";
 	};
 }
 return obj1
