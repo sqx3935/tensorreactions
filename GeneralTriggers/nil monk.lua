@@ -21,7 +21,7 @@ local obj1 = {
 --[[ ** Verson 3 **\
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
-* added on death monitor and updated general reactions to check the time\
+* added on death monitor and updated general reactions to check the time (Thanks to JC for the suggestion)\
 ]]\
 \
 --[[ ** Verson 2 **\

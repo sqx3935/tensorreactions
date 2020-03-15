@@ -21,6 +21,7 @@ local obj1 = {
 --[[ ** Verson 3 **\
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
+* added on death monitor and updated general reactions to check the time\
 ]]\
 \
 --[[ ** Verson 2 **\
@@ -67,7 +68,7 @@ local obj1 = {
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 23 or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 23 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -189,7 +190,7 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 23 or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 23 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -268,7 +269,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 23 or Player.level < 24 or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 23 or Player.level < 24 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -324,7 +325,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 23 or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 23 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -480,7 +481,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 23 or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 23 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -721,7 +722,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 23 or Player.level < 15 or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 23 or Player.level < 15 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -807,7 +808,7 @@ end\
 		["eventType"] = 1;
 		["execute"] = "-- ONLY ENABLE IF YOU UNDERSTAND WHY --\
 \
-if Player.job ~= 23 or Player.level < 80 or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
+if Player.job ~= 23 or Player.level < 80 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_brd ~= nil and xivopeners_brd.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -869,6 +870,39 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "32c24259-9f87-d49d-8577-dfde7760b3c2";
+	};
+	[10] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
+\
+if Player.alive == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+data.nilsPlayground.timeOfDeath = Now()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "863f7e41-34f6-824f-8d7e-3ef4b64d555b";
 	};
 }
 return obj1

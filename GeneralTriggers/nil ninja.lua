@@ -398,7 +398,7 @@ function data.nilsPlayground.ResetSallyNIN()\
 						SallyNIN.SkillSettings.Omni.enabled = false\
 						SallyNIN.SkillSettings.BurnBoss.enabled = false\
 \
-  		  SallyNIN.SkillSettings.Potion.enabled = true\
+  		 -- SallyNIN.SkillSettings.Potion.enabled = true\
 		    SallyNIN.SkillSettings.UseAOE.enabled = true\
 		    SallyNIN.SkillSettings.TCJ.enabled = true\
 		    SallyNIN.SkillSettings.Meisui.enabled = true\
@@ -2601,7 +2601,7 @@ return nil";
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
 \
-if Player.job ~= 34 or Player.alive == true then\
+if Player.job ~= 30 or Player.alive == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\

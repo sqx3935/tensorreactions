@@ -21,6 +21,7 @@ local obj1 = {
 --[[ ** Verson 3 **\
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
+* added on death monitor and updated general reactions to check the time\
 ]]\
 \
 --[[ ** Verson 2 **\
@@ -271,7 +272,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -534,7 +535,7 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -783,7 +784,7 @@ end\
 		};
 		["enabled"] = false;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1036,7 +1037,7 @@ end";
 		};
 		["enabled"] = false;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
+		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1291,7 +1292,7 @@ end";
 		["eventType"] = 1;
 		["execute"] = "-- ONLY ENABLE IF YOU UNDERSTAND WHY --\
 \
-if Player.job ~= 28 or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
+if Player.job ~= 28 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1459,6 +1460,39 @@ end";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "6762caf7-4a01-023b-8bc0-860b60d14026";
+	};
+	[12] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
+\
+if Player.alive == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+data.nilsPlayground.timeOfDeath = Now()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "afec987f-4a18-2e49-bcbb-15fd5c9ee9f0";
 	};
 }
 return obj1

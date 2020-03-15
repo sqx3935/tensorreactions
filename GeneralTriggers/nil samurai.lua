@@ -21,7 +21,7 @@ local obj1 = {
 --[[ ** Verson 4 **\
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
-* added on wipe reset\
+* added on wipe reset (thanks anyone for the suggestion)\
 * added on death monitor and updated general reactions to check the time\
 ]]\
 \
@@ -1458,7 +1458,7 @@ SallySAM.HotBarConfig.ThirdEye.enabled = true\
 SallySAM.HotBarConfig.TrueNorth.enabled = true\
 SallySAM.HotBarConfig.Yaten.enabled = true\
 \
--- reset skill profile\
+-- reset quick toggles\
 SallySAM.SkillSettings.Guren.enabled = true\
 SallySAM.SkillSettings.Hagakure.enabled = true\
 SallySAM.SkillSettings.Higanbana.enabled = true\
@@ -1467,7 +1467,9 @@ SallySAM.SkillSettings.Kaiten.enabled = true\
 SallySAM.SkillSettings.Kyuten.enabled = true\
 SallySAM.SkillSettings.Meikyo.enabled = true\
 SallySAM.SkillSettings.Opener.enabled = false -- \
-SallySAM.SkillSettings.Potion.enabled = true\
+\
+-- SallySAM.SkillSettings.Potion.enabled = true\
+\
 SallySAM.SkillSettings.SaveCD.enabled = false -- \
 SallySAM.SkillSettings.Senei.enabled = true\
 SallySAM.SkillSettings.Shinten.enabled = true\

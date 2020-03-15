@@ -21,6 +21,8 @@ local obj1 = {
 --[[ ** Verson 3 **\
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
+* added on wipe reset\
+* added on death monitor and updated general reactions to check the time\
 ]]\
 \
 --[[ ** Verson 2 **\
@@ -69,7 +71,7 @@ local obj1 = {
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 38 or Player.level < 24 or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 38 or Player.level < 24 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -124,7 +126,7 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 38 or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 38 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -248,7 +250,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 38 or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 38 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -490,7 +492,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 38 or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 38 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -572,7 +574,7 @@ end\
 		["eventType"] = 1;
 		["execute"] = "-- ONLY ENABLE IF YOU UNDERSTAND WHY --\
 \
-if Player.job ~= 38 or Player.level < 71 or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
+if Player.job ~= 38 or Player.level < 71 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_dnc ~= nil and xivopeners_dnc.openerStarted == true) or (SallyDNC ~= nil and SallyDNC.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -747,6 +749,110 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "b6691ee3-fd04-bdc2-9fdb-d53d5d6b8571";
+	};
+	[10] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
+\
+if Player.job ~= 38 or Player.alive == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+data.nilsPlayground.timeOfDeath = Now()\
+\
+if SallyDNC ~= nil then\
+  -- reset hotbar\
+  SallyDNC.HotBarConfig.Armslength.enabled = true\
+  SallyDNC.HotBarConfig.CuringWaltz.enabled = true\
+  SallyDNC.HotBarConfig.Devilment.enabled = true\
+  SallyDNC.HotBarConfig.EnAvant.enabled = true\
+  SallyDNC.HotBarConfig.Flourish.enabled = true\
+  SallyDNC.HotBarConfig.Improv.enabled = true\
+  SallyDNC.HotBarConfig.LB.enabled = true\
+  SallyDNC.HotBarConfig.SecondWind.enabled = true\
+  SallyDNC.HotBarConfig.ShieldSamba.enabled = true\
+  SallyDNC.HotBarConfig.Sprint.enabled = true\
+end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "37c63c61-6d40-e1ec-b088-9249380ce628";
+	};
+	[11] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 9;
+		["execute"] = "if Player.job ~= 38 or SallyDNC == nil then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+\
+-- reset hotbar\
+SallyDNC.HotBarConfig.Armslength.enabled = true\
+SallyDNC.HotBarConfig.CuringWaltz.enabled = true\
+SallyDNC.HotBarConfig.Devilment.enabled = true\
+SallyDNC.HotBarConfig.EnAvant.enabled = true\
+SallyDNC.HotBarConfig.Flourish.enabled = true\
+SallyDNC.HotBarConfig.Improv.enabled = true\
+SallyDNC.HotBarConfig.LB.enabled = true\
+SallyDNC.HotBarConfig.SecondWind.enabled = true\
+SallyDNC.HotBarConfig.ShieldSamba.enabled = true\
+SallyDNC.HotBarConfig.Sprint.enabled = true\
+\
+\
+-- reset quick toggles\
+SallyDNC.SkillSettings.AutoPartner.enabled = true\
+SallyDNC.SkillSettings.BurnCD.enabled = false\
+SallyDNC.SkillSettings.Devilment.enabled = true\
+SallyDNC.SkillSettings.FanDance3IsAOE.enabled = true\
+SallyDNC.SkillSettings.Flourish.enabled = true\
+SallyDNC.SkillSettings.Opener.enabled = false\
+-- SallyDNC.SkillSettings.Potion.enabled = true\
+SallyDNC.SkillSettings.SaberDance.enabled = true\
+SallyDNC.SkillSettings.SaberIsAOE.enabled = true\
+SallyDNC.SkillSettings.SaveCD.enabled = false\
+SallyDNC.SkillSettings.StandardStep.enabled = true\
+SallyDNC.SkillSettings.TechStep.enabled = true\
+SallyDNC.SkillSettings.UseAOE.enabled = true\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: toggles on wipe";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "9783441e-264a-621a-81de-301fcf390458";
 	};
 }
 return obj1

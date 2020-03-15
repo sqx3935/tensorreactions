@@ -21,6 +21,8 @@ local obj1 = {
 --[[ ** Verson 4 **\
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
+* added on wipe reset\
+* added on death monitor and updated general reactions to check the time\
 ]]\
 \
 --[[ ** Verson 3 **\
@@ -72,7 +74,7 @@ local obj1 = {
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 35 or Player.level < 32 or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 35 or Player.level < 32 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -196,7 +198,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 35 or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 35 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -275,7 +277,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 35 or Player.level < 32 or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) or HasBuff(eventArgs.entityID, 1203) then\
+		["execute"] = "if Player.job ~= 35 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.level < 32 or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) or HasBuff(eventArgs.entityID, 1203) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -502,7 +504,7 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 35 or Player.level < 32 or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if Player.job ~= 35 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.level < 32 or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -562,6 +564,107 @@ return nil\
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "67b57e7c-6a08-10fa-b185-2635737c4d38";
+	};
+	[7] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
+\
+if Player.job ~= 35 or Player.alive == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+data.nilsPlayground.timeOfDeath = Now()\
+\
+if SallyRDM ~= nil then\
+  -- reset hotbar\
+  SallyRDM.HotBarConfig.Addle.enabled = true\
+  SallyRDM.HotBarConfig.Corps.enabled = true\
+		SallyRDM.HotBarConfig.Displacement.enabled = true\
+		SallyRDM.HotBarConfig.Embolden.enabled = true\
+		SallyRDM.HotBarConfig.Lucid.enabled = true\
+  SallyRDM.HotBarConfig.Manafication.enabled = true\
+  SallyRDM.HotBarConfig.Sprint.enabled = true\
+  SallyRDM.HotBarConfig.SureCast.enabled = true\
+  SallyRDM.HotBarConfig.SwiftCast.enabled = true\
+end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "902f4b9a-cfce-5c29-91b8-0d7ff9361c33";
+	};
+	[8] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 9;
+		["execute"] = "if Player.job ~= 35 or SallyRDM == nil then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+\
+-- reset hotbar\
+SallyRDM.HotBarConfig.Addle.enabled = true\
+SallyRDM.HotBarConfig.Corps.enabled = true\
+SallyRDM.HotBarConfig.Displacement.enabled = true\
+SallyRDM.HotBarConfig.Embolden.enabled = true\
+SallyRDM.HotBarConfig.Lucid.enabled = true\
+SallyRDM.HotBarConfig.Manafication.enabled = true\
+SallyRDM.HotBarConfig.Sprint.enabled = true\
+SallyRDM.HotBarConfig.SureCast.enabled = true\
+SallyRDM.HotBarConfig.SwiftCast.enabled = true\
+\
+-- reset quick toggles\
+SallyRDM.SkillSettings.Accel.enabled = true\
+SallyRDM.SkillSettings.DelayMelee.enabled = true\
+SallyRDM.SkillSettings.DualCastRaise.enabled = true\
+SallyRDM.SkillSettings.Embolden.enabled = true\
+SallyRDM.SkillSettings.JumpIn.enabled = true\
+SallyRDM.SkillSettings.JumpOut.enabled = true\
+SallyRDM.SkillSettings.Manafication.enabled = true\
+SallyRDM.SkillSettings.MeleeCombo.enabled = true\
+SallyRDM.SkillSettings.Opener.enabled = false\
+-- SallyRDM.SkillSettings.Potion.enabled = true\
+SallyRDM.SkillSettings.RepriseMovement.enabled = true\
+SallyRDM.SkillSettings.SwiftRaise.enabled = true\
+SallyRDM.SkillSettings.UseAOE.enabled = true\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: toggles on wipe";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "861d938d-ef33-8a4d-92dc-5a6f271dc82f";
 	};
 }
 return obj1
