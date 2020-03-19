@@ -23,6 +23,8 @@ local obj1 = {
 * cleaned up code to make it more readable and simplify fall through\
 * added on wipe reset (thanks anyone for the suggestion)\
 * added on death monitor and updated general reactions to check the time\
+* removed rubyex feint and knockback\
+* added 2 second delay between heals, this should improve and space out the heals more effectively\
 ]]\
 \
 --[[ ** Verson 3 **\
@@ -535,10 +537,7 @@ local contentTable = {\
     [906] = {\
         [19404] = 3.5, -- Levinforce\
     },\
-    -- Cinder Drift\
-    [912] = {\
-        [19182] = 4, -- Screech\
-    },\
+    -- Cinder Drift (use timeline)\
 }\
 \
 local localmapid = Player.localmapid\
@@ -581,7 +580,7 @@ end";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -793,11 +792,7 @@ local contentTable = {\
         [18276] = 5, -- Captive Bolt\
         [18757] = 4, -- Peerless Valor\
     },\
-    -- Cinder Drift\
-    [897] = {\
-        [19143] = 3, -- Stamp\
-        [19135] = 3, -- Ruby Claw\
-    },\
+    -- Cinder Drift (use timeline)\
 				-- Anamnesis Anyder\
     [898] = {\
         [19305] = 4, -- Fetid Fang\
@@ -948,7 +943,10 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfLastHeal == nil then data.nilsPlayground.timeOfLastHeal = 0 end\
+\
+if Player.job ~= 34 or Player.hp.percent > 50 or Player.hp.percent < 1 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfLastHeal ~= nil and TimeSince(data.nilsPlayground.timeOfLastHeal) < 2000) or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -978,6 +976,7 @@ if hasRegen and Player.hp.percent < 20 and availableSecondWind then\
 		-- if sally installed, use hotbar, otherwise use base\
 		if SallySAM ~= nil then SallySAM.HotBarConfig.SecondWind.enabled = false else	actionSecondWind:Cast() end \
 \
+		data.nilsPlayground.timeOfLastHeal = Now()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -986,6 +985,7 @@ end\
 if hasRegen and Player.hp.percent < 20 and availableSecondWind == false and availableBloodbath then\
 		if SallySAM ~= nil then SallySAM.HotBarConfig.Bloodbath.enabled = false else	actionBloodbath:Cast() end \
 \
+		data.nilsPlayground.timeOfLastHeal = Now()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -995,6 +995,7 @@ if hasRegen == false and Player.hp.percent < 40 and availableSecondWind then\
 		-- if sally installed, use hotbar, otherwise use base\
 		if SallySAM ~= nil then SallySAM.HotBarConfig.SecondWind.enabled = false else	actionSecondWind:Cast() end \
 \
+		data.nilsPlayground.timeOfLastHeal = Now()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1002,6 +1003,7 @@ end\
 \
 if hasRegen == false and Player.hp.percent < 40 and availableSecondWind == false and availableBloodbath then\
 		if SallySAM ~= nil then SallySAM.HotBarConfig.Bloodbath.enabled = false else	actionBloodbath:Cast() end \
+		data.nilsPlayground.timeOfLastHeal = Now()\
 end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
@@ -1301,12 +1303,7 @@ local contentTable = {\
         [19465] = 2, -- Touchdown\
         [19476] = 2, -- Inferno Howl\
         [19448] = 2, -- Firestorm\
-    },\
-    -- Cinder Drift\
-    [912] = {\
-        [19134] = 2, -- Optimized Ultima\
-        [20050] = 2, -- Dalamud Impact\
-    },\
+    }\
 }\
 \
 local localmapid = Player.localmapid\
@@ -1352,7 +1349,7 @@ end";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -1392,14 +1389,14 @@ local contentTable = {\
 local localmapid = Player.localmapid\
 \
 -- skip if wrong map\
-if contentTable[localmapid] then \
+if not contentTable[localmapid] then \
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
 end\
 \
 -- skip if wrong spell\
-if contentTable[localmapid][eventArgs.spellID] then\
+if not contentTable[localmapid][eventArgs.spellID] then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1478,7 +1475,6 @@ SallySAM.SkillSettings.SmartTrueNorth.enabled = true\
 SallySAM.SkillSettings.Tsubame.enabled = true\
 SallySAM.SkillSettings.UseAOE.enabled = true\
 \
-\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
@@ -1546,6 +1542,142 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "d410fcfe-88e5-8add-b671-8468c962a41a";
+	};
+	[14] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["name"] = "-- Experimental --";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "cc391613-203b-dca2-bf2a-e6ac20599a6c";
+	};
+	[15] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- Setup\
+if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.Toggles == nil then data.nilsPlayground.Toggles = {} end\
+if data.nilsPlayground.Toggles.OmniWhiteList == nil then data.nilsPlayground.Toggles.OmniWhiteList = { IsActive = false, TimelineActive = false} end\
+if data.nilsPlayground.OmniList == nil then \
+  data.nilsPlayground.OmniList = {\
+    [541] = true, -- striking dummy\
+    [3069] = true, -- Sand Sphere\
+    [4815] = true, -- Arcane Sphere\
+    [5640] = true, -- Shinryu\
+    [5789] = true, -- Tail\
+    [6055] = true, -- Neo Exdeath\
+    [6257] = true, -- Magitek Pod\
+    [6928] = true, -- Shard of Emptiness\
+    [6933] = true, -- Aqua Sphere\
+    [6934] = true, -- Blizzard III\
+    [6950] = true, -- Command Tower\
+    [7097] = true, -- Demon Chadarnook\
+    [7122] = true, -- Malice\
+    [7126] = true, -- Ghost\
+    [7127] = true, -- Phantom Train\
+    [7202] = true, -- Daidarabotchi\
+    [7537] = true, -- Specter of Zenos\
+    [7575] = true, -- Iron Chain\
+    [7637] = true, -- Left Arm Unit\
+    [7638] = true, -- Right Arm Unit\
+    [7646] = true, -- Immortal Key\
+    [7657] = true, -- Ultima, the High Seraph\
+    [7694] = true, -- Dark Crystal\
+    [7699] = true, -- Level Checker\
+    [7700] = true, -- Level Checker\
+    [7899] = true, -- The Thunder God\
+    [7901] = true, -- Icewolf\
+    [7908] = true, -- Ruination\
+    [8145] = true, -- Painted Root\
+    [8261] = true, -- Forgiven Whimsy\
+    [8267] = true, -- Forgiven Apathy\
+    [8270] = true, -- Forgiven Revelry\
+    [8342] = true, -- Arcane Sphere\
+    [8346] = true, -- Granite Gaol\
+    [10643] = true, -- Granite Gaol\
+    [8351] = true, -- Aetherial Gaol\
+    [8570] = true, -- Iron Chain\
+    [8958] = true, -- Liar's Lyre\
+    [9143] = true, -- Hobbes\
+    [9144] = true, -- Hobbes\
+    [9145] = true, -- Hobbes\
+    [9147] = true, -- Engels\
+    [9020] = true, -- Engels\
+    [8486] = true, -- Leviathan savage\
+    [10604] = true, -- Leviathan savage\
+    [8349] = true, -- Titan Maximum savage\
+    [9298] = true, -- The Idol of Darkness\
+    [9300] = true, -- Blasphemy\
+    [9301] = true, -- Idolatry\
+    [9322] = true, -- shiva add Luminous Aether\
+    [9320] = true, -- shiva add aqueous\
+    [9321] = true, -- shiva add Earthen Aether\
+    [9319] = true, -- shiva add electric\
+    [9358] = true, -- Ice Veil    \
+  }\
+end\
+\
+-- Functional check\
+if Player.job ~= 34 or Player.incombat == true or data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+local target = Player:GetTarget()\
+if target == nil or not table.valid(target) or not target.attackable then\
+\
+		-- if target is not valid not turned off via timelines, then turn back on\
+		if SallySAM ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallySAM.SkillSettings.SmartTrueNorth.enabled = true end\
+\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+if data.nilsPlayground.OmniList[target.contentid] then\
+		if SallySAM ~= nil then	SallySAM.SkillSettings.SmartTrueNorth.enabled = false end\
+\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- if target is not on list and not turned off via timelines, then turn back on\
+if SallySAM ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallySAM.SkillSettings.SmartTrueNorth.enabled = true end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+";
+		["executeType"] = 2;
+		["name"] = "QT: Omni Whitelist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "c2815eda-a564-3946-b162-68ffca89508f";
 	};
 }
 return obj1

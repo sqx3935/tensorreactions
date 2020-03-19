@@ -22,6 +22,8 @@ local obj1 = {
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
 * added on death monitor and updated general reactions to check the time (Thanks to JC for the suggestion)\
+* removed rubyex feint and knockback\
+* added 2 second delay between heals, this should improve and space out the heals more effectively\
 ]]\
 \
 --[[ ** Verson 2 **\
@@ -528,10 +530,7 @@ local contentTable = {\
     [906] = {\
         [19404] = 3.5, -- Levinforce\
     },\
-    -- Cinder Drift\
-    [912] = {\
-        [19182] = 4, -- Screech\
-    },\
+    -- Cinder Drift (use timeline)\
 }\
 \
 local localmapid = Player.localmapid\
@@ -570,6 +569,103 @@ end";
 		["uuid"] = "fe057cad-ad7f-cd80-a4f0-1f80a5af9245";
 	};
 	[6] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 3;
+		["execute"] = "if Player.job ~= 20 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_mnk ~= nil and xivopeners_mnk.openerStarted == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- if action on cooldown\
+local actionskill = ActionList:Get(1, 7863)\
+if actionskill.cdmax - actionskill.cd > 1 then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- Map, spell id, timer\
+local contentTable = {\
+    -- Dohn Mheg\
+    [821] = {\
+        [15788] = 4, -- Pollen Carona\
+    },\
+    -- Malikah's Well\
+    [836] = {\
+        [16266] = 3, -- Realm Shaker\
+    },\
+    -- Holminster Switch\
+    [837] = {\
+        [17203] = 4.5, -- Tail Swing\
+    },\
+    -- The Twinning\
+    [840] = {\
+        [15802] = 5, -- 128-tonze Swing\
+        [15805] = 5, -- Nerve Gas\
+        [15811] = 5, -- Thrown Flames\
+    },\
+    -- Akadaemia Anyder\
+    [841] = {\
+        [17164] = 5, -- Noahionto\
+    },\
+    -- The Grand Cosmos\
+    [884] = {\
+        [18722] = 3, -- Whirl of Rage\
+        [18725] = 3, -- Self-destruct\
+        [18726] = 3, -- Acid Mist\
+        [18758] = 4, -- Unparalleled Glory\
+    },\
+}\
+\
+local localmapid = Player.localmapid\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(eventArgs.entityID)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
+		["executeType"] = 2;
+		["name"] = "Cast: Leg Sweep";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "7566ed16-9d97-835d-b310-683766e0b0b0";
+	};
+	[7] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -649,7 +745,7 @@ end\
 		["used"] = false;
 		["uuid"] = "3e892854-78cd-2c2f-89b9-94386b0c1e9c";
 	};
-	[7] = {
+	[8] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -764,11 +860,7 @@ local contentTable = {\
         [18276] = 5, -- Captive Bolt\
         [18757] = 4, -- Peerless Valor\
     },\
-    -- Cinder Drift\
-    [897] = {\
-        [19143] = 3, -- Stamp\
-        [19135] = 3, -- Ruby Claw\
-    },\
+    -- Cinder Drift (use timeline)\
 				-- Anamnesis Anyder\
     [898] = {\
         [19305] = 4, -- Fetid Fang\
@@ -813,103 +905,6 @@ end\
 		["used"] = false;
 		["uuid"] = "f36025e6-e372-9579-8475-9fa9fbb4bd06";
 	};
-	[8] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 20 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_mnk ~= nil and xivopeners_mnk.openerStarted == true) then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if action on cooldown\
-local actionskill = ActionList:Get(1, 7863)\
-if actionskill.cdmax - actionskill.cd > 1 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- Dohn Mheg\
-    [821] = {\
-        [15788] = 4, -- Pollen Carona\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [16266] = 3, -- Realm Shaker\
-    },\
-    -- Holminster Switch\
-    [837] = {\
-        [17203] = 4.5, -- Tail Swing\
-    },\
-    -- The Twinning\
-    [840] = {\
-        [15802] = 5, -- 128-tonze Swing\
-        [15805] = 5, -- Nerve Gas\
-        [15811] = 5, -- Thrown Flames\
-    },\
-    -- Akadaemia Anyder\
-    [841] = {\
-        [17164] = 5, -- Noahionto\
-    },\
-    -- The Grand Cosmos\
-    [884] = {\
-        [18722] = 3, -- Whirl of Rage\
-        [18725] = 3, -- Self-destruct\
-        [18726] = 3, -- Acid Mist\
-        [18758] = 4, -- Unparalleled Glory\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		actionskill:Cast(eventArgs.entityID)\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end";
-		["executeType"] = 2;
-		["name"] = "Cast: Leg Sweep";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "7566ed16-9d97-835d-b310-683766e0b0b0";
-	};
 	[9] = {
 		["actions"] = {
 		};
@@ -917,7 +912,10 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 20 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_mnk ~= nil and xivopeners_mnk.openerStarted == true) then\
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfLastHeal == nil then data.nilsPlayground.timeOfLastHeal = 0 end\
+\
+if Player.job ~= 20 or Player.hp.percent > 50 or Player.hp.percent < 1 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfLastHeal ~= nil and TimeSince(data.nilsPlayground.timeOfLastHeal) < 2000) or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_mnk ~= nil and xivopeners_mnk.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -945,30 +943,34 @@ if  HasBuff(Player.id, 158) or HasBuff(Player.id, 150) or HasBuff(Player.id, 839
 end\
 \
 if hasRegen and Player.hp.percent < 20 and availableSecondWind then\
-			actionSecondWind:Cast()\
 \
+  data.nilsPlayground.timeOfLastHeal = Now()\
+		actionSecondWind:Cast()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
 end\
 \
 if hasRegen and Player.hp.percent < 20 and availableSecondWind == false and availableBloodbath then\
-		actionBloodbath:Cast()\
-\
+		\
+  data.nilsPlayground.timeOfLastHeal = Now()\
+  actionBloodbath:Cast()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
 end\
 \
 if hasRegen == false and Player.hp.percent < 40 and availableSecondWind then\
-		actionSecondWind:Cast()\
-\
+		\
+  data.nilsPlayground.timeOfLastHeal = Now()\
+  actionSecondWind:Cast()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
 end\
 \
 if hasRegen == false and Player.hp.percent < 40 and availableSecondWind == false and availableBloodbath then\
+  data.nilsPlayground.timeOfLastHeal = Now()\
 		actionBloodbath:Cast()\
 end\
 \

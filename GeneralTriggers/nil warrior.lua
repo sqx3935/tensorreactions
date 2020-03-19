@@ -331,7 +331,7 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 21 or Player.level < 58 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
+		["execute"] = "if Player.job ~= 21 or Player.level < 58 or Player.incombat == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -388,7 +388,7 @@ return nil";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 21 or Player.level < 56 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
+		["execute"] = "if Player.job ~= 21 or Player.level < 56 or Player.incombat == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\

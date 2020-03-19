@@ -681,6 +681,8 @@ self.used = true";
 			["uuid"] = "db6e2735-0b18-2128-83fa-91ad8deb4977";
 		};
 	};
+	[27] = {
+	};
 	[28] = {
 		[1] = {
 			["actions"] = {
@@ -1839,6 +1841,8 @@ self.used = true";
 			["uuid"] = "1f70c6c3-d172-f65a-8bc2-c6329794f1de";
 		};
 	};
+	[53] = {
+	};
 	[76] = {
 		[1] = {
 			["actions"] = {
@@ -2478,105 +2482,27 @@ self.used = true";
 	[92] = {
 		[1] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7548;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 3;
-						[2] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[2] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 3;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
 			};
 			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7548;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
 			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
+			["enabled"] = true;
+			["execute"] = "local actionskill = ActionList:Get(1, 7548)\
+if actionskill.cdmax - actionskill.cd < 1 then\
+  -- if sally installed, use hotbar, otherwise use base\
+		if SallyWAR ~= nil then SallyWAR.HotBarConfig.Armslength.enabled = false else	actionskill:Cast() end\
+  if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
+end		";
+			["executeType"] = 2;
 			["loop"] = false;
 			["name"] = "Arm's Length";
 			["time"] = 1156;
 			["timeRange"] = true;
 			["timelineIndex"] = 92;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -0.95;
+			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "ea7a250a-6009-8ec4-929f-e19d414f7c59";
+			["uuid"] = "3ce863ff-44ae-5a8b-b5a8-5771971a834c";
 		};
 	};
 	[95] = {

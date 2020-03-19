@@ -28,174 +28,104 @@ local obj1 = {
 		};
 		[2] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- used to load custom functions that are used for this timeline\
-\
-if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-\
-\
-if (_G[\"data.nilsPlayground.CustomConditionChecks.NoMNKOpener\"] == nil) then\
-		function data.nilsPlayground.CustomConditionChecks.NoMNKOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_mnk ~= nil and xivopeners_mnk.openerStarted == true then return false end\
-\
-    -- if xivopener is not running, then return true that it is safe to execute.\
-    return true\
-		end\
-end\
-\
-\
-\
-\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
+			["eventArgs"] = {
+			};
+			["execute"] = "-- checks and loads dependancy functions in the event that you do not have my general dependancies loaded.\
+if data.nilsPlayground == nil then data.nilsPlayground = {} end\
+if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
+  \
+  function data.nilsPlayground.CustomConditionChecks.inOpener()\
+    -- try not to execute while opener is running\
+    if xivopeners_mnk ~= nil and xivopeners_mnk.openerStarted == true then\
+      return true\
+    end\
+    \
+    -- if xivopener is not running nor sally sam opener, then return false that it is safe to execute.\
+    return false\
+  end\
+  \
+  -- ** Abilities activation **\
+    \
+  if data.nilsPlayground.ExecuteFeint == nil then\
+    function data.nilsPlayground.ExecuteFeint()\
+      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
+\
+      local target = Player:GetTarget()\
+      if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end\
+  \
+      local actionskill = ActionList:Get(1, 7549)\
+      if actionskill.cdmax - actionskill.cd > .5 then return false end\
+      \
+      actionskill:Cast(target.id) end\
+      return true\
+    end\
+  end\
+  \
+\
+    function data.nilsPlayground.ExecuteArmsLength()\
+      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
+      local actionskill = ActionList:Get(1, 7548)\
+      if actionskill.cdmax - actionskill.cd > .5 then return false end\
+      actionskill:Cast(Player.id) end\
+      if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
+    end\
+  \
+   if data.nilsPlayground.ExecuteSprint == nil then\
+    function data.nilsPlayground.ExecuteSprint()\
+      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
+  \
+      local actionskill = ActionList:Get(1, 3)\
+      if actionskill.cdmax - actionskill.cd > .5 then return false end\
+      actionskill:Cast(Player.id) end\
+    end\
+  end\
+  \
+  if data.nilsPlayground.ExecuteTrueNorth == nil then\
+    function data.nilsPlayground.ExecuteTrueNorth()\
+      if HasBuff(Player.id, 1250) or data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
+  \
+      local actionskill = ActionList:Get(1, 7546)\
+      if actionskill.cdmax - actionskill.cd > .5 then return false end\
+      actionskill:Cast(Player.id) end\
+    end\
+  end\
+\
+if data.nilsPlayground.ExecuteRiddleOfEarth == nil then\
+  function data.nilsPlayground.ExecuteRiddleOfEarth()\
+    local actionskill = ActionList:Get(1, 7394)\
+    if actionskill.cdmax - actionskill.cd > .5 then return false end\
+    actionskill:Cast(Player.id)\
+  end\
+end\
+\
+if data.nilsPlayground.ExecuteMantra == nil then\
+  function data.nilsPlayground.ExecuteMantra()\
+    local actionskill = ActionList:Get(1, 65)\
+    if actionskill.cdmax - actionskill.cd > .5 then return false end\
+    actionskill:Cast(Player.id)\
+  end\
+end\
+\
+\
+  -- ***************************\
+  \
+  d(\"timeline dependancy loaded\")\
+  self.used = true";
+			["executeType"] = 2;
 			["loop"] = false;
-			["name"] = "Load Dependancies";
+			["name"] = "Dependancies";
 			["time"] = 13;
 			["timeRange"] = true;
 			["timelineIndex"] = 2;
-			["timerEndOffset"] = 2;
+			["timerEndOffset"] = 14;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -10;
-			["used"] = false;
-			["uuid"] = "fa03027d-6249-4db7-bbc0-2d0fc3c689f8";
-		};
-		[3] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7394;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 2;
-						[3] = 4;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7394;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-				[2] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 4;
-					["comparator"] = 1;
-					["conditionLua"] = "return data.nilsPlayground.CustomConditionChecks.NoMNKOpener()";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Riddle of Earth";
-			["time"] = 13;
-			["timeRange"] = true;
-			["timelineIndex"] = 2;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
 			["used"] = false;
-			["uuid"] = "c1b3d538-67ec-5f06-826b-6c73b2b1f9ce";
+			["uuid"] = "52991ea0-c6f0-19a0-84cd-84d3b83d0205";
 		};
 	};
 	[22] = {
@@ -1010,7 +940,7 @@ self.used = true ";
 			["uuid"] = "91602fda-9786-21eb-9b7d-eb2c958fe368";
 		};
 	};
-	[50] = {
+	[52] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1080,7 +1010,7 @@ return false";
 			["name"] = "target boss";
 			["time"] = 224.9;
 			["timeRange"] = true;
-			["timelineIndex"] = 50;
+			["timelineIndex"] = 52;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -23;
@@ -1088,7 +1018,7 @@ return false";
 			["uuid"] = "595a2429-a60f-38cc-a9e1-a8ad47ca55a8";
 		};
 	};
-	[56] = {
+	[58] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1333,7 +1263,7 @@ self.used = true ";
 			["name"] = "Which Buff and turn off Ninjutsu";
 			["time"] = 264.3;
 			["timeRange"] = true;
-			["timelineIndex"] = 56;
+			["timelineIndex"] = 58;
 			["timerEndOffset"] = 25;
 			["timerOffset"] = 4.362;
 			["timerStartOffset"] = -4;
@@ -1408,7 +1338,7 @@ self.used = true ";
 			["name"] = "Retarget boss when stuned";
 			["time"] = 264.3;
 			["timeRange"] = true;
-			["timelineIndex"] = 56;
+			["timelineIndex"] = 58;
 			["timerEndOffset"] = 25;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
@@ -1416,7 +1346,7 @@ self.used = true ";
 			["uuid"] = "bafdc4c4-f3d9-07dc-ae9e-b897cbc68695";
 		};
 	};
-	[67] = {
+	[69] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1486,7 +1416,7 @@ return false";
 			["name"] = "target boss";
 			["time"] = 333.9;
 			["timeRange"] = true;
-			["timelineIndex"] = 67;
+			["timelineIndex"] = 69;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -23;
@@ -1494,7 +1424,7 @@ return false";
 			["uuid"] = "b8656792-6663-5f2b-a180-103b973497ee";
 		};
 	};
-	[68] = {
+	[71] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1564,7 +1494,7 @@ return false";
 			["name"] = "Riddle of Earth";
 			["time"] = 500;
 			["timeRange"] = true;
-			["timelineIndex"] = 68;
+			["timelineIndex"] = 71;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
@@ -1572,7 +1502,7 @@ return false";
 			["uuid"] = "4163e23e-c25b-a545-957e-951efb134a84";
 		};
 	};
-	[83] = {
+	[87] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1642,90 +1572,12 @@ return false";
 			["name"] = "Riddle of Earth";
 			["time"] = 565.5;
 			["timeRange"] = true;
-			["timelineIndex"] = 83;
+			["timelineIndex"] = 87;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
 			["used"] = false;
 			["uuid"] = "30759737-868a-f072-85f8-18693ea5929c";
-		};
-	};
-	[93] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7394;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 4;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7394;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Riddle of Earth";
-			["time"] = 617.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 93;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4.803;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "2bf87e86-2869-8075-abaa-9a3dd7c6031e";
 		};
 	};
 	[97] = {
@@ -1796,14 +1648,14 @@ return false";
 			["executeType"] = 1;
 			["loop"] = false;
 			["name"] = "Riddle of Earth";
-			["time"] = 636.2;
+			["time"] = 617.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 97;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
 			["used"] = false;
-			["uuid"] = "8804034b-0bed-b098-861b-775c0616081e";
+			["uuid"] = "2bf87e86-2869-8075-abaa-9a3dd7c6031e";
 		};
 	};
 	[101] = {
@@ -1874,9 +1726,87 @@ return false";
 			["executeType"] = 1;
 			["loop"] = false;
 			["name"] = "Riddle of Earth";
-			["time"] = 668.5;
+			["time"] = 636.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 101;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4.803;
+			["timerStartOffset"] = -20;
+			["used"] = false;
+			["uuid"] = "8804034b-0bed-b098-861b-775c0616081e";
+		};
+	};
+	[106] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 1;
+					["actionID"] = 7394;
+					["actionLua"] = "";
+					["allowInterrupt"] = true;
+					["conditions"] = {
+						[1] = 1;
+						[2] = 4;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 1;
+					["actionID"] = 7394;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = -1;
+					["category"] = 2;
+					["comparator"] = 2;
+					["conditionLua"] = "";
+					["conditionType"] = 4;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = false;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Riddle of Earth";
+			["time"] = 668.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 106;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
@@ -1884,7 +1814,7 @@ return false";
 			["uuid"] = "adf8dd0f-380f-4916-a900-6d2cc38aff40";
 		};
 	};
-	[102] = {
+	[108] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1954,7 +1884,7 @@ return false";
 			["name"] = "target boss";
 			["time"] = 677.6;
 			["timeRange"] = true;
-			["timelineIndex"] = 102;
+			["timelineIndex"] = 108;
 			["timerEndOffset"] = 17;
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
@@ -1999,7 +1929,7 @@ self.used = true";
 			["name"] = "Pug color Callout";
 			["time"] = 677.6;
 			["timeRange"] = false;
-			["timelineIndex"] = 102;
+			["timelineIndex"] = 108;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 3;
 			["timerStartOffset"] = 0;
@@ -2007,7 +1937,7 @@ self.used = true";
 			["uuid"] = "2038fa10-3247-b155-ad87-07e6e68c6577";
 		};
 	};
-	[104] = {
+	[110] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -2136,641 +2066,12 @@ self.used = true";
 			["name"] = "Move Color";
 			["time"] = 716.9;
 			["timeRange"] = true;
-			["timelineIndex"] = 104;
+			["timelineIndex"] = 110;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -2;
 			["used"] = false;
 			["uuid"] = "79c4e814-23af-90e9-bd91-c203e2606b6a";
-		};
-	};
-	[105] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- move light\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"move light\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[2] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- move dark\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"move dark\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 2;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 2239;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-				[2] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 2238;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Move Color";
-			["time"] = 722.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 105;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "ad3946aa-1062-288c-b5ba-4dc55d96db71";
-		};
-	};
-	[106] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- move light\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"move light\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[2] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- move dark\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"move dark\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 2;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 2239;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-				[2] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 2238;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Move Color";
-			["time"] = 728.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 106;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "0beb5310-d25b-020d-bc2d-796c9cc5b898";
-		};
-	};
-	[107] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7394;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 4;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7394;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Riddle of Earth";
-			["time"] = 736.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 107;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4.803;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "19f68f27-ee2a-caef-b530-869f4ec4e34e";
-		};
-		[2] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7394;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 4;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7394;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Riddle of Earth";
-			["time"] = 736.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 107;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4.803;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "85c76ff4-b749-a029-b987-74002bd3c760";
-		};
-	};
-	[108] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7394;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 4;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7394;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Riddle of Earth";
-			["time"] = 746.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 108;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4.803;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "4894b778-e35a-1f00-8a35-ab732bf70783";
-		};
-		[2] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7394;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 4;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7394;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Riddle of Earth";
-			["time"] = 746.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 108;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4.803;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "6a6e037d-b8f3-ee02-8672-723ee60c9fcf";
-		};
-	};
-	[109] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "if MoogleTTS ~= nil then MoogleTTS.Speak(\"tanks south\") end\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"dark 2\") end\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"light 1\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-					};
-					["endIfUsed"] = false;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Pug color Callout";
-			["time"] = 755.7;
-			["timeRange"] = false;
-			["timelineIndex"] = 109;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 3;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "fff88b34-1d8f-15d9-8b86-6a5d673d6e90";
 		};
 	};
 	[111] = {
@@ -2900,14 +2201,14 @@ self.used = true";
 			["executeType"] = 1;
 			["loop"] = false;
 			["name"] = "Move Color";
-			["time"] = 795.1;
+			["time"] = 722.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 111;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "ff8f68a8-4bc2-54bc-89a5-cb9071f85c63";
+			["uuid"] = "ad3946aa-1062-288c-b5ba-4dc55d96db71";
 		};
 	};
 	[112] = {
@@ -3037,9 +2338,638 @@ self.used = true";
 			["executeType"] = 1;
 			["loop"] = false;
 			["name"] = "Move Color";
-			["time"] = 800.8;
+			["time"] = 728.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 112;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "0beb5310-d25b-020d-bc2d-796c9cc5b898";
+		};
+	};
+	[113] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 1;
+					["actionID"] = 7394;
+					["actionLua"] = "";
+					["allowInterrupt"] = true;
+					["conditions"] = {
+						[1] = 1;
+						[2] = 4;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 1;
+					["actionID"] = 7394;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = -1;
+					["category"] = 2;
+					["comparator"] = 2;
+					["conditionLua"] = "";
+					["conditionType"] = 4;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = false;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Riddle of Earth";
+			["time"] = 736.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 113;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4.803;
+			["timerStartOffset"] = -20;
+			["used"] = false;
+			["uuid"] = "19f68f27-ee2a-caef-b530-869f4ec4e34e";
+		};
+		[2] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 1;
+					["actionID"] = 7394;
+					["actionLua"] = "";
+					["allowInterrupt"] = true;
+					["conditions"] = {
+						[1] = 1;
+						[2] = 4;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 1;
+					["actionID"] = 7394;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = -1;
+					["category"] = 2;
+					["comparator"] = 2;
+					["conditionLua"] = "";
+					["conditionType"] = 4;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = false;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Riddle of Earth";
+			["time"] = 736.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 113;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4.803;
+			["timerStartOffset"] = -20;
+			["used"] = false;
+			["uuid"] = "85c76ff4-b749-a029-b987-74002bd3c760";
+		};
+	};
+	[114] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 1;
+					["actionID"] = 7394;
+					["actionLua"] = "";
+					["allowInterrupt"] = true;
+					["conditions"] = {
+						[1] = 1;
+						[2] = 4;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 1;
+					["actionID"] = 7394;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = -1;
+					["category"] = 2;
+					["comparator"] = 2;
+					["conditionLua"] = "";
+					["conditionType"] = 4;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = false;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Riddle of Earth";
+			["time"] = 746.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 114;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4.803;
+			["timerStartOffset"] = -20;
+			["used"] = false;
+			["uuid"] = "4894b778-e35a-1f00-8a35-ab732bf70783";
+		};
+		[2] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 1;
+					["actionID"] = 7394;
+					["actionLua"] = "";
+					["allowInterrupt"] = true;
+					["conditions"] = {
+						[1] = 1;
+						[2] = 4;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 1;
+					["actionID"] = 7394;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = -1;
+					["category"] = 2;
+					["comparator"] = 2;
+					["conditionLua"] = "";
+					["conditionType"] = 4;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = false;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Riddle of Earth";
+			["time"] = 746.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 114;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4.803;
+			["timerStartOffset"] = -20;
+			["used"] = false;
+			["uuid"] = "6a6e037d-b8f3-ee02-8672-723ee60c9fcf";
+		};
+	};
+	[115] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "if MoogleTTS ~= nil then MoogleTTS.Speak(\"tanks south\") end\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"dark 2\") end\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"light 1\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = false;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Pug color Callout";
+			["time"] = 755.7;
+			["timeRange"] = false;
+			["timelineIndex"] = 115;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 3;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "fff88b34-1d8f-15d9-8b86-6a5d673d6e90";
+		};
+	};
+	[117] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- move light\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"move light\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 1;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+				[2] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- move dark\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"move dark\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 2;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 2239;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+				[2] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 2238;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Move Color";
+			["time"] = 795.1;
+			["timeRange"] = true;
+			["timelineIndex"] = 117;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "ff8f68a8-4bc2-54bc-89a5-cb9071f85c63";
+		};
+	};
+	[118] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- move light\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"move light\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 1;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+				[2] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- move dark\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"move dark\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 2;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 2239;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+				[2] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 2238;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Move Color";
+			["time"] = 800.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 118;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -2;
@@ -3047,7 +2977,7 @@ self.used = true";
 			["uuid"] = "2f64e4f5-1d65-3d39-847f-e62da7a8ea36";
 		};
 	};
-	[113] = {
+	[119] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -3176,7 +3106,7 @@ self.used = true";
 			["name"] = "Move Color";
 			["time"] = 806.5;
 			["timeRange"] = true;
-			["timelineIndex"] = 113;
+			["timelineIndex"] = 119;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -2;
@@ -3184,7 +3114,7 @@ self.used = true";
 			["uuid"] = "53ac3aee-8c40-66b3-95e0-7fcabe6b4237";
 		};
 	};
-	[114] = {
+	[120] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -3254,7 +3184,7 @@ self.used = true";
 			["name"] = "Riddle of Earth";
 			["time"] = 814.8;
 			["timeRange"] = true;
-			["timelineIndex"] = 114;
+			["timelineIndex"] = 120;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
@@ -3330,7 +3260,7 @@ self.used = true";
 			["name"] = "Riddle of Earth";
 			["time"] = 814.8;
 			["timeRange"] = true;
-			["timelineIndex"] = 114;
+			["timelineIndex"] = 120;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
@@ -3338,7 +3268,7 @@ self.used = true";
 			["uuid"] = "bdb222cf-0e7d-c1cc-9110-5113d4d86643";
 		};
 	};
-	[115] = {
+	[121] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -3408,7 +3338,7 @@ self.used = true";
 			["name"] = "Riddle of Earth";
 			["time"] = 824.3;
 			["timeRange"] = true;
-			["timelineIndex"] = 115;
+			["timelineIndex"] = 121;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
@@ -3484,7 +3414,7 @@ self.used = true";
 			["name"] = "Riddle of Earth";
 			["time"] = 824.3;
 			["timeRange"] = true;
-			["timelineIndex"] = 115;
+			["timelineIndex"] = 121;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4.803;
 			["timerStartOffset"] = -20;
@@ -3493,6 +3423,6 @@ self.used = true";
 		};
 	};
 	["mapID"] = 908;
-	["version"] = 5;
+	["version"] = 6;
 }
 return obj1

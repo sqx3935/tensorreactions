@@ -1,0 +1,6 @@
+[Module]
+Name=NilsReactionLibrary
+Dependencies=minionlib
+Version=1
+Files=SharedLibrary.lua
+enabled=1

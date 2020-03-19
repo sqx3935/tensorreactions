@@ -115,6 +115,10 @@ local obj1 = {
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
 * added on death monitor and updated general reactions to check the time\
+* fix for CD blacklist, was missing the timeline override\
+* fix dwd QT, in rewrite it was missing the option to turn it off after ta window\
+* added 2 second delay between heals, this should improve and space out the heals more effectively\
+* removed rubyex feint and knockback\
 ]]\
 \
 --[[ ** Version 3 **\
@@ -369,333 +373,6 @@ local obj1 = {
 	};
 	[5] = {
 		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "if data.nilDataLoaded ~= nil and data.nilDataLoaded == true and NILS_PLAYGROUND ~= nil and NILS_PLAYGROUND == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-\
-function data.nilsPlayground.Log(string)\
-	d(\"[Nil's Ninja Reactions] \" .. string)\
-end\
-\
-function data.nilsPlayground.ResetSallyNIN()\
-    -- issues command to let ACT know to rest\
-    SendTextCommand(\"/echo end\")\
-\
-    -- reset quick toggles to default\
-				if SallyNIN ~= nil then\
-    		SallyNIN.SkillSettings.Opener.enabled = false\
-						SallyNIN.SkillSettings.SaveCD.enabled = false\
-						SallyNIN.SkillSettings.Range.enabled = false\
-						SallyNIN.SkillSettings.Omni.enabled = false\
-						SallyNIN.SkillSettings.BurnBoss.enabled = false\
-\
-  		 -- SallyNIN.SkillSettings.Potion.enabled = true\
-		    SallyNIN.SkillSettings.UseAOE.enabled = true\
-		    SallyNIN.SkillSettings.TCJ.enabled = true\
-		    SallyNIN.SkillSettings.Meisui.enabled = true\
-		    SallyNIN.SkillSettings.TrickAttack.enabled = true\
-		    SallyNIN.SkillSettings.Ninjutsu.enabled = true\
-  		  SallyNIN.SkillSettings.Bushin.enabled = true\
-		    SallyNIN.SkillSettings.Ninki.enabled = true\
-		    SallyNIN.SkillSettings.Assassinate.enabled = true\
-		    SallyNIN.SkillSettings.DWD.enabled = false\
-		    SallyNIN.SkillSettings.Mug.enabled = true\
-		    SallyNIN.SkillSettings.Kassatsu.enabled = true\
-		    SallyNIN.SkillSettings.Doton.enabled = true\
-		    SallyNIN.SkillSettings.TrueNorth.enabled = true\
-		    SallyNIN.SkillSettings.ACRefresh.enabled = true\
-		    SallyNIN.SkillSettings.ShadowFang.enabled = true\
-\
-						SallyNIN.HotBarConfig.ShadeShift.enabled = true\
-						SallyNIN.HotBarConfig.SecondWind.enabled = true\
-						SallyNIN.HotBarConfig.Bloodbath.enabled = true\
-						SallyNIN.HotBarConfig.Armslength.enabled = true\
-						SallyNIN.HotBarConfig.Feint.enabled = true\
-				end\
-\
-				data.nilsPlayground.ResetToggles()\
-end\
-\
-function data.nilsPlayground.TurnOffNinjitsu(byTimeline)\
-\
-    data.nilsPlayground.Toggles.Ninjutsu.IsActive = true\
-				data.nilsPlayground.Toggles.Ninjutsu.TimelineActive = byTimeline\
-		  data.nilsPlayground.Toggles.Ninjutsu.LastMoved =  Now()\
-\
-				if SallyNIN ~= nil then\
-		  		SallyNIN.SkillSettings.Ninjutsu.enabled = false\
-						SallyNIN.SkillSettings.SaveCD.enabled = true\
-				end\
-end\
-\
-function data.nilsPlayground.TurnOnNinjitsu()\
-    data.nilsPlayground.Toggles.Ninjutsu.IsActive = false\
-				data.nilsPlayground.Toggles.Ninjutsu.TimelineActive = false\
-				\
-				if SallyNIN ~= nil then\
-		    SallyNIN.SkillSettings.Ninjutsu.enabled = true\
-						SallyNIN.SkillSettings.SaveCD.enabled = false\
-				end\
-end\
-\
-function data.nilsPlayground.TurnOffTrickAttackWindow(byTimeline)\
-  data.nilsPlayground.Toggles.TrickAttackWindow.IsActive = true\
-		data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive = byTimeline\
-  data.nilsPlayground.Toggles.TrickAttackWindow.LastMoved =  Now()\
-\
-  if SallyNIN ~= nil then\
-				SallyNIN.SkillSettings.SaveCD.enabled = true\
-				SallyNIN.SkillSettings.TrickAttack.enabled = false\
-				SallyNIN.SkillSettings.ShadowFang.enabled = false\
-				SallyNIN.SkillSettings.Bushin.enabled = false\
-		end\
-end\
-\
-\
-function data.nilsPlayground.TurnOnTrickAttackWindow()\
-  data.nilsPlayground.Toggles.TrickAttackWindow.IsActive = false\
-		data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive = false\
-\
-		if SallyNIN ~= nil then\
-\
-				SallyNIN.SkillSettings.SaveCD.enabled = false\
-				SallyNIN.SkillSettings.TrickAttack.enabled = true\
-				SallyNIN.SkillSettings.ShadowFang.enabled = true\
-				SallyNIN.SkillSettings.Bushin.enabled = true\
-		end\
-end\
-\
-function data.nilsPlayground.TurnOffTCJ(byTimeline)\
-  data.nilsPlayground.Toggles.TCJMove.IsActive = true\
-		data.nilsPlayground.Toggles.TCJMove.TimelineActive = byTimeline\
-  data.nilsPlayground.Toggles.TCJMove.LastMoved =  Now()\
-\
-		if SallyNIN ~= nil then\
-		  SallyNIN.SkillSettings.TCJ.enabled = false\
-		end\
-end\
-\
-function data.nilsPlayground.TurnOnTCJ()\
-  data.nilsPlayground.Toggles.TCJMove.IsActive = false\
-		data.nilsPlayground.Toggles.TCJMove.TimelineActive = false\
-\
-		if SallyNIN ~= nil then\
-		  SallyNIN.SkillSettings.TCJ.enabled = true\
-		end\
-end\
-\
-function data.nilsPlayground.ResetToggles()\
-  data.nilsPlayground.Toggles = {\
-		  TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },\
-  		AssassinateMove = { IsActive = false, LastMoved = 0, TimelineActive = false },\
-		  BurnBoss = { IsActive = false, TimelineActive = false},\
-		  AOEBlackList = { IsActive = false, TimelineActive = false},\
-		  CDBlackList = { IsActive = false, TimelineActive = false},\
-		  OmniWhiteList = { IsActive = false, TimelineActive = false},\
-		  DreamWithinDream = { IsActive = false, TimelineActive = false},\
-  		Kassatsu = { IsActive = false, TimelineActive = false},\
-		  Meisui = { IsActive = false, LastMoved = 0, TimelineActive = false },\
-		  Ninjutsu = { IsActive = false, LastMoved = 0, TimelineActive = false },\
-				ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },\
-				TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },\
-		}\
-end\
-\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-\
-function data.nilsPlayground.CustomConditionChecks.IsDoingMudra()\
-    -- 496 Mudra, 1186 TCJ\
-    return HasBuff(Player.id, 496) or HasBuff(Player.id, 1186)\
-end\
-\
-function data.nilsPlayground.CustomConditionChecks.NoOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_nin ~= nil and xivopeners_nin.openerStarted == true then return false end\
-\
-    -- checks to see if sally dancer is installed and if its opener is running\
-    if SallyNIN ~= nil and SallyNIN.SkillSettings.Opener.enabled == true then return false end\
-\
-    -- if xivopener is not running nor sally sam opener, then return true that it is safe to execute.\
-    return true\
-end\
-\
-function data.nilsPlayground.CustomConditionChecks.CanNinjutsuBeTurnedOff()\
-    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then return false end\
-    return data.nilsPlayground.Toggles.Ninjutsu.IsActive == false\
-end\
-\
-function data.nilsPlayground.skillCooldownDifference(cd, cdmax)\
-    if cd == 0 and cdmax == 0 then\
-        return 0\
-    end\
-\
-    return tonumber(cdmax - cd) or 0\
-end\
-\
-function data.nilsPlayground.getPlayerBuffDuration(buffID)\
-		if (table.valid(Player.buffs)) then for _, buff in pairs(Player.buffs) do if buff.id == buffID then return buff.duration end end end\
-		return 0\
-end\
-\
-\
-data.nilsPlayground.BurnBossList = {\
-    [541] = 1, -- striking dummy\
-    [11347] = 1, -- Alexander Prime\
-    [11340] = 1, -- Brute Justice\
-    [11342] = 2, -- Cruise Chaser\
-    [11335] = 2, -- Living Liquid\
-    [6358] = 1, -- Alexander\
-    [9365] = 2, -- Eden Prime savage\
-    [9366] = 4, -- Guardian of Paradise savage\
-    [10511] = 2, -- voidwalker savage\
-    [10604] = 2, -- Leviathan savage\
-    [8486] = 2, -- Leviathan savage\
-    [8350] = 2, -- Titan savage\
-    [11361] = 1, -- Serial-jointed Command Model\
-    [9020] = 1, -- 9s-operated walking fortress\
-    [9143] = 1, -- Hobbes\
-    [9144] = 1, -- Hobbes\
-    [9145] = 1, -- Hobbes\
-    [9147] = 1, -- Engels\
-    [8353] = 1, -- Innocence\
-				[9020] = 1, -- Ramuh\
-				[9281] = 1, -- Ramuh --> E5S\
-				[9289] = 1, -- Raktapaksa --> E6S\
-				[9298] = 1, -- The Idol of Darkness --> E7S\
-				[9353] = 1, -- Shiva --> E8S\
-}\
-\
-data.nilsPlayground.AOEBlackList = {\
-	--	[541] = true, -- striking dummy\
-    [7097] = true, -- Demon Chadarnook\
-    [7646] = true, -- Immortal Key\
-    [7662] = true, -- Tokkapchi\
-    [7663] = true, -- Mud Slime\
-    [7665] = true, -- Muddy Dorpokkur\
-    [7672] = true, -- Mist Dragon\
-    [7673] = true, -- Draconic Regard\
-    [7702] = true, -- Suzaku\
-    [7703] = true, -- Scarlet Plume\
-    [7704] = true, -- Scarlet Tail Feather\
-    [7725] = true, -- Scarlet Lady\
-    [8262] = true, -- Forgiven Obscenity\
-    [9181] = true, -- Lahabrea's shade\
-    [9182] = true, --	Igeyorhm's shade\
-				[9287] = true, -- Garuda\
-				[9288] = true, -- Ifrit -->\
-\
-}\
-\
-data.nilsPlayground.CDBlackList = {\
-    --[541] = true, -- striking dummy\
-    [7129] = true, -- Doom Chimney\
-    [7125] = true, -- Putrid Passenger\
-    [7233] = true, -- Specter of the Homeland\
-    [7234] = true, -- Specter of the Empire\
-    [7646] = true, -- Immortal Key\
-    [7673] = true, -- Draconic Regard\
-    [7703] = true, -- Scarlet Plume\
-    [7725] = true, -- Scarlet Lady\
-    [8826] = true, -- Shadow of the Ancients\
-    [8346] = true, -- Granite Gaol	\
-    [8342] = true, -- Arcane Sphere\
-				[9319] = true, -- electric aether\
-				[9320] = true, -- aqueous aether\
-				[9321] = true, -- earthen aethe\
-    [9319] = true, -- shiva add electric\
-}\
-\
-data.nilsPlayground.OmniList = {\
-    --[541] = true, -- striking dummy\
-    [3069] = true, -- Sand Sphere\
-    [4815] = true, -- Arcane Sphere\
-    [5640] = true, -- Shinryu\
-    [5789] = true, -- Tail\
-    [6055] = true, -- Neo Exdeath\
-    [6257] = true, -- Magitek Pod\
-    [6928] = true, -- Shard of Emptiness\
-    [6933] = true, -- Aqua Sphere\
-    [6934] = true, -- Blizzard III\
-    [6950] = true, -- Command Tower\
-    [7097] = true, -- Demon Chadarnook\
-    [7122] = true, -- Malice\
-    [7126] = true, -- Ghost\
-    [7127] = true, -- Phantom Train\
-    [7202] = true, -- Daidarabotchi\
-    [7537] = true, -- Specter of Zenos\
-    [7575] = true, -- Iron Chain\
-    [7637] = true, -- Left Arm Unit\
-    [7638] = true, -- Right Arm Unit\
-    [7646] = true, -- Immortal Key\
-    [7657] = true, -- Ultima, the High Seraph\
-    [7694] = true, -- Dark Crystal\
-    [7699] = true, -- Level Checker\
-    [7700] = true, -- Level Checker\
-    [7899] = true, -- The Thunder God\
-    [7901] = true, -- Icewolf\
-    [7908] = true, -- Ruination\
-    [8145] = true, -- Painted Root\
-    [8261] = true, -- Forgiven Whimsy\
-    [8267] = true, -- Forgiven Apathy\
-    [8270] = true, -- Forgiven Revelry\
-    [8342] = true, -- Arcane Sphere\
-    [8346] = true, -- Granite Gaol\
-    [10643] = true, -- Granite Gaol\
-    [8351] = true, -- Aetherial Gaol\
-    [8570] = true, -- Iron Chain\
-    [8958] = true, -- Liar's Lyre\
-    [9143] = true, -- Hobbes\
-    [9144] = true, -- Hobbes\
-    [9145] = true, -- Hobbes\
-    [9147] = true, -- Engels\
-    [9020] = true, -- Engels\
-    [8486] = true, -- Leviathan savage\
-    [10604] = true, -- Leviathan savage\
-    [8349] = true, -- Titan Maximum savage\
-    [9298] = true, -- The Idol of Darkness\
-    [9300] = true, -- Blasphemy\
-    [9301] = true, -- Idolatry\
-    [9322] = true, -- shiva add Luminous Aether\
-    [9320] = true, -- shiva add aqueous\
-    [9321] = true, -- shiva add Earthen Aether\
-    [9319] = true, -- shiva add electric\
-    [9358] = true, -- Ice Veil    \
-}\
-\
-data.nilsPlayground.lastBurnBossCheck = 0\
-\
-data.nilsPlayground.ResetToggles()\
-\
-data.nilsPlayground.Log(\"dependencies loaded\")\
-\
-data.nilsPlayground.version = 2.1\
-\
-data.nilDataLoaded = true\
-NILS_PLAYGROUND = true\
-self.used = true";
-		["executeType"] = 2;
-		["name"] = "Dependencies2 (keep enabled)";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "5ebbca48-a7f7-3860-a0dc-d3612fc5eec7";
-	};
-	[6] = {
-		["actions"] = {
 			[1] = {
 				["aType"] = 3;
 				["actionID"] = -1;
@@ -886,6 +563,421 @@ self.used = true";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "6e2809ba-b7ad-8d01-82d9-8bd7d74d2144";
+	};
+	[6] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "if data.nilDataLoaded ~= nil and data.nilDataLoaded == true and NILS_PLAYGROUND ~= nil and NILS_PLAYGROUND == true then\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
+\
+if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+\
+-- TODO: for later use, returns if arc is enabled and which arc is selected\
+if gACREnabled then\
+  data.nilsPlayground.whicharc = gACRSelectedProfiles[Player.job] -- returns which arc is being used\
+end\
+\
+if data.nilsPlayground.Log == nil then\
+  function data.nilsPlayground.Log(string)\
+    d(\"[Nil's Ninja Reactions] \" .. string)\
+  end\
+end\
+\
+function data.nilsPlayground.ResetSallyNIN()\
+  -- issues command to let ACT know to rest\
+  SendTextCommand(\"/echo end\")\
+\
+-- reset quick toggles to default\
+  if SallyNIN ~= nil then\
+    SallyNIN.SkillSettings.Opener.enabled = false\
+    SallyNIN.SkillSettings.SaveCD.enabled = false\
+    SallyNIN.SkillSettings.Range.enabled = false\
+    SallyNIN.SkillSettings.Omni.enabled = false\
+    SallyNIN.SkillSettings.BurnBoss.enabled = false\
+\
+    -- SallyNIN.SkillSettings.Potion.enabled = true\
+    SallyNIN.SkillSettings.UseAOE.enabled = true\
+    SallyNIN.SkillSettings.TCJ.enabled = true\
+    SallyNIN.SkillSettings.Meisui.enabled = true\
+    SallyNIN.SkillSettings.TrickAttack.enabled = true\
+    SallyNIN.SkillSettings.Ninjutsu.enabled = true\
+    SallyNIN.SkillSettings.Bushin.enabled = true\
+    SallyNIN.SkillSettings.Ninki.enabled = true\
+    SallyNIN.SkillSettings.Assassinate.enabled = true\
+    SallyNIN.SkillSettings.DWD.enabled = false\
+    SallyNIN.SkillSettings.Mug.enabled = true\
+    SallyNIN.SkillSettings.Kassatsu.enabled = true\
+    SallyNIN.SkillSettings.Doton.enabled = true\
+    SallyNIN.SkillSettings.TrueNorth.enabled = true\
+    SallyNIN.SkillSettings.ACRefresh.enabled = true\
+    SallyNIN.SkillSettings.ShadowFang.enabled = true\
+\
+    SallyNIN.HotBarConfig.ShadeShift.enabled = true\
+    SallyNIN.HotBarConfig.SecondWind.enabled = true\
+    SallyNIN.HotBarConfig.Bloodbath.enabled = true\
+    SallyNIN.HotBarConfig.Armslength.enabled = true\
+    SallyNIN.HotBarConfig.Feint.enabled = true\
+  end\
+\
+  data.nilsPlayground.ResetToggles()\
+end\
+\
+function data.nilsPlayground.TurnOffNinjitsu(byTimeline)\
+ -- data.nilsPlayground.Toggles.Ninjutsu.IsActive = true\
+ -- data.nilsPlayground.Toggles.Ninjutsu.TimelineActive = byTimeline\
+--  data.nilsPlayground.Toggles.Ninjutsu.LastMoved =  Now()\
+\
+--  if SallyNIN ~= nil then\
+--    SallyNIN.SkillSettings.Ninjutsu.enabled = false\
+--    SallyNIN.SkillSettings.SaveCD.enabled = true\
+--  end\
+return true\
+end\
+\
+function data.nilsPlayground.TurnOnNinjitsu()\
+ -- data.nilsPlayground.Toggles.Ninjutsu.IsActive = false\
+--  data.nilsPlayground.Toggles.Ninjutsu.TimelineActive = false\
+\
+--  if SallyNIN ~= nil then\
+--    SallyNIN.SkillSettings.Ninjutsu.enabled = true\
+--    SallyNIN.SkillSettings.SaveCD.enabled = false\
+--  end\
+return true\
+end\
+\
+function data.nilsPlayground.TurnOffTrickAttackWindow(byTimeline)\
+  data.nilsPlayground.Toggles.TrickAttackWindow.IsActive = true\
+  data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive = byTimeline\
+  data.nilsPlayground.Toggles.TrickAttackWindow.LastMoved =  Now()\
+\
+  if SallyNIN ~= nil then\
+    SallyNIN.SkillSettings.SaveCD.enabled = true\
+    SallyNIN.SkillSettings.TrickAttack.enabled = false\
+    SallyNIN.SkillSettings.ShadowFang.enabled = false\
+    SallyNIN.SkillSettings.Bushin.enabled = false\
+  end\
+end\
+\
+\
+function data.nilsPlayground.TurnOnTrickAttackWindow()\
+  data.nilsPlayground.Toggles.TrickAttackWindow.IsActive = false\
+  data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive = false\
+\
+  if SallyNIN ~= nil then\
+    SallyNIN.SkillSettings.SaveCD.enabled = false\
+    SallyNIN.SkillSettings.TrickAttack.enabled = true\
+    SallyNIN.SkillSettings.ShadowFang.enabled = true\
+    SallyNIN.SkillSettings.Bushin.enabled = true\
+    SallyNIN.SkillSettings.Ninjutsu.enabled = true\
+  end\
+end\
+\
+function data.nilsPlayground.TurnOffTCJ(byTimeline)\
+  data.nilsPlayground.Toggles.TCJMove.IsActive = true\
+  data.nilsPlayground.Toggles.TCJMove.TimelineActive = byTimeline\
+  data.nilsPlayground.Toggles.TCJMove.LastMoved =  Now()\
+\
+  if SallyNIN ~= nil then\
+    SallyNIN.SkillSettings.TCJ.enabled = false\
+  end\
+end\
+\
+function data.nilsPlayground.TurnOnTCJ()\
+  data.nilsPlayground.Toggles.TCJMove.IsActive = false\
+  data.nilsPlayground.Toggles.TCJMove.TimelineActive = false\
+\
+  if SallyNIN ~= nil then\
+    SallyNIN.SkillSettings.TCJ.enabled = true\
+  end\
+end\
+\
+function data.nilsPlayground.oGCDSafe()\
+  local actionskill = ActionList:Get(1, 2240)\
+  if actionskill.cdmax - actionskill.cd > .8 then return true else return false end\
+end\
+\
+function data.nilsPlayground.ResetToggles()\
+  data.nilsPlayground.Toggles = {\
+    TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },\
+    AssassinateMove = { IsActive = false, LastMoved = 0, TimelineActive = false },\
+    BurnBoss = { IsActive = false, TimelineActive = false},\
+    AOEBlackList = { IsActive = false, TimelineActive = false},\
+    CDBlackList = { IsActive = false, TimelineActive = false},\
+    OmniWhiteList = { IsActive = false, TimelineActive = false},\
+    DreamWithinDream = { IsActive = false, TimelineActive = false},\
+    Kassatsu = { IsActive = false, TimelineActive = false},\
+    Meisui = { IsActive = false, LastMoved = 0, TimelineActive = false },\
+    Ninjutsu = { IsActive = false, LastMoved = 0, TimelineActive = false },\
+    ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },\
+    TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },\
+  }\
+end\
+\
+if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
+\
+function data.nilsPlayground.CustomConditionChecks.IsDoingMudra()\
+  -- 496 Mudra, 1186 TCJ\
+  return HasBuff(Player.id, 496) or HasBuff(Player.id, 1186)\
+end\
+\
+-- REMOVING THIS FUNCTION SOON, use inopener() instead\
+function data.nilsPlayground.CustomConditionChecks.NoOpener()\
+  -- try not to execute while opener is running\
+  if xivopeners_nin ~= nil and xivopeners_nin.openerStarted == true then return false end\
+\
+  -- checks to see if sally dancer is installed and if its opener is running\
+  if SallyNIN ~= nil and SallyNIN.SkillSettings.Opener.enabled == true then return false end\
+\
+  -- if xivopener is not running nor sally sam opener, then return true that it is safe to execute.\
+  return true\
+end\
+\
+function data.nilsPlayground.CustomConditionChecks.inOpener()\
+  -- try not to execute while opener is running\
+  if xivopeners_nin ~= nil and xivopeners_nin.openerStarted == true then return true end\
+\
+  -- checks to see if sally dancer is installed and if its opener is running\
+  if SallyNIN ~= nil and SallyNIN.SkillSettings.Opener.enabled == true then return true end\
+\
+  -- if xivopener is not running nor sally sam opener, then return false that it is safe to execute.\
+  return false\
+end\
+\
+function data.nilsPlayground.CustomConditionChecks.CanNinjutsuBeTurnedOff()\
+  if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then return false end\
+  return data.nilsPlayground.Toggles.Ninjutsu.IsActive == false\
+end\
+\
+-- REMOVING THIS FUNCTION SOON, calculate as needed in scripts\
+function data.nilsPlayground.skillCooldownDifference(cd, cdmax)\
+  if cd == 0 and cdmax == 0 then return 0 end\
+  return tonumber(cdmax - cd) or 0\
+end\
+\
+function data.nilsPlayground.getPlayerBuffDuration(buffID)\
+  if (table.valid(Player.buffs)) then for _, buff in pairs(Player.buffs) do if buff.id == buffID then return buff.duration end end end return 0\
+end\
+\
+data.nilsPlayground.BurnBossList = {\
+  -- [541] = 1, -- striking dummy\
+  [11347] = 1, -- Alexander Prime\
+  [11340] = 1, -- Brute Justice\
+  [11342] = 2, -- Cruise Chaser\
+  [11335] = 2, -- Living Liquid\
+  [6358] = 1, -- Alexander\
+  [9365] = 2, -- Eden Prime savage\
+  [9366] = 4, -- Guardian of Paradise savage\
+  [10511] = 2, -- voidwalker savage\
+  [10604] = 2, -- Leviathan savage\
+  [8486] = 2, -- Leviathan savage\
+  [8350] = 2, -- Titan savage\
+  [11361] = 1, -- Serial-jointed Command Model\
+  [9020] = 1, -- 9s-operated walking fortress\
+  [9143] = 1, -- Hobbes\
+  [9144] = 1, -- Hobbes\
+  [9145] = 1, -- Hobbes\
+  [9147] = 1, -- Engels\
+  [8353] = 1, -- Innocence\
+  [9281] = 1, -- Ramuh --> E5S\
+  [9289] = 1, -- Raktapaksa --> E6S\
+  [9298] = 1, -- The Idol of Darkness --> E7S\
+  [9353] = 1, -- Shiva --> E8S\
+}\
+\
+data.nilsPlayground.AOEBlackList = {\
+  --	[541] = true, -- striking dummy\
+  [7097] = true, -- Demon Chadarnook\
+  [7646] = true, -- Immortal Key\
+  [7662] = true, -- Tokkapchi\
+  [7663] = true, -- Mud Slime\
+  [7665] = true, -- Muddy Dorpokkur\
+  [7672] = true, -- Mist Dragon\
+  [7673] = true, -- Draconic Regard\
+  [7702] = true, -- Suzaku\
+  [7703] = true, -- Scarlet Plume\
+  [7704] = true, -- Scarlet Tail Feather\
+  [7725] = true, -- Scarlet Lady\
+  [8262] = true, -- Forgiven Obscenity\
+  [9181] = true, -- Lahabrea's shade\
+  [9182] = true, --	Igeyorhm's shade\
+  [9287] = true, -- Garuda\
+  [9288] = true, -- Ifrit -->\
+}\
+\
+data.nilsPlayground.CDBlackList = {\
+  --[541] = true, -- striking dummy\
+  [7129] = true, -- Doom Chimney\
+  [7125] = true, -- Putrid Passenger\
+  [7233] = true, -- Specter of the Homeland\
+  [7234] = true, -- Specter of the Empire\
+  [7646] = true, -- Immortal Key\
+  [7673] = true, -- Draconic Regard\
+  [7703] = true, -- Scarlet Plume\
+  [7725] = true, -- Scarlet Lady\
+  [8826] = true, -- Shadow of the Ancients\
+  [8346] = true, -- Granite Gaol\
+  [8342] = true, -- Arcane Sphere\
+  [9319] = true, -- electric aether\
+  -- [9320] = true, -- aqueous aether\
+  [9321] = true, -- earthen aether\
+}\
+\
+data.nilsPlayground.OmniList = {\
+  -- [541] = true, -- striking dummy\
+  [3069] = true, -- Sand Sphere\
+  [4815] = true, -- Arcane Sphere\
+  [5640] = true, -- Shinryu\
+  [5789] = true, -- Tail\
+  [6055] = true, -- Neo Exdeath\
+  [6257] = true, -- Magitek Pod\
+  [6928] = true, -- Shard of Emptiness\
+  [6933] = true, -- Aqua Sphere\
+  [6934] = true, -- Blizzard III\
+  [6950] = true, -- Command Tower\
+  [7097] = true, -- Demon Chadarnook\
+  [7122] = true, -- Malice\
+  [7126] = true, -- Ghost\
+  [7127] = true, -- Phantom Train\
+  [7202] = true, -- Daidarabotchi\
+  [7537] = true, -- Specter of Zenos\
+  [7575] = true, -- Iron Chain\
+  [7637] = true, -- Left Arm Unit\
+  [7638] = true, -- Right Arm Unit\
+  [7646] = true, -- Immortal Key\
+  [7657] = true, -- Ultima, the High Seraph\
+  [7694] = true, -- Dark Crystal\
+  [7699] = true, -- Level Checker\
+  [7700] = true, -- Level Checker\
+  [7899] = true, -- The Thunder God\
+  [7901] = true, -- Icewolf\
+  [7908] = true, -- Ruination\
+  [8145] = true, -- Painted Root\
+  [8261] = true, -- Forgiven Whimsy\
+  [8267] = true, -- Forgiven Apathy\
+  [8270] = true, -- Forgiven Revelry\
+  [8342] = true, -- Arcane Sphere\
+  [8346] = true, -- Granite Gaol\
+  [10643] = true, -- Granite Gaol\
+  [8351] = true, -- Aetherial Gaol\
+  [8570] = true, -- Iron Chain\
+  [8958] = true, -- Liar's Lyre\
+  [9143] = true, -- Hobbes\
+  [9144] = true, -- Hobbes\
+  [9145] = true, -- Hobbes\
+  [9147] = true, -- Engels\
+  [9020] = true, -- Engels\
+  [8486] = true, -- Leviathan savage\
+  [10604] = true, -- Leviathan savage\
+  [8349] = true, -- Titan Maximum savage\
+  [9298] = true, -- The Idol of Darkness\
+  [9300] = true, -- Blasphemy\
+  [9301] = true, -- Idolatry\
+  [9322] = true, -- shiva add Luminous Aether\
+  [9320] = true, -- shiva add aqueous\
+  [9321] = true, -- shiva add Earthen Aether\
+  [9319] = true, -- shiva add electric\
+  [9358] = true, -- Ice Veil\
+}\
+\
+-- ** Abilities activation **\
+\
+if data.nilsPlayground.ExecuteShadeShift == nil then\
+  function data.nilsPlayground.ExecuteShadeShift()\
+    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
+\
+    -- ignore if have scholar shield\
+    if HasBuff(Player.id,297) or Player.hp.percent > 75 then return false end\
+\
+    local actionskill = ActionList:Get(1, 2241)\
+    if actionskill.cdmax - actionskill.cd > .5 then return false end\
+\
+    -- if sally installed, use hotbar, otherwise use base\
+    if SallyNIN ~= nil then SallyNIN.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast(Player.id) end\
+    return true\
+    end\
+end\
+\
+if data.nilsPlayground.ExecuteFeint == nil then\
+  function data.nilsPlayground.ExecuteFeint()\
+    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
+\
+    local target = Player:GetTarget()\
+    if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end\
+\
+    local actionskill = ActionList:Get(1, 7549)\
+    if actionskill.cdmax - actionskill.cd > .5 then return false end\
+\
+    -- if sally installed, use hotbar, otherwise use base\
+    if SallyNIN ~= nil then SallyNIN.HotBarConfig.Feint.enabled = false else	actionskill:Cast(target.id) end\
+    return true\
+  end\
+end\
+\
+if data.nilsPlayground.ExecuteArmsLength == nil then\
+  function data.nilsPlayground.ExecuteArmsLength()\
+    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
+\
+    local actionskill = ActionList:Get(1, 7548)\
+    if actionskill.cdmax - actionskill.cd > .5 then return false end\
+    -- if sally installed, use hotbar, otherwise use base\
+    if SallyNIN ~= nil then SallyNIN.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end\
+    if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
+  end\
+end\
+\
+if data.nilsPlayground.ExecuteSprint == nil then\
+  function data.nilsPlayground.ExecuteSprint()\
+    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
+\
+    local actionskill = ActionList:Get(1, 3)\
+    if actionskill.cdmax - actionskill.cd > .5 then return false end\
+    -- if sally installed, use hotbar, otherwise use base\
+    if SallyNIN ~= nil then SallyNIN.HotBarConfig.Sprint.enabled = false else	actionskill:Cast(Player.id) end\
+  end\
+end\
+\
+if data.nilsPlayground.ExecuteTrueNorth == nil then\
+  function data.nilsPlayground.ExecuteTrueNorth()\
+    if HasBuff(Player.id, 1250) or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
+\
+    local actionskill = ActionList:Get(1, 7546)\
+    if actionskill.cdmax - actionskill.cd > .5 then return false end\
+    -- if sally installed, use hotbar, otherwise use base\
+    if SallyNIN ~= nil then SallyNIN.HotBarConfig.TrueNorth.enabled = false else	actionskill:Cast(Player.id) end\
+  end\
+end\
+\
+-- ***************************\
+\
+data.nilsPlayground.lastBurnBossCheck = 0\
+\
+data.nilsPlayground.ResetToggles()\
+\
+data.nilsPlayground.Log(\"dependencies loaded\")\
+\
+data.nilsPlayground.version = 2.1\
+\
+data.nilDataLoaded = true\
+NILS_PLAYGROUND = true\
+self.used = true";
+		["executeType"] = 2;
+		["name"] = "Dependencies2 (keep enabled)";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "5ebbca48-a7f7-3860-a0dc-d3612fc5eec7";
 	};
 	[7] = {
 		["actions"] = {
@@ -1115,7 +1207,7 @@ self.used = true";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -1191,10 +1283,7 @@ local contentTable = {\
     [906] = {\
         [19404] = 3.5, -- Levinforce\
     },\
-    -- Cinder Drift\
-    [912] = {\
-        [19182] = 4, -- Screech\
-    },\
+    -- Cinder Drift (use timeline)\
 }\
 \
 local localmapid = Player.localmapid\
@@ -1239,7 +1328,7 @@ end\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or HasBuff(eventArgs.entityID, 1195) or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -1349,11 +1438,7 @@ local contentTable = {\
         [18276] = 5, -- Captive Bolt\
         [18757] = 4, -- Peerless Valor\
     },\
-    -- Cinder Drift\
-    [897] = {\
-        [19143] = 3, -- Stamp\
-        [19135] = 3, -- Ruby Claw\
-    },\
+    -- Cinder Drift (use timeline)\
 				-- Anamnesis Anyder\
     [898] = {\
         [19305] = 4, -- Fetid Fang\
@@ -1407,7 +1492,7 @@ end\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -1506,7 +1591,10 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfLastHeal == nil then data.nilsPlayground.timeOfLastHeal = 0 end\
+\
+if Player.job ~= 30 or Player.hp.percent > 50 or Player.hp.percent < 1 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfLastHeal ~= nil and TimeSince(data.nilsPlayground.timeOfLastHeal) < 2000) or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1536,6 +1624,7 @@ if hasRegen and Player.hp.percent < 20 and availableSecondWind then\
 		-- if sallynin installed, use hotbar, otherwise use base\
 		if SallyNIN ~= nil then SallyNIN.HotBarConfig.SecondWind.enabled = false else	actionSecondWind:Cast() end \
 \
+		data.nilsPlayground.timeOfLastHeal = Now()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1544,6 +1633,7 @@ end\
 if hasRegen and Player.hp.percent < 20 and availableSecondWind == false and availableBloodbath then\
 		if SallyNIN ~= nil then SallyNIN.HotBarConfig.Bloodbath.enabled = false else	actionBloodbath:Cast() end \
 \
+		data.nilsPlayground.timeOfLastHeal = Now()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1553,6 +1643,7 @@ if hasRegen == false and Player.hp.percent < 40 and availableSecondWind then\
 		-- if sallynin installed, use hotbar, otherwise use base\
 		if SallyNIN ~= nil then SallyNIN.HotBarConfig.SecondWind.enabled = false else	actionSecondWind:Cast() end \
 \
+		data.nilsPlayground.timeOfLastHeal = Now()\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -1560,6 +1651,7 @@ end\
 \
 if hasRegen == false and Player.hp.percent < 40 and availableSecondWind == false and availableBloodbath then\
 		if SallyNIN ~= nil then SallyNIN.HotBarConfig.Bloodbath.enabled = false else	actionBloodbath:Cast() end \
+		data.nilsPlayground.timeOfLastHeal = Now()\
 end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
@@ -1583,7 +1675,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2056,6 +2148,60 @@ return nil";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
+\
+if Player.job ~= 30 or Player.alive == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+data.nilsPlayground.timeOfDeath = Now()\
+\
+if SallyNIN ~= nil then\
+  -- reset hotbar\
+  SallyNIN.HotBarConfig.Armslength.enabled = true\
+  SallyNIN.HotBarConfig.TrueNorth.enabled = true\
+		SallyNIN.HotBarConfig.Feint.enabled = true\
+		SallyNIN.HotBarConfig.Bloodbath.enabled = true\
+		SallyNIN.HotBarConfig.SecondWind.enabled = true\
+  SallyNIN.HotBarConfig.ShadeShift.enabled = true\
+  SallyNIN.HotBarConfig.Kassatsu.enabled = true\
+  SallyNIN.HotBarConfig.TCJ.enabled = true\
+  SallyNIN.HotBarConfig.Meisui.enabled = true\
+  SallyNIN.HotBarConfig.Huton.enabled = true\
+  SallyNIN.HotBarConfig.Doton.enabled = true\
+  SallyNIN.HotBarConfig.Suiton.enabled = true\
+  SallyNIN.HotBarConfig.Raiton.enabled = true\
+  SallyNIN.HotBarConfig.Katon.enabled = true\
+  SallyNIN.HotBarConfig.Sprint.enabled = true\
+  SallyNIN.HotBarConfig.ArmorCrush.enabled = true\
+  SallyNIN.HotBarConfig.Huton.enabled = true\
+end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "89b42817-2e02-595b-ba1c-7ec78dd90979";
+	};
+	[18] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -2107,14 +2253,20 @@ return nil\
 		["used"] = false;
 		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce";
 	};
-	[18] = {
+	[19] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+		["execute"] = "--[[\
+  * Optional reactions\
+  * CD blacklist maintained in `dependencies2`, if target is on cd blacklist, then we want to turn off trick window. otherwise we want to leave on\
+  * General reaction has a timeline override, so it will be ignored if timeline reaction takes control\
+]]\
+\
+if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -2165,7 +2317,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "092a07d8-25f3-2afb-9b44-1db7a1d108fa";
 	};
-	[19] = {
+	[20] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2173,6 +2325,12 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+\
+		-- if doing opener, go ahead and turn on\
+  if data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+    if SallyNIN ~= nil then	SallyNIN.SkillSettings.DWD.enabled = true end\
+  end\
+\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -2190,11 +2348,8 @@ end\
 \
 if HasBuff(target.id, 638, 0, 0, Player.id) then\
 		if SallyNIN ~= nil then	SallyNIN.SkillSettings.DWD.enabled = true end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-\
+else\
+  if SallyNIN ~= nil then	SallyNIN.SkillSettings.DWD.enabled = false end\
 end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2212,14 +2367,20 @@ return nil";
 		["used"] = false;
 		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75";
 	};
-	[20] = {
+	[21] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+\
+		-- if doing opener, go ahead and turn on\
+  if data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+    if SallyNIN ~= nil then SallyNIN.SkillSettings.Kassatsu.enabled = true end\
+  end\
+\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -2227,7 +2388,7 @@ end\
 \
 local actionTrickAttack = ActionList:Get(1, 2258)\
 \
-if data.nilsPlayground.skillCooldownDifference(actionTrickAttack.cd, actionTrickAttack.cdmax) < 30 then\
+if data.nilsPlayground.skillCooldownDifference(actionTrickAttack.cd, actionTrickAttack.cdmax) < 15 then\
 		if SallyNIN ~= nil then SallyNIN.SkillSettings.Kassatsu.enabled = true end\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -2237,7 +2398,8 @@ end\
 if SallyNIN ~= nil then SallyNIN.SkillSettings.Kassatsu.enabled = false end\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
-return nil";
+return nil\
+";
 		["executeType"] = 2;
 		["name"] = "QT: Kassatsu";
 		["time"] = 0;
@@ -2250,14 +2412,15 @@ return nil";
 		["used"] = false;
 		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84";
 	};
-	[21] = {
+	[22] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
+		["execute"] = "-- Functional check\
+if Player.job ~= 30 or Player.incombat == false or data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -2272,9 +2435,8 @@ end\
 local target = Player:GetTarget()\
 if target == nil or not table.valid(target) or not target.attackable then\
 \
-		-- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
-		if SallyNIN ~= nil and data.nilsPlayground.Toggles.AOEBlackList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
-\
+		-- if target is not valid not turned off via timelines, then turn back on\
+		if SallyNIN ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
@@ -2288,13 +2450,12 @@ if data.nilsPlayground.OmniList[target.contentid] then\
 		return nil\
 end\
 \
--- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
+-- if target is not on list and not turned off via timelines, then turn back on\
 if SallyNIN ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil\
-\
 ";
 		["executeType"] = 2;
 		["name"] = "QT: Omni Whitelist";
@@ -2308,12 +2469,32 @@ return nil\
 		["used"] = false;
 		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
 	};
-	[22] = {
+	[23] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = false;
+		["eventType"] = 9;
+		["execute"] = "";
+		["executeType"] = 1;
+		["name"] = "-- Experimental --";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 0;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "ea2433cc-451a-744a-b946-ce8ede8583f4";
+	};
+	[24] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2368,7 +2549,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "7c8e218d-2938-377f-911d-9478a4881107";
 	};
-	[23] = {
+	[25] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2432,27 +2613,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "39d13900-5b37-8be9-962a-8a2205e70629";
 	};
-	[24] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 9;
-		["execute"] = "";
-		["executeType"] = 1;
-		["name"] = "-- Experimental --";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 0;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "ea2433cc-451a-744a-b946-ce8ede8583f4";
-	};
-	[25] = {
+	[26] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2526,14 +2687,14 @@ return nil\
 		["used"] = false;
 		["uuid"] = "04cf4109-bf4a-6c21-91bb-076edb2c1778";
 	};
-	[26] = {
+	[27] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "-- still a WIP, works until burn boss is on then something breaks, need time to debug\
+		["execute"] = "-- still a WIP, works until burn boss is on then something breaks, need time to debug\\\
 \
 if Player.job ~= 30 or Player.level < 80 or data.nilDataLoaded == nil or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2574,7 +2735,6 @@ if SallyNIN ~= nil and SallyNIN.SkillSettings.BurnBoss.enabled == true and huton
 		return nil\
 end\
 \
-\
 if SallyNIN ~= nil and SallyNIN.SkillSettings.ACRefresh.enabled == false then SallyNIN.SkillSettings.ACRefresh.enabled = true end\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
@@ -2590,60 +2750,6 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "6a7bf182-2cdd-e597-a008-100a62ecb935";
-	};
-	[27] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
-\
-if Player.job ~= 30 or Player.alive == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-data.nilsPlayground.timeOfDeath = Now()\
-\
-if SallyNIN ~= nil then\
-  -- reset hotbar\
-  SallyNIN.HotBarConfig.Armslength.enabled = true\
-  SallyNIN.HotBarConfig.TrueNorth.enabled = true\
-		SallyNIN.HotBarConfig.Feint.enabled = true\
-		SallyNIN.HotBarConfig.Bloodbath.enabled = true\
-		SallyNIN.HotBarConfig.SecondWind.enabled = true\
-  SallyNIN.HotBarConfig.ShadeShift.enabled = true\
-  SallyNIN.HotBarConfig.Kassatsu.enabled = true\
-  SallyNIN.HotBarConfig.TCJ.enabled = true\
-  SallyNIN.HotBarConfig.Meisui.enabled = true\
-  SallyNIN.HotBarConfig.Huton.enabled = true\
-  SallyNIN.HotBarConfig.Doton.enabled = true\
-  SallyNIN.HotBarConfig.Suiton.enabled = true\
-  SallyNIN.HotBarConfig.Raiton.enabled = true\
-  SallyNIN.HotBarConfig.Katon.enabled = true\
-  SallyNIN.HotBarConfig.Sprint.enabled = true\
-  SallyNIN.HotBarConfig.ArmorCrush.enabled = true\
-  SallyNIN.HotBarConfig.Huton.enabled = true\
-end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil";
-		["executeType"] = 2;
-		["name"] = "Reset: on death";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "89b42817-2e02-595b-ba1c-7ec78dd90979";
 	};
 }
 return obj1

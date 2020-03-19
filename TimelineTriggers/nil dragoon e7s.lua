@@ -403,7 +403,7 @@ self.used = true ";
 					["setFirstMatch"] = false;
 				};
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -656,7 +656,7 @@ self.used = true ";
 					["setFirstMatch"] = false;
 				};
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -746,7 +746,7 @@ self.used = true ";
 			["uuid"] = "78bb4fbd-be5f-4685-9c72-5a3128d8099c";
 		};
 	};
-	[50] = {
+	[52] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -816,7 +816,7 @@ return false";
 			["name"] = "target boss";
 			["time"] = 224.9;
 			["timeRange"] = true;
-			["timelineIndex"] = 50;
+			["timelineIndex"] = 52;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -23;
@@ -824,7 +824,7 @@ return false";
 			["uuid"] = "1199b69f-7990-2fa9-bd1f-126dff15f06c";
 		};
 	};
-	[56] = {
+	[58] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1069,7 +1069,7 @@ self.used = true ";
 			["name"] = "Which Buff and turn off Ninjutsu";
 			["time"] = 264.3;
 			["timeRange"] = true;
-			["timelineIndex"] = 56;
+			["timelineIndex"] = 58;
 			["timerEndOffset"] = 25;
 			["timerOffset"] = 4.362;
 			["timerStartOffset"] = -4;
@@ -1144,7 +1144,7 @@ self.used = true ";
 			["name"] = "Retarget boss when stuned";
 			["time"] = 264.3;
 			["timeRange"] = true;
-			["timelineIndex"] = 56;
+			["timelineIndex"] = 58;
 			["timerEndOffset"] = 25;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
@@ -1152,7 +1152,7 @@ self.used = true ";
 			["uuid"] = "be90acab-35af-0025-90f0-cb8451ea991c";
 		};
 	};
-	[67] = {
+	[69] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1222,7 +1222,7 @@ return false";
 			["name"] = "target boss";
 			["time"] = 333.9;
 			["timeRange"] = true;
-			["timelineIndex"] = 67;
+			["timelineIndex"] = 69;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -23;
@@ -1230,7 +1230,7 @@ return false";
 			["uuid"] = "d1affecd-acad-9e2b-bd05-82e082e2e5b0";
 		};
 	};
-	[102] = {
+	[108] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1300,7 +1300,7 @@ return false";
 			["name"] = "target boss";
 			["time"] = 677.6;
 			["timeRange"] = true;
-			["timelineIndex"] = 102;
+			["timelineIndex"] = 108;
 			["timerEndOffset"] = 17;
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
@@ -1345,7 +1345,7 @@ self.used = true";
 			["name"] = "Pug color Callout";
 			["time"] = 677.6;
 			["timeRange"] = false;
-			["timelineIndex"] = 102;
+			["timelineIndex"] = 108;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 3;
 			["timerStartOffset"] = 0;
@@ -1353,7 +1353,7 @@ self.used = true";
 			["uuid"] = "3290a469-9b98-ad4d-9b0c-76d0433dc477";
 		};
 	};
-	[104] = {
+	[110] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -1482,333 +1482,12 @@ self.used = true";
 			["name"] = "Move Color";
 			["time"] = 716.9;
 			["timeRange"] = true;
-			["timelineIndex"] = 104;
+			["timelineIndex"] = 110;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -2;
 			["used"] = false;
 			["uuid"] = "4be08773-279b-e293-b809-8d72137044bf";
-		};
-	};
-	[105] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- move light\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"move light\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[2] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- move dark\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"move dark\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 2;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 2239;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-				[2] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 2238;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Move Color";
-			["time"] = 722.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 105;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "74a4207b-1377-c3c6-b196-6d929fdbf5cb";
-		};
-	};
-	[106] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- move light\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"move light\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[2] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- move dark\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"move dark\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 2;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 2239;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-				[2] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 2238;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Move Color";
-			["time"] = 728.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 106;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "a499abc8-e51a-ac43-bd5f-8820c69c849e";
-		};
-	};
-	[109] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "if MoogleTTS ~= nil then MoogleTTS.Speak(\"tanks south\") end\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"dark 2\") end\
-if MoogleTTS ~= nil then MoogleTTS.Speak(\"light 1\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-					};
-					["endIfUsed"] = false;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Pug color Callout";
-			["time"] = 755.7;
-			["timeRange"] = false;
-			["timelineIndex"] = 109;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 3;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "8cbbce16-7ec5-37e4-95e7-d83c5353d8c6";
 		};
 	};
 	[111] = {
@@ -1938,14 +1617,14 @@ self.used = true";
 			["executeType"] = 1;
 			["loop"] = false;
 			["name"] = "Move Color";
-			["time"] = 795.1;
+			["time"] = 722.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 111;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "c57e2725-b7cd-85d0-b829-a4cefc4d1361";
+			["uuid"] = "74a4207b-1377-c3c6-b196-6d929fdbf5cb";
 		};
 	};
 	[112] = {
@@ -2075,9 +1754,330 @@ self.used = true";
 			["executeType"] = 1;
 			["loop"] = false;
 			["name"] = "Move Color";
-			["time"] = 800.8;
+			["time"] = 728.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 112;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "a499abc8-e51a-ac43-bd5f-8820c69c849e";
+		};
+	};
+	[115] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "if MoogleTTS ~= nil then MoogleTTS.Speak(\"tanks south\") end\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"dark 2\") end\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"light 1\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = false;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Pug color Callout";
+			["time"] = 755.7;
+			["timeRange"] = false;
+			["timelineIndex"] = 115;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 3;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "8cbbce16-7ec5-37e4-95e7-d83c5353d8c6";
+		};
+	};
+	[117] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- move light\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"move light\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 1;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+				[2] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- move dark\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"move dark\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 2;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 2239;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+				[2] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 2238;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Move Color";
+			["time"] = 795.1;
+			["timeRange"] = true;
+			["timelineIndex"] = 117;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "c57e2725-b7cd-85d0-b829-a4cefc4d1361";
+		};
+	};
+	[118] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- move light\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"move light\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 1;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+				[2] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- move dark\
+if MoogleTTS ~= nil then MoogleTTS.Speak(\"move dark\") end\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 2;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 2239;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+				[2] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 2238;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Move Color";
+			["time"] = 800.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 118;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -2;
@@ -2085,7 +2085,7 @@ self.used = true";
 			["uuid"] = "fd35553b-6a75-bff2-8d1b-bf464cc72b3e";
 		};
 	};
-	[113] = {
+	[119] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -2214,7 +2214,7 @@ self.used = true";
 			["name"] = "Move Color";
 			["time"] = 806.5;
 			["timeRange"] = true;
-			["timelineIndex"] = 113;
+			["timelineIndex"] = 119;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -2;
@@ -2223,6 +2223,6 @@ self.used = true";
 		};
 	};
 	["mapID"] = 908;
-	["version"] = 5;
+	["version"] = 6;
 }
 return obj1

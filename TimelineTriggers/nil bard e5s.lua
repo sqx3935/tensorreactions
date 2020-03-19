@@ -358,6 +358,6 @@ self.used = true";
 		};
 	};
 	["mapID"] = 906;
-	["version"] = 3;
+	["version"] = 4;
 }
 return obj1
