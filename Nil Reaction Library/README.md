@@ -25,4 +25,5 @@ This function call works on any job, it will use the `Player.job` setting to det
 
 ---------------
 
-After the library is finalized, I need to document it.
+1. figure out how to have this self update
+2. After the library is finalized, I need to document it.

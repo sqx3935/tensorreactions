@@ -19,7 +19,6 @@ self.Info = {
 -- Would like to do a UI for this, just need to figure it out.
 self.Settings = {
   IssueACTResetOnWipe = true,
-  ArcName = gACRSelectedProfiles[Player.job], -- returns which arc is being used
   EnableMCRSupport = false -- TODO: not supported yet, waiting on madao to add support to MCR for exteral applications
 }
 
@@ -182,6 +181,10 @@ self.OmniList = {
 -- **************************
 
 -- ***** Function calls *****
+function self.WhichArc()
+  if gACREnabled then return gACRSelectedProfiles[Player.job] else return "" end
+end
+
 function self.Reset()
   -- check if setting is true to issue ACT reset
   if self.Settings.IssueACTResetOnWipe then
@@ -189,7 +192,7 @@ function self.Reset()
   end
 
   -- reset correct arc
-  if Player.job == self.jobs.Ninja.id and self.Settings.ArcName == self.arcs.SallyNIN then
+  if Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     self.ResetSallyNIN()
   end
 
@@ -273,7 +276,7 @@ function self.Ninja.TurnOffTrickAttackWindow(byTimeline, allowShadowfang)
   self.Toggles.TrickAttackWindow.TimelineActive = byTimeline
   self.Toggles.TrickAttackWindow.LastCheck = Now()
 
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.Settings.ArcName == self.arcs.SallyNIN then
+  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.SaveCD.enabled = true
     SallyNIN.SkillSettings.TrickAttack.enabled = false
     SallyNIN.SkillSettings.Bushin.enabled = false
@@ -287,7 +290,7 @@ function self.Ninja.TurnOnTrickAttackWindow()
   self.Toggles.TrickAttackWindow.IsActive = false
   self.TrickAttackWindow.TimelineActive = false
 
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.Settings.ArcName == self.arcs.SallyNIN then
+  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.SaveCD.enabled = false
     SallyNIN.SkillSettings.TrickAttack.enabled = true
     SallyNIN.SkillSettings.ShadowFang.enabled = true
@@ -305,7 +308,7 @@ function self.Ninja.TurnOffTCJ(byTimeline)
   self.Toggles.TCJMove.TimelineActive = byTimeline
   self.Toggles.TCJMove.LastMoved = Now()
 
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.Settings.ArcName == self.arcs.SallyNIN then
+  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.TCJ.enabled = false
   end
 end
@@ -315,7 +318,7 @@ function self.Ninja.TurnOnTCJ()
   self.Toggles.TCJMove.IsActive = false
   self.Toggles.TCJMove.TimelineActive = false
 
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.Settings.ArcName == self.arcs.SallyNIN then
+  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.TCJ.enabled = true
   end
 end
@@ -385,29 +388,31 @@ end
 function self.Combat.Actions.ShadeShift()
   -- check cooldown
   local actionskill = ActionList:Get(1, 2241)
-  if actionskill:IsReady(Player.id) == false then
-    return false
-  end
+  if actionskill:IsReady(Player.id) == false then return false end
 
-  -- check bard and HP
+  -- check buff and HP
   -- ignore if have scholar shield or HP is above 75%
-  if HasBuff(Player.id, 297) or Player.hp.percent > 75 then
-    return false
-  end
+  if HasBuff(Player.id, 297) or Player.hp.percent > 75 then return false end
 
-  if not Player.job == self.jobs.Ninja.id then
-    return false
-  end
-  if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then
-    return false
-  end
-  if self.Settings.ArcName == self.arcs.SallyNIN then
-    SallyNIN.HotBarConfig.ShadeShift.enabled = false
-  else
-    actionskill:Cast(Player.id)
-  end
+  if not Player.job == self.jobs.Ninja.id then return false end
+  if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then return false end
+  if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.ShadeShift.enabled = false else actionskill:Cast(Player.id) end
   return true
 end
+-- **********************************************************************************************************
+
+-- ** Samurai Only Actions ************************************************************************************
+function self.Combat.Actions.ShadeShift()
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 7498)
+  if actionskill:IsReady(Player.id) == false then return false end
+
+  if not Player.job == self.jobs.Samurai.id or self.Combat.oGCDSafe == false then return false end
+  if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.ShadeShift.enabled = false else actionskill:Cast(Player.id) end
+  return true
+end
+-- **********************************************************************************************************
+
 
 -- ** Melee jobs ********************************************************************************************
 function self.Combat.Actions.Feint()
@@ -428,14 +433,14 @@ function self.Combat.Actions.Feint()
       return false
     end
     -- if sally installed, use hotbar, otherwise use base
-    if self.Settings.ArcName == self.arcs.SallyNIN then
+    if self.WhichArc() == self.arcs.SallyNIN then
       SallyNIN.HotBarConfig.Feint.enabled = false
     else
       actionskill:Cast(target.id)
     end
     return true
   elseif Player.job == self.jobs.Samurai.id then
-    if self.Settings.ArcName == self.arcs.SallySAM then
+    if self.WhichArc() == self.arcs.SallySAM then
       SallySAM.HotBarConfig.Feint.enabled = false
     else
       actionskill:Cast(target.id)
@@ -463,14 +468,14 @@ function self.Combat.Actions.TrueNorth()
       return false
     end
     -- if sally installed, use hotbar, otherwise use base
-    if self.Settings.ArcName == self.arcs.SallyNIN then
+    if self.WhichArc() == self.arcs.SallyNIN then
       SallyNIN.HotBarConfig.TrueNorth.enabled = false
     else
       actionskill:Cast(Player.id)
     end
     return true
   elseif Player.job == self.jobs.Samurai.id then
-    if self.Settings.ArcName == self.arcs.SallySAM then
+    if self.WhichArc() == self.arcs.SallySAM then
       SallySAM.HotBarConfig.TrueNorth.enabled = false
     else
       actionskill:Cast(Player.id)
@@ -500,14 +505,14 @@ function self.Combat.Actions.ArmsLength()
       return false
     end
     -- if sally installed, use hotbar, otherwise use base
-    if self.Settings.ArcName == self.arcs.SallyNIN then
+    if self.WhichArc() == self.arcs.SallyNIN then
       SallyNIN.HotBarConfig.ArmsLength.enabled = false
     else
       actionskill:Cast(Player.id)
     end
     return true
   elseif Player.job == self.jobs.Samurai.id then
-    if self.Settings.ArcName == self.arcs.SallySAM then
+    if self.WhichArc() == self.arcs.SallySAM then
       SallySAM.HotBarConfig.ArmsLength.enabled = false
     else
       actionskill:Cast(Player.id)
@@ -523,7 +528,7 @@ function self.Combat.Actions.ArmsLength()
     actionskill:Cast(Player.id)
     return true
   elseif Player.job == self.jobs.Warrior.id then
-    if self.Settings.ArcName == self.arcs.SallyWAR then
+    if self.WhichArc() == self.arcs.SallyWAR then
       SallyWAR.HotBarConfig.ArmsLength.enabled = false
     else
       actionskill:Cast(Player.id)
@@ -542,7 +547,7 @@ function self.Combat.Actions.ArmsLength()
     actionskill:Cast(Player.id)
     return true
   elseif Player.job == self.jobs.Dancer.id then
-    if self.Settings.ArcName == self.arcs.SallyDNC then
+    if self.WhichArc() == self.arcs.SallyDNC then
       SallyDNC.HotBarConfig.ArmsLength.enabled = false
     else
       actionskill:Cast(Player.id)
@@ -576,7 +581,7 @@ function self.Combat.Actions.SureCast()
     actionskill:Cast(Player.id)
     return true
   elseif Player.job == self.jobs.RedMage.id then
-    if self.Settings.ArcName == self.arcs.SallyRDM then
+    if self.WhichArc() == self.arcs.SallyRDM then
       SallyRDM.HotBarConfig.SureCast.enabled = false
     else
       actionskill:Cast(Player.id)
@@ -617,14 +622,14 @@ function self.Combat.Actions.Sprint()
       return false
     end
     -- if sally installed, use hotbar, otherwise use base
-    if self.Settings.ArcName == self.arcs.SallyNIN then
+    if self.WhichArc() == self.arcs.SallyNIN then
       SallyNIN.HotBarConfig.Sprint.enabled = false
     else
       actionskill:Cast(Player.id)
     end
     return true
   elseif Player.job == self.jobs.Samurai.id then
-    if self.Settings.ArcName == self.arcs.SallySAM then
+    if self.WhichArc() == self.arcs.SallySAM then
       SallySAM.HotBarConfig.Sprint.enabled = false
     else
       actionskill:Cast(Player.id)
@@ -640,7 +645,7 @@ function self.Combat.Actions.Sprint()
     actionskill:Cast(Player.id)
     return true
   elseif Player.job == self.jobs.Warrior.id then
-    if self.Settings.ArcName == self.arcs.SallyWAR then
+    if self.WhichArc() == self.arcs.SallyWAR then
       SallyWAR.HotBarConfig.Sprint.enabled = false
     else
       actionskill:Cast(Player.id)
@@ -659,7 +664,7 @@ function self.Combat.Actions.Sprint()
     actionskill:Cast(Player.id)
     return true
   elseif Player.job == self.jobs.Dancer.id then
-    if self.Settings.ArcName == self.arcs.SallyDNC then
+    if self.WhichArc() == self.arcs.SallyDNC then
       SallyDNC.HotBarConfig.Sprint.enabled = false
     else
       actionskill:Cast(Player.id)
