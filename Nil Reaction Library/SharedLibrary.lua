@@ -19,6 +19,7 @@ self.Info = {
 -- Would like to do a UI for this, just need to figure it out.
 self.Settings = {
   IssueACTResetOnWipe = true,
+  EnableDebug = false, -- need a ui for this, for now `NilsReactionLibrary.Settings.EnableDebug = true`
   EnableMCRSupport = false -- TODO: not supported yet, waiting on madao to add support to MCR for exteral applications
 }
 
@@ -54,7 +55,8 @@ self.arcs = {
   SallyNIN = "SallyNIN", -- xSalice
   SallyRDM = "SallyRDM", -- xSalice
   SallySAM = "SallySAM", -- xSalice
-  SallyWAR = "SallyWAR" -- xSalice
+  SallyWAR = "SallyWAR", -- xSalice
+  SallyDRK = "SallyDRK" -- xSalice
 }
 
 self.BurnBossList = {
@@ -182,10 +184,13 @@ self.OmniList = {
 
 -- ***** Function calls *****
 function self.WhichArc()
-  if gACREnabled then return gACRSelectedProfiles[Player.job] else return "" end
+  if gACREnabled then
+    if self.Settings.EnableDebug then self.Log("which arc " ..tostring(gACRSelectedProfiles[Player.job])) end
+    return gACRSelectedProfiles[Player.job] else return "" end
 end
 
 function self.Reset()
+  if self.Settings.EnableDebug then self.Log("reset") end
   -- check if setting is true to issue ACT reset
   if self.Settings.IssueACTResetOnWipe then
     SendTextCommand("/echo end")
@@ -265,6 +270,7 @@ end
 if self.Ninja == nil then self.Ninja = {} end
 
 function self.Ninja.TurnOffTrickAttackWindow(byTimeline, allowShadowfang)
+  if self.Settings.EnableDebug then self.Log("turn off trick attack") end
   -- set defaults in case they are not passed in
   byTimeline = byTimeline or false
   allowShadowfang = allowShadowfang or false
@@ -283,6 +289,7 @@ function self.Ninja.TurnOffTrickAttackWindow(byTimeline, allowShadowfang)
 end
 
 function self.Ninja.TurnOnTrickAttackWindow()
+  if self.Settings.EnableDebug then self.Log("turn on trick attack") end
   self.Toggles.TrickAttackWindow.IsActive = false
   self.TrickAttackWindow.TimelineActive = false
 
@@ -299,6 +306,8 @@ function self.Ninja.TurnOffTCJ(byTimeline)
   -- set defaults in case they are not passed in
   byTimeline = byTimeline or false
 
+  if self.Settings.EnableDebug then self.Log("turn off tcj by timeline=" ..tostring(byTimeline)) end
+
   -- set Toggle control
   self.Toggles.TCJMove.IsActive = true
   self.Toggles.TCJMove.TimelineActive = byTimeline
@@ -310,6 +319,7 @@ function self.Ninja.TurnOffTCJ(byTimeline)
 end
 
 function self.Ninja.TurnOnTCJ()
+  if self.Settings.EnableDebug then self.Log("turn on tcj") end
   -- set toggle control
   self.Toggles.TCJMove.IsActive = false
   self.Toggles.TCJMove.TimelineActive = false
@@ -320,6 +330,7 @@ function self.Ninja.TurnOnTCJ()
 end
 
 function self.Ninja.IsDoingMudra()
+  if self.Settings.EnableDebug then self.Log("mudra check") end
   -- 496 Mudra, 1186 TCJ
   return HasBuff(Player.id, 496) or HasBuff(Player.id, 1186)
 end
@@ -339,8 +350,31 @@ end
 if self.Combat == nil then self.Combat = {} end
 
 function self.Combat.oGCDSafe()
-  if Player.job == self.jobs.Ninja.id then
+  -- Tanks
+  if Player.job == self.jobs.Paladin.id then
+    local actionskill = ActionList:Get(1, 9)
+    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
+  elseif Player.job == self.jobs.Warrior.id then
+    local actionskill = ActionList:Get(1, 31)
+    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
+  elseif Player.job == self.jobs.DarkKnight.id then
+    local actionskill = ActionList:Get(1, 3617)
+    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
+  elseif Player.job == self.jobs.Gunbreaker.id then
+    local actionskill = ActionList:Get(1, 16137)
+    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
+  -- Melee
+  elseif Player.job == self.jobs.Monk.id then
+    local actionskill = ActionList:Get(1, 53)
+    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
+  elseif Player.job == self.jobs.Dragoon.id then
+    local actionskill = ActionList:Get(1, 75)
+    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
+  elseif Player.job == self.jobs.Ninja.id then
     local actionskill = ActionList:Get(1, 2240)
+    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
+  elseif Player.job == self.jobs.Samurai.id then
+    local actionskill = ActionList:Get(1, 7477)
     if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
   end
 
@@ -349,7 +383,27 @@ function self.Combat.oGCDSafe()
 end
 
 function self.Combat.inOpener()
-  if Player.job == self.jobs.Ninja.id then
+  -- Tanks
+  if Player.job == self.jobs.Paladin.id then
+    if xivopeners_pld ~= nil and xivopeners_pld.openerStarted == true then return true end
+    if Goliath ~= nil and Goliath_Toggle(1, 2) == true then return true end
+    return false
+  elseif Player.job == self.jobs.Warrior.id then
+    if xivopeners_war ~= nil and xivopeners_war.openerStarted == true then return true end
+    if self.WhichArc == self.arcs.SallyWAR and SallyWAR.SkillSettings.Opener.enabled == true then return true end
+    if Goliath ~= nil and Goliath_Toggle(1, 2) == true then return true end
+    return false
+  elseif Player.job == self.jobs.DarkKnight.id then
+    if xivopeners_drk ~= nil and xivopeners_drk.openerStarted == true then return true end
+    if self.WhichArc == self.arcs.SallyDRK and SallyDRK.SkillSettings.Opener.enabled == true then return true end
+    if Goliath ~= nil and Goliath_Toggle(1, 2) == true then return true end
+    return false
+  elseif Player.job == self.jobs.Gunbreaker.id then
+    if xivopeners_gnb ~= nil and xivopeners_gnb.openerStarted == true then return true end
+    if Goliath ~= nil and Goliath_Toggle(1, 2) == true then return true end
+    return false
+  -- Melee
+  elseif Player.job == self.jobs.Ninja.id then
     if xivopeners_nin ~= nil and xivopeners_nin.openerStarted == true then return true end
     if self.WhichArc == self.arcs.SallyNIN and SallyNIN.SkillSettings.Opener.enabled == true then return true end
     return false
@@ -556,7 +610,7 @@ function self.Combat.Actions.Knockback()
     Player.job == self.jobs.Ninja.id or Player.job == self.jobs.Samurai.id or Player.job == self.jobs.Dragoon.id or Player.job == self.jobs.Monk.id or Player.job == self.jobs.DarkKnight.id or Player.job == self.jobs.Warrior.id or
       Player.job == self.jobs.Paladin.id or Player.job == self.jobs.Gunbreaker.id or Player.job == self.jobs.Bard.id or Player.job == self.jobs.Machinist.id or
       Player.job == self.jobs.Dancer.id
-   then
+  then
     return self.Combat.Actions.ArmsLength()
   elseif Player.job == self.jobs.WhiteMage.id or Player.job == self.jobs.BlackMage.id or Player.job == self.jobs.Summoner.id or Player.job == self.jobs.Scholar.id or Player.job == self.jobs.Astrologian.id or Player.job == self.jobs.RedMage.id then
     return self.Combat.Actions.SureCast()
