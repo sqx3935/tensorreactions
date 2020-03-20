@@ -56,7 +56,10 @@ self.arcs = {
   SallyRDM = "SallyRDM", -- xSalice
   SallySAM = "SallySAM", -- xSalice
   SallyWAR = "SallyWAR", -- xSalice
-  SallyDRK = "SallyDRK" -- xSalice
+  SallyDRK = "SallyDRK", -- xSalice
+  TensorRuin = "TensorRuin", -- Riku
+  TensorRequiem = "TensorRequiem", -- Riku
+  TensorMagnum = "TensorMagnum" -- Riku
 }
 
 self.BurnBossList = {
@@ -349,7 +352,10 @@ end
 -- ** Functions around combat checks **
 if self.Combat == nil then self.Combat = {} end
 
-function self.Combat.oGCDSafe()
+function self.Combat.oGCDSafe(ignoreWeave)
+  ignoreWeave = ignoreWeave or false
+  if ignoreWeave == true then return true end
+
   -- Tanks
   if Player.job == self.jobs.Paladin.id then
     local actionskill = ActionList:Get(1, 9)
@@ -431,20 +437,27 @@ end
 if self.Combat.Actions == nil then self.Combat.Actions = {} end
 
 -- ** Astrologian Only Actions ******************************************************************************
-function self.Combat.Actions.CelestialIntersection()
+function self.Combat.Actions.CelestialIntersection(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 16556)
   if actionskill:IsReady(Player.id) == false then return false end
 
   if not Player.job == self.jobs.Astrologian.id then return false end
-  if self.Combat.oGCDSafe == false then return false end
   actionskill:Cast(Player.id)
   return true
 end
 -- **********************************************************************************************************
 
 -- ** Ninja Only Actions ************************************************************************************
-function self.Combat.Actions.ShadeShift()
+function self.Combat.Actions.ShadeShift(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 2241)
   if actionskill:IsReady(Player.id) == false then return false end
@@ -453,48 +466,64 @@ function self.Combat.Actions.ShadeShift()
   if HasBuff(Player.id, 297) or Player.hp.percent > 75 then return false end
 
   if not Player.job == self.jobs.Ninja.id then return false end
-  if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then return false end
+  if self.Ninja.IsDoingMudra() then return false end
   if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.ShadeShift.enabled = false else actionskill:Cast(Player.id) end
   return true
 end
 -- **********************************************************************************************************
 
 -- ** Samurai Only Actions ************************************************************************************
-function self.Combat.Actions.ThirdEye()
+function self.Combat.Actions.ThirdEye(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 7498)
   if actionskill:IsReady(Player.id) == false then return false end
 
-  if not Player.job == self.jobs.Samurai.id or self.Combat.oGCDSafe == false then return false end
+  if not Player.job == self.jobs.Samurai.id then return false end
   if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.ShadeShift.enabled = false else actionskill:Cast(Player.id) end
   return true
 end
 -- **********************************************************************************************************
 
 -- ** Monk Only Actions ************************************************************************************
-function self.Combat.Actions.RiddleOfEarth()
+function self.Combat.Actions.RiddleOfEarth(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 7394)
   if actionskill:IsReady(Player.id) == false then return false end
 
-  if not Player.job == self.jobs.Monk.id or self.Combat.oGCDSafe == false then return false end
+  if not Player.job == self.jobs.Monk.id then return false end
   actionskill:Cast(Player.id)
   return true
 end
 
-function self.Combat.Actions.Mantra()
+function self.Combat.Actions.Mantra(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 65)
   if actionskill:IsReady(Player.id) == false then return false end
 
-  if not Player.job == self.jobs.Monk.id or self.Combat.oGCDSafe == false then return false end
+  if not Player.job == self.jobs.Monk.id then return false end
   actionskill:Cast(Player.id)
   return true
 end
 -- **********************************************************************************************************
 
 -- ** Melee jobs ONLY ***************************************************************************************
-function self.Combat.Actions.Feint()
+function self.Combat.Actions.Feint(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check that target does not already have fient
   local target = Player:GetTarget()
   if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end
@@ -502,7 +531,7 @@ function self.Combat.Actions.Feint()
   -- check cooldown
   local actionskill = ActionList:Get(1, 7549)
   if actionskill:IsReady(target.id) == false then return false end
-    if Player.job == self.jobs.Ninja.id then if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then return false end
+    if Player.job == self.jobs.Ninja.id then if self.Ninja.IsDoingMudra() then return false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.Feint.enabled = false else actionskill:Cast(target.id) end
     return true
@@ -519,13 +548,17 @@ function self.Combat.Actions.Feint()
   return false
 end
 
-function self.Combat.Actions.TrueNorth()
+function self.Combat.Actions.TrueNorth(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 7546)
   if actionskill:IsReady(Player.id) == false then return false end
 
   if Player.job == self.jobs.Ninja.id then
-    if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then return false end
+    if self.Ninja.IsDoingMudra() then return false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.TrueNorth.enabled = false else actionskill:Cast(Player.id) end
     return true
@@ -542,7 +575,11 @@ function self.Combat.Actions.TrueNorth()
   return false
 end
 
-function self.Combat.Actions.LegSweep()
+function self.Combat.Actions.LegSweep(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check that target does not already have stun
   local target = Player:GetTarget()
   if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 2) then return false end
@@ -554,7 +591,7 @@ function self.Combat.Actions.LegSweep()
   end
 
   if Player.job == self.jobs.Ninja.id then
-    if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then return false end
+    if self.Ninja.IsDoingMudra() then return false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.LegSweep.enabled = false else actionskill:Cast(target.id) end
     return true
@@ -568,11 +605,16 @@ function self.Combat.Actions.LegSweep()
     actionskill:Cast(target.id)
     return true
   end
+  return false
 end
 -- **********************************************************************************************************
 
 -- ** Tank jobs ONLY ***************************************************************************************
-function self.Combat.Actions.LowBlow()
+function self.Combat.Actions.LowBlow(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check that target does not already have stun
   local target = Player:GetTarget()
   if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 2) then return false end
@@ -597,11 +639,16 @@ function self.Combat.Actions.LowBlow()
     actionskill:Cast(target.id)
     return true
   end
+  return false
 end
 -- **********************************************************************************************************
 
 -- ** Melee tanks physical range *****************************************************************************
-function self.Combat.Actions.ArmsLength()
+function self.Combat.Actions.ArmsLength(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 7548)
   if actionskill:IsReady(Player.id) == false then
@@ -609,7 +656,7 @@ function self.Combat.Actions.ArmsLength()
   end
 
   if Player.job == self.jobs.Ninja.id then
-    if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then return false end
+    if self.Ninja.IsDoingMudra() then return false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.ArmsLength.enabled = false else actionskill:Cast(Player.id) end
     return true
@@ -648,7 +695,11 @@ end
 -- **********************************************************************************************************
 
 -- ** Healers and Casters ************************************************************************************
-function self.Combat.Actions.SureCast()
+function self.Combat.Actions.SureCast(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 7559)
   if actionskill:IsReady(Player.id) == false then return false end
@@ -660,7 +711,8 @@ function self.Combat.Actions.SureCast()
     actionskill:Cast(Player.id)
     return true
   elseif Player.job == self.jobs.Summoner.id then
-    actionskill:Cast(Player.id)
+    -- if tensor installed, use hotbar, otherwise use base
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Hotbar_Surecast = true else actionskill:Cast(Player.id) end
     return true
   elseif Player.job == self.jobs.Scholar.id then
     actionskill:Cast(Player.id)
@@ -675,29 +727,64 @@ function self.Combat.Actions.SureCast()
     actionskill:Cast(Player.id)
     return true
   end
+  return false
+end
+-- **********************************************************************************************************
+
+-- ** Caster Actions ******************************************************************************
+function self.Combat.Actions.Addle(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
+  -- check that target does not already have de/buff
+  local target = Player:GetTarget()
+  if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1230) then return false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 7560)
+  if actionskill:IsReady(target.id) == false then return false end
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed, use hotbar, otherwise use base
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Hotbar_Addle = true else actionskill:Cast(target.id) end
+    return true
+  elseif Player.job == self.jobs.BlackMage.id then
+    actionskill:Cast(target.id)
+    return true
+  elseif Player.job == self.jobs.RedMage.id then
+    -- if sally installed, use hotbar, otherwise use base
+    if self.WhichArc() == self.arcs.SallyRDM then SallyRDM.HotBarConfig.Addle.enabled = false else actionskill:Cast(target.id) end
+  end
+  return false
 end
 -- **********************************************************************************************************
 
 -- ** ALL ***************************************************************************************************
-function self.Combat.Actions.Knockback()
+function self.Combat.Actions.Knockback(ignoreWeave)
   if
     Player.job == self.jobs.Ninja.id or Player.job == self.jobs.Samurai.id or Player.job == self.jobs.Dragoon.id or Player.job == self.jobs.Monk.id or Player.job == self.jobs.DarkKnight.id or Player.job == self.jobs.Warrior.id or
       Player.job == self.jobs.Paladin.id or Player.job == self.jobs.Gunbreaker.id or Player.job == self.jobs.Bard.id or Player.job == self.jobs.Machinist.id or
       Player.job == self.jobs.Dancer.id
   then
-    return self.Combat.Actions.ArmsLength()
+    return self.Combat.Actions.ArmsLength(ignoreWeave)
   elseif Player.job == self.jobs.WhiteMage.id or Player.job == self.jobs.BlackMage.id or Player.job == self.jobs.Summoner.id or Player.job == self.jobs.Scholar.id or Player.job == self.jobs.Astrologian.id or Player.job == self.jobs.RedMage.id then
-    return self.Combat.Actions.SureCast()
+    return self.Combat.Actions.SureCast(ignoreWeave)
   end
+  return false
 end
 
-function self.Combat.Actions.Sprint()
+function self.Combat.Actions.Sprint(ignoreWeave)
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 3)
   if actionskill:IsReady(Player.id) == false then return false end
 
   if Player.job == self.jobs.Ninja.id then
-    if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then return false end
+    if self.Ninja.IsDoingMudra() then return false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.Sprint.enabled = false else actionskill:Cast(Player.id) end
     return true
@@ -753,6 +840,7 @@ function self.Combat.Actions.Sprint()
     actionskill:Cast(Player.id)
     return true
   end
+  return false
 end
 -- **********************************************************************************************************
 
