@@ -269,68 +269,14 @@ function self.ResetSallyNIN()
   SallyNIN.HotBarConfig.Huton.enabled = true
 end
 
+-- ******************************************* Helper functions by job **************************************
+-- *                                                                                                        *
+-- *                                    Functions specific for helping a job                                *
+-- *                                                                                                        *
+-- **********************************************************************************************************
+
 -- ** Functions for ninja arcs only **
 if self.Ninja == nil then self.Ninja = {} end
-
-function self.Ninja.TurnOffTrickAttackWindow(byTimeline, allowShadowfang)
-  if self.Settings.EnableDebug then self.Log("turn off trick attack") end
-  -- set defaults in case they are not passed in
-  byTimeline = byTimeline or false
-  allowShadowfang = allowShadowfang or false
-
-  -- set Toggle control
-  self.Toggles.TrickAttackWindow.IsActive = true
-  self.Toggles.TrickAttackWindow.TimelineActive = byTimeline
-  self.Toggles.TrickAttackWindow.LastCheck = Now()
-
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.SkillSettings.SaveCD.enabled = true
-    SallyNIN.SkillSettings.TrickAttack.enabled = false
-    SallyNIN.SkillSettings.Bushin.enabled = false
-    if allowShadowfang == false then SallyNIN.SkillSettings.ShadowFang.enabled = false end
-  end
-end
-
-function self.Ninja.TurnOnTrickAttackWindow()
-  if self.Settings.EnableDebug then self.Log("turn on trick attack") end
-  self.Toggles.TrickAttackWindow.IsActive = false
-  self.TrickAttackWindow.TimelineActive = false
-
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.SkillSettings.SaveCD.enabled = false
-    SallyNIN.SkillSettings.TrickAttack.enabled = true
-    SallyNIN.SkillSettings.ShadowFang.enabled = true
-    SallyNIN.SkillSettings.Bushin.enabled = true
-    SallyNIN.SkillSettings.Ninjutsu.enabled = true
-  end
-end
-
-function self.Ninja.TurnOffTCJ(byTimeline)
-  -- set defaults in case they are not passed in
-  byTimeline = byTimeline or false
-
-  if self.Settings.EnableDebug then self.Log("turn off tcj by timeline=" ..tostring(byTimeline)) end
-
-  -- set Toggle control
-  self.Toggles.TCJMove.IsActive = true
-  self.Toggles.TCJMove.TimelineActive = byTimeline
-  self.Toggles.TCJMove.LastMoved = Now()
-
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.SkillSettings.TCJ.enabled = false
-  end
-end
-
-function self.Ninja.TurnOnTCJ()
-  if self.Settings.EnableDebug then self.Log("turn on tcj") end
-  -- set toggle control
-  self.Toggles.TCJMove.IsActive = false
-  self.Toggles.TCJMove.TimelineActive = false
-
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.SkillSettings.TCJ.enabled = true
-  end
-end
 
 function self.Ninja.IsDoingMudra()
   if self.Settings.EnableDebug then self.Log("mudra check") end
@@ -842,6 +788,596 @@ function self.Combat.Actions.Sprint(ignoreWeave)
   end
   return false
 end
+-- **********************************************************************************************************
+
+-- ************************************ Functions around toggle actions  ************************************
+-- *                                                                                                        *
+-- *      This section is only for quick toggle execution, actual logic will be added else where.           *
+-- *                                                                                                        *
+-- *                              Quick Toggles Default on                                                  *
+-- **********************************************************************************************************
+if self.Combat.Toggles == nil then self.Combat.Toggles = {} end
+
+-- ** Toggle Control allows for controls to be added based on timeline vs general reactions
+if self.Combat.Toggles.Control == nil then self.Combat.Toggles.Control = {} end
+
+self.Combat.Toggles.Control = {
+  TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  AssassinateMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  BurnBoss = { IsActive = false, TimelineActive = false},
+  AOEBlackList = { IsActive = false, TimelineActive = false},
+  CDBlackList = { IsActive = false, TimelineActive = false},
+  OmniWhiteList = { IsActive = false, TimelineActive = false},
+  DreamWithinDream = { IsActive = false, TimelineActive = false},
+  Kassatsu = { IsActive = false, TimelineActive = false},
+  Meisui = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  Ninjutsu = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
+}
+
+function self.Combat.Toggles.Control.Reset()
+  self.Combat.Toggles.Control = {
+    TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    AssassinateMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    BurnBoss = { IsActive = false, TimelineActive = false},
+    AOEBlackList = { IsActive = false, TimelineActive = false},
+    CDBlackList = { IsActive = false, TimelineActive = false},
+    OmniWhiteList = { IsActive = false, TimelineActive = false},
+    DreamWithinDream = { IsActive = false, TimelineActive = false},
+    Kassatsu = { IsActive = false, TimelineActive = false},
+    Meisui = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    Ninjutsu = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  }
+end
+
+-- ** Summoner ***********************************************************************************************
+if self.Combat.Toggles.Summoner == nil then self.Combat.Toggles.Summoner = {} end
+
+function self.Combat.Toggles.Summoner.Reset()
+  if self.WhichArc() == self.arcs.TensorRuin then
+    -- HotBar
+    ACR_TensorRuin_Hotbar_Potion = false
+    ACR_TensorRuin_Hotbar_Addle = false
+    ACR_TensorRuin_Hotbar_Sprint = false
+    ACR_TensorRuin_Hotbar_Deathflare = false
+    ACR_TensorRuin_Hotbar_Surecast = false
+    ACR_TensorRuin_Hotbar_LockFace = false
+    ACR_TensorRuin_Hotbar_LimitBreak = false
+
+    ACR_TensorRuin_CD = true
+    ACR_TensorRuin_PetCD = true
+    ACR_TensorRuin_AOE = true
+    ACR_TensorRuin_Fester = true
+    ACR_TensorRuin_DW = true
+    ACR_TensorRuin_Demi = true
+    ACR_TensorRuin_Aetherpact = true
+    ACR_TensorRuin_EnergyDrain = true
+    ACR_TensorRuin_DoTs = true
+    ACR_TensorRuin_BurnR4 = false
+    ACR_TensorRuin_HoldAOE = false
+    ACR_TensorRuin_SmartAOE = true
+    ACR_TensorRuin_SmartDoT = true
+    ACR_TensorRuin_SmartBane = true
+    -- ACR_TensorRuin_Potion = true -- TODO not resetting until a gui with settings can be created
+    ACR_TensorRuin_HardRes = false
+    ACR_TensorRuin_SwiftRes = false
+    ACR_TensorRuin_SwiftR3 = true
+  end
+end
+
+-- Toggles DWT, Summon Bahamut, and FBT. Use this to hold major cooldowns before phase transitions. In the case of TensorRuin, if you turn off CDs while in DWT for example, it will auto extend dwt to maximum duration and won't summon bahamut until after.
+function self.Combat.Toggles.Summoner.CD(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_CD = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.PetCD(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_PetCD = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.AOE(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_AOE = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.Fester(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Fester = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.DWT(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_DW = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.Demi(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Demi = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.Aetehrpact(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Aetherpact = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.EnergyDrain(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_EnergyDrain = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.DoTs(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_DoTs = toggleOn return true end
+  end
+  return false
+end
+
+-- Burn Boss
+function self.Combat.Toggles.Summoner.BurnR4(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_BurnR4 = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.HoldAOE(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_HoldAOE = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.SmartAOE(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SmartAOE = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.SmartDoT(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SmartDoT = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.SmartBane(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SmartBane = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.Potion(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Potion = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.HardRes(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_HardRes = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.SwiftRes(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SwiftRes = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Summoner.SwiftR3(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Summoner.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SwiftR3 = toggleOn return true end
+  end
+  return false
+end
+
+-- **********************************************************************************************************
+
+-- ** Ninja *************************************************************************************************
+if self.Combat.Toggles.Ninja == nil then self.Combat.Toggles.Ninja = {} end
+
+function self.Combat.Toggles.Ninja.Reset()
+  if self.WhichArc() == self.arcs.SallyNIN then
+    SallyNIN.SkillSettings.Opener.enabled = false
+    SallyNIN.SkillSettings.SaveCD.enabled = false
+    SallyNIN.SkillSettings.Range.enabled = false
+    SallyNIN.SkillSettings.Omni.enabled = false
+    SallyNIN.SkillSettings.BurnBoss.enabled = false
+    -- SallyNIN.SkillSettings.Potion.enabled = true
+    SallyNIN.SkillSettings.UseAOE.enabled = true
+    SallyNIN.SkillSettings.TCJ.enabled = true
+    SallyNIN.SkillSettings.Meisui.enabled = true
+    SallyNIN.SkillSettings.TrickAttack.enabled = true
+    SallyNIN.SkillSettings.Ninjutsu.enabled = true
+    SallyNIN.SkillSettings.Bushin.enabled = true
+    SallyNIN.SkillSettings.Ninki.enabled = true
+    SallyNIN.SkillSettings.Assassinate.enabled = true
+    SallyNIN.SkillSettings.DWD.enabled = false
+    SallyNIN.SkillSettings.Mug.enabled = true
+    SallyNIN.SkillSettings.Kassatsu.enabled = true
+    SallyNIN.SkillSettings.Doton.enabled = true
+    SallyNIN.SkillSettings.TrueNorth.enabled = true
+    SallyNIN.SkillSettings.ACRefresh.enabled = true
+    SallyNIN.SkillSettings.ShadowFang.enabled = true
+
+    -- Hotbar
+    SallyNIN.HotBarConfig.Armslength.enabled = true
+    SallyNIN.HotBarConfig.TrueNorth.enabled = true
+    SallyNIN.HotBarConfig.Feint.enabled = true
+    SallyNIN.HotBarConfig.Bloodbath.enabled = true
+    SallyNIN.HotBarConfig.SecondWind.enabled = true
+    SallyNIN.HotBarConfig.ShadeShift.enabled = true
+    SallyNIN.HotBarConfig.Kassatsu.enabled = true
+    SallyNIN.HotBarConfig.TCJ.enabled = true
+    SallyNIN.HotBarConfig.Meisui.enabled = true
+    SallyNIN.HotBarConfig.Huton.enabled = true
+    SallyNIN.HotBarConfig.Doton.enabled = true
+    SallyNIN.HotBarConfig.Suiton.enabled = true
+    SallyNIN.HotBarConfig.Raiton.enabled = true
+    SallyNIN.HotBarConfig.Katon.enabled = true
+    SallyNIN.HotBarConfig.Sprint.enabled = true
+    SallyNIN.HotBarConfig.ArmorCrush.enabled = true
+    SallyNIN.HotBarConfig.LegSweep.enabled = true
+    SallyNIN.HotBarConfig.LB.enabled = true
+
+    return true
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Opener(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Opener.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.SaveCD(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.SaveCD.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Range(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Range.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Omni(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Omni.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.BurnBoss(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.BurnBoss.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Potion(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Potion.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.UseAOE(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.UseAOE.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.TCJ(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.TCJ.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Meisui(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Meisui.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.TrickAttack(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.TrickAttack.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Ninjutsu(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Ninjutsu.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Bushin(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Bushin.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Ninki(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Ninki.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Assassinate(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Assassinate.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.DWD(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.DWD.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Mug(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Mug.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Kassatsu(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Kassatsu.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.Doton(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Doton.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.TrueNorth(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.TrueNorth.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.ACRefresh(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.ACRefresh.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Ninja.ShadowFang(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Ninja.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.ShadowFang.enabled = toggleOn return true end
+  end
+  return false
+end
+
+if self.Combat.Toggles.Ninja.Helpers == nil then self.Combat.Toggles.Ninja.Helpers = {} end
+
+function self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(byTimeline, allowShadowfang)
+  if self.Settings.EnableDebug then self.Log("turn off trick attack") end
+  
+  -- set defaults in case they are not passed in
+  byTimeline = byTimeline or false
+  allowShadowfang = allowShadowfang or false
+
+  -- set Toggle control
+  self.Toggles.TrickAttackWindow.IsActive = true
+  self.Toggles.TrickAttackWindow.TimelineActive = byTimeline
+  self.Toggles.TrickAttackWindow.LastCheck = Now()
+
+  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
+    SallyNIN.SkillSettings.SaveCD.enabled = true
+    SallyNIN.SkillSettings.TrickAttack.enabled = false
+    SallyNIN.SkillSettings.Bushin.enabled = false
+    if allowShadowfang == false then SallyNIN.SkillSettings.ShadowFang.enabled = false end
+  end
+end
+
+function self.Ninja.TurnOnTrickAttackWindow()
+  if self.Settings.EnableDebug then self.Log("turn on trick attack") end
+  self.Toggles.TrickAttackWindow.IsActive = false
+  self.TrickAttackWindow.TimelineActive = false
+
+  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
+    SallyNIN.SkillSettings.SaveCD.enabled = false
+    SallyNIN.SkillSettings.TrickAttack.enabled = true
+    SallyNIN.SkillSettings.ShadowFang.enabled = true
+    SallyNIN.SkillSettings.Bushin.enabled = true
+    SallyNIN.SkillSettings.Ninjutsu.enabled = true
+  end
+end
+
+function self.Ninja.TurnOffTCJ(byTimeline)
+  -- set defaults in case they are not passed in
+  byTimeline = byTimeline or false
+
+  if self.Settings.EnableDebug then self.Log("turn off tcj by timeline=" ..tostring(byTimeline)) end
+
+  -- set Toggle control
+  self.Toggles.TCJMove.IsActive = true
+  self.Toggles.TCJMove.TimelineActive = byTimeline
+  self.Toggles.TCJMove.LastMoved = Now()
+
+  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
+    SallyNIN.SkillSettings.TCJ.enabled = false
+  end
+end
+
+function self.Ninja.TurnOnTCJ()
+  if self.Settings.EnableDebug then self.Log("turn on tcj") end
+  -- set toggle control
+  self.Toggles.TCJMove.IsActive = false
+  self.Toggles.TCJMove.TimelineActive = false
+
+  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
+    SallyNIN.SkillSettings.TCJ.enabled = true
+  end
+end
+
+
 -- **********************************************************************************************************
 
 -- ** start addon

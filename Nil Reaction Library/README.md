@@ -7,6 +7,18 @@
 ---------------
 Create a library that is usable for all.  While my primary focus will be on `Tensor Reactions` there honestly is nothing stopping it from being utlized for anything else.
 
+## How to install
+
+---------------
+Copy the library to `C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\Nil Reaction Library`.
+
+Note: soon as everything is converted and reactions are stablized a self updated will be looked into.  At this time I don't know how to do UI's nor an updater so if someone would like help that would be appreciated.
+
+The way I hand this is. clone the repo to another folder `C:\Projects\src\github.com\nil2share\tensorreactions`
+
+then simlink it to the folder
+`New-Item -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\Nil Reaction Library" -Target "C:\Projects\src\github.com\nil2share\tensorreactions\Nil Reaction Library"`
+
 ## Example
 
 ---------------
@@ -28,6 +40,8 @@ This function call works on any job, it will use the `Player.job` setting to det
 NOTE: if an arc is missing, please let me know what the variable or command is, sadly I do not have all of them.
 NOTE2: action name is the nme of the function.
 
+### Hotbar
+
 | Action | Jobs |
 |---|---|
 | Sprint | All |
@@ -42,6 +56,13 @@ NOTE2: action name is the nme of the function.
 | ThirdEye | Samurai |
 | ShadeShift | Ninja |
 | CelestialIntersection | Astrologian |
+
+### Quick Toggles
+
+| ARC |
+|---|
+| TensorRuin |
+| SallyNIN |
 
 ## TODO
 
