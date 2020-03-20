@@ -208,24 +208,6 @@ function self.Reset()
   self.Combat.Toggles.Control.Reset()
 end
 
--- TODO remove this
-function self.ResetToggles()
-  self.Toggles = {
-    TCJMove = {IsActive = false, LastMoved = 0, TimelineActive = false}, -- Ninja
-    AssassinateMove = {IsActive = false, LastMoved = 0, TimelineActive = false}, -- Ninja
-    DreamWithinDream = {IsActive = false, LastCheck = 0, TimelineActive = false}, -- Ninja
-    Kassatsu = {IsActive = false, LastCheck = 0, TimelineActive = false}, -- Ninja
-    Meisui = {IsActive = false, LastCheck = 0, TimelineActive = false}, -- Ninja
-    Ninjutsu = {IsActive = false, LastCheck = 0, TimelineActive = false}, -- Ninja
-    ACRefresh = {IsActive = false, LastCheck = 0, TimelineActive = false}, -- Ninja
-    TrickAttackWindow = {IsActive = false, LastCheck = 0, TimelineActive = false}, -- Ninja
-    BurnBoss = {IsActive = false, LastCheck = 0, TimelineActive = false}, -- xSalice arcs
-    AOEBlackList = {IsActive = false, LastCheck = 0, TimelineActive = false},
-    CDBlackList = {IsActive = false, LastCheck = 0, TimelineActive = false},
-    OmniWhiteList = {IsActive = false, LastCheck = 0, TimelineActive = false}
-  }
-end
-
 function self.ResetSallyNIN()
   -- reset quick toggles to default
   SallyNIN.SkillSettings.Opener.enabled = false
@@ -1330,9 +1312,9 @@ function self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(byTimeline, 
   allowShadowfang = allowShadowfang or false
 
   -- set Toggle control
-  self.Toggles.TrickAttackWindow.IsActive = true
-  self.Toggles.TrickAttackWindow.TimelineActive = byTimeline
-  self.Toggles.TrickAttackWindow.LastCheck = Now()
+  self.Combat.Toggles.Control.TrickAttackWindow.IsActive = true
+  self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive = byTimeline
+  self.Combat.Toggles.Control.TrickAttackWindow.LastCheck = Now()
 
   if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.SaveCD.enabled = true
@@ -1342,10 +1324,10 @@ function self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(byTimeline, 
   end
 end
 
-function self.Ninja.TurnOnTrickAttackWindow()
+function self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow()
   if self.Settings.EnableDebug then self.Log("turn on trick attack") end
-  self.Toggles.TrickAttackWindow.IsActive = false
-  self.TrickAttackWindow.TimelineActive = false
+  self.Combat.Toggles.Control.TrickAttackWindow.IsActive = false
+  self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive = false
 
   if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.SaveCD.enabled = false
@@ -1356,27 +1338,27 @@ function self.Ninja.TurnOnTrickAttackWindow()
   end
 end
 
-function self.Ninja.TurnOffTCJ(byTimeline)
+function self.Combat.Toggles.Ninja.Helpers.TurnOffTCJ(byTimeline)
   -- set defaults in case they are not passed in
   byTimeline = byTimeline or false
 
   if self.Settings.EnableDebug then self.Log("turn off tcj by timeline=" ..tostring(byTimeline)) end
 
   -- set Toggle control
-  self.Toggles.TCJMove.IsActive = true
-  self.Toggles.TCJMove.TimelineActive = byTimeline
-  self.Toggles.TCJMove.LastMoved = Now()
+  self.Combat.Toggles.Control.TCJMove.IsActive = true
+  self.Combat.Toggles.Control.TimelineActive = byTimeline
+  self.Combat.Toggles.Control.LastMoved = Now()
 
   if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.TCJ.enabled = false
   end
 end
 
-function self.Ninja.TurnOnTCJ()
+function self.Combat.Toggles.Ninja.Helpers.TurnOnTCJ()
   if self.Settings.EnableDebug then self.Log("turn on tcj") end
   -- set toggle control
-  self.Toggles.TCJMove.IsActive = false
-  self.Toggles.TCJMove.TimelineActive = false
+  self.Combat.Toggles.Control.IsActive = false
+  self.Combat.Toggles.Control.TimelineActive = false
 
   if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.TCJ.enabled = true
