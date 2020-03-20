@@ -205,9 +205,10 @@ function self.Reset()
   end
 
   -- reset shared toggles
-  self.ResetToggles()
+  self.Combat.Toggles.Control.Reset()
 end
 
+-- TODO remove this
 function self.ResetToggles()
   self.Toggles = {
     TCJMove = {IsActive = false, LastMoved = 0, TimelineActive = false}, -- Ninja
@@ -865,7 +866,11 @@ function self.Combat.Toggles.Summoner.Reset()
     ACR_TensorRuin_HardRes = false
     ACR_TensorRuin_SwiftRes = false
     ACR_TensorRuin_SwiftR3 = true
+
+    self.Combat.Toggles.Control.Reset()
   end
+
+  return true
 end
 
 -- Toggles DWT, Summon Bahamut, and FBT. Use this to hold major cooldowns before phase transitions. In the case of TensorRuin, if you turn off CDs while in DWT for example, it will auto extend dwt to maximum duration and won't summon bahamut until after.
@@ -1099,9 +1104,10 @@ function self.Combat.Toggles.Ninja.Reset()
     SallyNIN.HotBarConfig.LegSweep.enabled = true
     SallyNIN.HotBarConfig.LB.enabled = true
 
-    return true
+    self.Combat.Toggles.Control.Reset()
+
   end
-  return false
+  return true
 end
 
 function self.Combat.Toggles.Ninja.Opener(toggleOn)

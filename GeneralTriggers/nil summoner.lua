@@ -18,15 +18,13 @@ local obj1 = {
 \
 -- *************************************************************************************\
 \
---[[ ** Verson 3 **\
+--[[ ** Verson 3 - beta **\
 * filter added to `onentitychanneling` to ignore friendly targets\
 * cleaned up code to make it more readable and simplify fall through\
 * added on death monitor and updated general reactions to check the time\
+* updated to new api, and reset toggles added\
 ]]\
 \
---[[ ** Verson 2 **\
-* massive refactor\
-]]\
 ";
 		["executeType"] = 2;
 		["name"] = "smn-general-changes";
@@ -137,10 +135,7 @@ local contentTable = {\
     [882] = {\
         [18627] = 4, -- Shockwave\
     },\
-    -- The Gandof Thunder Plains\
-    [906] = {\
-        [19404] = 3.5, -- Levinforce\
-    },\
+\
     -- Cinder Drift\
     [912] = {\
         [19182] = 4, -- Screech\
@@ -187,7 +182,7 @@ end";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 27 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_smn ~= nil and xivopeners_smn.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -425,10 +420,6 @@ local contentTable = {\
     [903] = {\
         [19415] = 4, -- Superstorm\
     },\
-    -- The Gandof Thunder Plains\
-    [906] = {\
-        [19381] = 4, -- Judgment Volts\
-    },\
     -- Ashfall\
     [907] = {\
         [19447] = 4, -- Superstorm\
@@ -519,6 +510,35 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "53375433-ebd1-cf79-866e-ab6b2a66204c";
+	};
+	[7] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 9;
+		["execute"] = "if Player.job ~= 27 then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+NilsReactionLibrary.Combat.Toggles.Summoner.Reset()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["name"] = "Reset: toggles on wipe";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "f6f62b7e-0cb9-8fd5-996e-7f4e0f8816a5";
 	};
 }
 return obj1
