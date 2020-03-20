@@ -487,6 +487,8 @@ self.used = true\
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
 end";
@@ -510,6 +512,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
 end";
@@ -713,6 +717,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
   self.used = true\
 end";
@@ -738,6 +744,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
 end";
@@ -761,6 +769,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
 end";
@@ -807,6 +817,8 @@ self.used = true\
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -862,7 +874,7 @@ self.used = true\
 			["timelineIndex"] = 34;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -1;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -20;
 			["used"] = false;
 			["uuid"] = "05dc128e-5d24-de6d-9e6c-5a851f37773d";
 		};
@@ -2342,6 +2354,96 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "8e88785b-3f0a-875f-bcbb-3edb918c2343";
+		};
+	};
+	[87] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "data.nilsPlayground.TurnOffTCJ(true)\
+self.used = true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "Turn Off TCJ";
+			["time"] = 620.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 87;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = -2;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "7e43b387-7e36-b5d2-8d7d-d6e5427b346e";
+		};
+	};
+	[88] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "data.nilsPlayground.TurnOnTCJ()\
+self.used=true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["name"] = "TCJ On";
+			["time"] = 630.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 88;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = -3;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "ab3fa4b0-ada1-b848-a3bd-e27070835c40";
 		};
 	};
 	[97] = {

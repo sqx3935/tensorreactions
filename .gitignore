@@ -1,4 +1,6 @@
 # ingnore trigger files that are not my own
 anyone*
-the*
+the_*
+thes_*
 riku*
+*.bak*

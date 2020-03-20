@@ -423,8 +423,25 @@ function self.Combat.inOpener()
   return false
 end
 
--- ** Functions around combat actions checks **
+-- ************************************ Functions around combat actions checks ******************************
+-- *                                                                                                        *
+-- *      This section is only for ability execution, actual logic will be added else where.                *
+-- *                                                                                                        *
+-- **********************************************************************************************************
 if self.Combat.Actions == nil then self.Combat.Actions = {} end
+
+-- ** Astrologian Only Actions ******************************************************************************
+function self.Combat.Actions.CelestialIntersection()
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 16556)
+  if actionskill:IsReady(Player.id) == false then return false end
+
+  if not Player.job == self.jobs.Astrologian.id then return false end
+  if self.Combat.oGCDSafe == false then return false end
+  actionskill:Cast(Player.id)
+  return true
+end
+-- **********************************************************************************************************
 
 -- ** Ninja Only Actions ************************************************************************************
 function self.Combat.Actions.ShadeShift()
@@ -476,7 +493,7 @@ function self.Combat.Actions.Mantra()
 end
 -- **********************************************************************************************************
 
--- ** Melee jobs ********************************************************************************************
+-- ** Melee jobs ONLY ***************************************************************************************
 function self.Combat.Actions.Feint()
   -- check that target does not already have fient
   local target = Player:GetTarget()
@@ -523,6 +540,63 @@ function self.Combat.Actions.TrueNorth()
     return true
   end
   return false
+end
+
+function self.Combat.Actions.LegSweep()
+  -- check that target does not already have stun
+  local target = Player:GetTarget()
+  if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 2) then return false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 7863)
+  if actionskill:IsReady(target.id) == false then
+    return false
+  end
+
+  if Player.job == self.jobs.Ninja.id then
+    if self.Ninja.IsDoingMudra() or self.Combat.inOpener() or self.Combat.oGCDSafe == false then return false end
+    -- if sally installed, use hotbar, otherwise use base
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.LegSweep.enabled = false else actionskill:Cast(target.id) end
+    return true
+  elseif Player.job == self.jobs.Samurai.id then
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.LegSweep.enabled = false else actionskill:Cast(target.id) end
+    return true
+  elseif Player.job == self.jobs.Dragoon.id then
+    actionskill:Cast(target.id)
+    return true
+  elseif Player.job == self.jobs.Monk.id then
+    actionskill:Cast(target.id)
+    return true
+  end
+end
+-- **********************************************************************************************************
+
+-- ** Tank jobs ONLY ***************************************************************************************
+function self.Combat.Actions.LowBlow()
+  -- check that target does not already have stun
+  local target = Player:GetTarget()
+  if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 2) then return false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 7540)
+  if actionskill:IsReady(target.id) == false then
+    return false
+  end
+
+  if Player.job == self.jobs.DarkKnight.id then
+    -- if sally installed, use hotbar, otherwise use base
+    if self.WhichArc() == self.arcs.SallyDRK then SallyDRK.HotBarConfig.LowBlow.enabled = false else actionskill:Cast(target.id) end
+    return true
+  elseif Player.job == self.jobs.Warrior.id then
+    if self.WhichArc() == self.arcs.SallyWAR then SallyWAR.HotBarConfig.LowBlow.enabled = false else actionskill:Cast(target.id) end
+    return true
+  elseif Player.job == self.jobs.Paladin.id then
+    actionskill:Cast(target.id)
+    return true
+  elseif Player.job == self.jobs.Gunbreaker.id then
+    actionskill:Cast(target.id)
+    return true
+  end
 end
 -- **********************************************************************************************************
 

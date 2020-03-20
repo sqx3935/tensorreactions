@@ -2200,7 +2200,7 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2258,7 +2258,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "--[[\
   * Optional reactions\
@@ -2417,7 +2417,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "-- Functional check\
 if Player.job ~= 30 or Player.incombat == false or data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true then\
