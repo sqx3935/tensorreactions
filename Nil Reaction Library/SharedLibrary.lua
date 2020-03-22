@@ -613,8 +613,9 @@ end
 -- ** Healers and Casters ***********************************************************************************
 -- entityID and remaining can be passed in, if so, it will hold using arms length until that time.
 -- assumes if you passing entity you also passin remaining
-function self.Combat.Actions.SureCast(entityID, remaining)
+function self.Combat.Actions.SureCast(entityID, remaining, spellid)
   remaining = remaining or 4
+  spellid = spellid or 0
   local interruptCast = false
 
   -- return if in opener or outside ogcd
@@ -623,10 +624,13 @@ function self.Combat.Actions.SureCast(entityID, remaining)
   if entityID ~= nil then
     local target = EntityList:Get(entityID)
     if target ~= nil and table.valid(target) and target.attackable and target.castinginfo ~= nil then
+      -- if spellid is passed in, limit knockback to that id
+      if spellid ~= 0 and target.castinginfo.castingid ~= spellid then return false, nil, nil, false, false end
+
       -- check if cast is x percent completed
       local remainder = target.castinginfo.casttime - target.castinginfo.channeltime
-      -- if remaining is < 1.3, emergency cast.
-      if remainder < 1.3 then
+      -- if remaining is < 1.4, emergency cast.
+      if remainder < 1.4 then
         interruptCast = true
       else
         if remainder > remaining then return false, nil, nil, false, false end
