@@ -314,8 +314,12 @@ function self.Combat.Actions.ShadeShift()
   if not Player.job == self.jobs.Ninja.id then return false, nil, nil, false, false end
   if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
   if self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.HotBarConfig.ShadeShift.enabled = false
-    return true, nil, nil, false, false
+    if SallyNIN.HotBarConfig.ShadeShift ~= nil then
+      SallyNIN.HotBarConfig.ShadeShift.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
   else
     return true, actionskill, Player.id, true, false
   end
@@ -342,7 +346,12 @@ function self.Combat.Actions.ThirdEye(entityID)
 
   if not Player.job == self.jobs.Samurai.id then return false, nil, nil, false, false end
   if self.WhichArc() == self.arcs.SallySAM then
-    SallySAM.HotBarConfig.ThirdEye.enabled = false
+    if SallySAM.HotBarConfig.ThirdEye ~= nil then
+      SallySAM.HotBarConfig.ThirdEye.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
     return true, nil, nil, false, false
   else
     return true, actionskill, Player.id, true, true
@@ -396,14 +405,24 @@ function self.Combat.Actions.Feint(entityID)
       if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then
-      SallyNIN.HotBarConfig.Feint.enabled = false
+      if SallyNIN.HotBarConfig.Feint ~= nil then
+        SallyNIN.HotBarConfig.Feint.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, target.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, target.id, true, false
     end
   elseif Player.job == self.jobs.Samurai.id then
     if self.WhichArc() == self.arcs.SallySAM then
-      SallySAM.HotBarConfig.Feint.enabled = false
+      if SallySAM.HotBarConfig.Feint ~= nil then
+        SallySAM.HotBarConfig.Feint.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, target.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, target.id, true, false
@@ -429,14 +448,24 @@ function self.Combat.Actions.TrueNorth()
     if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then
-      SallyNIN.HotBarConfig.TrueNorth.enabled = false
+      if SallyNIN.HotBarConfig.TrueNorth ~= nil then
+        SallyNIN.HotBarConfig.TrueNorth.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, false
     end
   elseif Player.job == self.jobs.Samurai.id then
     if self.WhichArc() == self.arcs.SallySAM then
-      SallySAM.HotBarConfig.TrueNorth.enabled = false
+      if SallySAM.HotBarConfig.TrueNorth ~= nil then
+        SallySAM.HotBarConfig.TrueNorth.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, false
@@ -467,14 +496,24 @@ function self.Combat.Actions.LegSweep(entityID)
     if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then
-      SallyNIN.HotBarConfig.LegSweep.enabled = false
+      if SallyNIN.HotBarConfig.LegSweep.enabled ~= nil then
+        SallyNIN.HotBarConfig.LegSweep.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, target.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, target.id, true, false
     end
   elseif Player.job == self.jobs.Samurai.id then
     if self.WhichArc() == self.arcs.SallySAM then
-      SallySAM.HotBarConfig.LegSweep.enabled = false
+      if SallySAM.HotBarConfig.LegSweep.enabled ~= nil then
+        SallySAM.HotBarConfig.LegSweep.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, target.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, target.id, true, false
@@ -506,14 +545,24 @@ function self.Combat.Actions.LowBlow(entityID)
   if Player.job == self.jobs.DarkKnight.id then
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyDRK then
-      SallyDRK.HotBarConfig.LowBlow.enabled = false
+      if SallyDRK.HotBarConfig.LowBlow.enabled ~= nil then
+        SallyDRK.HotBarConfig.LowBlow.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, target.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, target.id, true, false
     end
   elseif Player.job == self.jobs.Warrior.id then
     if self.WhichArc() == self.arcs.SallyWAR then
-      SallyWAR.HotBarConfig.LowBlow.enabled = false
+      if SallyWAR.HotBarConfig.LowBlow.enabled ~= nil then
+        SallyWAR.HotBarConfig.LowBlow.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, target.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, target.id, true, false
@@ -563,16 +612,24 @@ function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
     if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then
-      SallyNIN.HotBarConfig.ArmsLength.enabled = false
+      if SallyNIN.HotBarConfig.Armslength.enabled ~= nil then
+        SallyNIN.HotBarConfig.Armslength.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, interruptCast
     end
   elseif Player.job == self.jobs.Samurai.id then
     if self.WhichArc() == self.arcs.SallySAM then
-      --self.Log(tostring(self.WhichArc()))
-      --self.Log(tostring(SallySAM.HotBarConfig))
-      SallySAM.HotBarConfig.Armslength.enabled = false
+      if SallySAM.HotBarConfig.Armslength.enabled ~= nil then
+        SallySAM.HotBarConfig.Armslength.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, interruptCast
@@ -585,7 +642,12 @@ function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
     return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Warrior.id then
     if self.WhichArc() == self.arcs.SallyWAR then
-      SallyWAR.HotBarConfig.ArmsLength.enabled = false
+      if SallyWAR.HotBarConfig.Armslength.enabled ~= nil then
+        SallyWAR.HotBarConfig.Armslength.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, interruptCast
@@ -600,7 +662,13 @@ function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
     return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Dancer.id then
     if self.WhichArc() == self.arcs.SallyDNC then
-      SallyDNC.HotBarConfig.ArmsLength.enabled = false
+      if SallyDNC.HotBarConfig.Armslength.enabled ~= nil then
+        SallyDNC.HotBarConfig.Armslength.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, interruptCast
@@ -648,7 +716,7 @@ function self.Combat.Actions.SureCast(entityID, remaining, spellid)
     return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Summoner.id then
     -- if tensor installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.TensorRequiem then
+    if self.WhichArc() == self.arcs.TensorRuin then
       ACR_TensorRuin_Hotbar_Surecast = true
       return true, nil, nil, false, false
     else
@@ -660,7 +728,13 @@ function self.Combat.Actions.SureCast(entityID, remaining, spellid)
     return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.RedMage.id then
     if self.WhichArc() == self.arcs.SallyRDM then
-      SallyRDM.HotBarConfig.SureCast.enabled = false
+      if SallyRDM.HotBarConfig.SureCast.enabled ~= nil then
+        SallyRDM.HotBarConfig.SureCast.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, interruptCast
@@ -689,7 +763,7 @@ function self.Combat.Actions.Addle(entityID)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.TensorRequiem then
+    if self.WhichArc() == self.arcs.TensorRuin then
       ACR_TensorRuin_Hotbar_Addle = true
       return true, nil, nil, false, false
     else
@@ -700,7 +774,13 @@ function self.Combat.Actions.Addle(entityID)
   elseif Player.job == self.jobs.RedMage.id then
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyRDM then
-      SallyRDM.HotBarConfig.Addle.enabled = false
+      if SallyRDM.HotBarConfig.Addle.enabled ~= nil then
+        SallyRDM.HotBarConfig.Addle.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, target.id, true, false
+      end
+
       return true, nil, nil, false, false
     else
       return true, actionskill, target.id, true, false
@@ -737,14 +817,26 @@ function self.Combat.Actions.Sprint()
     if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then
-      SallyNIN.HotBarConfig.Sprint.enabled = false
+      if SallyNIN.HotBarConfig.Sprint.enabled ~= nil then
+        SallyNIN.HotBarConfig.Sprint.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, false
     end
   elseif Player.job == self.jobs.Samurai.id then
     if self.WhichArc() == self.arcs.SallySAM then
-      SallySAM.HotBarConfig.Sprint.enabled = false
+      if SallySAM.HotBarConfig.Sprint.enabled ~= nil then
+        SallySAM.HotBarConfig.Sprint.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, false
@@ -757,7 +849,13 @@ function self.Combat.Actions.Sprint()
     return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Warrior.id then
     if self.WhichArc() == self.arcs.SallyWAR then
-      SallyWAR.HotBarConfig.Sprint.enabled = false
+      if SallyWAR.HotBarConfig.Sprint.enabled ~= nil then
+        SallyWAR.HotBarConfig.Sprint.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, false
@@ -772,7 +870,13 @@ function self.Combat.Actions.Sprint()
     return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Dancer.id then
     if self.WhichArc() == self.arcs.SallyDNC then
-      SallyDNC.HotBarConfig.Sprint.enabled = false
+      if SallyDNC.HotBarConfig.Sprint.enabled ~= nil then
+        SallyDNC.HotBarConfig.Sprint.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+
       return true, nil, nil, false, false
     else
       return true, actionskill, Player.id, true, false
@@ -926,7 +1030,7 @@ function self.Combat.Toggles.Summoner.CD(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_CD = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_CD = toggleOn return true end
   end
   return false
 end
@@ -936,7 +1040,7 @@ function self.Combat.Toggles.Summoner.PetCD(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_PetCD = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_PetCD = toggleOn return true end
   end
   return false
 end
@@ -946,7 +1050,7 @@ function self.Combat.Toggles.Summoner.AOE(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_AOE = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_AOE = toggleOn return true end
   end
   return false
 end
@@ -956,7 +1060,7 @@ function self.Combat.Toggles.Summoner.Fester(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Fester = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_Fester = toggleOn return true end
   end
   return false
 end
@@ -966,7 +1070,7 @@ function self.Combat.Toggles.Summoner.DWT(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_DW = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_DW = toggleOn return true end
   end
   return false
 end
@@ -976,7 +1080,7 @@ function self.Combat.Toggles.Summoner.Demi(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Demi = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_Demi = toggleOn return true end
   end
   return false
 end
@@ -986,7 +1090,7 @@ function self.Combat.Toggles.Summoner.Aetehrpact(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Aetherpact = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_Aetherpact = toggleOn return true end
   end
   return false
 end
@@ -996,7 +1100,7 @@ function self.Combat.Toggles.Summoner.EnergyDrain(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_EnergyDrain = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_EnergyDrain = toggleOn return true end
   end
   return false
 end
@@ -1006,7 +1110,7 @@ function self.Combat.Toggles.Summoner.DoTs(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_DoTs = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_DoTs = toggleOn return true end
   end
   return false
 end
@@ -1017,7 +1121,7 @@ function self.Combat.Toggles.Summoner.BurnR4(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_BurnR4 = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_BurnR4 = toggleOn return true end
   end
   return false
 end
@@ -1027,7 +1131,7 @@ function self.Combat.Toggles.Summoner.HoldAOE(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_HoldAOE = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_HoldAOE = toggleOn return true end
   end
   return false
 end
@@ -1037,7 +1141,7 @@ function self.Combat.Toggles.Summoner.SmartAOE(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SmartAOE = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_SmartAOE = toggleOn return true end
   end
   return false
 end
@@ -1047,7 +1151,7 @@ function self.Combat.Toggles.Summoner.SmartDoT(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SmartDoT = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_SmartDoT = toggleOn return true end
   end
   return false
 end
@@ -1057,7 +1161,7 @@ function self.Combat.Toggles.Summoner.SmartBane(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SmartBane = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_SmartBane = toggleOn return true end
   end
   return false
 end
@@ -1067,7 +1171,7 @@ function self.Combat.Toggles.Summoner.Potion(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Potion = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_Potion = toggleOn return true end
   end
   return false
 end
@@ -1077,7 +1181,7 @@ function self.Combat.Toggles.Summoner.HardRes(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_HardRes = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_HardRes = toggleOn return true end
   end
   return false
 end
@@ -1087,7 +1191,7 @@ function self.Combat.Toggles.Summoner.SwiftRes(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SwiftRes = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_SwiftRes = toggleOn return true end
   end
   return false
 end
@@ -1097,7 +1201,7 @@ function self.Combat.Toggles.Summoner.SwiftR3(toggleOn)
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_SwiftR3 = toggleOn return true end
+    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_SwiftR3 = toggleOn return true end
   end
   return false
 end
@@ -1430,6 +1534,213 @@ function self.Combat.Toggles.Ninja.Helpers.TurnOnTCJ()
   end
 end
 
+-- ** Samurai *************************************************************************************************
+if self.Combat.Toggles.Samurai == nil then self.Combat.Toggles.Samurai = {} end
+
+function self.Combat.Toggles.Samurai.Reset()
+  if self.WhichArc() == self.arcs.SallySAM then
+    -- reset hotbar
+    SallySAM.HotBarConfig.Armslength.enabled = true
+    SallySAM.HotBarConfig.Bloodbath.enabled = true
+    SallySAM.HotBarConfig.Feint.enabled = true
+    SallySAM.HotBarConfig.Gyoten.enabled = true
+    SallySAM.HotBarConfig.Hagakure.enabled = true
+    SallySAM.HotBarConfig.Kaiten.enabled = true
+    SallySAM.HotBarConfig.LB.enabled = true
+    SallySAM.HotBarConfig.LegSweep.enabled = true
+    SallySAM.HotBarConfig.Meditate.enabled = true
+    SallySAM.HotBarConfig.Meikyo.enabled = true
+    SallySAM.HotBarConfig.Potion.enabled = true
+    SallySAM.HotBarConfig.SecondWind.enabled = true
+    SallySAM.HotBarConfig.Sprint.enabled = true
+    SallySAM.HotBarConfig.ThirdEye.enabled = true
+    SallySAM.HotBarConfig.TrueNorth.enabled = true
+    SallySAM.HotBarConfig.Yaten.enabled = true
+
+    -- reset quick toggles
+    SallySAM.SkillSettings.Guren.enabled = true
+    SallySAM.SkillSettings.Hagakure.enabled = true
+    SallySAM.SkillSettings.Higanbana.enabled = true
+    SallySAM.SkillSettings.Ikishoten.enabled = true
+    SallySAM.SkillSettings.Kaiten.enabled = true
+    SallySAM.SkillSettings.Kyuten.enabled = true
+    SallySAM.SkillSettings.Meikyo.enabled = true
+    SallySAM.SkillSettings.Opener.enabled = true 
+    -- SallySAM.SkillSettings.Potion.enabled = true
+    SallySAM.SkillSettings.SaveCD.enabled = false
+    SallySAM.SkillSettings.Senei.enabled = true
+    SallySAM.SkillSettings.Shinten.enabled = true
+    SallySAM.SkillSettings.Shoha.enabled = true
+    SallySAM.SkillSettings.SmartTrueNorth.enabled = true
+    SallySAM.SkillSettings.Tsubame.enabled = true
+    SallySAM.SkillSettings.UseAOE.enabled = true
+
+    self.Combat.Toggles.Control.Reset()
+  end
+  return true
+end
+
+function self.Combat.Toggles.Samurai.Opener(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Opener.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.SaveCD(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.SaveCD.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Guren(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Guren.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Hagakure(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Hagakure.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Higanbana(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Higanbana.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Ikishoten(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Ikishoten.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Kaiten(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Kaiten.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Kyuten(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Kyuten.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Meikyo(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Meikyo.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Potion(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Potion.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Senei(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Senei.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Shinten(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Shinten.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Shoha(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Shoha.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.SmartTrueNorth.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.Tsubame(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.Tsubame.enabled = toggleOn return true end
+  end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.UseAOE(toggleOn)
+  toggleOn = toggleOn or true
+
+  if Player.job == self.jobs.Samurai.id then
+    -- if tensor installed
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.UseAOE.enabled = toggleOn return true end
+  end
+  return false
+end
+
+-- **********************************************************************************************************
 
 -- **********************************************************************************************************
 

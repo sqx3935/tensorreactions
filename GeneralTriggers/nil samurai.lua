@@ -539,11 +539,6 @@ local contentTable = {\
     [882] = {\
         [18627] = 4, -- Shockwave\
     },\
-    -- The Gandof Thunder Plains\
-    [906] = {\
-        [19404] = 3.5, -- Levinforce\
-    },\
-    -- Cinder Drift (use timeline)\
 }\
 \
 local localmapid = Player.localmapid\
@@ -1304,18 +1299,6 @@ local contentTable = {\
 								[19326] = 2, -- Falling Water \
 								[19328] = 2, -- Flying Fount\
 				},\
-    -- Ashfall\
-    [903] = {\
-        [19415] = 2, -- Superstorm\
-    },\
-    -- Ashfall\
-    [907] = {\
-        [19447] = 2, -- Superstorm\
-        [19456] = 2, -- Storm of Fury\
-        [19465] = 2, -- Touchdown\
-        [19476] = 2, -- Inferno Howl\
-        [19448] = 2, -- Firestorm\
-    }\
 }\
 \
 local localmapid = Player.localmapid\
@@ -1449,50 +1432,13 @@ end";
 		};
 		["enabled"] = false;
 		["eventType"] = 9;
-		["execute"] = "if Player.job ~= 34 or SallySAM == nil then\
+		["execute"] = "if Player.job ~= 34 then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
 		return nil\
 end\
 \
--- reset hotbar\
-SallySAM.HotBarConfig.Armslength.enabled = true\
-SallySAM.HotBarConfig.Bloodbath.enabled = true\
-SallySAM.HotBarConfig.Feint.enabled = true\
-SallySAM.HotBarConfig.Gyoten.enabled = true\
-SallySAM.HotBarConfig.Hagakure.enabled = true\
-SallySAM.HotBarConfig.Kaiten.enabled = true\
-SallySAM.HotBarConfig.LB.enabled = true\
-SallySAM.HotBarConfig.LegSweep.enabled = true\
-SallySAM.HotBarConfig.Meditate.enabled = true\
-SallySAM.HotBarConfig.Meikyo.enabled = true\
-SallySAM.HotBarConfig.Potion.enabled = true\
-SallySAM.HotBarConfig.SecondWind.enabled = true\
-SallySAM.HotBarConfig.Sprint.enabled = true\
-SallySAM.HotBarConfig.ThirdEye.enabled = true\
-SallySAM.HotBarConfig.TrueNorth.enabled = true\
-SallySAM.HotBarConfig.Yaten.enabled = true\
-\
--- reset quick toggles\
-SallySAM.SkillSettings.Guren.enabled = true\
-SallySAM.SkillSettings.Hagakure.enabled = true\
-SallySAM.SkillSettings.Higanbana.enabled = true\
-SallySAM.SkillSettings.Ikishoten.enabled = true\
-SallySAM.SkillSettings.Kaiten.enabled = true\
-SallySAM.SkillSettings.Kyuten.enabled = true\
-SallySAM.SkillSettings.Meikyo.enabled = true\
-SallySAM.SkillSettings.Opener.enabled = false -- \
-\
--- SallySAM.SkillSettings.Potion.enabled = true\
-\
-SallySAM.SkillSettings.SaveCD.enabled = false -- \
-SallySAM.SkillSettings.Senei.enabled = true\
-SallySAM.SkillSettings.Shinten.enabled = true\
-SallySAM.SkillSettings.Shoha.enabled = true\
-SallySAM.SkillSettings.SmartTrueNorth.enabled = true\
-SallySAM.SkillSettings.Tsubame.enabled = true\
-SallySAM.SkillSettings.UseAOE.enabled = true\
-\
+NilsReactionLibrary.Combat.Toggles.Samurai.Reset()\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
