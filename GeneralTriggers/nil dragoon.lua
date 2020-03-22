@@ -32,6 +32,7 @@ local obj1 = {
 ]]\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "drg-general-changes";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -60,6 +61,7 @@ local obj1 = {
 				["gVarIndex"] = 1;
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -225,6 +227,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to hand when doll is 22%";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -253,6 +256,7 @@ local obj1 = {
 				["gVarIndex"] = 1;
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -418,6 +422,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to living liquid when doll is 22%";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -438,6 +443,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "-- Actions --";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -535,6 +541,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Leg Sweep";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -655,6 +662,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Knockback";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -735,6 +743,7 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Stop Casting";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -894,6 +903,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Feint";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -978,6 +988,7 @@ self.used = true\
 return nil\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Self Heal";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1054,6 +1065,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Dragon Eye";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1122,6 +1134,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Battle Litany";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1155,6 +1168,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Reset: on death";
 		["time"] = 0;
 		["timeRange"] = false;

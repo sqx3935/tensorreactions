@@ -26,6 +26,7 @@ local obj1 = {
 -- added all the stuff";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "samurai-timeline-e6s-changes";
 			["time"] = 18;
 			["timeRange"] = false;
@@ -36,130 +37,6 @@ local obj1 = {
 			["used"] = false;
 			["uuid"] = "3e34578c-3e0d-3dbf-b2c9-7a74145669df";
 		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "-- checks and loads dependancy functions in the event that you do not have my general dependancies loaded.\
-\
-if data.nilsPlayground == nil then data.nilsPlayground = {} end\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-  \
-  function data.nilsPlayground.CustomConditionChecks.inOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true then\
-      return true\
-    end\
-  \
-    -- checks to see if sally is installed and if its opener is running\
-    if SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true then\
-      return true\
-    end\
-  \
-    -- if xivopener is not running nor sally sam opener, then return false that it is safe to execute.\
-    return false\
-  end\
-  \
-  -- ** Abilities activation **\
-  \
-  if data.nilsPlayground.ExecuteShadeShift == nil then\
-    function data.nilsPlayground.ExecuteShadeShift()\
-      \
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      -- ignore if have scholar shield\
-      if HasBuff(Player.id,297) or Player.hp.percent > 75 then return false end\
-  \
-      local actionskill = ActionList:Get(1, 2241)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-  \
-      -- if sally installed, use hotbar, otherwise use base\
-       if SallySAM ~= nil then SallySAM.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast(Player.id) end \
-      return true\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteFeint == nil then\
-    function data.nilsPlayground.ExecuteFeint()\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local target = Player:GetTarget()\
-      if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end\
-  \
-      local actionskill = ActionList:Get(1, 7549)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      \
-      -- if sally installed, use hotbar, otherwise use base\
-  		  if SallySAM ~= nil then SallySAM.HotBarConfig.Feint.enabled = false else	actionskill:Cast(target.id) end\
-      return true\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteArmsLength == nil then\
-    function data.nilsPlayground.ExecuteArmsLength()\
-\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local actionskill = ActionList:Get(1, 7548)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-    		if SallySAM ~= nil then SallySAM.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end\
-      if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteThirdEye == nil then\
-    function data.nilsPlayground.ExecuteThirdEye()\
-\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local actionskill = ActionList:Get(1, 7498)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-  		if SallySAM ~= nil then SallySAM.HotBarConfig.ThirdEye.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-\
-  if data.nilsPlayground.ExecuteSprint == nil then\
-    function data.nilsPlayground.ExecuteSprint()\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-  \
-      local actionskill = ActionList:Get(1, 3)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-      if SallySAM ~= nil then SallySAM.HotBarConfig.Sprint.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteTrueNorth == nil then\
-    function data.nilsPlayground.ExecuteTrueNorth()\
-      if HasBuff(Player.id, 1250) or data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-  \
-      local actionskill = ActionList:Get(1, 7546)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-      if SallySAM ~= nil then SallySAM.HotBarConfig.TrueNorth.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-\
-  -- ***************************\
-  \
-  d(\"timeline dependancy loaded\")\
-  self.used = true";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Dependancies";
-			["time"] = 18;
-			["timeRange"] = true;
-			["timelineIndex"] = 2;
-			["timerEndOffset"] = 14;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "36505a5d-4d25-2946-8bf3-c664a5b55853";
-		};
 	};
 	[6] = {
 		[1] = {
@@ -168,11 +45,12 @@ if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.Cus
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 46.8;
 			["timeRange"] = true;
@@ -191,11 +69,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteArmsLength() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Knockback() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Arm's Length";
 			["time"] = 73.6;
 			["timeRange"] = true;
@@ -214,11 +93,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 76.1;
 			["timeRange"] = true;
@@ -233,6 +113,30 @@ end";
 	[17] = {
 		[1] = {
 			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Third Eye";
+			["time"] = 122;
+			["timeRange"] = true;
+			["timelineIndex"] = 17;
+			["timerEndOffset"] = 5;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "bb73e19f-ebdd-1eb3-9add-df75504f782b";
+		};
+	};
+	[18] = {
+		[1] = {
+			["actions"] = {
 				[1] = {
 					["aType"] = 3;
 					["actionID"] = -1;
@@ -241,11 +145,12 @@ end";
 					["conditions"] = {
 						[1] = 1;
 					};
-					["endIfUsed"] = true;
+					["endIfUsed"] = false;
 					["gVar"] = "";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -297,36 +202,16 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
-			["time"] = 122;
+			["time"] = 122.5;
 			["timeRange"] = true;
-			["timelineIndex"] = 17;
-			["timerEndOffset"] = 4;
+			["timelineIndex"] = 18;
+			["timerEndOffset"] = 10;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -10;
 			["used"] = false;
-			["uuid"] = "715bf90b-ffcf-5931-83ae-f49b6a5d6483";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Third Eye";
-			["time"] = 122;
-			["timeRange"] = true;
-			["timelineIndex"] = 17;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "bb73e19f-ebdd-1eb3-9add-df75504f782b";
+			["uuid"] = "b019702d-f855-a4f2-b216-da2428881712";
 		};
 	};
 	[22] = {
@@ -336,11 +221,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 147.1;
 			["timeRange"] = true;
@@ -359,11 +245,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 159.2;
 			["timeRange"] = true;
@@ -396,6 +283,7 @@ end\
 self.used = table.size(markedClones) >= 4";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "draw aoe";
 			["time"] = 184.7;
 			["timeRange"] = true;
@@ -414,11 +302,12 @@ self.used = table.size(markedClones) >= 4";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 235.7;
 			["timeRange"] = true;
@@ -446,6 +335,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -497,13 +387,14 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 245.1;
 			["timeRange"] = true;
 			["timelineIndex"] = 37;
-			["timerEndOffset"] = 4;
+			["timerEndOffset"] = 10;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -10;
 			["used"] = false;
 			["uuid"] = "fb043333-1cfd-c177-829f-a8c46e6f682b";
 		};
@@ -515,11 +406,12 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 248.4;
 			["timeRange"] = true;
@@ -538,11 +430,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 276.9;
 			["timeRange"] = true;
@@ -554,6 +447,86 @@ end";
 			["uuid"] = "c700aebb-98bc-c607-a643-e00b0508b287";
 		};
 	};
+	[59] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 3;
+					["actionID"] = -1;
+					["actionLua"] = "";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 1;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
+					["setTarget"] = true;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 5;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = -1;
+					["category"] = 4;
+					["comparator"] = 1;
+					["conditionLua"] = "if not Player:GetTarget() then return true end\
+return false";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "target boss";
+			["time"] = 324.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 59;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 1.375;
+			["timerStartOffset"] = -10;
+			["used"] = false;
+			["uuid"] = "69ddd12b-3ae3-5b37-94c4-80d21d7a300e";
+		};
+	};
 	[66] = {
 		[1] = {
 			["actions"] = {
@@ -561,11 +534,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 376.5;
 			["timeRange"] = true;
@@ -584,11 +558,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 384.1;
 			["timeRange"] = true;
@@ -621,6 +596,7 @@ end\
 self.used = table.size(markedClones) >= 4";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "draw aoe";
 			["time"] = 394.8;
 			["timeRange"] = true;
@@ -639,11 +615,12 @@ self.used = table.size(markedClones) >= 4";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 423;
 			["timeRange"] = true;
@@ -662,11 +639,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteArmsLength() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Knockback() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Arm's Length";
 			["time"] = 436.7;
 			["timeRange"] = true;
@@ -678,166 +656,7 @@ end";
 			["uuid"] = "a69e91d0-fe99-2839-98e1-0aa32a1ab950";
 		};
 	};
-	[91] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Third Eye";
-			["time"] = 472.8;
-			["timeRange"] = true;
-			["timelineIndex"] = 91;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "cbbaf8c6-c183-6e3d-a1e1-e3d7ca1f8c8c";
-		};
-	};
-	[94] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Third Eye";
-			["time"] = 494.7;
-			["timeRange"] = true;
-			["timelineIndex"] = 94;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "a07e1afa-96df-cab3-9fcc-bea7f033cbdb";
-		};
-	};
-	[97] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Third Eye";
-			["time"] = 509.4;
-			["timeRange"] = true;
-			["timelineIndex"] = 97;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "58893257-3634-481b-98cc-5fc8524ebd41";
-		};
-	};
-	[103] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Third Eye";
-			["time"] = 546.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 103;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "181724d9-9587-f7f4-a221-884f054a4a7f";
-		};
-	};
-	[111] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Feint";
-			["time"] = 568.7;
-			["timeRange"] = true;
-			["timelineIndex"] = 111;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "13f04058-c8b1-5764-958d-bc2bfe1f7c85";
-		};
-	};
-	[114] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteArmsLength() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Arm's Length";
-			["time"] = 603.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 114;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "0f7eefd2-45c6-a1cf-a03f-dc7562837ffd";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteTrueNorth() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "True North";
-			["time"] = 603.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 114;
-			["timerEndOffset"] = 20;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "15452346-5508-512f-86bf-42cb8f46e933";
-		};
-	};
-	[115] = {
+	[79] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -848,11 +667,12 @@ end";
 					["conditions"] = {
 						[1] = 1;
 					};
-					["endIfUsed"] = false;
+					["endIfUsed"] = true;
 					["gVar"] = "";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -904,13 +724,260 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "target boss";
+			["time"] = 441;
+			["timeRange"] = true;
+			["timelineIndex"] = 79;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 1.375;
+			["timerStartOffset"] = -10;
+			["used"] = false;
+			["uuid"] = "83be747c-b7ac-5ce7-bd17-9f8eafd33223";
+		};
+	};
+	[91] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Third Eye";
+			["time"] = 472.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 91;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "cbbaf8c6-c183-6e3d-a1e1-e3d7ca1f8c8c";
+		};
+	};
+	[94] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Third Eye";
+			["time"] = 494.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 94;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "a07e1afa-96df-cab3-9fcc-bea7f033cbdb";
+		};
+	};
+	[97] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Third Eye";
+			["time"] = 509.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 97;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "58893257-3634-481b-98cc-5fc8524ebd41";
+		};
+	};
+	[103] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Third Eye";
+			["time"] = 546.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 103;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "181724d9-9587-f7f4-a221-884f054a4a7f";
+		};
+	};
+	[111] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Feint";
+			["time"] = 568.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 111;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "13f04058-c8b1-5764-958d-bc2bfe1f7c85";
+		};
+	};
+	[114] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ArmsLength() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Arm's Length";
+			["time"] = 603.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 114;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "0f7eefd2-45c6-a1cf-a03f-dc7562837ffd";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.TrueNorth() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "True North";
+			["time"] = 603.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 114;
+			["timerEndOffset"] = 20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "15452346-5508-512f-86bf-42cb8f46e933";
+		};
+	};
+	[115] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 3;
+					["actionID"] = -1;
+					["actionLua"] = "";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 1;
+					};
+					["endIfUsed"] = false;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
+					["setTarget"] = true;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 5;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = -1;
+					["category"] = 4;
+					["comparator"] = 1;
+					["conditionLua"] = "if not Player:GetTarget() then return true end\
+return false";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 619.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 115;
 			["timerEndOffset"] = 10;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -3;
+			["timerStartOffset"] = -10;
 			["used"] = false;
 			["uuid"] = "c5a363d1-8604-2324-8069-e5722030d19e";
 		};

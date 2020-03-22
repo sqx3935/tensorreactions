@@ -39,6 +39,7 @@ local obj1 = {
 ]]\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "samurai-general-changes";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -67,6 +68,7 @@ local obj1 = {
 				["gVarIndex"] = 1;
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -232,6 +234,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to hand when doll is 22%";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -260,6 +263,7 @@ local obj1 = {
 				["gVarIndex"] = 1;
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -425,6 +429,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to living liquid when doll is 22%";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -445,6 +450,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "-- Actions --";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -461,7 +467,7 @@ local obj1 = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -564,6 +570,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Knockback";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -666,6 +673,7 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Stop Casting";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -828,6 +836,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Feint";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -844,7 +853,7 @@ end";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -925,6 +934,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Leg Sweep";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1011,6 +1021,7 @@ self.used = true\
 return nil\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Self Heal";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1056,6 +1067,7 @@ local contentTable = {\
 				-- test , tempest, Tempest Swallow\
 				[818] = {\
 						[17336] = 2,\
+[7494] =2,\
 				},\
     -- The Royal City of Rabanastre\
     [734] = {\
@@ -1322,17 +1334,22 @@ if not contentTable[localmapid][eventArgs.spellID] then\
 		return nil\
 end\
 \
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		\
-		-- if sally installed, use hotbar, otherwise use base\
-		if SallySAM ~= nil then SallySAM.HotBarConfig.ThirdEye.enabled = false else	actionskill:Cast(Player.id) end\
-\
+if NilsReactionLibrary.Combat.Actions.ThirdEye(eventArgs.entityID) == true then\
   self.eventConditionMismatch = true -- suppressing the log\
   self.used = true\
   return nil\
-end";
+end \
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+-- if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		\
+		-- if sally installed, use hotbar, otherwise use base\
+		--if SallySAM ~= nil then SallySAM.HotBarConfig.ThirdEye.enabled = false else	actionskill:Cast(Player.id) end\
+\
+  \
+--end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Third Eye";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1413,6 +1430,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Yaten";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1429,7 +1447,7 @@ end";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 9;
 		["execute"] = "if Player.job ~= 34 or SallySAM == nil then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -1479,6 +1497,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Reset: toggles on wipe";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1495,9 +1514,11 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+		["execute"] = "-- NilsReactionLibrary.\
+\
+if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
 \
 if Player.job ~= 34 or Player.alive == true then\
@@ -1532,6 +1553,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Reset: on death";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1552,6 +1574,7 @@ return nil";
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "-- Experimental --";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1668,6 +1691,7 @@ return nil\
 \
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "QT: Omni Whitelist";
 		["time"] = 0;
 		["timeRange"] = false;

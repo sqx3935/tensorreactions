@@ -16,6 +16,7 @@ local obj1 = {
 -- added all the stuff";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "samurai-timeline-e8s-changes";
 			["time"] = 16;
 			["timeRange"] = false;
@@ -26,130 +27,6 @@ local obj1 = {
 			["used"] = false;
 			["uuid"] = "9e9bb6c0-9fb7-869b-87bc-ef3f619721f9";
 		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "-- checks and loads dependancy functions in the event that you do not have my general dependancies loaded.\
-\
-if data.nilsPlayground == nil then data.nilsPlayground = {} end\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-  \
-  function data.nilsPlayground.CustomConditionChecks.inOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true then\
-      return true\
-    end\
-  \
-    -- checks to see if sally is installed and if its opener is running\
-    if SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true then\
-      return true\
-    end\
-  \
-    -- if xivopener is not running nor sally sam opener, then return false that it is safe to execute.\
-    return false\
-  end\
-  \
-  -- ** Abilities activation **\
-  \
-  if data.nilsPlayground.ExecuteShadeShift == nil then\
-    function data.nilsPlayground.ExecuteShadeShift()\
-      \
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      -- ignore if have scholar shield\
-      if HasBuff(Player.id,297) or Player.hp.percent > 75 then return false end\
-  \
-      local actionskill = ActionList:Get(1, 2241)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-  \
-      -- if sally installed, use hotbar, otherwise use base\
-       if SallySAM ~= nil then SallySAM.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast(Player.id) end \
-      return true\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteFeint == nil then\
-    function data.nilsPlayground.ExecuteFeint()\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local target = Player:GetTarget()\
-      if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end\
-  \
-      local actionskill = ActionList:Get(1, 7549)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      \
-      -- if sally installed, use hotbar, otherwise use base\
-  		  if SallySAM ~= nil then SallySAM.HotBarConfig.Feint.enabled = false else	actionskill:Cast(target.id) end\
-      return true\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteArmsLength == nil then\
-    function data.nilsPlayground.ExecuteArmsLength()\
-\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local actionskill = ActionList:Get(1, 7548)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-    		if SallySAM ~= nil then SallySAM.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end\
-      if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteThirdEye == nil then\
-    function data.nilsPlayground.ExecuteThirdEye()\
-\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local actionskill = ActionList:Get(1, 7498)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-  		if SallySAM ~= nil then SallySAM.HotBarConfig.ThirdEye.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-\
-  if data.nilsPlayground.ExecuteSprint == nil then\
-    function data.nilsPlayground.ExecuteSprint()\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-  \
-      local actionskill = ActionList:Get(1, 3)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-      if SallySAM ~= nil then SallySAM.HotBarConfig.Sprint.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteTrueNorth == nil then\
-    function data.nilsPlayground.ExecuteTrueNorth()\
-      if HasBuff(Player.id, 1250) or data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-  \
-      local actionskill = ActionList:Get(1, 7546)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-      if SallySAM ~= nil then SallySAM.HotBarConfig.TrueNorth.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-\
-  -- ***************************\
-  \
-  d(\"timeline dependancy loaded\")\
-  self.used = true";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Dependancies";
-			["time"] = 16;
-			["timeRange"] = true;
-			["timelineIndex"] = 2;
-			["timerEndOffset"] = 14;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "cd6d5b40-924c-c3bd-8538-31ce28f356a6";
-		};
 	};
 	[8] = {
 		[1] = {
@@ -158,11 +35,12 @@ if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.Cus
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 63.7;
 			["timeRange"] = true;
@@ -181,11 +59,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 76.9;
 			["timeRange"] = true;
@@ -204,11 +83,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 101.7;
 			["timeRange"] = true;
@@ -227,11 +107,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 137.4;
 			["timeRange"] = true;
@@ -250,11 +131,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 193.3;
 			["timeRange"] = true;
@@ -281,6 +163,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -299,6 +182,7 @@ end";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "target aqueous aether";
 			["time"] = 229.2;
 			["timeRange"] = true;
@@ -325,6 +209,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -376,6 +261,7 @@ return target == nil or target.hp.current == 0";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target others";
 			["time"] = 229.2;
 			["timeRange"] = true;
@@ -385,6 +271,35 @@ return target == nil or target.hp.current == 0";
 			["timerStartOffset"] = -3;
 			["used"] = false;
 			["uuid"] = "bcf3a2cf-f6f8-4bb6-87c7-a4648951667d";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "local target = Player:GetTarget()\
+-- 2 is leg sweep stun\
+if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+  local actionskill = ActionList:Get(1, 7863)\
+  if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+  self.used = true\
+end\
+";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Leg Sweep";
+			["time"] = 229.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 37;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "b72dbea3-9265-5ea3-9036-6cd541cbcae0";
 		};
 	};
 	[39] = {
@@ -402,6 +317,7 @@ return target == nil or target.hp.current == 0";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -420,6 +336,7 @@ return target == nil or target.hp.current == 0";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "target earthen aether";
 			["time"] = 243.3;
 			["timeRange"] = true;
@@ -429,6 +346,35 @@ return target == nil or target.hp.current == 0";
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "85158bb0-b479-967e-b574-0dc799e2bf68";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "local target = Player:GetTarget()\
+-- 2 is leg sweep stun\
+if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+  local actionskill = ActionList:Get(1, 7863)\
+  if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+  self.used = true\
+end\
+";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Leg Sweep";
+			["time"] = 243.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 39;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "f42a067f-0954-a385-a6a3-303b308da25f";
 		};
 	};
 	[41] = {
@@ -446,6 +392,7 @@ return target == nil or target.hp.current == 0";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -464,6 +411,7 @@ return target == nil or target.hp.current == 0";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "target earthen aether";
 			["time"] = 257.4;
 			["timeRange"] = true;
@@ -473,6 +421,35 @@ return target == nil or target.hp.current == 0";
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "66e35501-847c-fea0-a8aa-a8948a305534";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "local target = Player:GetTarget()\
+-- 2 is leg sweep stun\
+if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+  local actionskill = ActionList:Get(1, 7863)\
+  if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+  self.used = true\
+end\
+";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Leg Sweep";
+			["time"] = 257.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 41;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "868af16f-d22d-a338-bfbc-72374ff37975";
 		};
 	};
 	[43] = {
@@ -495,6 +472,7 @@ self.used = true";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = false;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -522,6 +500,7 @@ self.used = true";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = false;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -636,6 +615,7 @@ self.used = true";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "do not suicide on electric aether";
 			["time"] = 271.5;
 			["timeRange"] = true;
@@ -645,6 +625,35 @@ self.used = true";
 			["timerStartOffset"] = -1;
 			["used"] = false;
 			["uuid"] = "bf0ba20a-64b8-33f6-828c-2efa7cf73e8f";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "local target = Player:GetTarget()\
+-- 2 is leg sweep stun\
+if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+  local actionskill = ActionList:Get(1, 7863)\
+  if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+  self.used = true\
+end\
+";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Leg Sweep";
+			["time"] = 271.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 43;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "86055179-6ea0-b74d-bc4f-8c571d5c7e23";
 		};
 	};
 	[46] = {
@@ -658,11 +667,12 @@ self.used = true";
 					["conditions"] = {
 						[1] = 1;
 					};
-					["endIfUsed"] = true;
+					["endIfUsed"] = false;
 					["gVar"] = "";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -713,14 +723,15 @@ return false";
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
-			["loop"] = false;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 350.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 46;
-			["timerEndOffset"] = 4;
+			["timerEndOffset"] = 10;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -10;
 			["used"] = false;
 			["uuid"] = "a727f3ad-0f26-62b7-81d4-1c92d299a204";
 		};
@@ -732,11 +743,12 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 368.6;
 			["timeRange"] = true;
@@ -755,11 +767,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 378;
 			["timeRange"] = true;
@@ -772,108 +785,6 @@ end";
 		};
 	};
 	[53] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7548;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 3;
-						[2] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[2] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 3;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7548;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["name"] = "Arm's Length";
-			["time"] = 403.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 53;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -0.95;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "84689ac9-c0e1-edf0-b474-1351c8e530c5";
-		};
 	};
 	[58] = {
 		[1] = {
@@ -882,11 +793,12 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 427.9;
 			["timeRange"] = true;
@@ -905,11 +817,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 491.6;
 			["timeRange"] = true;
@@ -928,11 +841,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 620.4;
 			["timeRange"] = true;
@@ -951,11 +865,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 630.8;
 			["timeRange"] = true;
@@ -974,11 +889,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 655.4;
 			["timeRange"] = true;
@@ -1002,6 +918,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 676.8;
 			["timeRange"] = true;
@@ -1020,11 +937,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 738.3;
 			["timeRange"] = true;
@@ -1043,11 +961,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 745.5;
 			["timeRange"] = true;
@@ -1066,11 +985,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 757.1;
 			["timeRange"] = true;
@@ -1094,6 +1014,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 764.3;
 			["timeRange"] = true;
@@ -1112,11 +1033,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 777;
 			["timeRange"] = true;
@@ -1135,11 +1057,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 784.3;
 			["timeRange"] = true;
@@ -1158,11 +1081,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 798.1;
 			["timeRange"] = true;

@@ -22,13 +22,14 @@ local obj1 = {
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 \
 \
---[[ ** Verson 1 **\
-* Thanks MattyIce and Boosted for answering questions about smn \
-* Initial release\
+--[[ ** ChangeLog **\
+* [\"1.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
+*	[\"1.1.0\"] = \"updated reaction libary for new Lua Returns actions\",\
 ]]\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "ReadME";
 			["time"] = 13;
 			["timeRange"] = false;
@@ -52,6 +53,7 @@ local obj1 = {
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 116.7;
 			["timeRange"] = true;
@@ -79,6 +81,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = false;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -129,6 +132,7 @@ end";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "reenable on stunned";
 			["time"] = 116.7;
 			["timeRange"] = true;
@@ -154,6 +158,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -204,6 +209,7 @@ end";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Retarget boss when stuned";
 			["time"] = 116.7;
 			["timeRange"] = true;
@@ -222,11 +228,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
   self.used = true\
-end";
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Addle";
 			["time"] = 139.9;
 			["timeRange"] = true;
@@ -235,7 +245,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "ef2ca6d8-f7df-7284-af3d-0af7fc99f94b";
+			["uuid"] = "f9c92bd8-ef86-a754-8be3-eff390e25049";
 		};
 	};
 	[38] = {
@@ -250,6 +260,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 177.5;
 			["timeRange"] = true;
@@ -277,6 +288,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = false;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -327,6 +339,7 @@ end";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "reenable on stunned";
 			["time"] = 177.5;
 			["timeRange"] = true;
@@ -352,6 +365,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -402,6 +416,7 @@ end";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Retarget boss when stuned";
 			["time"] = 177.5;
 			["timeRange"] = true;
@@ -425,6 +440,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 198.5;
 			["timeRange"] = true;
@@ -452,6 +468,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -503,6 +520,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 205.6;
 			["timeRange"] = true;
@@ -524,6 +542,7 @@ return false";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD On";
 			["time"] = 205.6;
 			["timeRange"] = true;
@@ -547,6 +566,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 264.3;
 			["timeRange"] = true;
@@ -574,6 +594,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = false;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -624,6 +645,7 @@ end";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "reenable on stunned";
 			["time"] = 264.3;
 			["timeRange"] = true;
@@ -649,6 +671,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -699,6 +722,7 @@ end";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Retarget boss when stuned";
 			["time"] = 264.3;
 			["timeRange"] = true;
@@ -722,6 +746,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 291.8;
 			["timeRange"] = true;
@@ -749,6 +774,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -800,6 +826,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 510.3;
 			["timeRange"] = true;
@@ -821,6 +848,7 @@ return false";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD On";
 			["time"] = 510.3;
 			["timeRange"] = true;
@@ -839,11 +867,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
   self.used = true\
-end";
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Addle";
 			["time"] = 636.2;
 			["timeRange"] = true;
@@ -852,7 +884,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "ac768dd8-5d72-063d-95d7-4be86b0e59a0";
+			["uuid"] = "b8731fac-7d16-80dd-836e-b6046dfb1a22";
 		};
 	};
 	[104] = {
@@ -867,6 +899,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 658.8;
 			["timeRange"] = true;
@@ -894,6 +927,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -945,6 +979,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 673.5;
 			["timeRange"] = true;
@@ -966,6 +1001,7 @@ return false";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD On";
 			["time"] = 673.5;
 			["timeRange"] = true;
@@ -984,11 +1020,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
   self.used = true\
-end";
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Addle";
 			["time"] = 736.6;
 			["timeRange"] = true;
@@ -997,7 +1037,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "ca610edb-5193-2491-b1dc-031d60d48ae2";
+			["uuid"] = "a480689e-bed7-46b2-bd1a-85ad65d94ab4";
 		};
 	};
 	[114] = {
@@ -1007,11 +1047,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
   self.used = true\
-end";
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Addle";
 			["time"] = 746.2;
 			["timeRange"] = true;
@@ -1020,7 +1064,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "825105a7-db78-a1d6-9025-9791ad0c8d5f";
+			["uuid"] = "1dd9bd81-5c50-3c73-a875-0b839255fad6";
 		};
 	};
 	[120] = {
@@ -1030,11 +1074,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
   self.used = true\
-end";
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Addle";
 			["time"] = 814.8;
 			["timeRange"] = true;
@@ -1043,32 +1091,11 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "ebf31de7-9bc0-384d-a3b5-f242195f9041";
+			["uuid"] = "93e653dd-1d85-3e38-b715-dfcaf3b6115d";
 		};
 	};
 	[121] = {
 		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Addle";
-			["time"] = 824.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 121;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -5;
-			["used"] = false;
-			["uuid"] = "4dc67fe5-e916-a5cd-ac26-acda6caf4564";
-		};
-		[2] = {
 			["actions"] = {
 			};
 			["conditions"] = {
@@ -1082,6 +1109,7 @@ if target ~= nil and table.valid(target) and target.attackable and target.hp.per
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Burn Boss";
 			["time"] = 824.3;
 			["timeRange"] = true;
@@ -1091,6 +1119,31 @@ end";
 			["timerStartOffset"] = -30;
 			["used"] = false;
 			["uuid"] = "87bcaf59-c714-e107-9f66-5dfe9fb42d9c";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Addle";
+			["time"] = 824.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 121;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
+			["used"] = false;
+			["uuid"] = "1203dabc-e183-d22d-bcb6-69f1154a81ea";
 		};
 	};
 	["mapID"] = 908;

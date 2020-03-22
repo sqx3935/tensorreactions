@@ -1,6 +1,6 @@
 [Module]
 Name=NilsReactionLibrary
-Dependencies=minionlib,ACR,TensorCore
+Dependencies=minionlib,ACR,TensorCore,SallyLib
 Version=1
 Files=SharedLibrary.lua
 enabled=1

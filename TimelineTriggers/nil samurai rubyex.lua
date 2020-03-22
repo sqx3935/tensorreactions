@@ -9,108 +9,36 @@ local obj1 = {
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
-			["eventArgs"] = {
-			};
-			["execute"] = "-- checks and loads dependancy functions in the event that you do not have my general dependancies loaded.\
-d(\"------------------------------\")\
-if data.nilsPlayground == nil then data.nilsPlayground = {} end\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-  \
-  function data.nilsPlayground.CustomConditionChecks.inOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true then\
-      return true\
-    end\
-  \
-    -- checks to see if sally is installed and if its opener is running\
-    if SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true then\
-      return true\
-    end\
-  \
-    -- if xivopener is not running nor sally sam opener, then return false that it is safe to execute.\
-    return false\
-  end\
-  \
-  -- ** Abilities activation **\
-    \
-  if data.nilsPlayground.ExecuteFeint == nil then\
-    function data.nilsPlayground.ExecuteFeint()\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
+			["enabled"] = false;
+			["execute"] = "-- ** Contributors **\
+--[[\
+		* Nil (maintainer)\
+]]\
 \
-      local target = Player:GetTarget()\
-      if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end\
-  \
-      local actionskill = ActionList:Get(1, 7549)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      \
-      -- if sally installed, use hotbar, otherwise use base\
-  		  if SallySAM ~= nil then SallySAM.HotBarConfig.Feint.enabled = false else	actionskill:Cast(target.id) end\
-      return true\
-    end\
-  end\
-  \
+-- *************************************************************************************\
 \
-    function data.nilsPlayground.ExecuteArmsLength()\
+-- LIBRARY REQUIRED\
 \
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
+-- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 \
-      local actionskill = ActionList:Get(1, 7548)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-    		if SallySAM ~= nil then SallySAM.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end\
-      if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
-    end\
-  \
-  if data.nilsPlayground.ExecuteThirdEye == nil then\
-    function data.nilsPlayground.ExecuteThirdEye()\
 \
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
+--[[ ** Verson 1 **\
+* Initial release\
+]]\
 \
-      local actionskill = ActionList:Get(1, 7498)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-  		if SallySAM ~= nil then SallySAM.HotBarConfig.ThirdEye.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-\
-  if data.nilsPlayground.ExecuteSprint == nil then\
-    function data.nilsPlayground.ExecuteSprint()\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-  \
-      local actionskill = ActionList:Get(1, 3)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-      if SallySAM ~= nil then SallySAM.HotBarConfig.Sprint.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteTrueNorth == nil then\
-    function data.nilsPlayground.ExecuteTrueNorth()\
-      if HasBuff(Player.id, 1250) or data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-  \
-      local actionskill = ActionList:Get(1, 7546)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-      if SallySAM ~= nil then SallySAM.HotBarConfig.TrueNorth.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-\
-  -- ***************************\
-  \
-  d(\"timeline dependancy loaded\")\
-  self.used = true";
+";
 			["executeType"] = 2;
 			["loop"] = false;
-			["name"] = "Dependancies";
+			["luaReturnsAction"] = false;
+			["name"] = "Readme";
 			["time"] = 14.5;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 2;
-			["timerEndOffset"] = 14;
+			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -20;
+			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "a4485dfd-641f-1d7e-8d24-5c239f01c882";
+			["uuid"] = "4a961ac1-9803-ff7a-b4a6-6e4bb78eb60b";
 		};
 	};
 	[14] = {
@@ -127,6 +55,7 @@ if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.Cus
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 72.6;
 			["timeRange"] = true;
@@ -147,18 +76,19 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions. == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 111.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 22;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -3;
 			["used"] = false;
 			["uuid"] = "8c3e0b9b-2ca0-1e74-9a08-e2a718d3bc2b";
 		};
@@ -172,11 +102,12 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.ExecuteThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 134.7;
 			["timeRange"] = true;
@@ -201,6 +132,7 @@ end";
 self.used = true";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "True North off";
 			["time"] = 157.6;
 			["timeRange"] = true;
@@ -226,6 +158,7 @@ self.used = true";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -279,6 +212,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 157.6;
 			["timeRange"] = true;
@@ -297,14 +231,14 @@ return false";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "local actionskill =  ActionList:Get(1, 7546)\
-if actionskill.cdmax - actionskill.cd < 1 then \
-  if SallySAM ~= nil then SallySAM.HotBarConfig.TrueNorth.enabled = true = false else	actionskill:Get(1, 7546):Cast(Player.id) end\
+			["execute"] = "if NilsReactionLibrary.Combat.TrueNorth() == true then\
   SallySAM.SkillSettings.TrueNorth.enabled = true\
   self.used = true\
-end		";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "True North and back on";
 			["time"] = 157.6;
 			["timeRange"] = true;
@@ -325,11 +259,12 @@ end		";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 196.9;
 			["timeRange"] = true;
@@ -350,11 +285,12 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 205.2;
 			["timeRange"] = true;
@@ -382,6 +318,7 @@ if actionskill.cdmax - actionskill.cd < 1 then\
 end		";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 221.4;
 			["timeRange"] = true;
@@ -402,11 +339,12 @@ end		";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 231.1;
 			["timeRange"] = true;
@@ -427,11 +365,12 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 237.1;
 			["timeRange"] = true;
@@ -452,11 +391,12 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 253.3;
 			["timeRange"] = true;
@@ -477,11 +417,12 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 292.9;
 			["timeRange"] = true;
@@ -500,11 +441,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 314.3;
 			["timeRange"] = true;
@@ -527,6 +469,7 @@ end";
 self.used = true";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "True North off";
 			["time"] = 337.2;
 			["timeRange"] = true;
@@ -552,6 +495,7 @@ self.used = true";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -603,6 +547,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 337.2;
 			["timeRange"] = true;
@@ -628,6 +573,7 @@ end		\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "True North and back on";
 			["time"] = 337.2;
 			["timeRange"] = true;
@@ -646,11 +592,12 @@ end		\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 375.5;
 			["timeRange"] = true;
@@ -669,11 +616,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 383.8;
 			["timeRange"] = true;
@@ -699,6 +647,7 @@ if actionskill.cdmax - actionskill.cd < 1 then\
 end		";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 399.9;
 			["timeRange"] = true;
@@ -717,11 +666,12 @@ end		";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 409.5;
 			["timeRange"] = true;
@@ -740,11 +690,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 415.4;
 			["timeRange"] = true;
@@ -757,131 +708,6 @@ end";
 		};
 	};
 	[75] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["eventArgs"] = {
-			};
-			["execute"] = "-- checks and loads dependancy functions in the event that you do not have my general dependancies loaded.\
-d(\"------------------------------\")\
-if data.nilsPlayground == nil then data.nilsPlayground = {} end\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-  \
-  function data.nilsPlayground.CustomConditionChecks.inOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true then\
-      return true\
-    end\
-  \
-    -- checks to see if sally is installed and if its opener is running\
-    if SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true then\
-      return true\
-    end\
-  \
-    -- if xivopener is not running nor sally sam opener, then return false that it is safe to execute.\
-    return false\
-  end\
-  \
-  -- ** Abilities activation **\
-  \
-  if data.nilsPlayground.ExecuteShadeShift == nil then\
-    function data.nilsPlayground.ExecuteShadeShift()\
-      \
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      -- ignore if have scholar shield\
-      if HasBuff(Player.id,297) or Player.hp.percent > 75 then return false end\
-  \
-      local actionskill = ActionList:Get(1, 2241)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-  \
-      -- if sally installed, use hotbar, otherwise use base\
-       if SallySAM ~= nil then SallySAM.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast(Player.id) end \
-      return true\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteFeint == nil then\
-    function data.nilsPlayground.ExecuteFeint()\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local target = Player:GetTarget()\
-      if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end\
-  \
-      local actionskill = ActionList:Get(1, 7549)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      \
-      -- if sally installed, use hotbar, otherwise use base\
-  		  if SallySAM ~= nil then SallySAM.HotBarConfig.Feint.enabled = false else	actionskill:Cast(target.id) end\
-      return true\
-    end\
-  end\
-  \
-\
-    function data.nilsPlayground.ExecuteArmsLength()\
-\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local actionskill = ActionList:Get(1, 7548)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-    		if SallySAM ~= nil then SallySAM.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end\
-      if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
-    end\
-  \
-  if data.nilsPlayground.ExecuteThirdEye == nil then\
-    function data.nilsPlayground.ExecuteThirdEye()\
-\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-\
-      local actionskill = ActionList:Get(1, 7498)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-  		if SallySAM ~= nil then SallySAM.HotBarConfig.ThirdEye.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-\
-  if data.nilsPlayground.ExecuteSprint == nil then\
-    function data.nilsPlayground.ExecuteSprint()\
-      if data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-  \
-      local actionskill = ActionList:Get(1, 3)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-      if SallySAM ~= nil then SallySAM.HotBarConfig.Sprint.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-  \
-  if data.nilsPlayground.ExecuteTrueNorth == nil then\
-    function data.nilsPlayground.ExecuteTrueNorth()\
-      if HasBuff(Player.id, 1250) or data.nilsPlayground.CustomConditionChecks.inOpener() == true then return false end\
-  \
-      local actionskill = ActionList:Get(1, 7546)\
-      if actionskill.cdmax - actionskill.cd > .5 then return false end\
-      -- if sally installed, use hotbar, otherwise use base\
-      if SallySAM ~= nil then SallySAM.HotBarConfig.TrueNorth.enabled = false else	actionskill:Cast(Player.id) end\
-    end\
-  end\
-\
-  -- ***************************\
-  \
-  d(\"timeline dependancy loaded\")\
-  self.used = true";
-			["executeType"] = 2;
-			["loop"] = false;
-			["name"] = "Dependancies";
-			["time"] = 1007;
-			["timeRange"] = true;
-			["timelineIndex"] = 75;
-			["timerEndOffset"] = 14;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "c34c168f-899a-3e0e-a155-e4f612c9fdaa";
-		};
 	};
 	[82] = {
 		[1] = {
@@ -892,11 +718,12 @@ if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.Cus
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Feint() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Feint";
 			["time"] = 1052;
 			["timeRange"] = true;
@@ -917,11 +744,12 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 1106;
 			["timeRange"] = true;
@@ -942,11 +770,12 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteArmsLength() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.Knockback() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Arm's Length";
 			["time"] = 1156;
 			["timeRange"] = true;
@@ -967,11 +796,12 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 1208.6;
 			["timeRange"] = true;
@@ -990,11 +820,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 1235.1;
 			["timeRange"] = true;
@@ -1013,11 +844,12 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteThirdEye() == true then\
+			["execute"] = "if NilsReactionLibrary.Combat.Actions.ThirdEye() == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
 			["time"] = 1245.2;
 			["timeRange"] = true;

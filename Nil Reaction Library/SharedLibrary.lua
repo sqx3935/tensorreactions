@@ -208,64 +208,11 @@ function self.Reset()
   self.Combat.Toggles.Control.Reset()
 end
 
-function self.ResetSallyNIN()
-  -- reset quick toggles to default
-  SallyNIN.SkillSettings.Opener.enabled = false
-  SallyNIN.SkillSettings.SaveCD.enabled = false
-  SallyNIN.SkillSettings.Range.enabled = false
-  SallyNIN.SkillSettings.Omni.enabled = false
-  SallyNIN.SkillSettings.BurnBoss.enabled = false
-  -- SallyNIN.SkillSettings.Potion.enabled = true -- currently disable, alot of folks like this off for prog
-  SallyNIN.SkillSettings.UseAOE.enabled = true
-  SallyNIN.SkillSettings.TCJ.enabled = true
-  SallyNIN.SkillSettings.Meisui.enabled = true
-  SallyNIN.SkillSettings.TrickAttack.enabled = true
-  SallyNIN.SkillSettings.Ninjutsu.enabled = true
-  SallyNIN.SkillSettings.Bushin.enabled = true
-  SallyNIN.SkillSettings.Ninki.enabled = true
-  SallyNIN.SkillSettings.Assassinate.enabled = true
-  SallyNIN.SkillSettings.DWD.enabled = false
-  SallyNIN.SkillSettings.Mug.enabled = true
-  SallyNIN.SkillSettings.Kassatsu.enabled = true
-  SallyNIN.SkillSettings.Doton.enabled = true
-  SallyNIN.SkillSettings.TrueNorth.enabled = true
-  SallyNIN.SkillSettings.ACRefresh.enabled = true
-  SallyNIN.SkillSettings.ShadowFang.enabled = true
-
-  -- reset hotbar
-  SallyNIN.HotBarConfig.Armslength.enabled = true
-  SallyNIN.HotBarConfig.TrueNorth.enabled = true
-  SallyNIN.HotBarConfig.Feint.enabled = true
-  SallyNIN.HotBarConfig.Bloodbath.enabled = true
-  SallyNIN.HotBarConfig.SecondWind.enabled = true
-  SallyNIN.HotBarConfig.ShadeShift.enabled = true
-  SallyNIN.HotBarConfig.Kassatsu.enabled = true
-  SallyNIN.HotBarConfig.TCJ.enabled = true
-  SallyNIN.HotBarConfig.Meisui.enabled = true
-  SallyNIN.HotBarConfig.Huton.enabled = true
-  SallyNIN.HotBarConfig.Doton.enabled = true
-  SallyNIN.HotBarConfig.Suiton.enabled = true
-  SallyNIN.HotBarConfig.Raiton.enabled = true
-  SallyNIN.HotBarConfig.Katon.enabled = true
-  SallyNIN.HotBarConfig.Sprint.enabled = true
-  SallyNIN.HotBarConfig.ArmorCrush.enabled = true
-  SallyNIN.HotBarConfig.Huton.enabled = true
-end
-
 -- ******************************************* Helper functions by job **************************************
 -- *                                                                                                        *
 -- *                                    Functions specific for helping a job                                *
 -- *                                                                                                        *
 -- **********************************************************************************************************
-
--- ** Functions for ninja arcs only **
-if self.Ninja == nil then self.Ninja = {} end
-
-function self.Ninja.IsDoingMudra()
-  if self.Settings.EnableDebug then self.Log("mudra check") end
-  -- 496 Mudra, 1186 TCJ
-  return HasBuff(Player.id, 496) or HasBuff(Player.id, 1186)
-end
 
 -- ** Functions around buff checks **
 if self.Buffs == nil then self.Buffs = {} end
@@ -278,44 +225,15 @@ function self.Buffs.Duraction(buffID, target)
   return 0
 end
 
+if self.Buffs.Ninja == nil then self.Buffs.Ninja = {} end
+function self.Buffs.Ninja.IsDoingMudra()
+  if self.Settings.EnableDebug then self.Log("mudra check") end
+  -- 496 Mudra, 1186 TCJ
+  return HasBuff(Player.id, 496) or HasBuff(Player.id, 1186)
+end
+
 -- ** Functions around combat checks **
 if self.Combat == nil then self.Combat = {} end
-
-function self.Combat.oGCDSafe(ignoreWeave)
-  ignoreWeave = ignoreWeave or false
-  if ignoreWeave == true then return true end
-
-  -- Tanks
-  if Player.job == self.jobs.Paladin.id then
-    local actionskill = ActionList:Get(1, 9)
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
-  elseif Player.job == self.jobs.Warrior.id then
-    local actionskill = ActionList:Get(1, 31)
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
-  elseif Player.job == self.jobs.DarkKnight.id then
-    local actionskill = ActionList:Get(1, 3617)
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
-  elseif Player.job == self.jobs.Gunbreaker.id then
-    local actionskill = ActionList:Get(1, 16137)
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
-  -- Melee
-  elseif Player.job == self.jobs.Monk.id then
-    local actionskill = ActionList:Get(1, 53)
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
-  elseif Player.job == self.jobs.Dragoon.id then
-    local actionskill = ActionList:Get(1, 75)
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
-  elseif Player.job == self.jobs.Ninja.id then
-    local actionskill = ActionList:Get(1, 2240)
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
-  elseif Player.job == self.jobs.Samurai.id then
-    local actionskill = ActionList:Get(1, 7477)
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end
-  end
-
-  -- TODO: add other jobs
-  return true
-end
 
 function self.Combat.inOpener()
   -- Tanks
@@ -366,410 +284,511 @@ end
 if self.Combat.Actions == nil then self.Combat.Actions = {} end
 
 -- ** Astrologian Only Actions ******************************************************************************
-function self.Combat.Actions.CelestialIntersection(ignoreWeave)
+function self.Combat.Actions.CelestialIntersection()
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener() then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 16556)
-  if actionskill:IsReady(Player.id) == false then return false end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
-  if not Player.job == self.jobs.Astrologian.id then return false end
-  actionskill:Cast(Player.id)
-  return true
+  if not Player.job == self.jobs.Astrologian.id then return false, nil, nil, false, false end
+  return true, actionskill, Player.id, true, false
 end
 -- **********************************************************************************************************
 
 -- ** Ninja Only Actions ************************************************************************************
-function self.Combat.Actions.ShadeShift(ignoreWeave)
+function self.Combat.Actions.ShadeShift()
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 2241)
-  if actionskill:IsReady(Player.id) == false then return false end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
   -- check sch buff and HP
   -- ignore if have scholar shield or HP is above 75%
-  if HasBuff(Player.id, 297) or Player.hp.percent > 75 then return false end
+  if HasBuff(Player.id, 297) or Player.hp.percent > 75 then return false, nil, nil, false, false end
 
-  if not Player.job == self.jobs.Ninja.id then return false end
-  if self.Ninja.IsDoingMudra() then return false end
-  if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.ShadeShift.enabled = false else actionskill:Cast(Player.id) end
-  return true
+  if not Player.job == self.jobs.Ninja.id then return false, nil, nil, false, false end
+  if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
+  if self.WhichArc() == self.arcs.SallyNIN then
+    SallyNIN.HotBarConfig.ShadeShift.enabled = false
+    return true, nil, nil, false, false
+  else
+    return true, actionskill, Player.id, true, false
+  end
+  return false, nil, nil, false, false
 end
 -- **********************************************************************************************************
 
--- ** Samurai Only Actions ************************************************************************************
-function self.Combat.Actions.ThirdEye(ignoreWeave)
+-- ** Samurai Only Actions **********************************************************************************
+-- entityID can be passed in, so that the cast time can be checked.
+function self.Combat.Actions.ThirdEye(entityID)
+  -- return if in opener
+  if self.Combat.inOpener() then return false, nil, nil, false, false end
 
-  -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  local target = Player:GetTarget()
+  if entityID ~= nil then target = EntityList:Get(entityID) end
+  if target == nil or not table.valid(target) or not target.attackable then return false, nil, nil, false, false end
+
+  -- protection incase the timeline is to early. 
+  if target.castinginfo == nil or target.castinginfo.casttime - target.castinginfo.channeltime > 2 then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7498)
-  if actionskill:IsReady(Player.id) == false then return false end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
-  if not Player.job == self.jobs.Samurai.id then return false end
-  if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.ShadeShift.enabled = false else actionskill:Cast(Player.id) end
-  return true
+  if not Player.job == self.jobs.Samurai.id then return false, nil, nil, false, false end
+  if self.WhichArc() == self.arcs.SallySAM then
+    SallySAM.HotBarConfig.ThirdEye.enabled = false
+    return true, nil, nil, false, false
+  else
+    return true, actionskill, Player.id, true, true
+  end
 end
--- **********************************************************************************************************
+-- *********************************************************************************************************
 
 -- ** Monk Only Actions ************************************************************************************
-function self.Combat.Actions.RiddleOfEarth(ignoreWeave)
+function self.Combat.Actions.RiddleOfEarth()
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7394)
-  if actionskill:IsReady(Player.id) == false then return false end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
-  if not Player.job == self.jobs.Monk.id then return false end
-  actionskill:Cast(Player.id)
-  return true
+  if not Player.job == self.jobs.Monk.id then return false, nil, nil, false, false end
+  return true, actionskill, Player.id, false, false
 end
 
-function self.Combat.Actions.Mantra(ignoreWeave)
+function self.Combat.Actions.Mantra()
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 65)
-  if actionskill:IsReady(Player.id) == false then return false end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
-  if not Player.job == self.jobs.Monk.id then return false end
-  actionskill:Cast(Player.id)
-  return true
+  if not Player.job == self.jobs.Monk.id then return false, nil, nil, false, false end
+  return true, actionskill, Player.id, false, false
 end
 -- **********************************************************************************************************
 
 -- ** Melee jobs ONLY ***************************************************************************************
-function self.Combat.Actions.Feint(ignoreWeave)
+function self.Combat.Actions.Feint(entityID)
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check that target does not already have fient
   local target = Player:GetTarget()
-  if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end
+  if entityID ~= nil then target = EntityList:Get(entityID) end
+  if target == nil or not table.valid(target) or not target.attackable or HasBuff(target.id, 1195) then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7549)
-  if actionskill:IsReady(target.id) == false then return false end
-    if Player.job == self.jobs.Ninja.id then if self.Ninja.IsDoingMudra() then return false end
+  if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
+    if Player.job == self.jobs.Ninja.id then
+      if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.Feint.enabled = false else actionskill:Cast(target.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyNIN then
+      SallyNIN.HotBarConfig.Feint.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
   elseif Player.job == self.jobs.Samurai.id then
-    if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.Feint.enabled = false else actionskill:Cast(target.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallySAM then
+      SallySAM.HotBarConfig.Feint.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
   elseif Player.job == self.jobs.Dragoon.id then
-    actionskill:Cast(target.id)
-    return true
+    return true, actionskill, target.id, true, false
   elseif Player.job == self.jobs.Monk.id then
-    actionskill:Cast(target.id)
-    return true
+    return true, actionskill, target.id, true, false
   end
-  return false
+  return false, nil, nil, false, false
 end
 
-function self.Combat.Actions.TrueNorth(ignoreWeave)
+function self.Combat.Actions.TrueNorth()
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener() or HasBuff(Player.id, 1250) then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7546)
-  if actionskill:IsReady(Player.id) == false then return false end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
   if Player.job == self.jobs.Ninja.id then
-    if self.Ninja.IsDoingMudra() then return false end
+    if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.TrueNorth.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyNIN then
+      SallyNIN.HotBarConfig.TrueNorth.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
   elseif Player.job == self.jobs.Samurai.id then
-    if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.TrueNorth.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallySAM then
+      SallySAM.HotBarConfig.TrueNorth.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
   elseif Player.job == self.jobs.Dragoon.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Monk.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   end
-  return false
+  return false, nil, nil, false, false
 end
 
-function self.Combat.Actions.LegSweep(ignoreWeave)
+function self.Combat.Actions.LegSweep(entityID)
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check that target does not already have stun
   local target = Player:GetTarget()
-  if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 2) then return false end
+  if entityID ~= nil then target = EntityList:Get(entityID) end
+  if target == nil or not table.valid(target) or not target.attackable or HasBuff(target.id, 2) then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7863)
-  if actionskill:IsReady(target.id) == false then
-    return false
-  end
+  if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
 
   if Player.job == self.jobs.Ninja.id then
-    if self.Ninja.IsDoingMudra() then return false end
+    if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.LegSweep.enabled = false else actionskill:Cast(target.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyNIN then
+      SallyNIN.HotBarConfig.LegSweep.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
   elseif Player.job == self.jobs.Samurai.id then
-    if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.LegSweep.enabled = false else actionskill:Cast(target.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallySAM then
+      SallySAM.HotBarConfig.LegSweep.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
   elseif Player.job == self.jobs.Dragoon.id then
-    actionskill:Cast(target.id)
-    return true
+    return true, actionskill, target.id, true, false
   elseif Player.job == self.jobs.Monk.id then
-    actionskill:Cast(target.id)
-    return true
+    return true, actionskill, target.id, true, false
   end
   return false
 end
--- **********************************************************************************************************
+-- *********************************************************************************************************
 
 -- ** Tank jobs ONLY ***************************************************************************************
-function self.Combat.Actions.LowBlow(ignoreWeave)
+function self.Combat.Actions.LowBlow(entityID)
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check that target does not already have stun
   local target = Player:GetTarget()
-  if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 2) then return false end
+  if entityID ~= nil then target = EntityList:Get(entityID) end
+  if target == nil or not table.valid(target) or not target.attackable or HasBuff(target.id, 2) then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7540)
-  if actionskill:IsReady(target.id) == false then
-    return false
-  end
+  if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
 
   if Player.job == self.jobs.DarkKnight.id then
     -- if sally installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.SallyDRK then SallyDRK.HotBarConfig.LowBlow.enabled = false else actionskill:Cast(target.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyDRK then
+      SallyDRK.HotBarConfig.LowBlow.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
   elseif Player.job == self.jobs.Warrior.id then
-    if self.WhichArc() == self.arcs.SallyWAR then SallyWAR.HotBarConfig.LowBlow.enabled = false else actionskill:Cast(target.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyWAR then
+      SallyWAR.HotBarConfig.LowBlow.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
   elseif Player.job == self.jobs.Paladin.id then
-    actionskill:Cast(target.id)
-    return true
+    return true, actionskill, target.id, true, false
   elseif Player.job == self.jobs.Gunbreaker.id then
-    actionskill:Cast(target.id)
-    return true
+    return true, actionskill, target.id, true, false
   end
-  return false
+  return false, nil, nil, false, false
 end
 -- **********************************************************************************************************
 
--- ** Melee tanks physical range *****************************************************************************
-function self.Combat.Actions.ArmsLength(ignoreWeave)
+-- ** Melee tanks physical range ****************************************************************************
+-- entityID, remaining, spellid can be passed in, if so, it will hold using arms length until that time.
+-- assumes if you passing entity you also passin remaining
+function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
+  remaining = remaining or 4
+  spellid = spellid or 0
+  local interruptCast = false
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  if entityID ~= nil then
+    local target = EntityList:Get(entityID)
+    if target ~= nil and table.valid(target) and target.attackable and target.castinginfo ~= nil then
+      -- if spellid is passed in, limit knockback to that id
+      if spellid ~= 0 and target.castinginfo.castingid ~= spellid then return false, nil, nil, false, false end
+
+      -- check if cast is x percent completed
+      local remainder = target.castinginfo.casttime - target.castinginfo.channeltime
+      -- if remaining is < 1.4, emergency cast.
+      if remainder < 1.4 then
+        interruptCast = true
+      else
+        if remainder > remaining then return false, nil, nil, false, false end
+      end
+    end
+  end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7548)
-  if actionskill:IsReady(Player.id) == false then
-    return false
-  end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
   if Player.job == self.jobs.Ninja.id then
-    if self.Ninja.IsDoingMudra() then return false end
+    if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.ArmsLength.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyNIN then
+      SallyNIN.HotBarConfig.ArmsLength.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, interruptCast
+    end
   elseif Player.job == self.jobs.Samurai.id then
-    if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.ArmsLength.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallySAM then
+      --self.Log(tostring(self.WhichArc()))
+      --self.Log(tostring(SallySAM.HotBarConfig))
+      SallySAM.HotBarConfig.Armslength.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, interruptCast
+    end
   elseif Player.job == self.jobs.Dragoon.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Monk.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.DarkKnight.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Warrior.id then
-    if self.WhichArc() == self.arcs.SallyWAR then SallyWAR.HotBarConfig.ArmsLength.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyWAR then
+      SallyWAR.HotBarConfig.ArmsLength.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, interruptCast
+    end
   elseif Player.job == self.jobs.Paladin.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Gunbreaker.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Bard.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Machinist.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Dancer.id then
-    if self.WhichArc() == self.arcs.SallyDNC then SallyDNC.HotBarConfig.ArmsLength.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyDNC then
+      SallyDNC.HotBarConfig.ArmsLength.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, interruptCast
+    end
   end
+  return false, nil, nil, false, false
 end
 -- **********************************************************************************************************
 
--- ** Healers and Casters ************************************************************************************
-function self.Combat.Actions.SureCast(ignoreWeave)
+-- ** Healers and Casters ***********************************************************************************
+-- entityID and remaining can be passed in, if so, it will hold using arms length until that time.
+-- assumes if you passing entity you also passin remaining
+function self.Combat.Actions.SureCast(entityID, remaining)
+  remaining = remaining or 4
+  local interruptCast = false
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  if entityID ~= nil then
+    local target = EntityList:Get(entityID)
+    if target ~= nil and table.valid(target) and target.attackable and target.castinginfo ~= nil then
+      -- check if cast is x percent completed
+      local remainder = target.castinginfo.casttime - target.castinginfo.channeltime
+      -- if remaining is < 1.3, emergency cast.
+      if remainder < 1.3 then
+        interruptCast = true
+      else
+        if remainder > remaining then return false, nil, nil, false, false end
+      end
+    end
+  end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7559)
-  if actionskill:IsReady(Player.id) == false then return false end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
   if Player.job == self.jobs.WhiteMage.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.BlackMage.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Summoner.id then
     -- if tensor installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Hotbar_Surecast = true else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.TensorRequiem then
+      ACR_TensorRuin_Hotbar_Surecast = true
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, interruptCast
+    end
   elseif Player.job == self.jobs.Scholar.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Astrologian.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.RedMage.id then
-    if self.WhichArc() == self.arcs.SallyRDM then SallyRDM.HotBarConfig.SureCast.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyRDM then
+      SallyRDM.HotBarConfig.SureCast.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, interruptCast
+    end
   elseif Player.job == self.jobs.Machinist.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, interruptCast
   end
-  return false
+  return false, nil, nil, false, false
 end
 -- **********************************************************************************************************
 
--- ** Caster Actions ******************************************************************************
-function self.Combat.Actions.Addle(ignoreWeave)
+-- ** Caster Actions ****************************************************************************************
+function self.Combat.Actions.Addle(entityID)
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check that target does not already have de/buff
   local target = Player:GetTarget()
-  if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1230) then return false end
+  if entityID ~= nil then target = EntityList:Get(entityID) end
+  if target == nil or not table.valid(target) or not target.attackable or HasBuff(target.id, 1230) then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7560)
-  if actionskill:IsReady(target.id) == false then return false end
+  if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.TensorRequiem then ACR_TensorRuin_Hotbar_Addle = true else actionskill:Cast(target.id) end
-    return true
+    if self.WhichArc() == self.arcs.TensorRequiem then
+      ACR_TensorRuin_Hotbar_Addle = true
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
   elseif Player.job == self.jobs.BlackMage.id then
-    actionskill:Cast(target.id)
-    return true
+    return true, actionskill, target.id, true, false
   elseif Player.job == self.jobs.RedMage.id then
     -- if sally installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.SallyRDM then SallyRDM.HotBarConfig.Addle.enabled = false else actionskill:Cast(target.id) end
+    if self.WhichArc() == self.arcs.SallyRDM then
+      SallyRDM.HotBarConfig.Addle.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
   end
-  return false
+  return false, nil, nil, false, false
 end
 -- **********************************************************************************************************
 
 -- ** ALL ***************************************************************************************************
-function self.Combat.Actions.Knockback(ignoreWeave)
+function self.Combat.Actions.Knockback(entityID, remaining)
   if
     Player.job == self.jobs.Ninja.id or Player.job == self.jobs.Samurai.id or Player.job == self.jobs.Dragoon.id or Player.job == self.jobs.Monk.id or Player.job == self.jobs.DarkKnight.id or Player.job == self.jobs.Warrior.id or
       Player.job == self.jobs.Paladin.id or Player.job == self.jobs.Gunbreaker.id or Player.job == self.jobs.Bard.id or Player.job == self.jobs.Machinist.id or
       Player.job == self.jobs.Dancer.id
   then
-    return self.Combat.Actions.ArmsLength(ignoreWeave)
+    return self.Combat.Actions.ArmsLength(entityID, remaining)
   elseif Player.job == self.jobs.WhiteMage.id or Player.job == self.jobs.BlackMage.id or Player.job == self.jobs.Summoner.id or Player.job == self.jobs.Scholar.id or Player.job == self.jobs.Astrologian.id or Player.job == self.jobs.RedMage.id then
-    return self.Combat.Actions.SureCast(ignoreWeave)
+    return self.Combat.Actions.SureCast(entityID, remaining)
   end
-  return false
+  return false, nil, nil, false, false
 end
 
-function self.Combat.Actions.Sprint(ignoreWeave)
+function self.Combat.Actions.Sprint()
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener() or self.Combat.oGCDSafe(ignoreWeave) == false then return false end
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 3)
-  if actionskill:IsReady(Player.id) == false then return false end
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
   if Player.job == self.jobs.Ninja.id then
-    if self.Ninja.IsDoingMudra() then return false end
+    if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
     -- if sally installed, use hotbar, otherwise use base
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.HotBarConfig.Sprint.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyNIN then
+      SallyNIN.HotBarConfig.Sprint.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
   elseif Player.job == self.jobs.Samurai.id then
-    if self.WhichArc() == self.arcs.SallySAM then SallySAM.HotBarConfig.Sprint.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallySAM then
+      SallySAM.HotBarConfig.Sprint.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
   elseif Player.job == self.jobs.Dragoon.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Monk.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.DarkKnight.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Warrior.id then
-    if self.WhichArc() == self.arcs.SallyWAR then SallyWAR.HotBarConfig.Sprint.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyWAR then
+      SallyWAR.HotBarConfig.Sprint.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
   elseif Player.job == self.jobs.Paladin.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Gunbreaker.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Bard.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Machinist.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Dancer.id then
-    if self.WhichArc() == self.arcs.SallyDNC then SallyDNC.HotBarConfig.Sprint.enabled = false else actionskill:Cast(Player.id) end
-    return true
+    if self.WhichArc() == self.arcs.SallyDNC then
+      SallyDNC.HotBarConfig.Sprint.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
   elseif Player.job == self.jobs.WhiteMage.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.BlackMage.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Summoner.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Scholar.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Astrologian.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.RedMage.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Machinist.id then
-    actionskill:Cast(Player.id)
-    return true
+    return true, actionskill, Player.id, true, false
   end
-  return false
+  return false, nil, nil, false, false
 end
 -- **********************************************************************************************************
 
@@ -814,6 +833,48 @@ function self.Combat.Toggles.Control.Reset()
     ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
     TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
   }
+end
+
+function self.Combat.Toggles.Control.BurnBoss()
+  if Player.job == self.jobs.Ninja.id then
+    return self.Combat.Toggles.Ninja.BurnBoss(true)
+  elseif Player.job == self.jobs.Samurai.id then
+    return true
+  elseif Player.job == self.jobs.Dragoon.id then
+    return true
+  elseif Player.job == self.jobs.Monk.id then
+    return true
+  elseif Player.job == self.jobs.DarkKnight.id then
+    return true
+  elseif Player.job == self.jobs.Warrior.id then
+    return true
+  elseif Player.job == self.jobs.Paladin.id then
+    return true
+  elseif Player.job == self.jobs.Gunbreaker.id then
+    return true
+  elseif Player.job == self.jobs.Bard.id then
+    return true
+  elseif Player.job == self.jobs.Machinist.id then
+    return true
+  elseif Player.job == self.jobs.Dancer.id then
+    if self.WhichArc() == self.arcs.SallyDNC then SallyDNC.SkillSettings.BurnBoss.enabled = true end
+    return true
+  elseif Player.job == self.jobs.WhiteMage.id then
+    return true
+  elseif Player.job == self.jobs.BlackMage.id then
+    return true
+  elseif Player.job == self.jobs.Summoner.id then
+    return self.Combat.Toggles.Summoner.BurnR4(true)
+  elseif Player.job == self.jobs.Scholar.id then
+    return true
+  elseif Player.job == self.jobs.Astrologian.id then
+    return true
+  elseif Player.job == self.jobs.RedMage.id then
+    return true
+  elseif Player.job == self.jobs.Machinist.id then
+    return true
+  end
+  return false
 end
 
 -- ** Summoner ***********************************************************************************************

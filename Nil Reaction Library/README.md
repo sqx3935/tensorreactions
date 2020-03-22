@@ -26,10 +26,18 @@ then simlink it to the folder
 In `Tensor Reactions` you can add a reaction like this.
 
 ```LUA
-if NilsReactionLibrary.Combat.Actions.Knockback() == true then
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()
+if wasSuccessful == true then
   self.used = true
+  return action, targetID, ignoreWeaveRules, allowInterrupt
 end
 ```
+
+wasSuccessful (bool) = returns true if the action has executed (using a hotbar arc) or will execute (non-hotbar arc)
+action (table) = ActionList item, if action was executed via hotbar this returns nil
+targetID (Number) = id of the target the action is for (always returned)
+ignoreWeaveRules (bool) = passes flag to tensor reactions in the event weave rules should be followed.
+allowInterrupt (bool) = passes flag to tensor reactions in the event a cast should be interrupted.
 
 This function call works on any job, it will use the `Player.job` setting to determine if it is `ArmsLength` or `SureCast`.  If the combat system you are using supports a hotbar it will utilize the hotbar first, otherwise it will fall back to `ActionList`.
 

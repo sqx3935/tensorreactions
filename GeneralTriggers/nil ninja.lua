@@ -85,6 +85,7 @@ local obj1 = {
 \
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "README";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -147,6 +148,7 @@ local obj1 = {
 * added more base skills reactions for non sally-nin users\
 ]]";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "ninja-general-changes";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -167,6 +169,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "------------";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -195,6 +198,7 @@ local obj1 = {
 				["gVarIndex"] = 1;
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -360,6 +364,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to hand when doll is 22%";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -388,6 +393,7 @@ local obj1 = {
 				["gVarIndex"] = 1;
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -553,6 +559,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to living liquid when doll is 22%";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -968,6 +975,7 @@ data.nilDataLoaded = true\
 NILS_PLAYGROUND = true\
 self.used = true";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Dependencies2 (keep enabled)";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -996,6 +1004,7 @@ self.used = true";
 				["gVarIndex"] = 1;
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
 				["setTarget"] = false;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -1026,6 +1035,7 @@ self.used = true";
 				["gVarIndex"] = 1;
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
 				["setTarget"] = false;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -1191,6 +1201,7 @@ self.used = true";
 		["eventType"] = 4;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "TEA: limit cut number";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1312,6 +1323,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Knockback";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1476,6 +1488,7 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Feint";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1573,6 +1586,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Leg Sweep";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1659,6 +1673,7 @@ self.used = true\
 return nil\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Self Heal";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -1931,6 +1946,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: ShadeShift";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2011,6 +2027,7 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Stop Casting";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2056,6 +2073,7 @@ self.used = true \
 return nil\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Move: Toggle TCJ";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2101,6 +2119,7 @@ end\
 return nil\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Move: Toggle Assassinate";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2119,17 +2138,54 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 9;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
+		["execute"] = "if self.WhichArc() == self.arcs.SallyNIN then\
+    SallyNIN.SkillSettings.Opener.enabled = false\
+    SallyNIN.SkillSettings.SaveCD.enabled = false\
+    SallyNIN.SkillSettings.Range.enabled = false\
+    SallyNIN.SkillSettings.Omni.enabled = false\
+    SallyNIN.SkillSettings.BurnBoss.enabled = false\
+    -- SallyNIN.SkillSettings.Potion.enabled = true\
+    SallyNIN.SkillSettings.UseAOE.enabled = true\
+    SallyNIN.SkillSettings.TCJ.enabled = true\
+    SallyNIN.SkillSettings.Meisui.enabled = true\
+    SallyNIN.SkillSettings.TrickAttack.enabled = true\
+    SallyNIN.SkillSettings.Ninjutsu.enabled = true\
+    SallyNIN.SkillSettings.Bushin.enabled = true\
+    SallyNIN.SkillSettings.Ninki.enabled = true\
+    SallyNIN.SkillSettings.Assassinate.enabled = true\
+    SallyNIN.SkillSettings.DWD.enabled = false\
+    SallyNIN.SkillSettings.Mug.enabled = true\
+    SallyNIN.SkillSettings.Kassatsu.enabled = true\
+    SallyNIN.SkillSettings.Doton.enabled = true\
+    SallyNIN.SkillSettings.TrueNorth.enabled = true\
+    SallyNIN.SkillSettings.ACRefresh.enabled = true\
+    SallyNIN.SkillSettings.ShadowFang.enabled = true\
 \
-data.nilsPlayground.ResetSallyNIN()\
+    -- Hotbar\
+    SallyNIN.HotBarConfig.Armslength.enabled = true\
+    SallyNIN.HotBarConfig.TrueNorth.enabled = true\
+    SallyNIN.HotBarConfig.Feint.enabled = true\
+    SallyNIN.HotBarConfig.Bloodbath.enabled = true\
+    SallyNIN.HotBarConfig.SecondWind.enabled = true\
+    SallyNIN.HotBarConfig.ShadeShift.enabled = true\
+    SallyNIN.HotBarConfig.Kassatsu.enabled = true\
+    SallyNIN.HotBarConfig.TCJ.enabled = true\
+    SallyNIN.HotBarConfig.Meisui.enabled = true\
+    SallyNIN.HotBarConfig.Huton.enabled = true\
+    SallyNIN.HotBarConfig.Doton.enabled = true\
+    SallyNIN.HotBarConfig.Suiton.enabled = true\
+    SallyNIN.HotBarConfig.Raiton.enabled = true\
+    SallyNIN.HotBarConfig.Katon.enabled = true\
+    SallyNIN.HotBarConfig.Sprint.enabled = true\
+    SallyNIN.HotBarConfig.ArmorCrush.enabled = true\
+    SallyNIN.HotBarConfig.LegSweep.enabled = true\
+    SallyNIN.HotBarConfig.LB.enabled = true\
+end\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Reset: toggles on wipe";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2184,6 +2240,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Reset: on death";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2242,6 +2299,7 @@ return nil\
 \
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "QT: AOE Blacklist";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2306,6 +2364,7 @@ return nil\
 \
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "QT: CD Blacklist";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2356,6 +2415,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "QT: DwD";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2401,6 +2461,7 @@ self.used = true \
 return nil\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "QT: Kassatsu";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2458,6 +2519,7 @@ self.used = true \
 return nil\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "QT: Omni Whitelist";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2478,6 +2540,7 @@ return nil\
 		["eventType"] = 9;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "-- Experimental --";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2538,6 +2601,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "QT: Meisui";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2602,6 +2666,7 @@ self.used = true \
 data.nilsPlayground.lastBurnBossCheck = Now()\
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "TTK: Burn Boss Low HP";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2676,6 +2741,7 @@ self.used = true \
 return nil\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "TTK: Toggle Trick Window";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -2740,6 +2806,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Toggle AC Refresh";
 		["time"] = 0;
 		["timeRange"] = false;

@@ -30,6 +30,7 @@ local obj1 = {
 ]]\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "ast-general-changes";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -50,6 +51,7 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["luaReturnsAction"] = false;
 		["name"] = "-- Actions --";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -172,6 +174,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Knockback";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -251,6 +254,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Stop Casting";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -400,6 +404,7 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Cast: Celestial Intersection";
 		["time"] = 0;
 		["timeRange"] = false;
@@ -433,6 +438,7 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["luaReturnsAction"] = false;
 		["name"] = "Reset: on death";
 		["time"] = 0;
 		["timeRange"] = false;

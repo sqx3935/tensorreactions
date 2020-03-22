@@ -22,13 +22,15 @@ local obj1 = {
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 \
 \
---[[ ** Verson 1 **\
-* Thanks MattyIce and Boosted for answering questions about smn \
-* Initial release\
+\
+--[[ ** ChangeLog **\
+* [\"1.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
+*	[\"1.1.0\"] = \"updated reaction libary for new Lua Returns actions\",\
 ]]\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "ReadME";
 			["time"] = 18;
 			["timeRange"] = false;
@@ -47,11 +49,14 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Knockback() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Knockback";
 			["time"] = 73.6;
 			["timeRange"] = true;
@@ -75,6 +80,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 119.4;
 			["timeRange"] = true;
@@ -102,6 +108,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -153,6 +160,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 122.5;
 			["timeRange"] = true;
@@ -174,6 +182,7 @@ return false";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD On";
 			["time"] = 122.5;
 			["timeRange"] = true;
@@ -192,11 +201,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
   self.used = true\
-end";
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Addle";
 			["time"] = 159.2;
 			["timeRange"] = true;
@@ -205,7 +218,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "6fcdeeaf-5cd7-3a61-bb0b-7f5606836082";
+			["uuid"] = "c8b2ff4b-1516-207e-b17b-f41899a0cc3a";
 		};
 	};
 	[26] = {
@@ -231,6 +244,7 @@ self.used = table.size(markedClones) >= 4\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "draw safe spot with argus";
 			["time"] = 184.7;
 			["timeRange"] = true;
@@ -254,6 +268,7 @@ self.used = table.size(markedClones) >= 4\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 240.9;
 			["timeRange"] = true;
@@ -281,6 +296,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -332,6 +348,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 245.1;
 			["timeRange"] = true;
@@ -353,6 +370,7 @@ return false";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD On";
 			["time"] = 245.1;
 			["timeRange"] = true;
@@ -380,6 +398,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -404,6 +423,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -486,6 +506,7 @@ end";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "retarget boss based on debuff";
 			["time"] = 248.4;
 			["timeRange"] = true;
@@ -509,6 +530,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 303.3;
 			["timeRange"] = true;
@@ -536,6 +558,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -587,6 +610,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 324.5;
 			["timeRange"] = true;
@@ -608,6 +632,7 @@ return false";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD On";
 			["time"] = 324.5;
 			["timeRange"] = true;
@@ -626,11 +651,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
   self.used = true\
-end";
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Addle";
 			["time"] = 376.5;
 			["timeRange"] = true;
@@ -639,7 +668,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "112417d7-ec1a-4c66-be40-414edc5b152a";
+			["uuid"] = "97e76d0c-ab8c-75a4-9d48-54995e7bf14a";
 		};
 	};
 	[69] = {
@@ -665,6 +694,7 @@ self.used = table.size(markedClones) >= 4\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "draw safe spot with argus";
 			["time"] = 394.8;
 			["timeRange"] = true;
@@ -683,11 +713,14 @@ self.used = table.size(markedClones) >= 4\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Knockback() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Knockback";
 			["time"] = 436.7;
 			["timeRange"] = true;
@@ -709,6 +742,7 @@ end";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
 			["time"] = 436.7;
 			["timeRange"] = true;
@@ -736,6 +770,7 @@ end";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -787,6 +822,7 @@ return false";
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "target boss";
 			["time"] = 441;
 			["timeRange"] = true;
@@ -808,6 +844,7 @@ return false";
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "CD On";
 			["time"] = 441;
 			["timeRange"] = true;
@@ -826,11 +863,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Addle() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
   self.used = true\
-end";
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Addle";
 			["time"] = 509.4;
 			["timeRange"] = true;
@@ -839,7 +880,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "dfa7cb42-cb2f-5c7c-bb15-bc87c890de27";
+			["uuid"] = "3ac931aa-2721-4219-a138-73e94e569d11";
 		};
 	};
 	[114] = {
@@ -849,11 +890,14 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Actions.Knockback() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Knockback";
 			["time"] = 603.3;
 			["timeRange"] = true;
@@ -880,6 +924,7 @@ if target ~= nil and table.valid(target) and target.attackable and target.hp.per
 end";
 			["executeType"] = 2;
 			["loop"] = false;
+			["luaReturnsAction"] = false;
 			["name"] = "Burn Boss";
 			["time"] = 619.6;
 			["timeRange"] = true;
