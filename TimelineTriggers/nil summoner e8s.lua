@@ -224,9 +224,10 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if Player:GetTarget() then \
-  -- 19901 = spellid of Reflected wings\
-  wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback(Player:GetTarget().id, 1.4, 19901)\
+			["execute"] = "-- 19901 = spellid of Reflected wings\
+local val, ent = TensorCore.isAnyEntityCasting(19901)\
+if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 1.4 then\
+  wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
   if wasSuccessful == true then\
     self.used = true\
     return action, targetID, ignoreWeaveRules, allowInterrupt\
