@@ -338,7 +338,7 @@ function self.Combat.Actions.ThirdEye(entityID)
   if target == nil or not table.valid(target) or not target.attackable then return false, nil, nil, false, false end
 
   -- protection incase the timeline is to early. 
-  if target.castinginfo == nil or target.castinginfo.casttime - target.castinginfo.channeltime > 2 then return false, nil, nil, false, false end
+  if target.castinginfo == nil or target.castinginfo.casttime - target.castinginfo.channeltime > 2.5 then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7498)
@@ -582,6 +582,7 @@ end
 function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
   remaining = remaining or 4
   spellid = spellid or 0
+  entityID = entityID or nil
   local interruptCast = false
 
   -- return if in opener or outside ogcd
