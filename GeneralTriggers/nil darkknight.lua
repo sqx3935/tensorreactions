@@ -356,5 +356,56 @@ return nil";
 		["used"] = false;
 		["uuid"] = "8278fa23-8ede-895c-b5f1-e4d58871ca94";
 	};
+	[7] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.Toggles == nil then data.nilsPlayground.Toggles = {} end\
+if data.nilsPlayground.Toggles.PlungeMove == nil then data.nilsPlayground.Toggles.PlungeMove = { IsActive = false, TimelineActive = false, LastMove = 0} end\
+\
+\
+if Player.job ~= 32 or Player.incombat == false or Player.alive == false then\
+		if SallyDRK ~= nil and SallyDRK.SkillSettings.Plunge.enabled == false then SallyDRK.SkillSettings.Plunge.enabled = true end\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true 	\
+return nil\
+end\
+\
+if Player:IsMoving() then\
+		if SallyDRK ~= nil and SallyDRK.SkillSettings.Plunge.enabled == true then SallyDRK.SkillSettings.Plunge.enabled = false end\
+		data.nilsPlayground.Toggles.PlungeMove.LastMoved = Now()\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+if data.nilsPlayground.Toggles.PlungeMove.LastMoved ~= nil and TimeSince(data.nilsPlayground.Toggles.PlungeMove.LastMoved) > 1200 and SallyDRK.SkillSettings.Plunge.enabled == false then\
+		if SallyDRK ~= nil and SallyDRK.SkillSettings.Plunge.enabled == false then SallyDRK.SkillSettings.Plunge.enabled = true end\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Move: Toggle Plung";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "37413426-0d93-5200-b942-b01853827783";
+	};
 }
 return obj1

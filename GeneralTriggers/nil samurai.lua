@@ -1430,7 +1430,7 @@ end";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 9;
 		["execute"] = "if Player.job ~= 34 then\
 		self.eventConditionMismatch = true -- suppressing the log\
