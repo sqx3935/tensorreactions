@@ -596,8 +596,8 @@ function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
 
       -- check if cast is x percent completed
       local remainder = target.castinginfo.casttime - target.castinginfo.channeltime
-      -- if remaining is < 1.4, emergency cast.
-      if remainder < 1.4 then
+      -- if remaining is < .5, emergency cast.
+      if remainder < .5 then
         interruptCast = true
       else
         if remainder > remaining then return false, nil, nil, false, false end
@@ -698,8 +698,8 @@ function self.Combat.Actions.SureCast(entityID, remaining, spellid)
 
       -- check if cast is x percent completed
       local remainder = target.castinginfo.casttime - target.castinginfo.channeltime
-      -- if remaining is < 1.4, emergency cast.
-      if remainder < 1.4 then
+      -- if remaining is < .5, emergency cast.
+      if remainder < .5 then
         interruptCast = true
       else
         if remainder > remaining then return false, nil, nil, false, false end
