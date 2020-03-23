@@ -480,7 +480,7 @@ self.used = true\
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -20;
 			["used"] = false;
-			["uuid"] = "1e41dc6e-42af-9ebd-93b8-4b5120b5ad17";
+			["uuid"] = "1cdbb5dd-3022-b499-ba9f-e27c88249332";
 		};
 	};
 	[3] = {

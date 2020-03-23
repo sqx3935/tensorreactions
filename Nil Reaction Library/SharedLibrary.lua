@@ -27,6 +27,10 @@ function self.Log(string)
   d("[Nil's Reactions] " .. string)
 end
 
+function self.isempty(s)
+  return s == nil or s == ''
+end
+
 -- ******* References *******
 self.jobs = {
   Paladin = {id = 19, role = "tank"},
@@ -580,9 +584,8 @@ end
 -- entityID, remaining, spellid can be passed in, if so, it will hold using arms length until that time.
 -- assumes if you passing entity you also passin remaining
 function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
-  remaining = remaining or 4
-  spellid = spellid or 0
-  entityID = entityID or nil
+  if self.isempty(spellid) then spellid = 0 end
+  if self.isempty(remaining) then remaining = 4 end
   local interruptCast = false
 
   -- return if in opener or outside ogcd
@@ -683,8 +686,8 @@ end
 -- entityID and remaining can be passed in, if so, it will hold using arms length until that time.
 -- assumes if you passing entity you also passin remaining
 function self.Combat.Actions.SureCast(entityID, remaining, spellid)
-  remaining = remaining or 4
-  spellid = spellid or 0
+  if self.isempty(spellid) then spellid = 0 end
+  if self.isempty(remaining) then remaining = 4 end
   local interruptCast = false
 
   -- return if in opener or outside ogcd
@@ -1027,7 +1030,7 @@ end
 
 -- Toggles DWT, Summon Bahamut, and FBT. Use this to hold major cooldowns before phase transitions. In the case of TensorRuin, if you turn off CDs while in DWT for example, it will auto extend dwt to maximum duration and won't summon bahamut until after.
 function self.Combat.Toggles.Summoner.CD(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1037,7 +1040,7 @@ function self.Combat.Toggles.Summoner.CD(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.PetCD(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1047,7 +1050,7 @@ function self.Combat.Toggles.Summoner.PetCD(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.AOE(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1057,7 +1060,7 @@ function self.Combat.Toggles.Summoner.AOE(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.Fester(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1067,7 +1070,7 @@ function self.Combat.Toggles.Summoner.Fester(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.DWT(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1077,7 +1080,7 @@ function self.Combat.Toggles.Summoner.DWT(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.Demi(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1087,7 +1090,7 @@ function self.Combat.Toggles.Summoner.Demi(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.Aetehrpact(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1097,7 +1100,7 @@ function self.Combat.Toggles.Summoner.Aetehrpact(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.EnergyDrain(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1107,7 +1110,7 @@ function self.Combat.Toggles.Summoner.EnergyDrain(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.DoTs(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1118,7 +1121,7 @@ end
 
 -- Burn Boss
 function self.Combat.Toggles.Summoner.BurnR4(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1128,7 +1131,7 @@ function self.Combat.Toggles.Summoner.BurnR4(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.HoldAOE(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1138,7 +1141,7 @@ function self.Combat.Toggles.Summoner.HoldAOE(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.SmartAOE(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1148,7 +1151,7 @@ function self.Combat.Toggles.Summoner.SmartAOE(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.SmartDoT(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1158,7 +1161,7 @@ function self.Combat.Toggles.Summoner.SmartDoT(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.SmartBane(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1168,7 +1171,7 @@ function self.Combat.Toggles.Summoner.SmartBane(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.Potion(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1178,7 +1181,7 @@ function self.Combat.Toggles.Summoner.Potion(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.HardRes(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1188,7 +1191,7 @@ function self.Combat.Toggles.Summoner.HardRes(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.SwiftRes(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1198,7 +1201,7 @@ function self.Combat.Toggles.Summoner.SwiftRes(toggleOn)
 end
 
 function self.Combat.Toggles.Summoner.SwiftR3(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Summoner.id then
     -- if tensor installed
@@ -1263,7 +1266,7 @@ function self.Combat.Toggles.Ninja.Reset()
 end
 
 function self.Combat.Toggles.Ninja.Opener(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1273,7 +1276,7 @@ function self.Combat.Toggles.Ninja.Opener(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.SaveCD(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1283,7 +1286,7 @@ function self.Combat.Toggles.Ninja.SaveCD(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Range(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1293,7 +1296,7 @@ function self.Combat.Toggles.Ninja.Range(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Omni(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1303,7 +1306,7 @@ function self.Combat.Toggles.Ninja.Omni(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.BurnBoss(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1313,7 +1316,7 @@ function self.Combat.Toggles.Ninja.BurnBoss(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Potion(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1323,7 +1326,7 @@ function self.Combat.Toggles.Ninja.Potion(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.UseAOE(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1332,18 +1335,33 @@ function self.Combat.Toggles.Ninja.UseAOE(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Ninja.TCJ(toggleOn)
-  toggleOn = toggleOn or true
+function self.Combat.Toggles.Ninja.TCJ(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.TCJ.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    if self.WhichArc() == self.arcs.SallyNIN then
+      if byTimeline == true then
+
+        self.Combat.Toggles.Control.TCJMove.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+        self.Combat.Toggles.Control.TCJMove.TimelineActive = byTimeline and toggleOn == false
+        self.Combat.Toggles.Control.TCJMove.LastMoved = Now()
+      end
+
+      SallyNIN.SkillSettings.TCJ.enabled = toggleOn
+      return true
+    end
   end
+
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.TCJ.enabled = toggleOn return true end
   return false
 end
 
 function self.Combat.Toggles.Ninja.Meisui(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1353,7 +1371,7 @@ function self.Combat.Toggles.Ninja.Meisui(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.TrickAttack(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1363,7 +1381,7 @@ function self.Combat.Toggles.Ninja.TrickAttack(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Ninjutsu(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1373,7 +1391,7 @@ function self.Combat.Toggles.Ninja.Ninjutsu(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Bushin(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1383,7 +1401,7 @@ function self.Combat.Toggles.Ninja.Bushin(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Ninki(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1393,7 +1411,7 @@ function self.Combat.Toggles.Ninja.Ninki(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Assassinate(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1403,7 +1421,7 @@ function self.Combat.Toggles.Ninja.Assassinate(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.DWD(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1413,7 +1431,7 @@ function self.Combat.Toggles.Ninja.DWD(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Mug(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1423,7 +1441,7 @@ function self.Combat.Toggles.Ninja.Mug(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Kassatsu(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1433,7 +1451,7 @@ function self.Combat.Toggles.Ninja.Kassatsu(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.Doton(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1443,7 +1461,7 @@ function self.Combat.Toggles.Ninja.Doton(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.TrueNorth(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1453,7 +1471,7 @@ function self.Combat.Toggles.Ninja.TrueNorth(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.ACRefresh(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1463,7 +1481,7 @@ function self.Combat.Toggles.Ninja.ACRefresh(toggleOn)
 end
 
 function self.Combat.Toggles.Ninja.ShadowFang(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Ninja.id then
     -- if tensor installed
@@ -1476,7 +1494,7 @@ if self.Combat.Toggles.Ninja.Helpers == nil then self.Combat.Toggles.Ninja.Helpe
 
 function self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(byTimeline, allowShadowfang)
   if self.Settings.EnableDebug then self.Log("turn off trick attack") end
-  
+
   -- set defaults in case they are not passed in
   byTimeline = byTimeline or false
   allowShadowfang = allowShadowfang or false
@@ -1508,31 +1526,49 @@ function self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow()
   end
 end
 
-function self.Combat.Toggles.Ninja.Helpers.TurnOffTCJ(byTimeline)
-  -- set defaults in case they are not passed in
-  byTimeline = byTimeline or false
+function self.Combat.Toggles.Ninja.Helpers.TCJMoveDetection()
+  if Player.job ~= self.jobs.Ninja.id or Player.incombat == false then return false end
 
-  if self.Settings.EnableDebug then self.Log("turn off tcj by timeline=" ..tostring(byTimeline)) end
+  -- always want this on for openers
+  if self.Combat.inOpener() then return self.Combat.Toggles.Ninja.TCJ(true, false) end
 
-  -- set Toggle control
-  self.Combat.Toggles.Control.TCJMove.IsActive = true
-  self.Combat.Toggles.Control.TimelineActive = byTimeline
-  self.Combat.Toggles.Control.LastMoved = Now()
+  -- if set by timeline reaction, ignore
+  if self.Combat.Toggles.Control.TCJMove.IsActive == true and self.Combat.Toggles.Control.TCJMove.TimelineActive == true then return false end
 
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.SkillSettings.TCJ.enabled = false
+  if Player:IsMoving() then
+    self.Combat.Toggles.Control.TCJMove.IsActive = true
+    self.Combat.Toggles.Control.TCJMove.LastMoved = Now()
+    self.Combat.Toggles.Ninja.TCJ(false, false)
+    return true
   end
+
+  if self.Combat.Toggles.Control.TCJMove.LastMoved ~= nil and TimeSince(self.Combat.Toggles.Control.TCJMove.LastMoved) > 1200 then
+    self.Combat.Toggles.Control.TCJMove.IsActive = false
+    self.Combat.Toggles.Ninja.TCJ(true, false)
+    return true
+  end
+  return false
 end
 
-function self.Combat.Toggles.Ninja.Helpers.TurnOnTCJ()
-  if self.Settings.EnableDebug then self.Log("turn on tcj") end
-  -- set toggle control
-  self.Combat.Toggles.Control.IsActive = false
-  self.Combat.Toggles.Control.TimelineActive = false
+function self.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()
+  if Player.job ~= self.jobs.Ninja.id or Player.incombat == false then return false end
 
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.SkillSettings.TCJ.enabled = true
+  -- always want this on for openers
+  if self.Combat.inOpener() then return self.Combat.Toggles.Ninja.Assassinate(true) end
+
+  if Player:IsMoving() then
+    self.Combat.Toggles.Control.Assassinate.IsActive = true
+    self.Combat.Toggles.Control.Assassinate.LastMoved = Now()
+    self.Combat.Toggles.Ninja.Assassinate(false)
+    return true
   end
+
+  if self.Combat.Toggles.Control.Assassinate.LastMoved ~= nil and TimeSince(self.Combat.Toggles.Control.Assassinate.LastMoved) > 1200 then
+    self.Combat.Toggles.Control.Assassinate.IsActive = false
+    self.Combat.Toggles.Ninja.Assassinate(true)
+    return true
+  end
+  return false
 end
 
 -- ** Samurai *************************************************************************************************
@@ -1582,7 +1618,7 @@ function self.Combat.Toggles.Samurai.Reset()
 end
 
 function self.Combat.Toggles.Samurai.Opener(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1592,7 +1628,7 @@ function self.Combat.Toggles.Samurai.Opener(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.SaveCD(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1602,7 +1638,7 @@ function self.Combat.Toggles.Samurai.SaveCD(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Guren(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1612,7 +1648,7 @@ function self.Combat.Toggles.Samurai.Guren(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Hagakure(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1622,7 +1658,7 @@ function self.Combat.Toggles.Samurai.Hagakure(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Higanbana(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1632,7 +1668,7 @@ function self.Combat.Toggles.Samurai.Higanbana(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Ikishoten(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1642,7 +1678,7 @@ function self.Combat.Toggles.Samurai.Ikishoten(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Kaiten(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1652,7 +1688,7 @@ function self.Combat.Toggles.Samurai.Kaiten(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Kyuten(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1662,7 +1698,7 @@ function self.Combat.Toggles.Samurai.Kyuten(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Meikyo(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1672,7 +1708,7 @@ function self.Combat.Toggles.Samurai.Meikyo(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Potion(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1682,7 +1718,7 @@ function self.Combat.Toggles.Samurai.Potion(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Senei(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1692,7 +1728,7 @@ function self.Combat.Toggles.Samurai.Senei(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Shinten(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1702,7 +1738,7 @@ function self.Combat.Toggles.Samurai.Shinten(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Shoha(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1712,7 +1748,7 @@ function self.Combat.Toggles.Samurai.Shoha(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1722,7 +1758,7 @@ function self.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.Tsubame(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed
@@ -1732,7 +1768,7 @@ function self.Combat.Toggles.Samurai.Tsubame(toggleOn)
 end
 
 function self.Combat.Toggles.Samurai.UseAOE(toggleOn)
-  toggleOn = toggleOn or true
+  if self.isempty(toggleOn) then toggleOn = true end
 
   if Player.job == self.jobs.Samurai.id then
     -- if tensor installed

@@ -10,10 +10,23 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = false;
-			["execute"] = "-- ** Verson 2 **\
--- if you have moogle tts, callout for threefold grace\
--- ** Verson 1 **\
--- added all the stuff";
+			["execute"] = "-- ** Contributors **\
+--[[\
+		* Nil (maintainer)\
+  * Yang Xiao Long\
+]]\
+\
+-- *************************************************************************************\
+\
+-- LIBRARY REQUIRED\
+\
+-- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
+\
+\
+--[[ ** ChangeLog **\
+* [\"4.0.0\"] = \"Initial release \"\
+*	[\"4.1.0\"] = \"timeline reaction\",\
+]]";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -26,6 +39,28 @@ local obj1 = {
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "104457d9-8d2a-fc67-939c-721707434426";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Reset Toggle Controls";
+			["time"] = 13;
+			["timeRange"] = false;
+			["timelineIndex"] = 2;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "f3746546-d845-5e66-ad27-3b35b54e0991";
 		};
 	};
 	[22] = {

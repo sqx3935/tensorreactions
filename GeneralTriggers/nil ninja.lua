@@ -2046,31 +2046,14 @@ end\
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or Player.level < 80 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-		if SallyNIN ~= nil and SallyNIN.SkillSettings.TCJ.enabled == false then SallyNIN.SkillSettings.TCJ.enabled = true end\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true 	\
-return nil\
-end\
-\
-if Player:IsMoving() then\
-		if SallyNIN ~= nil and SallyNIN.SkillSettings.TCJ.enabled == true then SallyNIN.SkillSettings.TCJ.enabled = false end\
-		data.nilsPlayground.Toggles.TCJMove.LastMoved = Now()\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if TimeSince(data.nilsPlayground.Toggles.TCJMove.LastMoved) > 1200 then\
-		if SallyNIN ~= nil and SallyNIN.SkillSettings.TCJ.enabled == false then SallyNIN.SkillSettings.TCJ.enabled = true end\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TCJMoveDetection()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil\
+\
+\
 ";
 		["executeType"] = 2;
 		["luaReturnsAction"] = false;
@@ -2092,31 +2075,14 @@ return nil\
 		};
 		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or Player.level < 80 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-		if SallyNIN ~= nil and SallyNIN.SkillSettings.Assassinate.enabled == false then SallyNIN.SkillSettings.Assassinate.enabled = true end\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Assassinate(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()\
 \
-if Player:IsMoving() then\
-		if SallyNIN ~= nil and SallyNIN.SkillSettings.Assassinate.enabled == true then SallyNIN.SkillSettings.Assassinate.enabled = false end\
-		data.nilsPlayground.Toggles.AssassinateMove.LastMoved = Now()\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if TimeSince(data.nilsPlayground.Toggles.AssassinateMove.LastMoved) > 500 then\
-		if SallyNIN ~= nil and SallyNIN.SkillSettings.Assassinate.enabled == false then SallyNIN.SkillSettings.Assassinate.enabled = true end\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
---self.eventConditionMismatch = true -- suppressing the log\
---self.used = true \
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
 return nil\
+\
+\
 ";
 		["executeType"] = 2;
 		["luaReturnsAction"] = false;

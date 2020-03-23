@@ -17,22 +17,14 @@ local obj1 = {
 ]]\
 \
 -- *************************************************************************************\
+-- LIBRARY REQUIRED\
 \
---[[ ** Verson 2 **\
-* tweaked retart boss to continue looping \
-* added Riku's argus strike spark\
-* converted reactions to full lua (no need anymore to disable if you do not have sallynin)\
-* added new dependancy system, timeline and general will not use the same\
-* added extra checks to shadeshift\
-* added an oGCD safe check\
-]]\
+-- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 \
-\
--- ** Verson 1 **\
--- tweaked ninjutsu off/on timmings\
--- added a ninjutsu on at around 320, was turned off before and never turned back on\
--- tweaked boss retarting, let me know if it still feels off, some are hard due to missing the `targetable` flag\
--- true north added to last phase, thanks Dani for suggestion";
+--[[ ** ChangeLog **\
+* [\"4.0.0\"] = \"Initial release \"\
+*	[\"4.1.0\"] = \"timeline reaction\",\
+]]";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -44,491 +36,53 @@ local obj1 = {
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "502c6d92-c04b-94c5-8884-8f1c71800184";
+			["uuid"] = "704f473e-4fb9-e73c-ab99-884996e1f084";
 		};
 		[2] = {
 			["actions"] = {
 			};
 			["conditions"] = {
 			};
-			["enabled"] = false;
-			["execute"] = "-- checks and loads dependancy functions in the event that you do not have my general dependancies loaded.\
-\
-if data.nilsPlayground == nil then\
-  data.nilsPlayground = {}\
-\
-  -- TODO: for later use, returns if arc is enabled and which arc is selected\
-  if gACREnabled then\
-    data.nilsPlayground.whicharc = gACRSelectedProfiles[Player.job] -- returns which arc is being used\
-  end\
-\
-  if data.nilsPlayground.Log == nil then\
-    function data.nilsPlayground.Log(string)\
-      d(\"[Nil's Ninja Reactions] \" .. string)\
-    end\
-  end\
-\
-  function data.nilsPlayground.ResetSallyNIN()\
-    -- issues command to let ACT know to rest\
-    SendTextCommand(\"/echo end\")\
-\
-    -- reset quick toggles to default\
-    if SallyNIN ~= nil then\
-      SallyNIN.SkillSettings.Opener.enabled = false\
-      SallyNIN.SkillSettings.SaveCD.enabled = false\
-      SallyNIN.SkillSettings.Range.enabled = false\
-      SallyNIN.SkillSettings.Omni.enabled = false\
-      SallyNIN.SkillSettings.BurnBoss.enabled = false\
-\
-      -- SallyNIN.SkillSettings.Potion.enabled = true\
-      SallyNIN.SkillSettings.UseAOE.enabled = true\
-      SallyNIN.SkillSettings.TCJ.enabled = true\
-      SallyNIN.SkillSettings.Meisui.enabled = true\
-      SallyNIN.SkillSettings.TrickAttack.enabled = true\
-      SallyNIN.SkillSettings.Ninjutsu.enabled = true\
-      SallyNIN.SkillSettings.Bushin.enabled = true\
-      SallyNIN.SkillSettings.Ninki.enabled = true\
-      SallyNIN.SkillSettings.Assassinate.enabled = true\
-      SallyNIN.SkillSettings.DWD.enabled = false\
-      SallyNIN.SkillSettings.Mug.enabled = true\
-      SallyNIN.SkillSettings.Kassatsu.enabled = true\
-      SallyNIN.SkillSettings.Doton.enabled = true\
-      SallyNIN.SkillSettings.TrueNorth.enabled = true\
-      SallyNIN.SkillSettings.ACRefresh.enabled = true\
-      SallyNIN.SkillSettings.ShadowFang.enabled = true\
-\
-      SallyNIN.HotBarConfig.ShadeShift.enabled = true\
-      SallyNIN.HotBarConfig.SecondWind.enabled = true\
-      SallyNIN.HotBarConfig.Bloodbath.enabled = true\
-      SallyNIN.HotBarConfig.Armslength.enabled = true\
-      SallyNIN.HotBarConfig.Feint.enabled = true\
-    end\
-\
-    data.nilsPlayground.ResetToggles()\
-  end\
-\
-  function data.nilsPlayground.TurnOffNinjitsu(byTimeline)\
-    data.nilsPlayground.Toggles.Ninjutsu.IsActive = true\
-    data.nilsPlayground.Toggles.Ninjutsu.TimelineActive = byTimeline\
-    data.nilsPlayground.Toggles.Ninjutsu.LastMoved = Now()\
-\
-    if SallyNIN ~= nil then\
-      SallyNIN.SkillSettings.Ninjutsu.enabled = false\
-      SallyNIN.SkillSettings.SaveCD.enabled = true\
-    end\
-  end\
-\
-  function data.nilsPlayground.TurnOnNinjitsu()\
-    data.nilsPlayground.Toggles.Ninjutsu.IsActive = false\
-    data.nilsPlayground.Toggles.Ninjutsu.TimelineActive = false\
-\
-    if SallyNIN ~= nil then\
-      SallyNIN.SkillSettings.Ninjutsu.enabled = true\
-      SallyNIN.SkillSettings.SaveCD.enabled = false\
-    end\
-  end\
-\
-  function data.nilsPlayground.TurnOffTrickAttackWindow(byTimeline)\
-    data.nilsPlayground.Toggles.TrickAttackWindow.IsActive = true\
-    data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive = byTimeline\
-    data.nilsPlayground.Toggles.TrickAttackWindow.LastMoved = Now()\
-\
-    if SallyNIN ~= nil then\
-      SallyNIN.SkillSettings.SaveCD.enabled = true\
-      SallyNIN.SkillSettings.TrickAttack.enabled = false\
-      SallyNIN.SkillSettings.ShadowFang.enabled = false\
-      SallyNIN.SkillSettings.Bushin.enabled = false\
-    end\
-  end\
-\
-  function data.nilsPlayground.TurnOnTrickAttackWindow()\
-    data.nilsPlayground.Toggles.TrickAttackWindow.IsActive = false\
-    data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive = false\
-\
-    if SallyNIN ~= nil then\
-      SallyNIN.SkillSettings.SaveCD.enabled = false\
-      SallyNIN.SkillSettings.TrickAttack.enabled = true\
-      SallyNIN.SkillSettings.ShadowFang.enabled = true\
-      SallyNIN.SkillSettings.Bushin.enabled = true\
-      SallyNIN.SkillSettings.Ninjutsu.enabled = true\
-    end\
-  end\
-\
-  function data.nilsPlayground.TurnOffTCJ(byTimeline)\
-    data.nilsPlayground.Toggles.TCJMove.IsActive = true\
-    data.nilsPlayground.Toggles.TCJMove.TimelineActive = byTimeline\
-    data.nilsPlayground.Toggles.TCJMove.LastMoved = Now()\
-\
-    if SallyNIN ~= nil then\
-      SallyNIN.SkillSettings.TCJ.enabled = false\
-    end\
-  end\
-\
-  function data.nilsPlayground.TurnOnTCJ()\
-    data.nilsPlayground.Toggles.TCJMove.IsActive = false\
-    data.nilsPlayground.Toggles.TCJMove.TimelineActive = false\
-\
-    if SallyNIN ~= nil then\
-      SallyNIN.SkillSettings.TCJ.enabled = true\
-    end\
-  end\
-\
-  function data.nilsPlayground.ResetToggles()\
-    data.nilsPlayground.Toggles = {\
-      TCJMove = {IsActive = false, LastMoved = 0, TimelineActive = false},\
-      AssassinateMove = {IsActive = false, LastMoved = 0, TimelineActive = false},\
-      BurnBoss = {IsActive = false, TimelineActive = false},\
-      AOEBlackList = {IsActive = false, TimelineActive = false},\
-      CDBlackList = {IsActive = false, TimelineActive = false},\
-      OmniWhiteList = {IsActive = false, TimelineActive = false},\
-      DreamWithinDream = {IsActive = false, TimelineActive = false},\
-      Kassatsu = {IsActive = false, TimelineActive = false},\
-      Meisui = {IsActive = false, LastMoved = 0, TimelineActive = false},\
-      Ninjutsu = {IsActive = false, LastMoved = 0, TimelineActive = false},\
-      ACRefresh = {IsActive = false, LastMoved = 0, TimelineActive = false},\
-      TrickAttackWindow = {IsActive = false, LastMoved = 0, TimelineActive = false}\
-    }\
-  end\
-\
-  if data.nilsPlayground.CustomConditionChecks == nil then\
-    data.nilsPlayground.CustomConditionChecks = {}\
-  end\
-\
-  function data.nilsPlayground.CustomConditionChecks.IsDoingMudra()\
-    -- 496 Mudra, 1186 TCJ\
-    return HasBuff(Player.id, 496) or HasBuff(Player.id, 1186)\
-  end\
-\
-  -- REMOVING THIS FUNCTION SOON, use inopener() instead\
-  function data.nilsPlayground.CustomConditionChecks.NoOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_nin ~= nil and xivopeners_nin.openerStarted == true then\
-      return false\
-    end\
-\
-    -- checks to see if sally dancer is installed and if its opener is running\
-    if SallyNIN ~= nil and SallyNIN.SkillSettings.Opener.enabled == true then\
-      return false\
-    end\
-\
-    -- if xivopener is not running nor sally sam opener, then return true that it is safe to execute.\
-    return true\
-  end\
-\
-  function data.nilsPlayground.CustomConditionChecks.inOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_nin ~= nil and xivopeners_nin.openerStarted == true then\
-      return true\
-    end\
-\
-    -- checks to see if sally dancer is installed and if its opener is running\
-    if SallyNIN ~= nil and SallyNIN.SkillSettings.Opener.enabled == true then\
-      return true\
-    end\
-\
-    -- if xivopener is not running nor sally sam opener, then return false that it is safe to execute.\
-    return false\
-  end\
-\
-  function data.nilsPlayground.CustomConditionChecks.CanNinjutsuBeTurnedOff()\
-    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
-      return false\
-    end\
-    return data.nilsPlayground.Toggles.Ninjutsu.IsActive == false\
-  end\
-\
-  -- REMOVING THIS FUNCTION SOON, calculate as needed in scripts\
-  function data.nilsPlayground.skillCooldownDifference(cd, cdmax)\
-    if cd == 0 and cdmax == 0 then\
-      return 0\
-    end\
-    return tonumber(cdmax - cd) or 0\
-  end\
-\
-  function data.nilsPlayground.getPlayerBuffDuration(buffID)\
-    if (table.valid(Player.buffs)) then\
-      for _, buff in pairs(Player.buffs) do\
-        if buff.id == buffID then\
-          return buff.duration\
-        end\
-      end\
-    end\
-    return 0\
-  end\
-\
-  data.nilsPlayground.BurnBossList = {\
-    -- [541] = 1, -- striking dummy\
-    [11347] = 1, -- Alexander Prime\
-    [11340] = 1, -- Brute Justice\
-    [11342] = 2, -- Cruise Chaser\
-    [11335] = 2, -- Living Liquid\
-    [6358] = 1, -- Alexander\
-    [9365] = 2, -- Eden Prime savage\
-    [9366] = 4, -- Guardian of Paradise savage\
-    [10511] = 2, -- voidwalker savage\
-    [10604] = 2, -- Leviathan savage\
-    [8486] = 2, -- Leviathan savage\
-    [8350] = 2, -- Titan savage\
-    [11361] = 1, -- Serial-jointed Command Model\
-    [9020] = 1, -- 9s-operated walking fortress\
-    [9143] = 1, -- Hobbes\
-    [9144] = 1, -- Hobbes\
-    [9145] = 1, -- Hobbes\
-    [9147] = 1, -- Engels\
-    [8353] = 1, -- Innocence\
-    [9281] = 1, -- Ramuh --> E5S\
-    [9289] = 1, -- Raktapaksa --> E6S\
-    [9298] = 1, -- The Idol of Darkness --> E7S\
-    [9353] = 1 -- Shiva --> E8S\
-  }\
-\
-  data.nilsPlayground.AOEBlackList = {\
-    --	[541] = true, -- striking dummy\
-    [7097] = true, -- Demon Chadarnook\
-    [7646] = true, -- Immortal Key\
-    [7662] = true, -- Tokkapchi\
-    [7663] = true, -- Mud Slime\
-    [7665] = true, -- Muddy Dorpokkur\
-    [7672] = true, -- Mist Dragon\
-    [7673] = true, -- Draconic Regard\
-    [7702] = true, -- Suzaku\
-    [7703] = true, -- Scarlet Plume\
-    [7704] = true, -- Scarlet Tail Feather\
-    [7725] = true, -- Scarlet Lady\
-    [8262] = true, -- Forgiven Obscenity\
-    [9181] = true, -- Lahabrea's shade\
-    [9182] = true, --	Igeyorhm's shade\
-    [9287] = true, -- Garuda\
-    [9288] = true -- Ifrit -->\
-  }\
-\
-  data.nilsPlayground.CDBlackList = {\
-    --[541] = true, -- striking dummy\
-    [7129] = true, -- Doom Chimney\
-    [7125] = true, -- Putrid Passenger\
-    [7233] = true, -- Specter of the Homeland\
-    [7234] = true, -- Specter of the Empire\
-    [7646] = true, -- Immortal Key\
-    [7673] = true, -- Draconic Regard\
-    [7703] = true, -- Scarlet Plume\
-    [7725] = true, -- Scarlet Lady\
-    [8826] = true, -- Shadow of the Ancients\
-    [8346] = true, -- Granite Gaol\
-    [8342] = true, -- Arcane Sphere\
-    [9319] = true, -- electric aether\
-    -- [9320] = true, -- aqueous aether\
-    [9321] = true -- earthen aether\
-  }\
-\
-  data.nilsPlayground.OmniList = {\
-    -- [541] = true, -- striking dummy\
-    [3069] = true, -- Sand Sphere\
-    [4815] = true, -- Arcane Sphere\
-    [5640] = true, -- Shinryu\
-    [5789] = true, -- Tail\
-    [6055] = true, -- Neo Exdeath\
-    [6257] = true, -- Magitek Pod\
-    [6928] = true, -- Shard of Emptiness\
-    [6933] = true, -- Aqua Sphere\
-    [6934] = true, -- Blizzard III\
-    [6950] = true, -- Command Tower\
-    [7097] = true, -- Demon Chadarnook\
-    [7122] = true, -- Malice\
-    [7126] = true, -- Ghost\
-    [7127] = true, -- Phantom Train\
-    [7202] = true, -- Daidarabotchi\
-    [7537] = true, -- Specter of Zenos\
-    [7575] = true, -- Iron Chain\
-    [7637] = true, -- Left Arm Unit\
-    [7638] = true, -- Right Arm Unit\
-    [7646] = true, -- Immortal Key\
-    [7657] = true, -- Ultima, the High Seraph\
-    [7694] = true, -- Dark Crystal\
-    [7699] = true, -- Level Checker\
-    [7700] = true, -- Level Checker\
-    [7899] = true, -- The Thunder God\
-    [7901] = true, -- Icewolf\
-    [7908] = true, -- Ruination\
-    [8145] = true, -- Painted Root\
-    [8261] = true, -- Forgiven Whimsy\
-    [8267] = true, -- Forgiven Apathy\
-    [8270] = true, -- Forgiven Revelry\
-    [8342] = true, -- Arcane Sphere\
-    [8346] = true, -- Granite Gaol\
-    [10643] = true, -- Granite Gaol\
-    [8351] = true, -- Aetherial Gaol\
-    [8570] = true, -- Iron Chain\
-    [8958] = true, -- Liar's Lyre\
-    [9143] = true, -- Hobbes\
-    [9144] = true, -- Hobbes\
-    [9145] = true, -- Hobbes\
-    [9147] = true, -- Engels\
-    [9020] = true, -- Engels\
-    [8486] = true, -- Leviathan savage\
-    [10604] = true, -- Leviathan savage\
-    [8349] = true, -- Titan Maximum savage\
-    [9298] = true, -- The Idol of Darkness\
-    [9300] = true, -- Blasphemy\
-    [9301] = true, -- Idolatry\
-    [9322] = true, -- shiva add Luminous Aether\
-    [9320] = true, -- shiva add aqueous\
-    [9321] = true, -- shiva add Earthen Aether\
-    [9319] = true, -- shiva add electric\
-    [9358] = true -- Ice Veil\
-  }\
-\
--- ** Abilities activation **\
-\
-if data.nilsPlayground.ExecuteShadeShift == nil then\
-  function data.nilsPlayground.ExecuteShadeShift()\
-    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
-\
-    -- ignore if have scholar shield\
-    if HasBuff(Player.id,297) or Player.hp.percent > 75 then return false end\
-\
-    local actionskill = ActionList:Get(1, 2241)\
-    if actionskill.cdmax - actionskill.cd > .5 then return false end\
-\
-    -- if sally installed, use hotbar, otherwise use base\
-    if SallyNIN ~= nil then SallyNIN.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast(Player.id) end\
-    return true\
-    end\
-end\
-\
-if data.nilsPlayground.ExecuteFeint == nil then\
-  function data.nilsPlayground.ExecuteFeint()\
-    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
-\
-    local target = Player:GetTarget()\
-    if target == nil or not table.valid(target) or target.attackable or HasBuff(target.id, 1195) then return false end\
-\
-    local actionskill = ActionList:Get(1, 7549)\
-    if actionskill.cdmax - actionskill.cd > .5 then return false end\
-\
-    -- if sally installed, use hotbar, otherwise use base\
-    if SallyNIN ~= nil then SallyNIN.HotBarConfig.Feint.enabled = false else	actionskill:Cast(target.id) end\
-    return true\
-  end\
-end\
-\
-if data.nilsPlayground.ExecuteArmsLength == nil then\
-  function data.nilsPlayground.ExecuteArmsLength()\
-    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
-\
-    local actionskill = ActionList:Get(1, 7548)\
-    if actionskill.cdmax - actionskill.cd > .5 then return false end\
-    -- if sally installed, use hotbar, otherwise use base\
-    if SallyNIN ~= nil then SallyNIN.HotBarConfig.Armslength.enabled = false else	actionskill:Cast(Player.id) end\
-    if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
-  end\
-end\
-\
-if data.nilsPlayground.ExecuteSprint == nil then\
-  function data.nilsPlayground.ExecuteSprint()\
-    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
-\
-    local actionskill = ActionList:Get(1, 3)\
-    if actionskill.cdmax - actionskill.cd > .5 then return false end\
-    -- if sally installed, use hotbar, otherwise use base\
-    if SallyNIN ~= nil then SallyNIN.HotBarConfig.Sprint.enabled = false else	actionskill:Cast(Player.id) end\
-  end\
-end\
-\
-if data.nilsPlayground.ExecuteTrueNorth == nil then\
-  function data.nilsPlayground.ExecuteTrueNorth()\
-    if HasBuff(Player.id, 1250) or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true or data.nilsPlayground.CustomConditionChecks.inOpener() == true or data.nilsPlayground.oGCDSafe() == false then return false end\
-\
-    local actionskill = ActionList:Get(1, 7546)\
-    if actionskill.cdmax - actionskill.cd > .5 then return false end\
-    -- if sally installed, use hotbar, otherwise use base\
-    if SallyNIN ~= nil then SallyNIN.HotBarConfig.TrueNorth.enabled = false else	actionskill:Cast(Player.id) end\
-  end\
-end\
-\
-if data.nilsPlayground.oGCDSafe == nil then\
-  function data.nilsPlayground.oGCDSafe()\
-    local actionskill = ActionList:Get(1, 2240)\
-    if actionskill.cdmax - actionskill.cd > .8 then return true else return false end\
-  end\
-end\
-\
--- ***************************\
-\
-  data.nilsPlayground.lastBurnBossCheck = 0\
-\
-  data.nilsPlayground.ResetToggles()\
-\
-  data.nilsPlayground.Log(\"dependencies loaded\")\
-\
-  data.nilsPlayground.version = 2.1\
-\
-  data.nilDataLoaded = true\
-  NILS_PLAYGROUND = true\
-end\
-\
-d(\"timeline dependancy loaded\")\
-self.used = true\
-";
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
+  self.used = true\
+end";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "Dependancies";
+			["name"] = "Reset Toggle Controls";
 			["time"] = 18;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 2;
-			["timerEndOffset"] = 14;
+			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -20;
+			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "1e41dc6e-42af-9ebd-93b8-4b5120b5ad17";
+			["uuid"] = "1b77166a-0bfd-9210-a447-7ae791b2fed9";
 		};
 	};
 	[3] = {
 		[1] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "SallyNIN.SkillSettings.UseAOE.enabled = false\
-self.used = true\
-";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
+			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "Turn off AOE (sally)";
+			["name"] = "Turn off AOE";
 			["time"] = 27.1;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 3;
-			["timerEndOffset"] = 1;
+			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -9;
+			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "1e159845-7953-c128-9462-a14687440d1b";
+			["uuid"] = "7dff4a75-37bf-d0d2-b7a5-abebf499ca11";
 		};
 	};
 	[5] = {
@@ -552,7 +106,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "bff448e8-1dac-1b34-92d0-a2348017523b";
+			["uuid"] = "57918f3e-919a-d0cc-ad0d-a8b8835fd652";
 		};
 	};
 	[8] = {
@@ -578,7 +132,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "e835c15a-aaa7-5d61-928f-cf99f842cccf";
+			["uuid"] = "04fdaa85-a4c3-a05f-b21e-c4a649f4aa1c";
 		};
 	};
 	[12] = {
@@ -602,7 +156,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "97118924-bdd4-6e35-b3d4-9f99c4eac883";
+			["uuid"] = "4e519381-f6a0-cbd8-a0b0-2b89ef623933";
 		};
 	};
 	[15] = {
@@ -715,7 +269,7 @@ self.used = true";
 			["timerOffset"] = -2.5999999046326;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "121cd9a5-8cc6-7ae2-b1eb-514d8d3be68a";
+			["uuid"] = "dfb81445-859f-4828-8a09-6a70d88db808";
 		};
 		[2] = {
 			["actions"] = {
@@ -761,7 +315,7 @@ self.used = true\
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "acf3e1c5-3eff-322e-bc53-1889150e34a7";
+			["uuid"] = "331653e3-069c-c16a-9104-2e07cdcf9af0";
 		};
 	};
 	[17] = {
@@ -785,7 +339,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "1d8a135d-b126-2cf2-8332-84bdde4caa08";
+			["uuid"] = "128ef58b-a359-d973-bf68-189993bf3ae7";
 		};
 		[2] = {
 			["actions"] = {
@@ -896,7 +450,7 @@ self.used = true";
 			["timerOffset"] = -0.099999999999994;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "421b2e88-1652-4406-813f-707f845fc781";
+			["uuid"] = "c62ec28c-c52d-d042-9d0e-d9cfa1ca2c64";
 		};
 		[3] = {
 			["actions"] = {
@@ -974,7 +528,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "e6a5d8e2-f950-4912-9dd1-51d9fd950514";
+			["uuid"] = "99ef9fa0-2f15-6817-8011-5ad40ebfb73c";
 		};
 		[4] = {
 			["actions"] = {
@@ -1151,7 +705,7 @@ self.used = true";
 			["timerOffset"] = -0.099999999999994;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "f3d71f89-7245-ffae-a8f6-5537a7c8ad18";
+			["uuid"] = "98b11143-6dc3-4caa-bf26-81e502d98a57";
 		};
 		[5] = {
 			["actions"] = {
@@ -1335,7 +889,7 @@ return false";
 			["timerOffset"] = 0.10000000149012;
 			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "1c7eb4df-b10f-bf77-8947-2cdc5f2fefcf";
+			["uuid"] = "6c79d1a1-b3ab-9ce6-ad3b-d1a4458b781e";
 		};
 		[6] = {
 			["actions"] = {
@@ -1516,7 +1070,7 @@ return false";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "ac31744c-f189-800e-bea6-89039934043c";
+			["uuid"] = "9722153c-9012-8683-9a36-bb74d54908b7";
 		};
 		[7] = {
 			["actions"] = {
@@ -1562,7 +1116,7 @@ self.used = true\
 			["timerOffset"] = -1;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "78ba2a99-215f-18ee-99c9-e34ce3fb5164";
+			["uuid"] = "0836a065-1295-5455-a096-d6985db039d5";
 		};
 	};
 	[22] = {
@@ -1586,7 +1140,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "00e79ba0-5453-657c-8ced-108d1e1ff2ce";
+			["uuid"] = "f35348e9-bcb9-9b0a-b48d-b33f9c7bfdf6";
 		};
 	};
 	[23] = {
@@ -1610,7 +1164,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "09e539fa-5ca0-d3f1-8448-5e51604c9265";
+			["uuid"] = "2368affe-d6a8-ed69-9110-04a55fc64707";
 		};
 	};
 	[26] = {
@@ -1643,7 +1197,7 @@ self.used = table.size(markedClones) >= 4";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "c7e4f8ba-e341-af01-b35c-0d18da9cbaf0";
+			["uuid"] = "9a5ff45e-2f40-74b0-a1d5-2a88e744a3c9";
 		};
 	};
 	[35] = {
@@ -1756,7 +1310,7 @@ self.used = true";
 			["timerOffset"] = 4.2;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "719efd1a-b4c2-ba48-873f-9b4201ad3ab9";
+			["uuid"] = "0687d903-ba04-90e5-8259-7b0c57ad5d80";
 		};
 		[2] = {
 			["actions"] = {
@@ -1900,7 +1454,7 @@ self.used = true";
 			["timerOffset"] = -2.5999999046326;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "1941aebb-69d7-1c91-8097-653c0c9f46c6";
+			["uuid"] = "0b9897ef-9e8d-6fab-b33b-485af1f832f9";
 		};
 		[3] = {
 			["actions"] = {
@@ -2077,7 +1631,7 @@ self.used = true";
 			["timerOffset"] = -0.099999999999994;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "c98f70a3-ba44-94e0-9a73-22d4a010ceeb";
+			["uuid"] = "3f29fbaa-71e1-fa64-9acf-a1205ade651e";
 		};
 		[4] = {
 			["actions"] = {
@@ -2099,7 +1653,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "71a61331-36c7-1e53-9a9d-c32c1a158c85";
+			["uuid"] = "c64f014f-b0c7-0eb3-ab15-d456a27cc15e";
 		};
 		[5] = {
 			["actions"] = {
@@ -2145,7 +1699,7 @@ self.used = true\
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "1fa67c6f-118e-b87c-9aea-afb450c79693";
+			["uuid"] = "093be3a9-d51b-b486-aeaa-6e3a5262f7ac";
 		};
 	};
 	[37] = {
@@ -2225,7 +1779,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "65d5fadc-c2b8-a874-aa62-8f2a2e6eb070";
+			["uuid"] = "1bbb62d6-b5ab-d72b-ac17-4f33b01c9077";
 		};
 		[2] = {
 			["actions"] = {
@@ -2303,7 +1857,7 @@ self.used = true";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "aeb4c4db-c013-ce14-9989-331dfc78470b";
+			["uuid"] = "4e7dac79-2358-8835-a43b-23d2584ef29d";
 		};
 		[3] = {
 			["actions"] = {
@@ -2349,7 +1903,7 @@ self.used = true\
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "c4f1a37d-9b13-e03b-8571-8e0ca7a7533e";
+			["uuid"] = "3fbe7b4e-8b26-9980-9e1e-cdc634e3b03f";
 		};
 		[4] = {
 			["actions"] = {
@@ -2534,7 +2088,7 @@ return false";
 			["timerOffset"] = 0.10000000149012;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "508e0cb2-9fb9-bd31-9d3b-c7441bcc725a";
+			["uuid"] = "763bdf33-9f8c-e424-81bb-bca938cf3b3e";
 		};
 	};
 	[38] = {
@@ -2558,7 +2112,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "be2dd690-69fb-052f-beb5-42d6ac22d6f6";
+			["uuid"] = "9c259802-b72c-00c7-b080-a5c68b52f73b";
 		};
 	};
 	[44] = {
@@ -2582,7 +2136,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "f1a2773d-3f53-15f9-983e-09599e45bb3d";
+			["uuid"] = "a8786024-0da2-245f-9922-027773307fbf";
 		};
 	};
 	[55] = {
@@ -2695,7 +2249,7 @@ self.used = true";
 			["timerOffset"] = -2.5999999046326;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "440f5ec7-1d25-4581-8474-28eceaea4d22";
+			["uuid"] = "42c3e8a3-e5a6-f459-b24d-6c25c49c5bef";
 		};
 		[2] = {
 			["actions"] = {
@@ -2741,7 +2295,7 @@ self.used = true\
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "29e99b1c-f54c-2bf1-a4c3-aac775ca54dc";
+			["uuid"] = "61fbbdf0-dfa9-7afb-bb9e-7b11e57ba921";
 		};
 	};
 	[58] = {
@@ -2765,7 +2319,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "1018bc57-7d14-8937-8184-de3766502a61";
+			["uuid"] = "c7f84532-af1c-1b33-96c8-b1bd3f01635a";
 		};
 		[2] = {
 			["actions"] = {
@@ -2844,7 +2398,7 @@ self.used = true\
 			["timerOffset"] = 4.8;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "99739b07-f5ae-e182-9b7f-5bc83c6d850e";
+			["uuid"] = "f5a5177a-4ec1-6510-935c-ec007322a6e3";
 		};
 		[3] = {
 			["actions"] = {
@@ -2922,7 +2476,7 @@ self.used = true";
 			["timerOffset"] = 4.8;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "e3517f4f-703f-4463-aa97-94e42454fc85";
+			["uuid"] = "513ce4d6-a369-3e70-9239-5625f7d55a45";
 		};
 		[4] = {
 			["actions"] = {
@@ -3000,7 +2554,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "0fa15089-310e-2ca2-9e40-09faa6940a6c";
+			["uuid"] = "98edd778-8712-b972-9da8-1a64122286c6";
 		};
 		[5] = {
 			["actions"] = {
@@ -3111,7 +2665,7 @@ self.used = true";
 			["timerOffset"] = 4.2;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "74df0a6f-922d-f236-befb-b6a462d78540";
+			["uuid"] = "5d873978-c901-b26d-9d17-6e0c8424e632";
 		};
 		[6] = {
 			["actions"] = {
@@ -3288,7 +2842,7 @@ self.used = true";
 			["timerOffset"] = -0.099999999999994;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "db3163d4-906e-c988-95f1-7d9f8221dcca";
+			["uuid"] = "5bad7439-545c-57bf-b5ca-e755ffe53775";
 		};
 		[7] = {
 			["actions"] = {
@@ -3334,7 +2888,7 @@ self.used = true\
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "500128b8-fcb4-ccb5-9597-177bed1a74f7";
+			["uuid"] = "ba9377d4-0c17-4114-84ad-fc39ee4db80a";
 		};
 	};
 	[66] = {
@@ -3358,7 +2912,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "1bef201f-f6f7-f8a9-8763-336dc9609b2b";
+			["uuid"] = "4fd3ae41-21c2-a1fa-a5fe-fe4776aef008";
 		};
 	};
 	[69] = {
@@ -3438,7 +2992,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "cfdad8f3-714b-59b5-b1e3-6f5f4d9d5f57";
+			["uuid"] = "5bb9e980-69ab-bce0-8a2a-2b7ec789bb94";
 		};
 		[2] = {
 			["actions"] = {
@@ -3469,7 +3023,7 @@ self.used = table.size(markedClones) >= 4";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "2801bbcd-749b-121f-8985-20fc89d13150";
+			["uuid"] = "1cb3caea-f1c0-9d31-ada7-4056746b2cc0";
 		};
 	};
 	[72] = {
@@ -3516,7 +3070,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "41a422ad-4e37-6463-89b0-1e205ae2abf0";
+			["uuid"] = "ae059d0c-1126-d6ee-bc0f-075ebae69109";
 		};
 	};
 	[77] = {
@@ -3629,7 +3183,7 @@ self.used = true";
 			["timerOffset"] = -2.5999999046326;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "8e2858c7-cf58-4643-93c4-d900a7516a4c";
+			["uuid"] = "4304e7c3-2e25-9f90-9a64-d182b2d6c6eb";
 		};
 		[2] = {
 			["actions"] = {
@@ -3651,7 +3205,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "088c6537-af98-a157-9273-390d1cd177d4";
+			["uuid"] = "7f3d5bf7-dc9d-8aa9-af51-d40cd6e44914";
 		};
 	};
 	[78] = {
@@ -3675,7 +3229,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "7c229c70-5168-3257-8f30-f0b79be26c0e";
+			["uuid"] = "bdad7307-b138-313b-8ab5-302cc6f2ac60";
 		};
 	};
 	[96] = {
@@ -3699,7 +3253,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "6e4e873d-067f-4fd4-b585-b02e5430b249";
+			["uuid"] = "d66bc1af-143e-374d-8ace-9e065f7f7114";
 		};
 	};
 	[97] = {
@@ -3723,7 +3277,7 @@ end";
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "1329c2d1-f9f1-dc1e-9bd5-a25aef9cb963";
+			["uuid"] = "5fcebae6-1756-1308-9484-9749e8424004";
 		};
 	};
 	[111] = {
@@ -3747,7 +3301,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "1b681f67-6c91-bd97-bbd7-ee848834f92c";
+			["uuid"] = "0ef5eab5-d491-02fd-be39-33e56fe9b3ea";
 		};
 	};
 	[114] = {
@@ -3771,7 +3325,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "b16d8e42-a62d-37aa-b908-ed8261443841";
+			["uuid"] = "35464720-4977-15bd-9782-10fd2ad335d1";
 		};
 		[2] = {
 			["actions"] = {
@@ -3793,7 +3347,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "f43ced60-ffd0-94fa-b3ac-09d3157948a0";
+			["uuid"] = "4caca3be-af09-3945-a26b-28e411d7b648";
 		};
 	};
 	[115] = {
@@ -3873,7 +3427,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -15;
 			["used"] = false;
-			["uuid"] = "dbc88396-d10c-edf5-bedc-e800a06a2fa0";
+			["uuid"] = "4ea979c5-cb81-7707-88a4-be4ea046efc6";
 		};
 	};
 	["mapID"] = 907;

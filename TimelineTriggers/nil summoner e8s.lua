@@ -40,6 +40,28 @@ local obj1 = {
 			["used"] = false;
 			["uuid"] = "c7e3d8a6-f0a4-c2ac-9439-429494f65cb7";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Reset Toggle Controls";
+			["time"] = 16;
+			["timeRange"] = false;
+			["timelineIndex"] = 2;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "a7ff2e93-2b0f-e4f8-922f-243cc2b3c0c3";
+		};
 	};
 	[24] = {
 		[1] = {

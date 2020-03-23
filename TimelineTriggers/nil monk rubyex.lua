@@ -106,6 +106,28 @@ end\
 			["used"] = false;
 			["uuid"] = "de2aedf5-f4ee-7f81-b3ce-dd1066b49e05";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Reset Toggle Controls";
+			["time"] = 14.5;
+			["timeRange"] = false;
+			["timelineIndex"] = 2;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "c3c7ffc1-ee8e-21dc-929b-b74ece555fb4";
+		};
 	};
 	[14] = {
 		[1] = {

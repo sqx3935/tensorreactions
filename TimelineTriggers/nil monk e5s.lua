@@ -127,6 +127,28 @@ end\
 			["used"] = false;
 			["uuid"] = "646c91c2-15b9-322d-af86-5506430800b1";
 		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Reset Toggle Controls";
+			["time"] = 12;
+			["timeRange"] = false;
+			["timelineIndex"] = 1;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "df15ee6e-d7e2-4ce3-8b6f-a4509eebc613";
+		};
 	};
 	[2] = {
 		[1] = {
@@ -229,12 +251,14 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 73.4;
 			["timeRange"] = true;
@@ -253,13 +277,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteArmsLength() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Arm's Length";
+			["luaReturnsAction"] = true;
+			["name"] = "Knockback";
 			["time"] = 96.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 14;
@@ -267,7 +293,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "4671df5e-0b00-2b65-8d1c-bdc0bc3d2ab0";
+			["uuid"] = "889a4211-417e-7835-aaf9-dfcdb63523c8";
 		};
 	};
 	[21] = {
@@ -277,12 +303,14 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 138.1;
 			["timeRange"] = true;
@@ -349,12 +377,14 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 198.5;
 			["timeRange"] = true;
@@ -571,12 +601,14 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 305.2;
 			["timeRange"] = true;
@@ -732,12 +764,14 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 380.1;
 			["timeRange"] = true;
@@ -978,13 +1012,15 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteArmsLength() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Arm's Length";
+			["luaReturnsAction"] = true;
+			["name"] = "Knockback";
 			["time"] = 477;
 			["timeRange"] = true;
 			["timelineIndex"] = 81;
@@ -992,7 +1028,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "a3b6cee8-1896-9668-ae45-ffe290fb3fba";
+			["uuid"] = "f6f70b9d-395e-d2df-88af-b5984a550603";
 		};
 	};
 	[82] = {
@@ -1026,12 +1062,14 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 510;
 			["timeRange"] = true;
