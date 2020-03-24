@@ -10,8 +10,22 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = false;
-			["execute"] = "-- ** Verson 1 **\
--- added all the stuff";
+			["execute"] = "-- ** Contributors **\
+--[[\
+		* Nil (maintainer)\
+]]\
+\
+-- *************************************************************************************\
+\
+-- LIBRARY REQUIRED\
+\
+-- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
+\
+--[[ ** ChangeLog **\
+* [\"4.0.0\"] = \"Initial release \"\
+*	[\"4.1.0\"] = \"timeline reaction\",\
+]]\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -27,77 +41,13 @@ local obj1 = {
 		};
 		[2] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- used to load custom functions that are used for this timeline\
-\
-if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-\
-\
-if (_G[\"data.nilsPlayground.CustomConditionChecks.NoDRGOpener\"] == nil) then\
-		function data.nilsPlayground.CustomConditionChecks.NoDRGOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true then return false end\
-\
-    -- if xivopener is not running, then return true that it is safe to execute.\
-    return true\
-		end\
-end\
-\
-\
-\
-\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Load Dependancies";
-			["time"] = 16;
-			["timeRange"] = true;
-			["timelineIndex"] = 2;
-			["timerEndOffset"] = 2;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -10;
-			["used"] = false;
-			["uuid"] = "91cb9caa-c9eb-89a0-84ca-c2758610530e";
-		};
-		[3] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -119,21 +69,23 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 101.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 20;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "40c81de7-fed1-6785-ad17-317d9dfcb93a";
+			["uuid"] = "2e23c2b9-935c-9b89-9e65-8735083ee5c3";
 		};
 	};
 	[37] = {
@@ -167,6 +119,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -179,7 +133,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "8cc95e0e-0537-8b97-85b2-19843920898e";
+			["uuid"] = "840acad3-187a-11b1-860c-ab548e3ac39c";
 		};
 		[2] = {
 			["actions"] = {
@@ -245,7 +199,9 @@ return target == nil or target.hp.current == 0";
 					["setFirstMatch"] = false;
 				};
 			};
-			["enabled"] = false;
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
@@ -258,7 +214,37 @@ return target == nil or target.hp.current == 0";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "fc3f0659-ccef-bd9d-a85d-539dea90b0e8";
+			["uuid"] = "95e69ed3-9692-3e54-8efd-5a008256f966";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
+  local target = Player:GetTarget()\
+		-- 2 is leg sweep stun\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    local actionskill = ActionList:Get(1, 7863)\
+    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Leg Sweep";
+			["time"] = 229.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 37;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "28999ced-77a7-5f40-9605-f5ee085a9d5a";
 		};
 	};
 	[39] = {
@@ -280,8 +266,8 @@ return target == nil or target.hp.current == 0";
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
-					["targetContentID"] = 9321;
-					["targetName"] = "Earthen Aether";
+					["targetContentID"] = 9320;
+					["targetName"] = "Aqueous Aether";
 					["targetSubType"] = 1;
 					["targetType"] = 3;
 					["untarget"] = false;
@@ -291,20 +277,50 @@ return target == nil or target.hp.current == 0";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = false;
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "target earthen aether";
+			["name"] = "target aqueous aether";
 			["time"] = 243.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 39;
 			["timerEndOffset"] = 10;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "7a62a83e-233d-a4f8-9609-9f498b201ff6";
+			["uuid"] = "8518975f-bbcc-7704-9a3a-f309cd874ce8";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
+  local target = Player:GetTarget()\
+		-- 2 is leg sweep stun\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    local actionskill = ActionList:Get(1, 7863)\
+    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Leg Sweep";
+			["time"] = 243.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 39;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "31371f0c-ee4b-68b0-a72a-9ef60956159e";
 		};
 	};
 	[41] = {
@@ -326,8 +342,8 @@ return target == nil or target.hp.current == 0";
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
-					["targetContentID"] = 9321;
-					["targetName"] = "Earthen Aether";
+					["targetContentID"] = 9320;
+					["targetName"] = "Aqueous Aether";
 					["targetSubType"] = 1;
 					["targetType"] = 3;
 					["untarget"] = false;
@@ -337,24 +353,100 @@ return target == nil or target.hp.current == 0";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = false;
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "target earthen aether";
+			["name"] = "target aqueous aether";
 			["time"] = 257.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 41;
 			["timerEndOffset"] = 10;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "61490f22-9e0e-9225-b665-2af4ed4aefc8";
+			["uuid"] = "aa9ae300-d1a3-2cbe-a0c5-fd6faa0e37b7";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
+  local target = Player:GetTarget()\
+		-- 2 is leg sweep stun\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    local actionskill = ActionList:Get(1, 7863)\
+    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Leg Sweep";
+			["time"] = 257.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 41;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "d38bf4a7-5376-d7e6-a457-3bf609c3dd43";
 		};
 	};
 	[43] = {
 		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 3;
+					["actionID"] = -1;
+					["actionLua"] = "";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = false;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
+					["setTarget"] = true;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = 9320;
+					["targetName"] = "Aqueous Aether";
+					["targetSubType"] = 1;
+					["targetType"] = 3;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "target aqueous aether";
+			["time"] = 271.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 43;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -3;
+			["used"] = false;
+			["uuid"] = "c18792ab-addc-2f10-a7e3-8dc130594b5c";
+		};
+		[2] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 4;
@@ -525,7 +617,35 @@ self.used = true";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "b2192401-8ff2-3506-ab88-04646c529027";
+			["uuid"] = "52a4ce64-de93-7074-83e5-9f566029a672";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
+  local target = Player:GetTarget()\
+		-- 2 is leg sweep stun\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    local actionskill = ActionList:Get(1, 7863)\
+    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Leg Sweep";
+			["time"] = 271.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 43;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "de6ba338-64a8-9fdd-a9c3-f4ce4cd49703";
 		};
 	};
 	[46] = {
@@ -609,111 +729,6 @@ return false";
 		};
 	};
 	[53] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 1;
-					["actionID"] = 7548;
-					["actionLua"] = "";
-					["allowInterrupt"] = true;
-					["conditions"] = {
-						[1] = 3;
-						[2] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[2] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "if MoogleTTS ~= nil then MoogleTTS.Speak(\"knockback\") end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-						[2] = 3;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 1;
-					["actionID"] = 7548;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 4;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Arm's Length";
-			["time"] = 403.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 53;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -0.95;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "b881bf7e-a3e1-4667-9918-ab30a118a1f8";
-		};
 	};
 	[66] = {
 		[1] = {
@@ -722,21 +737,53 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
+if wasSuccessful == true then\
   self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 491.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 66;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "53514ac9-4577-b40e-b5df-6a385532b1fe";
+			["uuid"] = "5652c39d-656b-999e-9ba3-325c735144fd";
+		};
+	};
+	[72] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- 19901 = spellid of Reflected wings\
+local val, ent = TensorCore.isAnyEntityCasting(19901)\
+if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 1.4 then\
+  wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+  if wasSuccessful == true then\
+    self.used = true\
+    return action, targetID, ignoreWeaveRules, allowInterrupt\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Knockback";
+			["time"] = 535.1;
+			["timeRange"] = true;
+			["timelineIndex"] = 72;
+			["timerEndOffset"] = 6;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
+			["used"] = false;
+			["uuid"] = "be85014f-31cb-3f1e-9ae1-a8df333ec73d";
 		};
 	};
 	["mapID"] = 909;

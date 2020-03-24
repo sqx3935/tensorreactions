@@ -225,7 +225,7 @@ self.used = true";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = false;
+			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -454,7 +454,7 @@ self.used = true";
 					["setFirstMatch"] = false;
 				};
 			};
-			["enabled"] = false;
+			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;

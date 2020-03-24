@@ -10,10 +10,22 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = false;
-			["execute"] = "-- ** Verson 2 **\
--- if you have moogle tts, callout for threefold grace\
--- ** Verson 1 **\
--- added all the stuff";
+			["execute"] = "-- ** Contributors **\
+--[[\
+		* Nil (maintainer)\
+]]\
+\
+-- *************************************************************************************\
+\
+-- LIBRARY REQUIRED\
+\
+-- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
+\
+--[[ ** ChangeLog **\
+* [\"4.0.0\"] = \"Initial release \"\
+*	[\"4.1.0\"] = \"timeline reaction\",\
+]]\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -33,9 +45,9 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -341,84 +353,6 @@ return false";
 		};
 	};
 	[52] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 3;
-					["actionID"] = -1;
-					["actionLua"] = "";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = true;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 5;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 4;
-					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "target boss";
-			["time"] = 224.9;
-			["timeRange"] = true;
-			["timelineIndex"] = 52;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -23;
-			["used"] = false;
-			["uuid"] = "595a2429-a60f-38cc-a9e1-a8ad47ca55a8";
-		};
 	};
 	[58] = {
 		[1] = {

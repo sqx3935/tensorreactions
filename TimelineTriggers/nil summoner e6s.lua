@@ -21,11 +21,9 @@ local obj1 = {
 \
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 \
-\
-\
 --[[ ** ChangeLog **\
-* [\"1.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
-*	[\"1.1.0\"] = \"updated reaction libary for new Lua Returns actions\",\
+* [\"4.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
+*	[\"4.1.0\"] = \"updated reaction libary for new Lua Returns actions\",\
 ]]\
 ";
 			["executeType"] = 2;
@@ -47,9 +45,9 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -90,29 +88,31 @@ end";
 			["uuid"] = "4dfefa7f-217b-aa80-a252-cb07204ad96a";
 		};
 	};
-	[16] = {
+	[15] = {
 		[1] = {
 			["actions"] = {
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(false) == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(false, true)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
-			["time"] = 119.4;
+			["time"] = 110.8;
 			["timeRange"] = true;
-			["timelineIndex"] = 16;
-			["timerEndOffset"] = 0;
+			["timelineIndex"] = 15;
+			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "5797fbc5-a405-af95-b0f9-465ee1a82351";
+			["uuid"] = "e5bf055f-0a38-1b3b-8d6b-aa8cb5eeada5";
 		};
+	};
+	[16] = {
 	};
 	[18] = {
 		[1] = {
@@ -199,9 +199,9 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(true) == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -285,9 +285,9 @@ self.used = table.size(markedClones) >= 4\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(false) == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(false, true)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -387,9 +387,9 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(true) == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -547,9 +547,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(false) == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(false, true)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -557,11 +557,11 @@ end";
 			["time"] = 303.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 56;
-			["timerEndOffset"] = 0;
+			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "dab0b2cb-adc6-db06-af87-b470ab29e511";
+			["uuid"] = "80b82cc6-c294-67ea-bd41-3b26b8d0243a";
 		};
 	};
 	[59] = {
@@ -649,9 +649,9 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(true) == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -759,9 +759,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(false) == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(false, true)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -769,11 +769,11 @@ end";
 			["time"] = 436.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 78;
-			["timerEndOffset"] = 0;
+			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "0699fdf2-5ab6-2c07-b154-fb133aed21a1";
+			["uuid"] = "ae4013d4-8c02-bbec-ba0c-a91893dc6bfe";
 		};
 	};
 	[79] = {
@@ -861,9 +861,9 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(true) == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;

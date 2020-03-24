@@ -22,7 +22,6 @@ local obj1 = {
 \
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 \
-\
 --[[ ** ChangeLog **\
 * [\"4.0.0\"] = \"Initial release \"\
 *	[\"4.1.0\"] = \"timeline reaction\",\
@@ -46,9 +45,9 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -273,6 +272,30 @@ end";
 			["uuid"] = "9e3741f9-9e45-244d-aaf3-1e34814008ea";
 		};
 	};
+	[45] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 191.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 45;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "70d02754-e5e7-7c82-9e49-1cc728347145";
+		};
+	};
 	[51] = {
 		[1] = {
 			["actions"] = {
@@ -351,6 +374,28 @@ return false";
 			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "446ef7d3-767e-502c-9b4a-9366915d6f43";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 205.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 51;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "488d895c-366b-9959-8185-6221a2fdec9c";
 		};
 	};
 	[52] = {
@@ -432,6 +477,30 @@ return false";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "f3d181d5-9417-f62e-859e-4af204080d0f";
+		};
+	};
+	[64] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 323.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 64;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "d8b27835-1d98-ed1f-8516-2f75413a2527";
 		};
 	};
 	[69] = {
@@ -541,6 +610,28 @@ return false";
 			["used"] = false;
 			["uuid"] = "3669d4b7-be43-b9dd-92c1-526c99759592";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 510.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 74;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "8f78a95f-0dfe-c6d9-b7b4-77ef257e48b2";
+		};
 	};
 	[87] = {
 		[1] = {
@@ -618,6 +709,30 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "2d3674d8-57be-90ec-ad16-935990623787";
+		};
+	};
+	[103] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 646.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 103;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "49ac854f-d415-fa65-acf1-d5185ed0b728";
 		};
 	};
 	[106] = {
@@ -700,6 +815,28 @@ return false";
 			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "6b282f4a-6219-3bba-9feb-2d2a2ce407ed";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 673.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 107;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "38c63c7c-a897-affd-8651-5b2375e0abbe";
 		};
 	};
 	[108] = {

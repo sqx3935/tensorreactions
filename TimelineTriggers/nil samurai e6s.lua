@@ -46,9 +46,9 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -141,6 +141,30 @@ end";
 			["uuid"] = "be6da8d9-5677-2c38-8e3d-8429805c8c4c";
 		};
 	};
+	[15] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 110.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 15;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "082ba04f-08aa-8126-a46a-aada6569ac78";
+		};
+	};
 	[17] = {
 		[1] = {
 			["actions"] = {
@@ -165,6 +189,28 @@ end";
 			["timerStartOffset"] = -2;
 			["used"] = false;
 			["uuid"] = "278669fb-22ea-5764-be6f-d2cded27312f";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 122;
+			["timeRange"] = true;
+			["timelineIndex"] = 17;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "8ae0ec07-188e-795b-b57e-1f36153ede42";
 		};
 	};
 	[18] = {
@@ -240,9 +286,9 @@ return false";
 			["time"] = 122.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 18;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -10;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "b019702d-f855-a4f2-b216-da2428881712";
 		};
@@ -261,7 +307,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 147.1;
 			["timeRange"] = true;
@@ -346,7 +392,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 235.7;
 			["timeRange"] = true;
@@ -356,6 +402,28 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "0bbb3052-5b10-d88f-82b3-79c3fe33f531";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 235.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 35;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 1;
+			["used"] = false;
+			["uuid"] = "7a50a87b-61ed-728c-bafe-0cb7a2ccf58f";
 		};
 	};
 	[37] = {
@@ -431,11 +499,33 @@ return false";
 			["time"] = 245.1;
 			["timeRange"] = true;
 			["timelineIndex"] = 37;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -10;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "fb043333-1cfd-c177-829f-a8c46e6f682b";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 245.1;
+			["timeRange"] = true;
+			["timelineIndex"] = 37;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "c58814ba-2821-ae4e-ac06-718d64b3b107";
 		};
 	};
 	[38] = {
@@ -478,7 +568,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 276.9;
 			["timeRange"] = true;
@@ -488,6 +578,30 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "dd68694d-2289-33b3-aaa2-7dda7b21c299";
+		};
+	};
+	[55] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 298.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 55;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "536e2e20-49e2-9234-ac52-ed3de40514c7";
 		};
 	};
 	[59] = {
@@ -563,11 +677,33 @@ return false";
 			["time"] = 324.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 59;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -10;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "69ddd12b-3ae3-5b37-94c4-80d21d7a300e";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 324.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 59;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "a7d96eff-2945-05f9-bd62-3a5bc5bbd2aa";
 		};
 	};
 	[66] = {
@@ -669,7 +805,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 423;
 			["timeRange"] = true;
@@ -679,6 +815,28 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "b55e7f54-cb04-1c27-bd34-8dd32d30341c";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 423;
+			["timeRange"] = true;
+			["timelineIndex"] = 77;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "0c45feef-a95c-dc3a-9738-6fe6069b8c22";
 		};
 	};
 	[78] = {
@@ -780,11 +938,33 @@ return false";
 			["time"] = 441;
 			["timeRange"] = true;
 			["timelineIndex"] = 79;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -10;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "83be747c-b7ac-5ce7-bd17-9f8eafd33223";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 441;
+			["timeRange"] = true;
+			["timelineIndex"] = 79;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "22924517-243f-0015-b978-c891dd9435b0";
 		};
 	};
 	[91] = {
@@ -905,7 +1085,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 568.7;
 			["timeRange"] = true;
@@ -931,14 +1111,14 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "True North";
 			["time"] = 603.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 114;
 			["timerEndOffset"] = 20;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -2;
 			["used"] = false;
 			["uuid"] = "15452346-5508-512f-86bf-42cb8f46e933";
 		};

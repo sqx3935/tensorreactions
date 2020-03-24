@@ -41,77 +41,13 @@ local obj1 = {
 		};
 		[2] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- used to load custom functions that are used for this timeline\
-\
-if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-\
-\
-if (_G[\"data.nilsPlayground.CustomConditionChecks.NoDRGOpener\"] == nil) then\
-		function data.nilsPlayground.CustomConditionChecks.NoDRGOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true then return false end\
-\
-    -- if xivopener is not running, then return true that it is safe to execute.\
-    return true\
-		end\
-end\
-\
-\
-\
-\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Load Dependancies";
-			["time"] = 12;
-			["timeRange"] = true;
-			["timelineIndex"] = 1;
-			["timerEndOffset"] = 2;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -10;
-			["used"] = false;
-			["uuid"] = "0f9f32d0-9742-8a4a-a8ed-44f95cefc96d";
-		};
-		[3] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;

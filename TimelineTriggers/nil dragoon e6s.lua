@@ -13,18 +13,19 @@ local obj1 = {
 			["execute"] = "-- ** Contributors **\
 --[[\
 		* Nil (maintainer)\
-		* Dani\
 ]]\
 \
 -- *************************************************************************************\
 \
---[[\
-  ** version 2 **\
-* added Riku's argus strike spark\
-]]\
+-- LIBRARY REQUIRED\
 \
--- ** Verson 1 **\
--- added all the stuff";
+-- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
+\
+--[[ ** ChangeLog **\
+* [\"4.0.0\"] = \"Initial release \"\
+*	[\"4.1.0\"] = \"timeline reaction\",\
+]]\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -44,9 +45,9 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -88,84 +89,6 @@ end";
 		};
 	};
 	[17] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 3;
-					["actionID"] = -1;
-					["actionLua"] = "";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = false;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = true;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 5;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 4;
-					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = true;
-			["luaReturnsAction"] = false;
-			["name"] = "target boss";
-			["time"] = 122;
-			["timeRange"] = true;
-			["timelineIndex"] = 17;
-			["timerEndOffset"] = 4;
-			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "9bbf4549-46af-7433-a19b-626b52055185";
-		};
 	};
 	[18] = {
 		[1] = {
@@ -240,9 +163,9 @@ return false";
 			["time"] = 122.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 18;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "6efaf8c5-3cb6-8da7-8736-fde78efc5a53";
 		};
@@ -405,9 +328,9 @@ return false";
 			["time"] = 245.1;
 			["timeRange"] = true;
 			["timelineIndex"] = 37;
-			["timerEndOffset"] = 4;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "1143f337-ad10-7fac-84cf-6c16e74d34d5";
 		};
@@ -511,9 +434,9 @@ return false";
 			["time"] = 324.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 59;
-			["timerEndOffset"] = 4;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "5a33a2c6-b746-c265-a000-248dba0cf621";
 		};
@@ -676,9 +599,9 @@ return false";
 			["time"] = 441;
 			["timeRange"] = true;
 			["timelineIndex"] = 79;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -3;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "810179da-c9e9-c107-b9db-4cb1d22245e0";
 		};
@@ -834,7 +757,7 @@ return false";
 			["timelineIndex"] = 115;
 			["timerEndOffset"] = 10;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -3;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "6782bdc6-8ad2-43a4-8ed7-4edeecb8552b";
 		};

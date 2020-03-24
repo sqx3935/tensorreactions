@@ -46,9 +46,9 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -1974,7 +1974,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 276.9;
 			["timeRange"] = true;
@@ -2723,9 +2723,9 @@ return false";
 			["time"] = 324.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 59;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "562bf376-174c-5e51-a3be-dcd1103d01a0";
 		};
@@ -2795,7 +2795,7 @@ self.used = table.size(markedClones) >= 4";
 			};
 			["enabled"] = true;
 			["execute"] = "-- toggle settings, timeline control\
-NilsReactionLibrary..Combat.Toggles.Ninja.TCJ(false, true)\
+NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(false, true)\
 self.used = true";
 			["executeType"] = 2;
 			["loop"] = false;
@@ -2819,7 +2819,7 @@ self.used = true";
 			};
 			["enabled"] = true;
 			["execute"] = "-- toggle settings, timeline control\
-NilsReactionLibrary..Combat.Toggles.Ninja.TCJ(true, true)\
+NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(true, true)\
 self.used = true";
 			["executeType"] = 2;
 			["loop"] = false;
@@ -2849,7 +2849,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 423;
 			["timeRange"] = true;
@@ -3106,9 +3106,9 @@ return false";
 			["time"] = 441;
 			["timeRange"] = true;
 			["timelineIndex"] = 79;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "d6a0b2fa-cd5d-1b43-bb18-f14275076519";
 		};
@@ -3179,7 +3179,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 568.7;
 			["timeRange"] = true;
@@ -3229,7 +3229,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "True North";
 			["time"] = 603.3;
 			["timeRange"] = true;

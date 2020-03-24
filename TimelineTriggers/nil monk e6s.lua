@@ -13,18 +13,19 @@ local obj1 = {
 			["execute"] = "-- ** Contributors **\
 --[[\
 		* Nil (maintainer)\
-		* Dani\
 ]]\
 \
 -- *************************************************************************************\
 \
---[[\
-  ** version 2 **\
-* added Riku's argus strike spark\
-]]\
+-- LIBRARY REQUIRED\
 \
--- ** Verson 1 **\
--- added all the stuff";
+-- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
+\
+--[[ ** ChangeLog **\
+* [\"4.0.0\"] = \"Initial release \"\
+*	[\"4.1.0\"] = \"timeline reaction\",\
+]]\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -44,9 +45,9 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -212,9 +213,9 @@ return false";
 			["time"] = 122;
 			["timeRange"] = true;
 			["timelineIndex"] = 17;
-			["timerEndOffset"] = 4;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "5e960ab1-b895-7e46-879b-1261546c4e89";
 		};
@@ -337,7 +338,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 147.1;
 			["timeRange"] = true;
@@ -554,7 +555,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 276.9;
 			["timeRange"] = true;
@@ -856,9 +857,9 @@ return false";
 			["time"] = 441;
 			["timeRange"] = true;
 			["timelineIndex"] = 79;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "827de1b8-e293-8bb3-a87e-ffa3c78b2dd6";
 		};
@@ -981,7 +982,7 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Feint";
 			["time"] = 568.7;
 			["timeRange"] = true;
@@ -1031,14 +1032,14 @@ if wasSuccessful == true then\
 end";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "True North";
 			["time"] = 603.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 114;
-			["timerEndOffset"] = 20;
+			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "e1c0439d-2c34-3537-8f0a-05a4fa816213";
 		};

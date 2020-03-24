@@ -22,7 +22,6 @@ local obj1 = {
 \
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 \
-\
 --[[ ** ChangeLog **\
 * [\"4.0.0\"] = \"Initial release \"\
 *	[\"4.1.0\"] = \"timeline reaction\",\
@@ -46,9 +45,9 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Control.Reset()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -501,6 +500,52 @@ end\
 		[1] = {
 			["actions"] = {
 				[1] = {
+					["aType"] = 3;
+					["actionID"] = -1;
+					["actionLua"] = "";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = false;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
+					["setTarget"] = true;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = 9320;
+					["targetName"] = "Aqueous Aether";
+					["targetSubType"] = 1;
+					["targetType"] = 3;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "target aqueous aether";
+			["time"] = 271.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 43;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -3;
+			["used"] = false;
+			["uuid"] = "5558121d-61d2-bb7a-a6eb-e25c37527fca";
+		};
+		[2] = {
+			["actions"] = {
+				[1] = {
 					["aType"] = 4;
 					["actionID"] = -1;
 					["actionLua"] = "if FFXIV_Common_BotRunning then\
@@ -669,24 +714,23 @@ self.used = true";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "bf0ba20a-64b8-33f6-828c-2efa7cf73e8f";
+			["uuid"] = "9ecf472b-5a5f-e01e-ac9a-508226d88a1d";
 		};
-		[2] = {
+		[3] = {
 			["actions"] = {
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["eventArgs"] = {
-			};
-			["execute"] = "local target = Player:GetTarget()\
--- 2 is leg sweep stun\
-if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-  local actionskill = ActionList:Get(1, 7863)\
-  if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
-  self.used = true\
-end\
-";
+			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
+  local target = Player:GetTarget()\
+		-- 2 is leg sweep stun\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    local actionskill = ActionList:Get(1, 7863)\
+    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
+    self.used = true\
+  end\
+end";
 			["executeType"] = 2;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
@@ -698,7 +742,7 @@ end\
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "86055179-6ea0-b74d-bc4f-8c571d5c7e23";
+			["uuid"] = "b2209565-59c0-4d96-bb1d-ae82890eeba7";
 		};
 	};
 	[46] = {
