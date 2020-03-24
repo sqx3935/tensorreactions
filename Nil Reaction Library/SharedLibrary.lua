@@ -1786,8 +1786,8 @@ function self.Combat.Toggles.Samurai.Omni(toggleOn, byTimeline)
   end
 
   if self.WhichArc() == self.arcs.SallySAM then
-    SallyNIN.SkillSettings.PositionalWindow.enabled = toggleOn
-    SallyNIN.SkillSettings.SmartTrueNorth.enabled = toggleOn
+    SallySAM.SkillSettings.PositionalWindow.enabled = toggleOn
+    SallySAM.SkillSettings.SmartTrueNorth.enabled = toggleOn
     return true end
   return false
 end
