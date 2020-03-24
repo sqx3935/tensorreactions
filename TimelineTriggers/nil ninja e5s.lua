@@ -9,42 +9,6 @@ local obj1 = {
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
-			["execute"] = "-- ** Contributors **\
---[[\
-		* Nil (maintainer)\
-		* Dani\
-]]\
-\
--- *************************************************************************************\
-\
--- LIBRARY REQUIRED\
-\
--- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
-\
---[[ ** ChangeLog **\
-* [\"4.0.0\"] = \"Initial release \"\
-*	[\"4.1.0\"] = \"timeline reaction\",\
-]]\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Reset Toggle Controls";
-			["time"] = 12;
-			["timeRange"] = false;
-			["timelineIndex"] = 1;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "ec98ebf5-248f-81ac-b7dd-e5e186cbc708";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
 			["enabled"] = false;
 			["execute"] = "-- ** Contributors **\
 --[[\
@@ -75,6 +39,28 @@ local obj1 = {
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "a2d4c9be-839b-1bce-8445-687bf01fef03";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Reset()\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Reset Toggle Controls";
+			["time"] = 12;
+			["timeRange"] = false;
+			["timelineIndex"] = 1;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "0a77ad5c-43d4-4c89-a9bd-cf6548166b75";
 		};
 	};
 	[2] = {

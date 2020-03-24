@@ -211,7 +211,7 @@ function self.Reset()
   if Player.job == self.jobs.Samurai.id then self.Combat.Toggles.Samurai.Reset() end
 
   -- reset shared toggles
-  self.Combat.Toggles.Control.Reset()
+  self.Combat.Toggles.Handler.Reset()
 end
 
 -- ******************************************* Helper functions by job **************************************
@@ -932,7 +932,7 @@ self.Combat.Toggles.Control = {
   TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
 }
 
-function self.Combat.Toggles.Control.Reset()
+function self.Combat.Toggles.Handler.Reset()
   self.Combat.Toggles.Control = {
     TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
     AssassinateMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
@@ -1086,7 +1086,7 @@ function self.Combat.Toggles.Summoner.Reset()
     ACR_TensorRuin_SwiftRes = false
     ACR_TensorRuin_SwiftR3 = true
 
-    self.Combat.Toggles.Control.Reset()
+    self.Combat.Toggles.Handler.Reset()
   end
 
   return true
@@ -1346,7 +1346,7 @@ function self.Combat.Toggles.Ninja.Reset()
     SallyNIN.HotBarConfig.LegSweep.enabled = true
     SallyNIN.HotBarConfig.LB.enabled = true
 
-    self.Combat.Toggles.Control.Reset()
+    self.Combat.Toggles.Handler.Reset()
 
   end
   return true
@@ -1758,7 +1758,7 @@ function self.Combat.Toggles.Samurai.Reset()
   SallySAM.SkillSettings.Tsubame.enabled = true
   SallySAM.SkillSettings.UseAOE.enabled = true
 
-  self.Combat.Toggles.Control.Reset()
+  self.Combat.Toggles.Handler.Reset()
   return true
 end
 
@@ -1970,7 +1970,7 @@ function self.OnUpdate()
     -- mapid change, do stuff
     self.Settings.CurrentMapID = Player.localmapid
     -- reset shared toggles
-    self.Combat.Toggles.Control.Reset()
+    self.Combat.Toggles.Handler.Reset()
   end
 end
 
