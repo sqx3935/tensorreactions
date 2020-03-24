@@ -2457,7 +2457,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Assassinate(false, true) [test timeline override]\
 NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()\

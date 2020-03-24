@@ -1669,14 +1669,14 @@ function self.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()
   if self.Combat.inOpener() then return self.Combat.Toggles.Ninja.Assassinate(true) end
 
   if Player:IsMoving() then
-    self.Combat.Toggles.Control.Assassinate.IsActive = true
-    self.Combat.Toggles.Control.Assassinate.LastMoved = Now()
+    self.Combat.Toggles.Control.AssassinateMove.IsActive = true
+    self.Combat.Toggles.Control.AssassinateMove.LastMoved = Now()
     self.Combat.Toggles.Ninja.Assassinate(false)
     return true
   end
 
-  if self.Combat.Toggles.Control.Assassinate.LastMoved ~= nil and TimeSince(self.Combat.Toggles.Control.Assassinate.LastMoved) > 1200 then
-    self.Combat.Toggles.Control.Assassinate.IsActive = false
+  if self.Combat.Toggles.Control.AssassinateMove.LastMoved ~= nil and TimeSince(self.Combat.Toggles.Control.AssassinateMove.LastMoved) > 1200 then
+    self.Combat.Toggles.Control.AssassinateMove.IsActive = false
     self.Combat.Toggles.Ninja.Assassinate(true)
     return true
   end
@@ -1686,7 +1686,7 @@ end
 -- Attempt to keep DWD in alignment with Trick Window
 function self.Combat.Toggles.Ninja.Helpers.DwDAlignment()
 
-  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() or self.Combat.inOpener() then self.Combat.Toggles.Ninja.DWD(false) return false end
+  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() or self.Combat.inOpener() then self.Combat.Toggles.Ninja.DWD(true) return false end
 
   local target = Player:GetTarget()
   if target == nil or not table.valid(target) or not target.attackable then self.Combat.Toggles.Ninja.DWD(false) return false end
@@ -1703,7 +1703,7 @@ end
 -- Attempt to keep Kassatsu in alignment with Trick Window
 function self.Combat.Toggles.Ninja.Helpers.KassatsuAlignment()
 
-  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() or self.Combat.inOpener() then self.Combat.Toggles.Ninja.Kassatsu(false) return false end
+  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() or self.Combat.inOpener() then self.Combat.Toggles.Ninja.Kassatsu(true) return false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 2258)
