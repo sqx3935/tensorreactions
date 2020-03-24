@@ -597,6 +597,128 @@ local obj1 = {
 		};
 		["conditions"] = {
 		};
+		["enabled"] = false;
+		["eventType"] = 3;
+		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- if action on cooldown\
+local actionskill = ActionList:Get(1, 7548)\
+if actionskill.cdmax - actionskill.cd > 1 then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- Map, spell id, timer\
+local contentTable = {\
+    -- The Royal City of Rabanastre\
+    [734] = {\
+        [9660] = 4, -- Command Tower\
+    },\
+    -- The Ridorana Lighthouse\
+    [776] = {\
+        [11344] = 4, -- Tsunami\
+        [11369] = 4, -- Ventilate\
+    },\
+    -- The Qitana Ravel\
+    [823] = {\
+        [15520] = 4, -- Heaving Breath\
+    },\
+    -- Malikah's Well\
+    [836] = {\
+        [15596] = 4, -- High Pressure\
+    },\
+    -- The Halo\
+    [850] = {\
+        [15941] = 4, -- Empty Hate\
+    },\
+    -- The Nereus Trench\
+    [851] = {\
+        [16339] = 4, -- Tidal Wave\
+    },\
+    -- Atlas Peak\
+    [852] = {\
+        [16630] = 4, -- Geocrush\
+    },\
+    -- The Halo\
+    [854] = {\
+        [15962] = 4, -- Empty Hate\
+    },\
+    -- The Nereus Trench\
+    [855] = {\
+        [16370] = 4, -- Tidal Wave\
+    },\
+    -- Atlas Peak\
+    [856] = {\
+        [16659] = 4, -- Geocrush\
+        [16694] = 4, -- Dual Earthen Fists\
+    },\
+    -- The Copied Factory\
+    [882] = {\
+        [18627] = 4, -- Shockwave\
+    },\
+    -- The Gandof Thunder Plains\
+    [906] = {\
+        [19404] = 3.5, -- Levinforce\
+    },\
+    -- Cinder Drift (use timeline)\
+}\
+\
+local localmapid = Player.localmapid\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		-- if sally installed, use hotbar, otherwise use base\
+		if SallyNIN ~= nil then SallyNIN.HotBarConfig.Armslength.enabled = false else	actionskill:Cast() end\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Knockback";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 20;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "4ee9e7d1-b233-493d-a089-9ee3bb4c824a";
+	};
+	[8] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "";
@@ -613,7 +735,7 @@ local obj1 = {
 		["used"] = false;
 		["uuid"] = "f58f0144-df21-b3b5-9473-74887b63aca2";
 	};
-	[8] = {
+	[9] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1029,7 +1151,7 @@ self.used = true";
 		["used"] = false;
 		["uuid"] = "5ebbca48-a7f7-3860-a0dc-d3612fc5eec7";
 	};
-	[9] = {
+	[10] = {
 		["actions"] = {
 			[1] = {
 				["aType"] = 4;
@@ -1254,128 +1376,6 @@ self.used = true";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "cdd09b89-df39-5e44-ab72-bd4d18f01eac";
-	};
-	[10] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if action on cooldown\
-local actionskill = ActionList:Get(1, 7548)\
-if actionskill.cdmax - actionskill.cd > 1 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Royal City of Rabanastre\
-    [734] = {\
-        [9660] = 4, -- Command Tower\
-    },\
-    -- The Ridorana Lighthouse\
-    [776] = {\
-        [11344] = 4, -- Tsunami\
-        [11369] = 4, -- Ventilate\
-    },\
-    -- The Qitana Ravel\
-    [823] = {\
-        [15520] = 4, -- Heaving Breath\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [15596] = 4, -- High Pressure\
-    },\
-    -- The Halo\
-    [850] = {\
-        [15941] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [851] = {\
-        [16339] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [852] = {\
-        [16630] = 4, -- Geocrush\
-    },\
-    -- The Halo\
-    [854] = {\
-        [15962] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [855] = {\
-        [16370] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [856] = {\
-        [16659] = 4, -- Geocrush\
-        [16694] = 4, -- Dual Earthen Fists\
-    },\
-    -- The Copied Factory\
-    [882] = {\
-        [18627] = 4, -- Shockwave\
-    },\
-    -- The Gandof Thunder Plains\
-    [906] = {\
-        [19404] = 3.5, -- Levinforce\
-    },\
-    -- Cinder Drift (use timeline)\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		-- if sally installed, use hotbar, otherwise use base\
-		if SallyNIN ~= nil then SallyNIN.HotBarConfig.Armslength.enabled = false else	actionskill:Cast() end\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Knockback";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 20;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "4ee9e7d1-b233-493d-a089-9ee3bb4c824a";
 	};
 	[11] = {
 		["actions"] = {
@@ -2087,72 +2087,6 @@ end\
 		["conditions"] = {
 		};
 		["enabled"] = false;
-		["eventType"] = 9;
-		["execute"] = "if self.WhichArc() == self.arcs.SallyNIN then\
-    SallyNIN.SkillSettings.Opener.enabled = false\
-    SallyNIN.SkillSettings.SaveCD.enabled = false\
-    SallyNIN.SkillSettings.Range.enabled = false\
-    SallyNIN.SkillSettings.Omni.enabled = false\
-    SallyNIN.SkillSettings.BurnBoss.enabled = false\
-    -- SallyNIN.SkillSettings.Potion.enabled = true\
-    SallyNIN.SkillSettings.UseAOE.enabled = true\
-    SallyNIN.SkillSettings.TCJ.enabled = true\
-    SallyNIN.SkillSettings.Meisui.enabled = true\
-    SallyNIN.SkillSettings.TrickAttack.enabled = true\
-    SallyNIN.SkillSettings.Ninjutsu.enabled = true\
-    SallyNIN.SkillSettings.Bushin.enabled = true\
-    SallyNIN.SkillSettings.Ninki.enabled = true\
-    SallyNIN.SkillSettings.Assassinate.enabled = true\
-    SallyNIN.SkillSettings.DWD.enabled = false\
-    SallyNIN.SkillSettings.Mug.enabled = true\
-    SallyNIN.SkillSettings.Kassatsu.enabled = true\
-    SallyNIN.SkillSettings.Doton.enabled = true\
-    SallyNIN.SkillSettings.TrueNorth.enabled = true\
-    SallyNIN.SkillSettings.ACRefresh.enabled = true\
-    SallyNIN.SkillSettings.ShadowFang.enabled = true\
-\
-    -- Hotbar\
-    SallyNIN.HotBarConfig.Armslength.enabled = true\
-    SallyNIN.HotBarConfig.TrueNorth.enabled = true\
-    SallyNIN.HotBarConfig.Feint.enabled = true\
-    SallyNIN.HotBarConfig.Bloodbath.enabled = true\
-    SallyNIN.HotBarConfig.SecondWind.enabled = true\
-    SallyNIN.HotBarConfig.ShadeShift.enabled = true\
-    SallyNIN.HotBarConfig.Kassatsu.enabled = true\
-    SallyNIN.HotBarConfig.TCJ.enabled = true\
-    SallyNIN.HotBarConfig.Meisui.enabled = true\
-    SallyNIN.HotBarConfig.Huton.enabled = true\
-    SallyNIN.HotBarConfig.Doton.enabled = true\
-    SallyNIN.HotBarConfig.Suiton.enabled = true\
-    SallyNIN.HotBarConfig.Raiton.enabled = true\
-    SallyNIN.HotBarConfig.Katon.enabled = true\
-    SallyNIN.HotBarConfig.Sprint.enabled = true\
-    SallyNIN.HotBarConfig.ArmorCrush.enabled = true\
-    SallyNIN.HotBarConfig.LegSweep.enabled = true\
-    SallyNIN.HotBarConfig.LB.enabled = true\
-end\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Reset: toggles on wipe";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "d416b5ea-7b4f-2e19-aab5-200b070665a6";
-	};
-	[17] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
@@ -2202,104 +2136,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "89b42817-2e02-595b-ba1c-7ec78dd90979";
 	};
-	[18] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-\
-		-- if doing opener, go ahead and turn on\
-  if data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-    if SallyNIN ~= nil then	SallyNIN.SkillSettings.DWD.enabled = true end\
-  end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-local target = Player:GetTarget()\
-if target == nil or not table.valid(target) or not target.attackable then\
-\
-		if SallyNIN ~= nil then	SallyNIN.SkillSettings.DWD.enabled = false end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if HasBuff(target.id, 638, 0, 0, Player.id) then\
-		if SallyNIN ~= nil then	SallyNIN.SkillSettings.DWD.enabled = true end\
-else\
-  if SallyNIN ~= nil then	SallyNIN.SkillSettings.DWD.enabled = false end\
-end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: DwD";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75";
-	};
-	[19] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-\
-		-- if doing opener, go ahead and turn on\
-  if data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-    if SallyNIN ~= nil then SallyNIN.SkillSettings.Kassatsu.enabled = true end\
-  end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-local actionTrickAttack = ActionList:Get(1, 2258)\
-\
-if data.nilsPlayground.skillCooldownDifference(actionTrickAttack.cd, actionTrickAttack.cdmax) < 15 then\
-		if SallyNIN ~= nil then SallyNIN.SkillSettings.Kassatsu.enabled = true end\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if SallyNIN ~= nil then SallyNIN.SkillSettings.Kassatsu.enabled = false end\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: Kassatsu";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84";
-	};
-	[20] = {
+	[17] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2360,7 +2197,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "7c8e218d-2938-377f-911d-9478a4881107";
 	};
-	[21] = {
+	[18] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2425,7 +2262,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "39d13900-5b37-8be9-962a-8a2205e70629";
 	};
-	[22] = {
+	[19] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2500,7 +2337,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "04cf4109-bf4a-6c21-91bb-076edb2c1778";
 	};
-	[23] = {
+	[20] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2565,7 +2402,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "6a7bf182-2cdd-e597-a008-100a62ecb935";
 	};
-	[24] = {
+	[21] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2586,7 +2423,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "55ed74e6-349c-2bea-943e-dc7e4a6fe41d";
 	};
-	[25] = {
+	[22] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2615,7 +2452,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "dab631d2-70b5-6964-be0c-364f876ea757";
 	};
-	[26] = {
+	[23] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2644,7 +2481,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "01352b9a-9e19-cb7e-8305-fd1d95ab26dc";
 	};
-	[27] = {
+	[24] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2652,7 +2489,7 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Control.AOEHandler()\
+NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
@@ -2673,7 +2510,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce";
 	};
-	[28] = {
+	[25] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2681,7 +2518,7 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Control.CDHandler()\
+NilsReactionLibrary.Combat.Toggles.Handler.CD()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
@@ -2700,7 +2537,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "092a07d8-25f3-2afb-9b44-1db7a1d108fa";
 	};
-	[29] = {
+	[26] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2708,7 +2545,7 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Omni(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Control.OmniHandler()\
+NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
@@ -2727,6 +2564,78 @@ return nil\
 		["used"] = false;
 		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
 	};
+	[27] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.DwDAlignment()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: DwD";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75";
+	};
+	[28] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.KassatsuAlignment()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: Kassatsu";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84";
+	};
+	[29] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 9;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Reset()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Reset: toggles on wipe";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 6;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "d416b5ea-7b4f-2e19-aab5-200b070665a6";
+	};
 	[30] = {
 		["actions"] = {
 		};
@@ -2734,14 +2643,25 @@ return nil\
 		};
 		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "";
+		["execute"] = "if gReactionZoomhackSet == nil then\
+  gDevHackMaxZoom = 40.0\
+	 gDevHackMinZoom = 1.5\
+  gReactionZoomhackSet = true\
+end\
+\
+if gReactionSpeedhackSet == nil then\
+  gDevHackWalkSpeed = 7.0\
+  gReactionSpeedhackSet = true\
+end\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true ";
 		["executeType"] = 2;
 		["luaReturnsAction"] = false;
 		["name"] = "Set Hacks";
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 5;
+		["timeout"] = 1;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;

@@ -67,6 +67,8 @@ self.arcs = {
   TensorMagnum = "TensorMagnum" -- Riku
 }
 
+if self.List == nil then self.List = {} end
+
 self.BurnBossList = {
   [541] = 1, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [11347] = 1, -- Alexander Prime
@@ -205,9 +207,8 @@ function self.Reset()
   end
 
   -- reset correct arc
-  if Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    self.ResetSallyNIN()
-  end
+  if Player.job == self.jobs.Ninja.id then self.Combat.Toggles.Ninja.Reset() end
+  if Player.job == self.jobs.Samurai.id then self.Combat.Toggles.Samurai.Reset() end
 
   -- reset shared toggles
   self.Combat.Toggles.Control.Reset()
@@ -948,14 +949,16 @@ function self.Combat.Toggles.Control.Reset()
   }
 end
 
+if self.Combat.Toggles.Handler == nil then self.Combat.Toggles.Handler = {} end
+
   -- if set by timeline reaction, ignore
-function self.Combat.Toggles.Control.CDHandler()
+function self.Combat.Toggles.Handler.CD()
 
   local target = Player:GetTarget()
   local contentID = 0
   if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
 
-  if self.AOEBlackList[contentID] then
+  if self.CDBlackList[contentID] then
     if Player.job == self.jobs.Ninja.id then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(false, false) return true end end
     if Player.job == self.jobs.Samurai then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end end
     if Player.job == self.jobs.Summoner then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(false, false) return true end end
@@ -968,7 +971,7 @@ function self.Combat.Toggles.Control.CDHandler()
   return false
 end
 
-function self.Combat.Toggles.Control.AOEHandler()
+function self.Combat.Toggles.Handler.AOE()
   -- if set by timeline reaction, ignore
   if self.Combat.Toggles.Control.AOEBlackList.IsActive == true and self.Combat.Toggles.Control.AOEBlackList.TimelineActive == true then return false end
 
@@ -989,7 +992,7 @@ function self.Combat.Toggles.Control.AOEHandler()
   return true
 end
 
-function self.Combat.Toggles.Control.OmniHandler()
+function self.Combat.Toggles.Handler.Omni()
   -- if set by timeline reaction, ignore
   if self.Combat.Toggles.Control.OmniWhiteList.IsActive == true and self.Combat.Toggles.Control.OmniWhiteList.TimelineActive == true then return false end
 
@@ -997,7 +1000,7 @@ function self.Combat.Toggles.Control.OmniHandler()
   local contentID = 0
   if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
 
-  if self.AOEBlackList[contentID] then
+  if self.OmniList[contentID] then
     self.Combat.Toggles.Ninja.Omni(true, false)
     self.Combat.Toggles.Samurai.Omni(true, false)
   else
@@ -1008,7 +1011,7 @@ function self.Combat.Toggles.Control.OmniHandler()
   return true
 end
 
-function self.Combat.Toggles.Control.BurnBoss()
+function self.Combat.Toggles.Handler.BurnBoss()
   if Player.job == self.jobs.Ninja.id then
     return self.Combat.Toggles.Ninja.BurnBoss(true)
   elseif Player.job == self.jobs.Samurai.id then
@@ -1298,6 +1301,8 @@ end
 if self.Combat.Toggles.Ninja == nil then self.Combat.Toggles.Ninja = {} end
 
 function self.Combat.Toggles.Ninja.Reset()
+  if Player.job ~= self.jobs.Ninja.id then return false end
+
   if self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.Opener.enabled = false
     SallyNIN.SkillSettings.SaveCD.enabled = false
@@ -1678,49 +1683,82 @@ function self.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()
   return false
 end
 
+-- Attempt to keep DWD in alignment with Trick Window
+function self.Combat.Toggles.Ninja.Helpers.DwDAlignment()
+
+  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() or self.Combat.inOpener() then self.Combat.Toggles.Ninja.DWD(false) return false end
+
+  local target = Player:GetTarget()
+  if target == nil or not table.valid(target) or not target.attackable then self.Combat.Toggles.Ninja.DWD(false) return false end
+
+  -- hold dwd until own vulnerability is on target
+  if HasBuff(target.id, 638, 0, 0, Player.id) then
+    self.Combat.Toggles.Ninja.DWD(true)
+  else
+    self.Combat.Toggles.Ninja.DWD(false)
+  end
+  return true
+end
+
+-- Attempt to keep Kassatsu in alignment with Trick Window
+function self.Combat.Toggles.Ninja.Helpers.KassatsuAlignment()
+
+  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() or self.Combat.inOpener() then self.Combat.Toggles.Ninja.Kassatsu(false) return false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 2258)
+  if actionskill.cdmax - actionskill.cd <= 15 then
+    self.Combat.Toggles.Ninja.Kassatsu(true)
+  else
+    self.Combat.Toggles.Ninja.Kassatsu(false)
+  end
+
+  return true
+end
+
 -- ** Samurai *************************************************************************************************
 if self.Combat.Toggles.Samurai == nil then self.Combat.Toggles.Samurai = {} end
 
 function self.Combat.Toggles.Samurai.Reset()
-  if self.WhichArc() == self.arcs.SallySAM then
-    -- reset hotbar
-    SallySAM.HotBarConfig.Armslength.enabled = true
-    SallySAM.HotBarConfig.Bloodbath.enabled = true
-    SallySAM.HotBarConfig.Feint.enabled = true
-    SallySAM.HotBarConfig.Gyoten.enabled = true
-    SallySAM.HotBarConfig.Hagakure.enabled = true
-    SallySAM.HotBarConfig.Kaiten.enabled = true
-    SallySAM.HotBarConfig.LB.enabled = true
-    SallySAM.HotBarConfig.LegSweep.enabled = true
-    SallySAM.HotBarConfig.Meditate.enabled = true
-    SallySAM.HotBarConfig.Meikyo.enabled = true
-    SallySAM.HotBarConfig.Potion.enabled = true
-    SallySAM.HotBarConfig.SecondWind.enabled = true
-    SallySAM.HotBarConfig.Sprint.enabled = true
-    SallySAM.HotBarConfig.ThirdEye.enabled = true
-    SallySAM.HotBarConfig.TrueNorth.enabled = true
-    SallySAM.HotBarConfig.Yaten.enabled = true
+  if self.WhichArc() ~= self.arcs.SallySAM then return false end
 
-    -- reset quick toggles
-    SallySAM.SkillSettings.Guren.enabled = true
-    SallySAM.SkillSettings.Hagakure.enabled = true
-    SallySAM.SkillSettings.Higanbana.enabled = true
-    SallySAM.SkillSettings.Ikishoten.enabled = true
-    SallySAM.SkillSettings.Kaiten.enabled = true
-    SallySAM.SkillSettings.Kyuten.enabled = true
-    SallySAM.SkillSettings.Meikyo.enabled = true
-    SallySAM.SkillSettings.Opener.enabled = true 
-    -- SallySAM.SkillSettings.Potion.enabled = true
-    SallySAM.SkillSettings.SaveCD.enabled = false
-    SallySAM.SkillSettings.Senei.enabled = true
-    SallySAM.SkillSettings.Shinten.enabled = true
-    SallySAM.SkillSettings.Shoha.enabled = true
-    SallySAM.SkillSettings.SmartTrueNorth.enabled = true
-    SallySAM.SkillSettings.Tsubame.enabled = true
-    SallySAM.SkillSettings.UseAOE.enabled = true
+  -- reset hotbar
+  SallySAM.HotBarConfig.Armslength.enabled = true
+  SallySAM.HotBarConfig.Bloodbath.enabled = true
+  SallySAM.HotBarConfig.Feint.enabled = true
+  SallySAM.HotBarConfig.Gyoten.enabled = true
+  SallySAM.HotBarConfig.Hagakure.enabled = true
+  SallySAM.HotBarConfig.Kaiten.enabled = true
+  SallySAM.HotBarConfig.LB.enabled = true
+  SallySAM.HotBarConfig.LegSweep.enabled = true
+  SallySAM.HotBarConfig.Meditate.enabled = true
+  SallySAM.HotBarConfig.Meikyo.enabled = true
+  SallySAM.HotBarConfig.Potion.enabled = true
+  SallySAM.HotBarConfig.SecondWind.enabled = true
+  SallySAM.HotBarConfig.Sprint.enabled = true
+  SallySAM.HotBarConfig.ThirdEye.enabled = true
+  SallySAM.HotBarConfig.TrueNorth.enabled = true
+  SallySAM.HotBarConfig.Yaten.enabled = true
 
-    self.Combat.Toggles.Control.Reset()
-  end
+  -- reset quick toggles
+  SallySAM.SkillSettings.Guren.enabled = true
+  SallySAM.SkillSettings.Hagakure.enabled = true
+  SallySAM.SkillSettings.Higanbana.enabled = true
+  SallySAM.SkillSettings.Ikishoten.enabled = true
+  SallySAM.SkillSettings.Kaiten.enabled = true
+  SallySAM.SkillSettings.Kyuten.enabled = true
+  SallySAM.SkillSettings.Meikyo.enabled = true
+  SallySAM.SkillSettings.Opener.enabled = true 
+  -- SallySAM.SkillSettings.Potion.enabled = true
+  SallySAM.SkillSettings.SaveCD.enabled = false
+  SallySAM.SkillSettings.Senei.enabled = true
+  SallySAM.SkillSettings.Shinten.enabled = true
+  SallySAM.SkillSettings.Shoha.enabled = true
+  SallySAM.SkillSettings.SmartTrueNorth.enabled = true
+  SallySAM.SkillSettings.Tsubame.enabled = true
+  SallySAM.SkillSettings.UseAOE.enabled = true
+
+  self.Combat.Toggles.Control.Reset()
   return true
 end
 

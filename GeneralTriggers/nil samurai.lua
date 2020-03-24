@@ -1561,7 +1561,7 @@ return nil";
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Control.AOEHandler()\
+NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
@@ -1590,7 +1590,7 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Control.CDHandler()\
+NilsReactionLibrary.Combat..Toggles.Handler.CD()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
@@ -1617,7 +1617,7 @@ return nil\
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Omni(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Control.OmniHandler()\
+NilsReactionLibrary.Combat.Toggles.Handler.OMNI()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
