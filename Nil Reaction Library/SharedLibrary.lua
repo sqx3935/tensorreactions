@@ -1002,10 +1002,10 @@ function self.Combat.Toggles.Handler.Omni()
 
   if self.OmniList[contentID] then
     self.Combat.Toggles.Ninja.Omni(true, false)
-    self.Combat.Toggles.Samurai.Omni(true, false)
+    self.Combat.Toggles.Samurai.Omni(false, false) -- we want to turn QT off, which is why this is false
   else
     self.Combat.Toggles.Ninja.Omni(false, false)
-    self.Combat.Toggles.Samurai.Omni(false, false)
+    self.Combat.Toggles.Samurai.Omni(true, false)
   end
 
   return true
