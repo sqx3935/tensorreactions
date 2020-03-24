@@ -2457,7 +2457,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Assassinate(false, true) [test timeline override]\
 NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()\
@@ -2620,7 +2620,7 @@ return nil";
 		["enabled"] = true;
 		["eventType"] = 9;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Reset()\
-self.eventConditionMismatch = true -- suppressing the log\
+--self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 ";
 		["executeType"] = 2;

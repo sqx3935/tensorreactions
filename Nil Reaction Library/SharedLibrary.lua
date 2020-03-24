@@ -70,7 +70,7 @@ self.arcs = {
 if self.List == nil then self.List = {} end
 
 self.BurnBossList = {
-  [541] = 1, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
+ -- [541] = 1, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [11347] = 1, -- Alexander Prime
   [11340] = 1, -- Brute Justice
   [11342] = 2, -- Cruise Chaser
@@ -96,7 +96,7 @@ self.BurnBossList = {
 }
 
 self.AOEBlackList = {
-  [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
+ -- [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [7097] = true, -- Demon Chadarnook
   [7646] = true, -- Immortal Key
   [7662] = true, -- Tokkapchi
@@ -116,7 +116,7 @@ self.AOEBlackList = {
 }
 
 self.CDBlackList = {
-  [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
+ -- [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [7129] = true, -- Doom Chimney
   [7125] = true, -- Putrid Passenger
   [7233] = true, -- Specter of the Homeland
@@ -134,7 +134,7 @@ self.CDBlackList = {
 }
 
 self.OmniList = {
-  [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
+--  [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [3069] = true, -- Sand Sphere
   [4815] = true, -- Arcane Sphere
   [5640] = true, -- Shinryu
@@ -932,6 +932,8 @@ self.Combat.Toggles.Control = {
   TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
 }
 
+if self.Combat.Toggles.Handler == nil then self.Combat.Toggles.Handler = {} end
+
 function self.Combat.Toggles.Handler.Reset()
   self.Combat.Toggles.Control = {
     TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
@@ -948,8 +950,6 @@ function self.Combat.Toggles.Handler.Reset()
     TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
   }
 end
-
-if self.Combat.Toggles.Handler == nil then self.Combat.Toggles.Handler = {} end
 
   -- if set by timeline reaction, ignore
 function self.Combat.Toggles.Handler.CD()
@@ -1961,7 +1961,7 @@ end
 
 -- ** start addon
 function self.Initialize()
-  self.Log("Library Loaded v4")
+  self.Log("Library Loaded v4.0.1")
 end
 
 -- ** on update checks
