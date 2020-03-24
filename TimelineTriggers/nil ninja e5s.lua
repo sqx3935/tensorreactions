@@ -9,6 +9,42 @@ local obj1 = {
 			};
 			["conditions"] = {
 			};
+			["enabled"] = true;
+			["execute"] = "-- ** Contributors **\
+--[[\
+		* Nil (maintainer)\
+		* Dani\
+]]\
+\
+-- *************************************************************************************\
+\
+-- LIBRARY REQUIRED\
+\
+-- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
+\
+--[[ ** ChangeLog **\
+* [\"4.0.0\"] = \"Initial release \"\
+*	[\"4.1.0\"] = \"timeline reaction\",\
+]]\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Reset Toggle Controls";
+			["time"] = 12;
+			["timeRange"] = false;
+			["timelineIndex"] = 1;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "ec98ebf5-248f-81ac-b7dd-e5e186cbc708";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
 			["enabled"] = false;
 			["execute"] = "-- ** Contributors **\
 --[[\
@@ -39,28 +75,6 @@ local obj1 = {
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "a2d4c9be-839b-1bce-8445-687bf01fef03";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Control.Reset() == true then\
-  self.used = true\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Reset Toggle Controls";
-			["time"] = 12;
-			["timeRange"] = false;
-			["timelineIndex"] = 1;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "ec98ebf5-248f-81ac-b7dd-e5e186cbc708";
 		};
 	};
 	[2] = {
@@ -315,7 +329,7 @@ end\
 			["time"] = 128.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 19;
-			["timerEndOffset"] = 0;
+			["timerEndOffset"] = 4;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -7;
 			["used"] = false;
@@ -483,9 +497,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Ninja.TrueNorth(false) then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.TrueNorth(false)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -505,9 +519,10 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false) == true then\
-  self.used = true\
-end";
+			["execute"] = "-- Timeline override and if shadowfang is kept enabled\
+NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -636,9 +651,9 @@ end\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -646,9 +661,9 @@ end";
 			["time"] = 265.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 39;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 1;
 			["timerOffset"] = 7.5;
-			["timerStartOffset"] = -1.5;
+			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "affafe6d-5947-81a0-b42e-fdcd0042a3f2";
 		};
@@ -816,9 +831,10 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false) == true then\
-  self.used = true\
-end";
+			["execute"] = "-- Timeline override and if shadowfang is kept enabled\
+NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -826,11 +842,11 @@ end";
 			["time"] = 420.1;
 			["timeRange"] = true;
 			["timelineIndex"] = 68;
-			["timerEndOffset"] = 2;
+			["timerEndOffset"] = 0;
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "72231929-0af3-b1f5-ba7f-7d2203439d00";
+			["uuid"] = "abd1060c-a69f-ccf8-a242-9a4ce41f652a";
 		};
 	};
 	[70] = {
@@ -947,9 +963,9 @@ end\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() == true then\
-  self.used = true\
-end";
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow()\
+self.used = true\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -957,9 +973,9 @@ end";
 			["time"] = 432.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 72;
-			["timerEndOffset"] = 10;
+			["timerEndOffset"] = 0;
 			["timerOffset"] = 7.5;
-			["timerStartOffset"] = -1.5;
+			["timerStartOffset"] = -2;
 			["used"] = false;
 			["uuid"] = "61f17356-f01d-2f08-8fe0-dd38524938c9";
 		};
@@ -1226,6 +1242,33 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "4971f3f0-8e14-ab93-bb27-cd8b1da443d5";
+		};
+	};
+	[103] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
+  if NilsReactionLibrary.Combat.Toggles.Ninja.BurnBoss(true, true) == true then\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Burn Boss";
+			["time"] = 628.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 103;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -60;
+			["used"] = false;
+			["uuid"] = "0c0c8093-018e-3d3d-97ed-955a15fe8558";
 		};
 	};
 	["mapID"] = 906;

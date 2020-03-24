@@ -7,7 +7,7 @@
 ---------------
 Created reactions for `Tensor Reactions` (Currently), can be easily adapted to other things.
 
-**Warning Warning Warning Warning** Shared Library is not required for these, click on it to see instructions
+**Warning Warning Warning Warning** Shared Library is now required for these, click on it to see instructions
 
 ## Conversion status
 

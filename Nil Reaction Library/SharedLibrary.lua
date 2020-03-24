@@ -18,6 +18,7 @@ self.Info = {
 -- Create a general onload reaction that sets these.
 -- Would like to do a UI for this, just need to figure it out.
 self.Settings = {
+  CurrentMapID = "", -- map id for the player
   IssueACTResetOnWipe = true,
   EnableDebug = false, -- need a ui for this, for now `NilsReactionLibrary.Settings.EnableDebug = true`
   EnableMCRSupport = false -- TODO: not supported yet, waiting on madao to add support to MCR for exteral applications
@@ -67,7 +68,7 @@ self.arcs = {
 }
 
 self.BurnBossList = {
-  -- [541] = 1, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
+  [541] = 1, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [11347] = 1, -- Alexander Prime
   [11340] = 1, -- Brute Justice
   [11342] = 2, -- Cruise Chaser
@@ -93,7 +94,7 @@ self.BurnBossList = {
 }
 
 self.AOEBlackList = {
-  --	[541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
+  [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [7097] = true, -- Demon Chadarnook
   [7646] = true, -- Immortal Key
   [7662] = true, -- Tokkapchi
@@ -113,7 +114,7 @@ self.AOEBlackList = {
 }
 
 self.CDBlackList = {
-  --[541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
+  [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [7129] = true, -- Doom Chimney
   [7125] = true, -- Putrid Passenger
   [7233] = true, -- Specter of the Homeland
@@ -131,7 +132,7 @@ self.CDBlackList = {
 }
 
 self.OmniList = {
-  -- [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
+  [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [3069] = true, -- Sand Sphere
   [4815] = true, -- Arcane Sphere
   [5640] = true, -- Shinryu
@@ -947,6 +948,66 @@ function self.Combat.Toggles.Control.Reset()
   }
 end
 
+  -- if set by timeline reaction, ignore
+function self.Combat.Toggles.Control.CDHandler()
+
+  local target = Player:GetTarget()
+  local contentID = 0
+  if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
+
+  if self.AOEBlackList[contentID] then
+    if Player.job == self.jobs.Ninja.id then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(false, false) return true end end
+    if Player.job == self.jobs.Samurai then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end end
+    if Player.job == self.jobs.Summoner then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(false, false) return true end end
+  else
+    if Player.job == self.jobs.Ninja.id then if self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() return true end end
+    if Player.job == self.jobs.Samurai then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(false, false) return true end end
+    if Player.job == self.jobs.Summoner then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(true, false) return true end end
+  end
+
+  return false
+end
+
+function self.Combat.Toggles.Control.AOEHandler()
+  -- if set by timeline reaction, ignore
+  if self.Combat.Toggles.Control.AOEBlackList.IsActive == true and self.Combat.Toggles.Control.AOEBlackList.TimelineActive == true then return false end
+
+  local target = Player:GetTarget()
+  local contentID = 0
+  if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
+
+  if self.AOEBlackList[contentID] then
+    self.Combat.Toggles.Ninja.AOE(false, false)
+    self.Combat.Toggles.Samurai.AOE(false, false)
+    self.Combat.Toggles.Summoner.AOE(false, false)
+  else
+    self.Combat.Toggles.Ninja.AOE(true, false)
+    self.Combat.Toggles.Samurai.AOE(true, false)
+    self.Combat.Toggles.Summoner.AOE(true, false)
+  end
+
+  return true
+end
+
+function self.Combat.Toggles.Control.OmniHandler()
+  -- if set by timeline reaction, ignore
+  if self.Combat.Toggles.Control.OmniWhiteList.IsActive == true and self.Combat.Toggles.Control.OmniWhiteList.TimelineActive == true then return false end
+
+  local target = Player:GetTarget()
+  local contentID = 0
+  if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
+
+  if self.AOEBlackList[contentID] then
+    self.Combat.Toggles.Ninja.Omni(true, false)
+    self.Combat.Toggles.Samurai.Omni(true, false)
+  else
+    self.Combat.Toggles.Ninja.Omni(false, false)
+    self.Combat.Toggles.Samurai.Omni(false, false)
+  end
+
+  return true
+end
+
 function self.Combat.Toggles.Control.BurnBoss()
   if Player.job == self.jobs.Ninja.id then
     return self.Combat.Toggles.Ninja.BurnBoss(true)
@@ -1029,13 +1090,20 @@ function self.Combat.Toggles.Summoner.Reset()
 end
 
 -- Toggles DWT, Summon Bahamut, and FBT. Use this to hold major cooldowns before phase transitions. In the case of TensorRuin, if you turn off CDs while in DWT for example, it will auto extend dwt to maximum duration and won't summon bahamut until after.
-function self.Combat.Toggles.Summoner.CD(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Summoner.CD(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Summoner.id then return false end
 
-  if Player.job == self.jobs.Summoner.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_CD = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.CDBlackList.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.CDBlackList.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_CD = toggleOn return true end
+
   return false
 end
 
@@ -1049,13 +1117,19 @@ function self.Combat.Toggles.Summoner.PetCD(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Summoner.AOE(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Summoner.AOE(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Summoner.id then return false end
 
-  if Player.job == self.jobs.Summoner.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_AOE = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.AOEBlackList.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.AOEBlackList.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_AOE = toggleOn return true end
   return false
 end
 
@@ -1120,13 +1194,21 @@ function self.Combat.Toggles.Summoner.DoTs(toggleOn)
 end
 
 -- Burn Boss
-function self.Combat.Toggles.Summoner.BurnR4(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Summoner.BurnR4(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Summoner.id then return false end
 
-  if Player.job == self.jobs.Summoner.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_BurnR4 = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.BurnBoss.IsActive = toggleOn == false -- set active if it is suppose to be off
+    self.Combat.Toggles.Control.BurnBoss.TimelineActive = byTimeline and toggleOn == false
+    self.Combat.Toggles.Control.BurnBoss.LastMoved = Now()
   end
+
+  if self.WhichArc() == self.arcs.TensorRuin then ACR_TensorRuin_BurnR4 = toggleOn return true end
+
   return false
 end
 
@@ -1275,13 +1357,20 @@ function self.Combat.Toggles.Ninja.Opener(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Ninja.SaveCD(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Ninja.CD(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.SaveCD.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.CDBlackList.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.CDBlackList.TimelineActive = byTimeline and toggleOn == false
   end
+
+    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.SaveCD.enabled = toggleOn return true end
+
   return false
 end
 
@@ -1295,23 +1384,38 @@ function self.Combat.Toggles.Ninja.Range(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Ninja.Omni(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Ninja.Omni(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Omni.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.OmniWhiteList.IsActive = toggleOn == false -- set active if it is suppose to be off
+    self.Combat.Toggles.Control.OmniWhiteList.TimelineActive = byTimeline and toggleOn == false
+    self.Combat.Toggles.Control.OmniWhiteList.LastMoved = Now()
   end
+
+  if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Omni.enabled = toggleOn return true end
   return false
 end
 
-function self.Combat.Toggles.Ninja.BurnBoss(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Ninja.BurnBoss(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.BurnBoss.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.BurnBoss.IsActive = toggleOn == false -- set active if it is suppose to be off
+    self.Combat.Toggles.Control.BurnBoss.TimelineActive = byTimeline and toggleOn == false
+    self.Combat.Toggles.Control.BurnBoss.LastMoved = Now()
   end
+
+  if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.BurnBoss.enabled = toggleOn return true end
+
   return false
 end
 
@@ -1325,13 +1429,19 @@ function self.Combat.Toggles.Ninja.Potion(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Ninja.UseAOE(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Ninja.AOE(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.UseAOE.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.AOEBlackList.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.AOEBlackList.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.UseAOE.enabled = toggleOn return true end
   return false
 end
 
@@ -1343,17 +1453,9 @@ function self.Combat.Toggles.Ninja.TCJ(toggleOn, byTimeline)
 
   -- timeline overrides everything else.
   if byTimeline then
-    if self.WhichArc() == self.arcs.SallyNIN then
-      if byTimeline == true then
-
-        self.Combat.Toggles.Control.TCJMove.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
-        self.Combat.Toggles.Control.TCJMove.TimelineActive = byTimeline and toggleOn == false
-        self.Combat.Toggles.Control.TCJMove.LastMoved = Now()
-      end
-
-      SallyNIN.SkillSettings.TCJ.enabled = toggleOn
-      return true
-    end
+    self.Combat.Toggles.Control.TCJMove.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.TCJMove.TimelineActive = byTimeline and toggleOn == false
+    self.Combat.Toggles.Control.TCJMove.LastMoved = Now()
   end
 
     if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.TCJ.enabled = toggleOn return true end
@@ -1493,36 +1595,41 @@ end
 if self.Combat.Toggles.Ninja.Helpers == nil then self.Combat.Toggles.Ninja.Helpers = {} end
 
 function self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(byTimeline, allowShadowfang)
-  if self.Settings.EnableDebug then self.Log("turn off trick attack") end
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
   -- set defaults in case they are not passed in
-  byTimeline = byTimeline or false
-  allowShadowfang = allowShadowfang or false
+  if self.isempty(allowShadowfang) then allowShadowfang = false end
+  if self.isempty(byTimeline) then byTimeline = false end
 
   -- set Toggle control
   self.Combat.Toggles.Control.TrickAttackWindow.IsActive = true
   self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive = byTimeline
   self.Combat.Toggles.Control.TrickAttackWindow.LastCheck = Now()
 
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.SkillSettings.SaveCD.enabled = true
-    SallyNIN.SkillSettings.TrickAttack.enabled = false
-    SallyNIN.SkillSettings.Bushin.enabled = false
-    if allowShadowfang == false then SallyNIN.SkillSettings.ShadowFang.enabled = false end
+  if self.WhichArc() == self.arcs.SallyNIN then
+    self.Combat.Toggles.Ninja.CD(true, byTimeline)
+    self.Combat.Toggles.Ninja.TrickAttack(false)
+    self.Combat.Toggles.Ninja.Bushin(false)
+
+    if allowShadowfang == false then self.Combat.Toggles.Ninja.ShadowFang(false) end
   end
 end
 
-function self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow()
-  if self.Settings.EnableDebug then self.Log("turn on trick attack") end
-  self.Combat.Toggles.Control.TrickAttackWindow.IsActive = false
-  self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive = false
+function self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if SallyNIN ~= nil and Player.job == self.jobs.Ninja.id and self.WhichArc() == self.arcs.SallyNIN then
-    SallyNIN.SkillSettings.SaveCD.enabled = false
-    SallyNIN.SkillSettings.TrickAttack.enabled = true
-    SallyNIN.SkillSettings.ShadowFang.enabled = true
-    SallyNIN.SkillSettings.Bushin.enabled = true
-    SallyNIN.SkillSettings.Ninjutsu.enabled = true
+    -- set defaults in case they are not passed in
+    if self.isempty(byTimeline) then byTimeline = false end
+
+  self.Combat.Toggles.Control.TrickAttackWindow.IsActive = false
+  self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive = byTimeline
+
+  if self.WhichArc() == self.arcs.SallyNIN then
+    self.Combat.Toggles.Ninja.CD(false, byTimeline)
+    self.Combat.Toggles.Ninja.TrickAttack(true)
+    self.Combat.Toggles.Ninja.ShadowFang(true)
+    self.Combat.Toggles.Ninja.Bushin(true)
+    self.Combat.Toggles.Ninja.Ninjutsu(true)
   end
 end
 
@@ -1627,13 +1734,40 @@ function self.Combat.Toggles.Samurai.Opener(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Samurai.SaveCD(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Samurai.Omni(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Samurai.id then return false end
 
-  if Player.job == self.jobs.Samurai.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.SaveCD.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.OmniWhiteList.IsActive = toggleOn == false -- set active if it is suppose to be off
+    self.Combat.Toggles.Control.OmniWhiteList.TimelineActive = byTimeline and toggleOn == false
+    self.Combat.Toggles.Control.OmniWhiteList.LastMoved = Now()
   end
+
+  if self.WhichArc() == self.arcs.SallySAM then
+    SallyNIN.SkillSettings.PositionalWindow.enabled = toggleOn
+    SallyNIN.SkillSettings.SmartTrueNorth.enabled = toggleOn
+    return true end
+  return false
+end
+
+function self.Combat.Toggles.Samurai.CD(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Samurai.id then return false end
+
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.CDBlackList.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.CDBlackList.TimelineActive = byTimeline and toggleOn == false
+  end
+
+    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.SaveCD.enabled = toggleOn return true end
+
   return false
 end
 
@@ -1767,13 +1901,19 @@ function self.Combat.Toggles.Samurai.Tsubame(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Samurai.UseAOE(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Samurai.AOE(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Samurai.id then return false end
 
-  if Player.job == self.jobs.Samurai.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.UseAOE.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.AOEBlackList.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.AOEBlackList.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if self.WhichArc() == self.arcs.SallySAM then SallySAM.SkillSettings.UseAOE.enabled = toggleOn return true end
   return false
 end
 
@@ -1783,9 +1923,20 @@ end
 
 -- ** start addon
 function self.Initialize()
-  self.Log("Library Loaded")
+  self.Log("Library Loaded v4")
+end
+
+-- ** on update checks
+function self.OnUpdate()
+  if Player.localmapid ~= self.Settings.CurrentMapID then
+    -- mapid change, do stuff
+    self.Settings.CurrentMapID = Player.localmapid
+    -- reset shared toggles
+    self.Combat.Toggles.Control.Reset()
+  end
 end
 
 -- **********************************************************************************************************
 
 RegisterEventHandler("Module.Initalize", self.Initialize, selfslong)
+RegisterEventHandler("Gameloop.Update", self.OnUpdate, "nil OnUpdate")

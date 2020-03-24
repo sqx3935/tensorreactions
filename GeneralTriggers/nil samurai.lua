@@ -1539,102 +1539,89 @@ return nil";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "-- Setup\
-if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-if data.nilsPlayground.Toggles == nil then data.nilsPlayground.Toggles = {} end\
-if data.nilsPlayground.Toggles.OmniWhiteList == nil then data.nilsPlayground.Toggles.OmniWhiteList = { IsActive = false, TimelineActive = false} end\
-if data.nilsPlayground.OmniList == nil then \
-  data.nilsPlayground.OmniList = {\
-    [541] = true, -- striking dummy\
-    [3069] = true, -- Sand Sphere\
-    [4815] = true, -- Arcane Sphere\
-    [5640] = true, -- Shinryu\
-    [5789] = true, -- Tail\
-    [6055] = true, -- Neo Exdeath\
-    [6257] = true, -- Magitek Pod\
-    [6928] = true, -- Shard of Emptiness\
-    [6933] = true, -- Aqua Sphere\
-    [6934] = true, -- Blizzard III\
-    [6950] = true, -- Command Tower\
-    [7097] = true, -- Demon Chadarnook\
-    [7122] = true, -- Malice\
-    [7126] = true, -- Ghost\
-    [7127] = true, -- Phantom Train\
-    [7202] = true, -- Daidarabotchi\
-    [7537] = true, -- Specter of Zenos\
-    [7575] = true, -- Iron Chain\
-    [7637] = true, -- Left Arm Unit\
-    [7638] = true, -- Right Arm Unit\
-    [7646] = true, -- Immortal Key\
-    [7657] = true, -- Ultima, the High Seraph\
-    [7694] = true, -- Dark Crystal\
-    [7699] = true, -- Level Checker\
-    [7700] = true, -- Level Checker\
-    [7899] = true, -- The Thunder God\
-    [7901] = true, -- Icewolf\
-    [7908] = true, -- Ruination\
-    [8145] = true, -- Painted Root\
-    [8261] = true, -- Forgiven Whimsy\
-    [8267] = true, -- Forgiven Apathy\
-    [8270] = true, -- Forgiven Revelry\
-    [8342] = true, -- Arcane Sphere\
-    [8346] = true, -- Granite Gaol\
-    [10643] = true, -- Granite Gaol\
-    [8351] = true, -- Aetherial Gaol\
-    [8570] = true, -- Iron Chain\
-    [8958] = true, -- Liar's Lyre\
-    [9143] = true, -- Hobbes\
-    [9144] = true, -- Hobbes\
-    [9145] = true, -- Hobbes\
-    [9147] = true, -- Engels\
-    [9020] = true, -- Engels\
-    [8486] = true, -- Leviathan savage\
-    [10604] = true, -- Leviathan savage\
-    [8349] = true, -- Titan Maximum savage\
-    [9298] = true, -- The Idol of Darkness\
-    [9300] = true, -- Blasphemy\
-    [9301] = true, -- Idolatry\
-    [9322] = true, -- shiva add Luminous Aether\
-    [9320] = true, -- shiva add aqueous\
-    [9321] = true, -- shiva add Earthen Aether\
-    [9319] = true, -- shiva add electric\
-    [9358] = true, -- Ice Veil    \
-  }\
-end\
-\
--- Functional check\
-if Player.job ~= 34 or Player.incombat == true or data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-local target = Player:GetTarget()\
-if target == nil or not table.valid(target) or not target.attackable then\
-\
-		-- if target is not valid not turned off via timelines, then turn back on\
-		if SallySAM ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallySAM.SkillSettings.SmartTrueNorth.enabled = true end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilsPlayground.OmniList[target.contentid] then\
-		if SallySAM ~= nil then	SallySAM.SkillSettings.SmartTrueNorth.enabled = false end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if target is not on list and not turned off via timelines, then turn back on\
-if SallySAM ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallySAM.SkillSettings.SmartTrueNorth.enabled = true end\
+		["execute"] = "";
+		["executeType"] = 1;
+		["luaReturnsAction"] = false;
+		["name"] = "---- Revamp ----";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "7474ca8e-4466-3c34-b9bd-f804669229ec";
+	};
+	[16] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Control.AOEHandler()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil\
 \
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: AOE Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "8fcc666d-adad-3482-849e-c6454d320522";
+	};
+	[17] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Control.CDHandler()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: CD Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "168608ad-493a-0240-862e-3d244e27d224";
+	};
+	[18] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Omni(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Control.OmniHandler()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
 ";
 		["executeType"] = 2;
 		["luaReturnsAction"] = false;
@@ -1647,7 +1634,7 @@ return nil\
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
 		["used"] = false;
-		["uuid"] = "c2815eda-a564-3946-b162-68ffca89508f";
+		["uuid"] = "d710cbde-8e1b-95ed-834d-0555f7361379";
 	};
 }
 return obj1

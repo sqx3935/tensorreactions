@@ -940,7 +940,7 @@ end";
 			["enabled"] = true;
 			["execute"] = "local target = Player:GetTarget()\
 if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
-  if NilsReactionLibrary.Combat.Toggles.Summoner.BurnR4(true) == true then\
+  if NilsReactionLibrary.Combat.Toggles.Summoner.BurnR4(true, true) == true then\
     self.used = true\
   end\
 end";

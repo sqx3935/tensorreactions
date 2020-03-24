@@ -23,8 +23,8 @@ local obj1 = {
 \
 \
 --[[ ** ChangeLog **\
-* [\"1.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
-*	[\"1.1.0\"] = \"updated reaction libary for new Lua Returns actions\",\
+* [\"4.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
+*	[\"4.1.0\"] = \"updated reaction libary for new Lua Returns actions\",\
 ]]\
 \
 ";
@@ -169,8 +169,6 @@ end";
 		};
 	};
 	[19] = {
-	};
-	[20] = {
 		[1] = {
 			["actions"] = {
 				[1] = {
@@ -240,16 +238,18 @@ return false";
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
-			["time"] = 128.9;
+			["time"] = 128.6;
 			["timeRange"] = true;
-			["timelineIndex"] = 20;
+			["timelineIndex"] = 19;
 			["timerEndOffset"] = 8;
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "b3a961c0-7f5a-af2c-a1be-7c6de6d80d68";
+			["uuid"] = "c6dd054c-5f60-731d-ba7c-f08073104325";
 		};
-		[2] = {
+	};
+	[20] = {
+		[1] = {
 			["actions"] = {
 			};
 			["conditions"] = {
@@ -453,84 +453,6 @@ end";
 		};
 	};
 	[41] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 3;
-					["actionID"] = -1;
-					["actionLua"] = "";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = false;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = true;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 5;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 4;
-					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = true;
-			["luaReturnsAction"] = false;
-			["name"] = "target boss";
-			["time"] = 267.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 41;
-			["timerEndOffset"] = 8;
-			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -8;
-			["used"] = false;
-			["uuid"] = "e9ce58d1-4ac4-bef4-b746-64473ae227d4";
-		};
 	};
 	[42] = {
 		[1] = {

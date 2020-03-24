@@ -576,7 +576,7 @@ local obj1 = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if data.nilDataLoaded ~= nil and data.nilDataLoaded == true and NILS_PLAYGROUND ~= nil and NILS_PLAYGROUND == true then\
   self.eventConditionMismatch = true -- suppressing the log\
@@ -1342,6 +1342,104 @@ end\
 		};
 		["enabled"] = false;
 		["eventType"] = 3;
+		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- if action on cooldown\
+local actionskill = ActionList:Get(1, 7863)\
+if actionskill.cdmax - actionskill.cd > 1 then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- Map, spell id, timer\
+local contentTable = {\
+    -- Dohn Mheg\
+    [821] = {\
+        [15788] = 4, -- Pollen Carona\
+    },\
+    -- Malikah's Well\
+    [836] = {\
+        [16266] = 3, -- Realm Shaker\
+    },\
+    -- Holminster Switch\
+    [837] = {\
+        [17203] = 4.5, -- Tail Swing\
+    },\
+    -- The Twinning\
+    [840] = {\
+        [15802] = 5, -- 128-tonze Swing\
+        [15805] = 5, -- Nerve Gas\
+        [15811] = 5, -- Thrown Flames\
+    },\
+    -- Akadaemia Anyder\
+    [841] = {\
+        [17164] = 5, -- Noahionto\
+    },\
+    -- The Grand Cosmos\
+    [884] = {\
+        [18722] = 3, -- Whirl of Rage\
+        [18725] = 3, -- Self-destruct\
+        [18726] = 3, -- Acid Mist\
+        [18758] = 4, -- Unparalleled Glory\
+    },\
+}\
+\
+local localmapid = Player.localmapid\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(eventArgs.entityID)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Leg Sweep";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "4aee51ea-a3b9-0f8d-a482-b88c9c06c60f";
+	};
+	[10] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or HasBuff(eventArgs.entityID, 1195) or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -1500,110 +1598,12 @@ end\
 		["used"] = false;
 		["uuid"] = "bcff37d3-3606-71fe-8b5f-e7226f904e63";
 	};
-	[10] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if action on cooldown\
-local actionskill = ActionList:Get(1, 7863)\
-if actionskill.cdmax - actionskill.cd > 1 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- Dohn Mheg\
-    [821] = {\
-        [15788] = 4, -- Pollen Carona\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [16266] = 3, -- Realm Shaker\
-    },\
-    -- Holminster Switch\
-    [837] = {\
-        [17203] = 4.5, -- Tail Swing\
-    },\
-    -- The Twinning\
-    [840] = {\
-        [15802] = 5, -- 128-tonze Swing\
-        [15805] = 5, -- Nerve Gas\
-        [15811] = 5, -- Thrown Flames\
-    },\
-    -- Akadaemia Anyder\
-    [841] = {\
-        [17164] = 5, -- Noahionto\
-    },\
-    -- The Grand Cosmos\
-    [884] = {\
-        [18722] = 3, -- Whirl of Rage\
-        [18725] = 3, -- Self-destruct\
-        [18726] = 3, -- Acid Mist\
-        [18758] = 4, -- Unparalleled Glory\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		actionskill:Cast(eventArgs.entityID)\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Leg Sweep";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "4aee51ea-a3b9-0f8d-a482-b88c9c06c60f";
-	};
 	[11] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfLastHeal == nil then data.nilsPlayground.timeOfLastHeal = 0 end\
@@ -2044,65 +2044,7 @@ end\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TCJMoveDetection()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Move: Toggle TCJ";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "dab631d2-70b5-6964-be0c-364f876ea757";
-	};
-	[15] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
 		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Assassinate(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Move: Toggle Assassinate";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "01352b9a-9e19-cb7e-8305-fd1d95ab26dc";
-	};
-	[16] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
 		["eventType"] = 9;
 		["execute"] = "if self.WhichArc() == self.arcs.SallyNIN then\
     SallyNIN.SkillSettings.Opener.enabled = false\
@@ -2163,12 +2105,12 @@ return nil";
 		["used"] = false;
 		["uuid"] = "d416b5ea-7b4f-2e19-aab5-200b070665a6";
 	};
-	[17] = {
+	[15] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
@@ -2218,136 +2160,12 @@ return nil";
 		["used"] = false;
 		["uuid"] = "89b42817-2e02-595b-ba1c-7ec78dd90979";
 	};
-	[18] = {
+	[16] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilDataLoaded == nil or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-local target = Player:GetTarget()\
-if target == nil or not table.valid(target) or not target.attackable then\
-\
-		-- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
-		if SallyNIN ~= nil and data.nilsPlayground.Toggles.AOEBlackList.TimelineActive == false then	SallyNIN.SkillSettings.UseAOE.enabled = true end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilsPlayground.AOEBlackList[target.contentid] then\
-		if SallyNIN ~= nil then	SallyNIN.SkillSettings.UseAOE.enabled = false end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
-if SallyNIN ~= nil and data.nilsPlayground.Toggles.AOEBlackList.TimelineActive == false then	SallyNIN.SkillSettings.UseAOE.enabled = true end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: AOE Blacklist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce";
-	};
-	[19] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "--[[\
-  * Optional reactions\
-  * CD blacklist maintained in `dependencies2`, if target is on cd blacklist, then we want to turn off trick window. otherwise we want to leave on\
-  * General reaction has a timeline override, so it will be ignored if timeline reaction takes control\
-]]\
-\
-if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilDataLoaded == nil or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-local target = Player:GetTarget()\
-if target == nil or not table.valid(target) or not target.attackable then\
-\
-		-- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
-		if SallyNIN ~= nil and data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive == false then	data.nilsPlayground.TurnOnTrickAttackWindow() end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilsPlayground.CDBlackList[target.contentid] then\
-		if SallyNIN ~= nil then	data.nilsPlayground.TurnOffTrickAttackWindow(false) end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if target is not on CD black list and CDs are not turned off via timelines, then turn back on\
-if SallyNIN ~= nil and data.nilsPlayground.Toggles.TrickAttackWindow.TimelineActive == false then	data.nilsPlayground.TurnOnTrickAttackWindow() end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: CD Blacklist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "092a07d8-25f3-2afb-9b44-1db7a1d108fa";
-	};
-	[20] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 \
@@ -2393,12 +2211,12 @@ return nil";
 		["used"] = false;
 		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75";
 	};
-	[21] = {
+	[17] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 \
@@ -2439,65 +2257,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84";
 	};
-	[22] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "-- Functional check\
-if Player.job ~= 30 or Player.incombat == false or data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilDataLoaded == nil or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-local target = Player:GetTarget()\
-if target == nil or not table.valid(target) or not target.attackable then\
-\
-		-- if target is not valid not turned off via timelines, then turn back on\
-		if SallyNIN ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if data.nilsPlayground.OmniList[target.contentid] then\
-		if SallyNIN ~= nil then	SallyNIN.SkillSettings.Omni.enabled = true end\
-\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if target is not on list and not turned off via timelines, then turn back on\
-if SallyNIN ~= nil and data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == false then	SallyNIN.SkillSettings.Omni.enabled = false end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: Omni Whitelist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
-	};
-	[23] = {
+	[18] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2518,12 +2278,12 @@ return nil\
 		["used"] = false;
 		["uuid"] = "ea2433cc-451a-744a-b946-ce8ede8583f4";
 	};
-	[24] = {
+	[19] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2579,7 +2339,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "7c8e218d-2938-377f-911d-9478a4881107";
 	};
-	[25] = {
+	[20] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2644,7 +2404,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "39d13900-5b37-8be9-962a-8a2205e70629";
 	};
-	[26] = {
+	[21] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2719,12 +2479,12 @@ return nil\
 		["used"] = false;
 		["uuid"] = "04cf4109-bf4a-6c21-91bb-076edb2c1778";
 	};
-	[27] = {
+	[22] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "-- still a WIP, works until burn boss is on then something breaks, need time to debug\\\
 \
@@ -2783,6 +2543,168 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "6a7bf182-2cdd-e597-a008-100a62ecb935";
+	};
+	[23] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["luaReturnsAction"] = false;
+		["name"] = "---- Revamp ----";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "55ed74e6-349c-2bea-943e-dc7e4a6fe41d";
+	};
+	[24] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TCJMoveDetection()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Move: Toggle TCJ";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "dab631d2-70b5-6964-be0c-364f876ea757";
+	};
+	[25] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Assassinate(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Move: Toggle Assassinate";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "01352b9a-9e19-cb7e-8305-fd1d95ab26dc";
+	};
+	[26] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Control.AOEHandler()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: AOE Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce";
+	};
+	[27] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Control.CDHandler()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: CD Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "092a07d8-25f3-2afb-9b44-1db7a1d108fa";
+	};
+	[28] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Omni(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Control.OmniHandler()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: Omni Whitelist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
 	};
 }
 return obj1
