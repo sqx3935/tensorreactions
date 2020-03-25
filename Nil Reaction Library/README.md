@@ -79,3 +79,7 @@ NOTE2: action name is the nme of the function.
 
 1. figure out how to have this self update
 2. After the library is finalized, I need to document it.
+
+## Donation
+
+If you feel you must [here you go](https://www.patreon.com/nil2share).  I do this entirely for free and fun.

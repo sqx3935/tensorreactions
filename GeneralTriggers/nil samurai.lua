@@ -1431,14 +1431,133 @@ end";
 		["conditions"] = {
 		};
 		["enabled"] = true;
-		["eventType"] = 9;
-		["execute"] = "if Player.job ~= 34 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["luaReturnsAction"] = false;
+		["name"] = "-- Experimental --";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "cc391613-203b-dca2-bf2a-e6ac20599a6c";
+	};
+	[13] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["luaReturnsAction"] = false;
+		["name"] = "---- Revamp ----";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "7474ca8e-4466-3c34-b9bd-f804669229ec";
+	};
+	[14] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
 \
-NilsReactionLibrary.Combat.Toggles.Samurai.Reset()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: AOE Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "8fcc666d-adad-3482-849e-c6454d320522";
+	};
+	[15] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Handler.CD()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: CD Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "168608ad-493a-0240-862e-3d244e27d224";
+	};
+	[16] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Omni(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: Omni Whitelist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "d710cbde-8e1b-95ed-834d-0555f7361379";
+	};
+	[17] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 9;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset()\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
@@ -1455,23 +1574,17 @@ return nil";
 		["used"] = false;
 		["uuid"] = "fabca588-a3a1-1249-9113-0c3c759201c1";
 	};
-	[13] = {
+	[18] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = false;
-		["eventType"] = 1;
+		["eventType"] = 10;
 		["execute"] = "-- NilsReactionLibrary.\
 \
 if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
-\
-if Player.job ~= 34 or Player.alive == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
 \
 data.nilsPlayground.timeOfDeath = Now()\
 \
@@ -1504,137 +1617,12 @@ return nil";
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 10;
+		["timeout"] = 5;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "d410fcfe-88e5-8add-b671-8468c962a41a";
-	};
-	[14] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "";
-		["executeType"] = 1;
-		["luaReturnsAction"] = false;
-		["name"] = "-- Experimental --";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "cc391613-203b-dca2-bf2a-e6ac20599a6c";
-	};
-	[15] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "";
-		["executeType"] = 1;
-		["luaReturnsAction"] = false;
-		["name"] = "---- Revamp ----";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "7474ca8e-4466-3c34-b9bd-f804669229ec";
-	};
-	[16] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: AOE Blacklist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "8fcc666d-adad-3482-849e-c6454d320522";
-	};
-	[17] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Handler.CD()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: CD Blacklist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "168608ad-493a-0240-862e-3d244e27d224";
-	};
-	[18] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Omni(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: Omni Whitelist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "d710cbde-8e1b-95ed-834d-0555f7361379";
 	};
 }
 return obj1

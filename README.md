@@ -13,3 +13,7 @@ Created reactions for `Tensor Reactions` (Currently), can be easily adapted to o
 
 Summoner - Code Complete needs testing.
 All others are WIP.
+
+## Donation
+
+If you feel you must [here you go](https://www.patreon.com/nil2share).  I do this entirely for free and fun.

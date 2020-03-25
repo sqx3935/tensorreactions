@@ -1476,15 +1476,9 @@ end\
 		["conditions"] = {
 		};
 		["enabled"] = true;
-		["eventType"] = 1;
+		["eventType"] = 10;
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
-\
-if Player.alive == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
 \
 data.nilsPlayground.timeOfDeath = Now()\
 \

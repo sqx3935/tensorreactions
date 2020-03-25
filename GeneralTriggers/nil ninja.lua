@@ -597,6 +597,27 @@ local obj1 = {
 		};
 		["conditions"] = {
 		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["luaReturnsAction"] = false;
+		["name"] = "--- Keep Disabled for now ---";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "f58f0144-df21-b3b5-9473-74887b63aca2";
+	};
+	[8] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
 		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
@@ -713,27 +734,6 @@ end\
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "4ee9e7d1-b233-493d-a089-9ee3bb4c824a";
-	};
-	[8] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "";
-		["executeType"] = 1;
-		["luaReturnsAction"] = false;
-		["name"] = "--- Keep Disabled for now ---";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "f58f0144-df21-b3b5-9473-74887b63aca2";
 	};
 	[9] = {
 		["actions"] = {
@@ -2088,61 +2088,6 @@ end\
 		};
 		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
-\
-if Player.job ~= 30 or Player.alive == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-data.nilsPlayground.timeOfDeath = Now()\
-\
-if SallyNIN ~= nil then\
-  -- reset hotbar\
-  SallyNIN.HotBarConfig.Armslength.enabled = true\
-  SallyNIN.HotBarConfig.TrueNorth.enabled = true\
-		SallyNIN.HotBarConfig.Feint.enabled = true\
-		SallyNIN.HotBarConfig.Bloodbath.enabled = true\
-		SallyNIN.HotBarConfig.SecondWind.enabled = true\
-  SallyNIN.HotBarConfig.ShadeShift.enabled = true\
-  SallyNIN.HotBarConfig.Kassatsu.enabled = true\
-  SallyNIN.HotBarConfig.TCJ.enabled = true\
-  SallyNIN.HotBarConfig.Meisui.enabled = true\
-  SallyNIN.HotBarConfig.Huton.enabled = true\
-  SallyNIN.HotBarConfig.Doton.enabled = true\
-  SallyNIN.HotBarConfig.Suiton.enabled = true\
-  SallyNIN.HotBarConfig.Raiton.enabled = true\
-  SallyNIN.HotBarConfig.Katon.enabled = true\
-  SallyNIN.HotBarConfig.Sprint.enabled = true\
-  SallyNIN.HotBarConfig.ArmorCrush.enabled = true\
-  SallyNIN.HotBarConfig.Huton.enabled = true\
-end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Reset: on death";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "89b42817-2e02-595b-ba1c-7ec78dd90979";
-	};
-	[17] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -2197,7 +2142,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "7c8e218d-2938-377f-911d-9478a4881107";
 	};
-	[18] = {
+	[17] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2262,7 +2207,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "39d13900-5b37-8be9-962a-8a2205e70629";
 	};
-	[19] = {
+	[18] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2337,7 +2282,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "04cf4109-bf4a-6c21-91bb-076edb2c1778";
 	};
-	[20] = {
+	[19] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2402,7 +2347,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "6a7bf182-2cdd-e597-a008-100a62ecb935";
 	};
-	[21] = {
+	[20] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2423,7 +2368,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "55ed74e6-349c-2bea-943e-dc7e4a6fe41d";
 	};
-	[22] = {
+	[21] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2452,7 +2397,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "dab631d2-70b5-6964-be0c-364f876ea757";
 	};
-	[23] = {
+	[22] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2481,7 +2426,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "01352b9a-9e19-cb7e-8305-fd1d95ab26dc";
 	};
-	[24] = {
+	[23] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2510,7 +2455,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce";
 	};
-	[25] = {
+	[24] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2537,7 +2482,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "092a07d8-25f3-2afb-9b44-1db7a1d108fa";
 	};
-	[26] = {
+	[25] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2564,7 +2509,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
 	};
-	[27] = {
+	[26] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2588,7 +2533,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75";
 	};
-	[28] = {
+	[27] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2612,7 +2557,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84";
 	};
-	[29] = {
+	[28] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2635,6 +2580,55 @@ self.used = true \
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "d416b5ea-7b4f-2e19-aab5-200b070665a6";
+	};
+	[29] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 10;
+		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
+\
+data.nilsPlayground.timeOfDeath = Now()\
+\
+if SallyNIN ~= nil then\
+  -- reset hotbar\
+  SallyNIN.HotBarConfig.Armslength.enabled = true\
+  SallyNIN.HotBarConfig.TrueNorth.enabled = true\
+		SallyNIN.HotBarConfig.Feint.enabled = true\
+		SallyNIN.HotBarConfig.Bloodbath.enabled = true\
+		SallyNIN.HotBarConfig.SecondWind.enabled = true\
+  SallyNIN.HotBarConfig.ShadeShift.enabled = true\
+  SallyNIN.HotBarConfig.Kassatsu.enabled = true\
+  SallyNIN.HotBarConfig.TCJ.enabled = true\
+  SallyNIN.HotBarConfig.Meisui.enabled = true\
+  SallyNIN.HotBarConfig.Huton.enabled = true\
+  SallyNIN.HotBarConfig.Doton.enabled = true\
+  SallyNIN.HotBarConfig.Suiton.enabled = true\
+  SallyNIN.HotBarConfig.Raiton.enabled = true\
+  SallyNIN.HotBarConfig.Katon.enabled = true\
+  SallyNIN.HotBarConfig.Sprint.enabled = true\
+  SallyNIN.HotBarConfig.ArmorCrush.enabled = true\
+  SallyNIN.HotBarConfig.Huton.enabled = true\
+end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Reset: on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "89b42817-2e02-595b-ba1c-7ec78dd90979";
 	};
 	[30] = {
 		["actions"] = {

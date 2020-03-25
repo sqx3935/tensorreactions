@@ -25,6 +25,7 @@ local obj1 = {
 --[[ ** ChangeLog **\
 * [\"4.0.0\"] = \"Initial release \"\
 *	[\"4.1.0\"] = \"timeline reaction\",\
+*	[\"4.2.0\"] = \"extra reactions to support early trick opener\",\
 ]]\
 ";
 			["executeType"] = 2;
@@ -135,11 +136,83 @@ self.used = true\
 			["time"] = 116.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 22;
-			["timerEndOffset"] = 15;
+			["timerEndOffset"] = 4;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "d1822259-7c08-6115-aa9f-d9d861b68d1c";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- toggle off, and override by timeline\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(false, true)\
+self.used = true";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn Off Ninjutsu";
+			["time"] = 116.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 22;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "5f1f794a-a383-ea26-9957-6e427b21614a";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- 149 = stunned\
+\
+if HasBuff(Player.id, 496) then\
+  NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, true)\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn on when stunned";
+			["time"] = 116.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 22;
+			["timerEndOffset"] = 4;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "f0043c7d-a711-89ce-ae5d-8d0a92846c0d";
+		};
+	};
+	[23] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- just incase stun does not flip back on (needs tested)\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn on Ninjutsu";
+			["time"] = 122.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 23;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "d8d36f9a-f7e4-c1d7-9e68-297cc1ae906c";
 		};
 	};
 	[27] = {
@@ -286,263 +359,80 @@ self.used = true\
 			["time"] = 177.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 38;
-			["timerEndOffset"] = 15;
+			["timerEndOffset"] = 4;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "67c28b68-b825-5786-9c37-9d4a22df1e69";
+			["uuid"] = "472c94e7-0295-fce1-9ba1-66466bff49b6";
 		};
 		[2] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "Player:ClearTarget()\
-self.used = true ";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[2] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "Player:ClearTarget()\
-self.used = true ";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 2;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[3] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "Player:ClearTarget()\
-self.used = true ";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 3;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[4] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "Player:ClearTarget()\
-self.used = true ";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 4;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
 			};
 			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 3;
-					["buffDuration"] = 2;
-					["buffID"] = 2240;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-				[2] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 3;
-					["buffDuration"] = 2;
-					["buffID"] = 2241;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-				[3] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 3;
-					["buffDuration"] = 2;
-					["buffID"] = 2242;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-				[4] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 3;
-					["buffDuration"] = 2;
-					["buffID"] = 2243;
-					["category"] = 2;
-					["comparator"] = 2;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
 			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
+			["enabled"] = true;
+			["execute"] = "-- toggle off, and override by timeline\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(false, true)\
+self.used = true";
+			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Deselect";
+			["luaReturnsAction"] = true;
+			["name"] = "Turn Off Ninjutsu";
 			["time"] = 177.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 38;
-			["timerEndOffset"] = 25;
-			["timerOffset"] = 4.362;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "adb222f3-049d-d562-b86d-68921635b42f";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- 149 = stunned\
+\
+if HasBuff(Player.id, 496) then\
+  NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, true)\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn on when stunned";
+			["time"] = 177.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 38;
+			["timerEndOffset"] = 4;
+			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "1925faca-3d96-f8c4-b94e-11fe176959d2";
+			["uuid"] = "ef52859e-7d75-1064-995d-b95589e9d85f";
+		};
+		[4] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- toggle off, and override by timeline\
+NilsReactionLibrary.Combat.Toggles.Ninja.Bunshin(false, true)\
+self.used = true";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn Off Bunshin";
+			["time"] = 177.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 38;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "5cafa220-7a96-aeb0-9a7e-e75c0f1c832c";
 		};
 	};
 	[39] = {
@@ -589,6 +479,31 @@ self.used = true ";
 			["timerStartOffset"] = -2;
 			["used"] = false;
 			["uuid"] = "725fa52f-f3f1-c035-9c44-d01606e45566";
+		};
+	};
+	[40] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- just incase stun does not flip back on (needs tested)\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn on Ninjutsu";
+			["time"] = 183.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 40;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "0697f257-5740-cb74-9757-6fc8b09d7e45";
 		};
 	};
 	[43] = {
@@ -1167,6 +1082,28 @@ return false";
 		};
 	};
 	[52] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- toggle off, and override by timeline\
+NilsReactionLibrary.Combat.Toggles.Ninja.Bunshin(true, true)\
+self.used = true";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn On Bunshin";
+			["time"] = 224.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 52;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "bf84e3d4-fdca-d710-8b85-6e98c8845688";
+		};
 	};
 	[55] = {
 		[1] = {
@@ -1399,83 +1336,6 @@ self.used = true";
 		[1] = {
 			["actions"] = {
 				[1] = {
-					["aType"] = 3;
-					["actionID"] = -1;
-					["actionLua"] = "";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = false;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = true;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 5;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = 149;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 1;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = true;
-			["luaReturnsAction"] = false;
-			["name"] = "Retarget boss when stuned";
-			["time"] = 264.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 58;
-			["timerEndOffset"] = 25;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "9ba55239-9e6e-d300-9355-9ea2b50c134a";
-		};
-		[2] = {
-			["actions"] = {
-				[1] = {
 					["aType"] = 4;
 					["actionID"] = -1;
 					["actionLua"] = "SallyNIN.HotBarConfig.Kassatsu.enabled = false\
@@ -1650,31 +1510,133 @@ self.used = true";
 			["used"] = false;
 			["uuid"] = "7662d4a9-899f-e5e6-bdbd-95a8c738d414";
 		};
-	};
-	[59] = {
-		[1] = {
+		[2] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 3;
+					["actionID"] = -1;
+					["actionLua"] = "";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+						[1] = 1;
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
+					["setTarget"] = true;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 5;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = 149;
+					["category"] = 2;
+					["comparator"] = 1;
+					["conditionLua"] = "";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
+			};
+			["enabled"] = true;
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Retarget boss when stuned";
+			["time"] = 264.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 58;
+			["timerEndOffset"] = 4;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "ba8f06f0-9ba9-f5f8-b8a9-07fdb45411f3";
+		};
+		[3] = {
 			["actions"] = {
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "-- toggle settings, timeline control\
-NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(true, true)\
+			["execute"] = "-- toggle off, and override by timeline\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(false, true)\
 self.used = true";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Turn TCJ on";
-			["time"] = 268.1;
-			["timeRange"] = false;
-			["timelineIndex"] = 59;
-			["timerEndOffset"] = 0;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn Off Ninjutsu";
+			["time"] = 264.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 58;
+			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "45876e99-b0bc-9b53-b391-4400478c3dcf";
+			["uuid"] = "86b8d524-3356-b24b-a92c-26567acaf4bb";
 		};
-		[2] = {
+		[4] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- 149 = stunned\
+\
+if HasBuff(Player.id, 496) then\
+  NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, true)\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn on when stunned";
+			["time"] = 264.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 58;
+			["timerEndOffset"] = 4;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "07a2badb-06f7-495d-ac99-9280192d6051";
+		};
+	};
+	[59] = {
+		[1] = {
 			["actions"] = {
 			};
 			["conditions"] = {
@@ -1696,10 +1658,108 @@ self.used = true\
 			["used"] = false;
 			["uuid"] = "f2380929-6fe0-77e5-b297-1820b1f39673";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- just incase stun does not flip back on (needs tested)\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn on Ninjutsu";
+			["time"] = 268.1;
+			["timeRange"] = true;
+			["timelineIndex"] = 59;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "cf2da853-36f2-b920-b9a5-3d0b3ec5b760";
+		};
+	};
+	[60] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- toggle settings, timeline control\
+NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(true, true)\
+self.used = true";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn TCJ on";
+			["time"] = 278.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 60;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 1;
+			["used"] = false;
+			["uuid"] = "002eb3b9-c5b1-9d8e-b1b6-1cdce4b2ca5e";
+		};
+		[2] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "-- toggle off, and override by timeline\
+NilsReactionLibrary.Combat.Toggles.Ninja.TrickAttack(false, true)\
+self.used = true\
+\
+\
+";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = false;
+			["eventArgs"] = {
+			};
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "TA off";
+			["time"] = 278.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 60;
+			["timerEndOffset"] = 4;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "ab73b0c5-9fd3-01b4-ab4d-3aa62ed2171b";
+		};
 	};
 	[62] = {
 	};
-	[64] = {
+	[63] = {
 		[1] = {
 			["actions"] = {
 			};
@@ -1711,17 +1771,19 @@ NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, 
 self.used = true";
 			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Trick window off";
-			["time"] = 323.4;
+			["time"] = 302;
 			["timeRange"] = true;
-			["timelineIndex"] = 64;
+			["timelineIndex"] = 63;
 			["timerEndOffset"] = 2;
 			["timerOffset"] = -1;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = 2;
 			["used"] = false;
-			["uuid"] = "29bf460a-4511-72c3-b15f-e9b4901671d2";
+			["uuid"] = "da69e4c3-7e0e-41c8-8f56-53d7593ccfcf";
 		};
+	};
+	[64] = {
 	};
 	[69] = {
 	};
@@ -2290,6 +2352,31 @@ self.used = true";
 	[117] = {
 	};
 	[118] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
+  if NilsReactionLibrary.Combat.Toggles.Ninja.BurnBoss(true, true) == true then\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Burn Boss";
+			["time"] = 800.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 118;
+			["timerEndOffset"] = 120;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "a9529e2f-9b58-e894-a864-1c1a9530be7d";
+		};
 	};
 	[119] = {
 	};
@@ -2365,31 +2452,6 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "e5e9db53-e5bc-3f35-909a-261af6439185";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "local target = Player:GetTarget()\
-if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
-  if NilsReactionLibrary.Combat.Toggles.Ninja.BurnBoss(true, true) == true then\
-    self.used = true\
-  end\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Burn Boss";
-			["time"] = 824.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 121;
-			["timerEndOffset"] = 1;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -30;
-			["used"] = false;
-			["uuid"] = "60be1bab-f264-963c-a76d-f74cc8ae0518";
 		};
 	};
 	["mapID"] = 908;

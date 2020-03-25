@@ -939,8 +939,11 @@ self.Combat.Toggles.Control = {
   DreamWithinDream = { IsActive = false, TimelineActive = false},
   Kassatsu = { IsActive = false, TimelineActive = false},
   Meisui = { IsActive = false, LastMoved = 0, TimelineActive = false },
-  Ninjutsu = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  Ninjutsu = { IsActive = false, TimelineActive = false },
+  Bunshin = { IsActive = false, TimelineActive = false },
   ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  ShadowFang = { IsActive = false, TimelineActive = false },
+  TrickAttack = { IsActive = false, TimelineActive = false },
   TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
 }
 
@@ -957,8 +960,11 @@ function self.Combat.Toggles.Handler.Reset()
     DreamWithinDream = { IsActive = false, TimelineActive = false},
     Kassatsu = { IsActive = false, TimelineActive = false},
     Meisui = { IsActive = false, LastMoved = 0, TimelineActive = false },
-    Ninjutsu = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    Ninjutsu = { IsActive = false, TimelineActive = false },
+    Bunshin = { IsActive = false, TimelineActive = false },
     ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    ShadowFang = { IsActive = false, TimelineActive = false },
+    TrickAttack = { IsActive = false, TimelineActive = false },
     TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
   }
 end
@@ -1489,33 +1495,54 @@ function self.Combat.Toggles.Ninja.Meisui(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Ninja.TrickAttack(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Ninja.TrickAttack(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.TrickAttack.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.TrickAttack.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.TrickAttack.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.TrickAttack.enabled = toggleOn return true end
+ 
   return false
 end
 
-function self.Combat.Toggles.Ninja.Ninjutsu(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Ninja.Ninjutsu(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Ninjutsu.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.Ninjutsu.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.Ninjutsu.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Ninjutsu.enabled = toggleOn return true end
+
   return false
 end
 
-function self.Combat.Toggles.Ninja.Bushin(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Ninja.Bunshin(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.Bunshin.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.Bunshin.TimelineActive = byTimeline and toggleOn == false
+  end
+
     if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.Bushin.enabled = toggleOn return true end
-  end
+
   return false
 end
 
@@ -1599,13 +1626,20 @@ function self.Combat.Toggles.Ninja.ACRefresh(toggleOn)
   return false
 end
 
-function self.Combat.Toggles.Ninja.ShadowFang(toggleOn)
-  if self.isempty(toggleOn) then toggleOn = true end
+function self.Combat.Toggles.Ninja.ShadowFang(toggleOn, byTimeline)
+  if Player.job ~= self.jobs.Ninja.id then return false end
 
-  if Player.job == self.jobs.Ninja.id then
-    -- if tensor installed
-    if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.ShadowFang.enabled = toggleOn return true end
+  if self.isempty(toggleOn) then toggleOn = true end
+  if self.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    self.Combat.Toggles.Control.ShadowFang.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    self.Combat.Toggles.Control.ShadowFang.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if self.WhichArc() == self.arcs.SallyNIN then SallyNIN.SkillSettings.ShadowFang.enabled = toggleOn return true end
+
   return false
 end
 
@@ -1625,10 +1659,10 @@ function self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(byTimeline, 
 
   if self.WhichArc() == self.arcs.SallyNIN then
     self.Combat.Toggles.Ninja.CD(true, byTimeline)
-    self.Combat.Toggles.Ninja.TrickAttack(false)
-    self.Combat.Toggles.Ninja.Bushin(false)
+    self.Combat.Toggles.Ninja.TrickAttack(false, byTimeline)
+    self.Combat.Toggles.Ninja.Bunshin(false, byTimeline)
 
-    if allowShadowfang == false then self.Combat.Toggles.Ninja.ShadowFang(false) end
+    if allowShadowfang == false then self.Combat.Toggles.Ninja.ShadowFang(false, byTimeline) end
   end
 end
 
@@ -1643,10 +1677,10 @@ function self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(byTimeline)
 
   if self.WhichArc() == self.arcs.SallyNIN then
     self.Combat.Toggles.Ninja.CD(false, byTimeline)
-    self.Combat.Toggles.Ninja.TrickAttack(true)
-    self.Combat.Toggles.Ninja.ShadowFang(true)
-    self.Combat.Toggles.Ninja.Bushin(true)
-    self.Combat.Toggles.Ninja.Ninjutsu(true)
+    self.Combat.Toggles.Ninja.TrickAttack(true, byTimeline)
+    self.Combat.Toggles.Ninja.ShadowFang(true, byTimeline)
+    self.Combat.Toggles.Ninja.Bunshin(true, byTimeline)
+    self.Combat.Toggles.Ninja.Ninjutsu(true, byTimeline)
   end
 end
 
