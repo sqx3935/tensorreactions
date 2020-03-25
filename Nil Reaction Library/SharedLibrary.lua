@@ -310,6 +310,12 @@ function self.Combat.Actions.ShadeShift()
   -- return if in opener or outside ogcd
   if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
+  -- Skip if under trick window
+  local target = Player:GetTarget()
+  if target ~= nil and table.valid(target) and target.attackable and HasBuff(target.id, 638, 0, 0, Player.id) then
+    return true, nil, nil, false, false
+  end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 2241)
   if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
@@ -409,6 +415,12 @@ function self.Combat.Actions.Feint(entityID)
   if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
     if Player.job == self.jobs.Ninja.id then
       if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
+
+  -- Skip if under trick window
+  if HasBuff(target.id, 638, 0, 0, Player.id) then
+    return true, nil, nil, false, false
+  end
+
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyNIN then
       if SallyNIN.HotBarConfig.Feint ~= nil then
@@ -443,7 +455,7 @@ end
 
 function self.Combat.Actions.TrueNorth()
 
-  -- return if in opener or outside ogcd
+  -- return if in opener or has true north buff
   if self.Combat.inOpener() or HasBuff(Player.id, 1250) then return false, nil, nil, false, false end
 
   -- check cooldown
@@ -1306,7 +1318,7 @@ function self.Combat.Toggles.Ninja.Reset()
   if self.WhichArc() == self.arcs.SallyNIN then
     SallyNIN.SkillSettings.Opener.enabled = false
     SallyNIN.SkillSettings.SaveCD.enabled = false
-    SallyNIN.SkillSettings.Range.enabled = false
+    SallyNIN.SkillSettings.Range.enabled = true
     SallyNIN.SkillSettings.Omni.enabled = false
     SallyNIN.SkillSettings.BurnBoss.enabled = false
     -- SallyNIN.SkillSettings.Potion.enabled = true
@@ -1318,7 +1330,7 @@ function self.Combat.Toggles.Ninja.Reset()
     SallyNIN.SkillSettings.Bushin.enabled = true
     SallyNIN.SkillSettings.Ninki.enabled = true
     SallyNIN.SkillSettings.Assassinate.enabled = true
-    SallyNIN.SkillSettings.DWD.enabled = false
+    SallyNIN.SkillSettings.DWD.enabled = true
     SallyNIN.SkillSettings.Mug.enabled = true
     SallyNIN.SkillSettings.Kassatsu.enabled = true
     SallyNIN.SkillSettings.Doton.enabled = true
@@ -1686,7 +1698,9 @@ end
 -- Attempt to keep DWD in alignment with Trick Window
 function self.Combat.Toggles.Ninja.Helpers.DwDAlignment()
 
-  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() or self.Combat.inOpener() then self.Combat.Toggles.Ninja.DWD(true) return false end
+  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() then return false end
+
+  if self.Combat.inOpener() then self.Combat.Toggles.Ninja.DWD(true) return false end
 
   local target = Player:GetTarget()
   if target == nil or not table.valid(target) or not target.attackable then self.Combat.Toggles.Ninja.DWD(false) return false end
@@ -1703,7 +1717,9 @@ end
 -- Attempt to keep Kassatsu in alignment with Trick Window
 function self.Combat.Toggles.Ninja.Helpers.KassatsuAlignment()
 
-  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() or self.Combat.inOpener() then self.Combat.Toggles.Ninja.Kassatsu(true) return false end
+  if Player.job ~= self.jobs.Ninja.id or self.Buffs.Ninja.IsDoingMudra() then return false end
+
+  if self.Combat.inOpener() then self.Combat.Toggles.Ninja.Kassatsu(true) return false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 2258)

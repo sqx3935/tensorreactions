@@ -604,6 +604,8 @@ self.used = true\
 			["uuid"] = "536e2e20-49e2-9234-ac52-ed3de40514c7";
 		};
 	};
+	[58] = {
+	};
 	[59] = {
 		[1] = {
 			["actions"] = {
@@ -704,6 +706,28 @@ self.used = true\
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "a7d96eff-2945-05f9-bd62-3a5bc5bbd2aa";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Potion(true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn on pots";
+			["time"] = 324.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 59;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "2c98a012-5b1f-302d-ace3-91a562df15b8";
 		};
 	};
 	[66] = {

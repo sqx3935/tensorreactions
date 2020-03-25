@@ -167,6 +167,30 @@ end";
 			["uuid"] = "6ed0ab5b-5d48-22d5-9fc8-898fff7e0be1";
 		};
 	};
+	[32] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Potion(false)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn off pots";
+			["time"] = 163.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 32;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "c9bbb678-f353-997c-a921-691ece9f8a17";
+		};
+	};
 	[36] = {
 		[1] = {
 			["actions"] = {
@@ -631,6 +655,28 @@ self.used = true\
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "8f78a95f-0dfe-c6d9-b7b4-77ef257e48b2";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Potion(true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn on pots";
+			["time"] = 510.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 74;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "f4c3d470-0e9e-9192-8b41-5b92e9815fcc";
 		};
 	};
 	[87] = {

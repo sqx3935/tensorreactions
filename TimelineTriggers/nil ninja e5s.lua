@@ -188,7 +188,7 @@ end";
 			["timelineIndex"] = 16;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -3;
-			["timerStartOffset"] = -3;
+			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "035e0b1a-2d00-46cd-9fcd-9b7e5ecb53a8";
 		};
@@ -300,24 +300,21 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.TrueNorth()\
-if wasSuccessful == true then\
-NilsReactionLibrary.Combat.Toggles.Ninja.TrueNorth(true)\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.TrueNorth(true)\
+self.used = true\
+\
 \
 ";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "True North and back on";
+			["name"] = "True North back on";
 			["time"] = 128.6;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 19;
 			["timerEndOffset"] = 4;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -7;
+			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "e9a89fa3-bc67-8212-a918-dac5e675e134";
 		};
@@ -342,6 +339,30 @@ end";
 			["timerStartOffset"] = -1.5;
 			["used"] = false;
 			["uuid"] = "1d2aa4fc-9b2c-f735-bade-ee4a8e58c7ad";
+		};
+		[4] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.TrueNorth()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "True North";
+			["time"] = 128.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 19;
+			["timerEndOffset"] = 5;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "5cb78918-d33e-d658-81d1-f380742b699a";
 		};
 	};
 	[21] = {

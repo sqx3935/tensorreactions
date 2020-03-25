@@ -2286,28 +2286,6 @@ self.used = true\
 		};
 		[3] = {
 			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Potion(true)\
-self.used = true\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "turn off pots";
-			["time"] = 320.4;
-			["timeRange"] = true;
-			["timelineIndex"] = 58;
-			["timerEndOffset"] = 2;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -1;
-			["used"] = false;
-			["uuid"] = "d4e96e5f-062c-7e49-9f77-1122841942c6";
-		};
-		[4] = {
-			["actions"] = {
 				[1] = {
 					["aType"] = 4;
 					["actionID"] = -1;
@@ -2446,11 +2424,11 @@ self.used = true";
 			["timelineIndex"] = 58;
 			["timerEndOffset"] = 4;
 			["timerOffset"] = -0.099999999999994;
-			["timerStartOffset"] = -3;
+			["timerStartOffset"] = 1;
 			["used"] = false;
 			["uuid"] = "c0139ebb-bd2c-dfa1-9d99-ea6da814be3b";
 		};
-		[5] = {
+		[4] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 4;
@@ -2627,7 +2605,7 @@ self.used = true";
 			["used"] = false;
 			["uuid"] = "47da1da6-0d00-2477-b5c5-167a3e32d730";
 		};
-		[6] = {
+		[5] = {
 			["actions"] = {
 			};
 			["conditions"] = {
@@ -2728,6 +2706,28 @@ return false";
 			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "562bf376-174c-5e51-a3be-dcd1103d01a0";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Potion(true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn on pots";
+			["time"] = 324.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 59;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "1d481d0a-30d8-9ffc-a897-941ec8fdb067";
 		};
 	};
 	[66] = {

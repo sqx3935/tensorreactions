@@ -665,6 +665,28 @@ self.used = true\
 			["used"] = false;
 			["uuid"] = "13b00283-3bc4-c96a-b34c-4b296f634d2f";
 		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.Potion(true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn on pots";
+			["time"] = 324.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 59;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "8c2e55ff-5c8b-1fb9-8cec-f91e429ed02f";
+		};
 	};
 	[66] = {
 		[1] = {
