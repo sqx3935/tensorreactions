@@ -1400,7 +1400,7 @@ self.used = true";
 end";
 			["executeType"] = 2;
 			["loop"] = true;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Leg Sweep";
 			["time"] = 271.5;
 			["timeRange"] = true;
