@@ -534,7 +534,7 @@ self.used = true";
 			["timelineIndex"] = 32;
 			["timerEndOffset"] = 2;
 			["timerOffset"] = -2.5999999046326;
-			["timerStartOffset"] = -8;
+			["timerStartOffset"] = -15;
 			["used"] = false;
 			["uuid"] = "944454ca-3e07-d71f-bfd1-7faa6651b5c2";
 		};
@@ -671,7 +671,7 @@ self.used = true";
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 2;
-					["gaugeValue"] = 20000;
+					["gaugeValue"] = 10000;
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
@@ -735,7 +735,7 @@ self.used = true";
 			["time"] = 213;
 			["timeRange"] = true;
 			["timelineIndex"] = 36;
-			["timerEndOffset"] = 14;
+			["timerEndOffset"] = 10;
 			["timerOffset"] = 8;
 			["timerStartOffset"] = -4;
 			["used"] = false;
@@ -902,20 +902,13 @@ return target == nil or target.hp.current == 0";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
-  local target = Player:GetTarget()\
-		-- 2 is leg sweep stun\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    local action = ActionList:Get(1, 7863)\
-    if action:IsReady(target.id) then\
-      self.used = true\
-  				return action, target.idD, false, false\
-    end\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = true;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Leg Sweep";
 			["time"] = 229.2;
 			["timeRange"] = true;
@@ -1006,20 +999,13 @@ self.used = true";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
-  local target = Player:GetTarget()\
-		-- 2 is leg sweep stun\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    local action = ActionList:Get(1, 7863)\
-    if action:IsReady(target.id) then\
-      self.used = true\
-  				return action, target.idD, false, false\
-    end\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = true;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Leg Sweep";
 			["time"] = 243.3;
 			["timeRange"] = true;
@@ -1134,20 +1120,13 @@ self.used = true";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
-  local target = Player:GetTarget()\
-		-- 2 is leg sweep stun\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    local action = ActionList:Get(1, 7863)\
-    if action:IsReady(target.id) then\
-      self.used = true\
-  				return action, target.idD, false, false\
-    end\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = true;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Leg Sweep";
 			["time"] = 257.4;
 			["timeRange"] = true;
@@ -1415,16 +1394,9 @@ self.used = true";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
-  local target = Player:GetTarget()\
-		-- 2 is leg sweep stun\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    local action = ActionList:Get(1, 7863)\
-    if action:IsReady(target.id) then\
-      self.used = true\
-  				return action, target.idD, false, false\
-    end\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = true;
@@ -1540,6 +1512,8 @@ self.used = true";
 				};
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -1560,6 +1534,8 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "-- timeline control\
 NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(true)\
 self.used = true";
@@ -1642,6 +1618,8 @@ return false";
 				};
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
@@ -1664,6 +1642,8 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.ShadeShift()\
 if wasSuccessful == true then\
   self.used = true\
@@ -1692,6 +1672,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.ShadeShift()\
 if wasSuccessful == true then\
   self.used = true\
@@ -1718,6 +1700,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
 if wasSuccessful == true then\
   self.used = true\
@@ -1791,6 +1775,8 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "-- toggle off, and override by timeline\
 NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(false, true)\
 self.used = true";
@@ -1813,9 +1799,11 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "-- 19901 = spellid of Reflected wings\
+			["eventArgs"] = {
+			};
+			["execute"] = "-- 19901 = spellid of Reflected wings 19913\
 local val, ent = TensorCore.isAnyEntityCasting(19901)\
-if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 1.0 then\
+if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 0.8 then\
   wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
   if wasSuccessful == true then\
     self.used = true\
@@ -2220,6 +2208,8 @@ self.used = true";
 				};
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;

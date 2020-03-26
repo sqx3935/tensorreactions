@@ -496,15 +496,24 @@ function self.Combat.Actions.TrueNorth()
   return false, nil, nil, false, false
 end
 
-function self.Combat.Actions.LegSweep(entityID)
+-- entityID, the id of the target
+-- actionID if you want to hold leg sweep for an action, example 50 for if the target is moving forward
+function self.Combat.Actions.LegSweep(entityID, actionID)
 
   -- return if in opener or outside ogcd
   if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
+  if self.isempty(entityID) then entityID = 0 end
+  if self.isempty(actionID) then actionID = 0 end
+
   -- check that target does not already have stun
   local target = Player:GetTarget()
-  if entityID ~= nil then target = EntityList:Get(entityID) end
+  if entityID ~= nil and entityID ~= 0 then target = EntityList:Get(entityID) end
+  -- 2 is leg sweep stun
   if target == nil or not table.valid(target) or not target.attackable or HasBuff(target.id, 2) then return false, nil, nil, false, false end
+
+  -- if an action id was passed in, hold legsweet for that action
+  if actionID > 0 and target.action ~= actionID then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7863)

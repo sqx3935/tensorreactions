@@ -224,14 +224,9 @@ return target == nil or target.hp.current == 0";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
-  local target = Player:GetTarget()\
-		-- 2 is leg sweep stun\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    local actionskill = ActionList:Get(1, 7863)\
-    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
-    self.used = true\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = true;
@@ -300,14 +295,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
-  local target = Player:GetTarget()\
-		-- 2 is leg sweep stun\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    local actionskill = ActionList:Get(1, 7863)\
-    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
-    self.used = true\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = true;
@@ -376,14 +366,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
-  local target = Player:GetTarget()\
-		-- 2 is leg sweep stun\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    local actionskill = ActionList:Get(1, 7863)\
-    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
-    self.used = true\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = true;
@@ -625,14 +610,9 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() == false then\
-  local target = Player:GetTarget()\
-		-- 2 is leg sweep stun\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    local actionskill = ActionList:Get(1, 7863)\
-    if actionskill:IsReady(target.id) then actionskill:Cast(target.id) end\
-    self.used = true\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
 			["loop"] = true;
