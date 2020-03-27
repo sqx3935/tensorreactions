@@ -65,7 +65,7 @@ local obj1 = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 27 or Player.level < 32 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_smn ~= nil and xivopeners_smn.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -266,7 +266,7 @@ end\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 27 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.level < 32 or (xivopeners_smn ~= nil and xivopeners_smn.openerStarted == true) or HasBuff(eventArgs.entityID, 1203) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -489,29 +489,20 @@ end\
 		["conditions"] = {
 		};
 		["enabled"] = true;
-		["eventType"] = 10;
-		["execute"] = "if Player.job ~= 27 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-NilsReactionLibrary.Combat.Toggles.Summoner.Reset()\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil";
-		["executeType"] = 2;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
 		["luaReturnsAction"] = false;
-		["name"] = "Reset: on death";
+		["name"] = "---- Revamp ----";
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 10;
+		["timeout"] = 5;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
 		["used"] = false;
-		["uuid"] = "53375433-ebd1-cf79-866e-ab6b2a66204c";
+		["uuid"] = "5c962e80-882b-e9db-a3fc-3ea63feedb1a";
 	};
 	[7] = {
 		["actions"] = {
@@ -520,13 +511,7 @@ return nil";
 		};
 		["enabled"] = true;
 		["eventType"] = 9;
-		["execute"] = "if Player.job ~= 27 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-NilsReactionLibrary.Combat.Toggles.Summoner.Reset()\
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.Reset()\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
@@ -536,12 +521,36 @@ return nil";
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 10;
+		["timeout"] = 5;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "f6f62b7e-0cb9-8fd5-996e-7f4e0f8816a5";
+	};
+	[8] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 10;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.Reset()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Reset: on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "53375433-ebd1-cf79-866e-ab6b2a66204c";
 	};
 }
 return obj1

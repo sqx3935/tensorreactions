@@ -460,7 +460,7 @@ local obj1 = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 22 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -558,7 +558,7 @@ end";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 22 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -679,7 +679,7 @@ end\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 22 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -760,7 +760,7 @@ end\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 22 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -922,91 +922,6 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-if data.nilsPlayground.timeOfLastHeal == nil then data.nilsPlayground.timeOfLastHeal = 0 end\
-\
-if Player.job ~= 22 or Player.hp.percent > 50 or Player.hp.percent < 1 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfLastHeal ~= nil and TimeSince(data.nilsPlayground.timeOfLastHeal) < 2000) or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true) then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if action on cooldown\
-local actionSecondWind = ActionList:Get(1, 7541)\
-local availableSecondWind = actionSecondWind.cdmax - actionSecondWind.cd <= 1\
-\
-local actionBloodbath = ActionList:Get(1, 7542)\
-local availableBloodbath = actionBloodbath.cdmax - actionBloodbath.cd <= 1\
-\
-if availableSecondWind == false and availableBloodbath == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- 84 bloodbath buff\
--- check regen buffs\
-local hasRegen = false\
-if  HasBuff(Player.id, 158) or HasBuff(Player.id, 150) or HasBuff(Player.id, 839) or HasBuff(Player.id, 84) then\
-		hasRegen = true\
-end\
-\
-if hasRegen and Player.hp.percent < 20 and availableSecondWind then\
-		\
-		data.nilsPlayground.timeOfLastHeal = Now()\
-		actionSecondWind:Cast()\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if hasRegen and Player.hp.percent < 20 and availableSecondWind == false and availableBloodbath then\
-\
-		data.nilsPlayground.timeOfLastHeal = Now()\
-		actionBloodbath:Cast()\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if hasRegen == false and Player.hp.percent < 40 and availableSecondWind then\
-\
-		data.nilsPlayground.timeOfLastHeal = Now()		\
-  actionSecondWind:Cast()\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if hasRegen == false and Player.hp.percent < 40 and availableSecondWind == false and availableBloodbath then\
-		data.nilsPlayground.timeOfLastHeal = Now()\
-		actionBloodbath:Cast()\
-end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Self Heal";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "ee275585-a382-c0c2-9e67-cde994081812";
-	};
-	[10] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 22 or Player.incombat == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -1077,7 +992,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "26903304-de63-5b8b-97fa-9f4cd27db891";
 	};
-	[11] = {
+	[10] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1146,33 +1061,56 @@ return nil";
 		["used"] = false;
 		["uuid"] = "dbd70d59-9b4f-0952-81fd-1c52aa55d4ea";
 	};
+	[11] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["luaReturnsAction"] = false;
+		["name"] = "---- Revamp ----";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "f55c2d77-eb48-c056-96f8-c72a6aa2a962";
+	};
 	[12] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = true;
-		["eventType"] = 10;
-		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
-\
-data.nilsPlayground.timeOfDeath = Now()\
+		["eventType"] = 1;
+		["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SelfHeal()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil";
+self.used = true\
+return nil\
+";
 		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Reset: on death";
+		["luaReturnsAction"] = true;
+		["name"] = "Cast: Self Heal";
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 6;
+		["timeout"] = 5;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
 		["used"] = false;
-		["uuid"] = "e69b4548-03e8-2d6e-916b-6cefe9617c4a";
+		["uuid"] = "c4494e40-6690-2cf4-b616-2db371752705";
 	};
 }
 return obj1
