@@ -489,7 +489,7 @@ end\
 		["conditions"] = {
 		};
 		["enabled"] = true;
-		["eventType"] = 1;
+		["eventType"] = 10;
 		["execute"] = "if Player.job ~= 27 then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \

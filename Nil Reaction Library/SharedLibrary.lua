@@ -337,6 +337,42 @@ function self.Combat.Actions.ShadeShift()
   end
   return false, nil, nil, false, false
 end
+
+function self.Combat.Actions.Shukuchi(entityID)
+  if not Player.job == self.jobs.Ninja.id then return false, nil, nil, false, false end
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  -- return if doing a mudra
+  if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
+
+  -- Get target
+  if self.isempty(entityID) then entityID = 0 end
+  -- check that target does not already have stun
+  local target = Player:GetTarget()
+  if entityID ~= nil and entityID ~= 0 then target = EntityList:Get(entityID) end
+  -- shukuchi can be used on friendly targets, just needs to be valid
+  if target == nil or not table.valid(target) then return false, nil, nil, false, false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 2262)
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
+
+  if self.WhichArc() == self.arcs.SallyNIN then
+    -- use hotbar only if bot is running, otherwise use actionskill
+    if SallyNIN.HotBarConfig.Shukuchi ~= nil and FFXIV_Common_BotRunning then
+      SallyNIN.HotBarConfig.Shukuchi.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
+  else
+    return true, actionskill, Player.id, true, false
+  end
+  return false, nil, nil, false, false
+end
+
 -- **********************************************************************************************************
 
 -- ** Samurai Only Actions **********************************************************************************
@@ -369,6 +405,34 @@ function self.Combat.Actions.ThirdEye(entityID)
     return true, actionskill, Player.id, true, true
   end
 end
+
+function self.Combat.Actions.Gyoten()
+  if not Player.job == self.jobs.Samurai.id then return false, nil, nil, false, false end
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  local target = Player:GetTarget()
+  if target == nil or not table.valid(target) or not target.attackable then return false, nil, nil, false, false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 7492)
+  if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
+
+  if self.WhichArc() == self.arcs.SallySAM then
+    -- use hotbar only if bot is running, otherwise use actionskill
+    if SallySAM.HotBarConfig.Gyoten ~= nil and FFXIV_Common_BotRunning then
+      SallySAM.HotBarConfig.Gyoten.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
+  else
+    return true, actionskill, target.id, true, false
+  end
+  return false, nil, nil, false, false
+end
+
 -- *********************************************************************************************************
 
 -- ** Monk Only Actions ************************************************************************************
@@ -413,8 +477,8 @@ function self.Combat.Actions.Feint(entityID)
   -- check cooldown
   local actionskill = ActionList:Get(1, 7549)
   if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
-    if Player.job == self.jobs.Ninja.id then
-      if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
+  if Player.job == self.jobs.Ninja.id then
+    if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
 
   -- Skip if under trick window
   if HasBuff(target.id, 638, 0, 0, Player.id) then
@@ -449,6 +513,54 @@ function self.Combat.Actions.Feint(entityID)
     return true, actionskill, target.id, true, false
   elseif Player.job == self.jobs.Monk.id then
     return true, actionskill, target.id, true, false
+  end
+  return false, nil, nil, false, false
+end
+
+function self.Combat.Actions.Bloodbath()
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 7542)
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
+
+  local target = Player:GetTarget()
+
+  if Player.job == self.jobs.Ninja.id then
+    if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
+    -- Skip if under trick window
+    if target ~= nil and table.valid(target) and HasBuff(target.id, 638, 0, 0, Player.id) then return false, nil, nil, false, false end
+
+    -- if sally installed, use hotbar, otherwise use base
+    if self.WhichArc() == self.arcs.SallyNIN then
+      if SallyNIN.HotBarConfig.Bloodbath ~= nil then
+        SallyNIN.HotBarConfig.Bloodbath.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
+  elseif Player.job == self.jobs.Samurai.id then
+    if self.WhichArc() == self.arcs.SallySAM then
+      if SallySAM.HotBarConfig.Bloodbath ~= nil then
+        SallySAM.HotBarConfig.Bloodbath.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
+  elseif Player.job == self.jobs.Dragoon.id then
+    return true, actionskill, Player.id, true, false
+  elseif Player.job == self.jobs.Monk.id then
+    return true, actionskill, Player.id, true, false
   end
   return false, nil, nil, false, false
 end
@@ -551,6 +663,56 @@ function self.Combat.Actions.LegSweep(entityID, actionID)
     return true, actionskill, target.id, true, false
   end
   return false
+end
+-- *********************************************************************************************************
+
+-- ** DPS **************************************************************************************************
+function self.Combat.Actions.SecondWind()
+
+  -- return if in opener or outside ogcd
+  if self.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 7541)
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
+
+  local target = Player:GetTarget()
+
+  if Player.job == self.jobs.Ninja.id then
+    if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
+    -- Skip if under trick window
+    if target ~= nil and table.valid(target) and HasBuff(target.id, 638, 0, 0, Player.id) then return false, nil, nil, false, false end
+
+    -- if sally installed, use hotbar, otherwise use base
+    if self.WhichArc() == self.arcs.SallyNIN then
+      if SallyNIN.HotBarConfig.SecondWind ~= nil then
+        SallyNIN.HotBarConfig.SecondWind.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
+  elseif Player.job == self.jobs.Samurai.id then
+    if self.WhichArc() == self.arcs.SallySAM then
+      if SallySAM.HotBarConfig.SecondWind ~= nil then
+        SallySAM.HotBarConfig.SecondWind.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
+  elseif Player.job == self.jobs.Dragoon.id then
+    return true, actionskill, Player.id, true, false
+  elseif Player.job == self.jobs.Monk.id then
+    return true, actionskill, Player.id, true, false
+  end
+  return false, nil, nil, false, false
 end
 -- *********************************************************************************************************
 
@@ -925,6 +1087,26 @@ function self.Combat.Actions.Sprint()
   end
   return false, nil, nil, false, false
 end
+
+-- Gap closer defaults to current target, optionally entityid can be passed in.
+function self.Combat.Actions.GapClosers(entityID)
+  if Player.job == self.jobs.Ninja.id then return self.Combat.Actions.Shukuchi(entityID) end
+  if Player.job == self.jobs.Samurai.id then return self.Combat.Actions.Gyoten() end
+
+  return true, nil, nil, true, false
+end
+
+function self.Combat.Actions.SelfHeal()
+
+
+
+  --self.Combat.Actions.SecondWind
+
+  --if Player.job == self.jobs.Ninja.id then return self.Combat.Actions.Shukuchi(entityID) end
+
+  return true, nil, nil, true, false
+end
+
 -- **********************************************************************************************************
 
 -- ************************************ Functions around toggle actions  ************************************
@@ -954,6 +1136,7 @@ self.Combat.Toggles.Control = {
   ShadowFang = { IsActive = false, TimelineActive = false },
   TrickAttack = { IsActive = false, TimelineActive = false },
   TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  DeathWatch = { TimeOfDeath = 0 },
 }
 
 if self.Combat.Toggles.Handler == nil then self.Combat.Toggles.Handler = {} end
@@ -975,6 +1158,7 @@ function self.Combat.Toggles.Handler.Reset()
     ShadowFang = { IsActive = false, TimelineActive = false },
     TrickAttack = { IsActive = false, TimelineActive = false },
     TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    DeathWatch = { TimeOfDeath = 0 },
   }
 end
 
@@ -2025,11 +2209,21 @@ end
 
 -- ** on update checks
 function self.OnUpdate()
+
+  if Player.alive == false then self.Combat.Toggles.Control.DeathWatch.TimeOfDeath = Now() end
+
   if Player.localmapid ~= self.Settings.CurrentMapID then
     -- mapid change, do stuff
     self.Settings.CurrentMapID = Player.localmapid
     -- reset shared toggles
     self.Combat.Toggles.Handler.Reset()
+  end
+
+  -- Gap close hotkey
+  if (GUI:IsKeyDown(17) and GUI:IsKeyDown(16) and GUI:IsKeyDown(190)) then -- CTRL + Shift + .
+    self.Log("gap closer hotkey")
+    local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.GapClosers()
+    if wasSuccessful == true and action ~= nil then action:Cast(targetID) end
   end
 end
 

@@ -97,9 +97,13 @@ end";
 		[1] = {
 			["actions"] = {
 				[1] = {
-					["aType"] = 1;
-					["actionID"] = 3;
-					["actionLua"] = "";
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
 					["allowInterrupt"] = false;
 					["conditions"] = {
 						[1] = 1;
@@ -111,8 +115,8 @@ end";
 					["gVar"] = "";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = true;
-					["luaReturnsAction"] = false;
+					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = true;
 					["setTarget"] = false;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -370,7 +374,9 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "-- timeline control, if you want shadowfang to be enabled\
+			["execute"] = "-- I turn trick off here because my group likes me to trick on adds first thing\
+\
+-- timeline control, if you want shadowfang to be enabled\
 NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
 self.used = true";
 			["executeType"] = 2;
@@ -388,6 +394,32 @@ self.used = true";
 		};
 	};
 	[31] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Sprint";
+			["time"] = 185.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 31;
+			["timerEndOffset"] = 3;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
+			["used"] = false;
+			["uuid"] = "4fc4ae23-b863-e341-9ade-1e430b7f8227";
+		};
 	};
 	[32] = {
 		[1] = {
@@ -565,30 +597,6 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "019bc418-d686-a0d6-93d5-22941d53a115";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["eventArgs"] = {
-			};
-			["execute"] = "-- timeline control, if you want shadowfang to be enabled\
-NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
-self.used = true";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Trick window off";
-			["time"] = 193.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 33;
-			["timerEndOffset"] = 2;
-			["timerOffset"] = -1;
-			["timerStartOffset"] = -15;
-			["used"] = false;
-			["uuid"] = "f75cd18e-77d5-c54a-9385-a6e3f24dbec1";
 		};
 	};
 	[34] = {
@@ -919,28 +927,6 @@ end";
 			["used"] = false;
 			["uuid"] = "47a2743a-b807-7c19-aa41-a21fdf854148";
 		};
-		[4] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = false;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.ShadowFang(false, true)\
-NilsReactionLibrary.Combat.Toggles.Ninja.TrickAttack(false, true)\
-self.used = true";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "TA/SF off";
-			["time"] = 229.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 37;
-			["timerEndOffset"] = 1;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "2fecc1f6-b798-bcbc-9d2e-a117aa6595b4";
-		};
 	};
 	[38] = {
 	};
@@ -1041,28 +1027,6 @@ self.used = true";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "cd44cf5b-e53c-7faa-ba52-ee174124be2c";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = false;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.ShadowFang(true, true)\
-NilsReactionLibrary.Combat.Toggles.Ninja.TrickAttack(true, true)\
-self.used = true";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "TA/SF on";
-			["time"] = 253;
-			["timeRange"] = true;
-			["timelineIndex"] = 40;
-			["timerEndOffset"] = 1;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "2483ffaa-0c90-3401-8b5a-9eaeddda0eef";
 		};
 	};
 	[41] = {
@@ -1807,7 +1771,7 @@ if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 0.8 
   wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
   if wasSuccessful == true then\
     self.used = true\
-    return action, targetID, ignoreWeaveRules, allowInterrupt\
+    return action, targetID, true, allowInterrupt\
   end\
 end";
 			["executeType"] = 2;
@@ -2223,6 +2187,52 @@ self.used = true";
 			["timerStartOffset"] = -1.3999999761581;
 			["used"] = false;
 			["uuid"] = "f26e2d23-d39c-a1a1-b2c8-4c0a73a6f276";
+		};
+		[6] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 1;
+					["actionID"] = 7548;
+					["actionLua"] = "";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = false;
+					["gVar"] = "ACR_TensorMagnum_CD";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = true;
+					["luaReturnsAction"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = false;
+			["eventArgs"] = {
+			};
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Arm's Length";
+			["time"] = 535.1;
+			["timeRange"] = true;
+			["timelineIndex"] = 72;
+			["timerEndOffset"] = -0.60000002384186;
+			["timerOffset"] = -1.6000000238419;
+			["timerStartOffset"] = -1.2999999523163;
+			["used"] = false;
+			["uuid"] = "082a521c-1cb6-1535-95d6-70db4cfb7f01";
 		};
 	};
 	[73] = {

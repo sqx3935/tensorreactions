@@ -2637,14 +2637,14 @@ return nil";
 		};
 		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "if gReactionZoomhackSet == nil then\
-  gDevHackMaxZoom = 40.0\
-	 gDevHackMinZoom = 1.5\
-  gReactionZoomhackSet = true\
-end\
+		["execute"] = "--if gReactionZoomhackSet == nil then\
+--  gDevHackMaxZoom = 40.0\
+--	 gDevHackMinZoom = 1.5\
+--  gReactionZoomhackSet = true\
+--end\
 \
 if gReactionSpeedhackSet == nil then\
-  gDevHackWalkSpeed = 7.0\
+  gDevHackWalkSpeed = 7.2\
   gReactionSpeedhackSet = true\
 end\
 self.eventConditionMismatch = true -- suppressing the log\
