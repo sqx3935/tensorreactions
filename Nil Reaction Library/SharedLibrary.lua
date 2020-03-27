@@ -807,6 +807,9 @@ function self.Combat.Actions.GapClosers(entityID)
 end
 
 function self.Combat.Actions.SelfHeal()
+  -- ignore if not in combat
+  if Player.incombat == false then return false, nil, nil, true, false end
+
   -- if player just died, hold self healing
   if TimeSince(self.Combat.Toggles.Control.DeathWatch.TimeOfDeath) < 5000 then return false, nil, nil, true, false end
 
