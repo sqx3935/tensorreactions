@@ -11,11 +11,13 @@ Created reactions for `Tensor Reactions` (Currently), can be easily adapted to o
 
 ## Conversion status
 
-Summoner - Code Complete needs testing.
-Ninja - Code Complete needs testing.
-Samurai - Code Complete needs testing.
-Dragoon - Code Complete needs testing.
-All others are WIP.
+| Job | Status |
+|---|---|
+| Summoner| Code Complete needs testing.|
+| Ninja | Code Complete needs testing.|
+| Samurai | Code Complete needs testing.|
+| Dragoon | Code Complete needs testing.|
+| All | others are WIP.|
 
 ## Donation
 
