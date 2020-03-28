@@ -1000,12 +1000,12 @@ function self.Combat.Toggles.Handler.DOT()
     self.Combat.Toggles.Ninja.ShadowFang(false, false)
     self.Combat.Toggles.Samurai.Higanbana(false, false)
     self.Combat.Toggles.Summoner.DoTs(false, false)
-    self.Combat.Toggles.Dragoon.FullThrustOnly(true, false)
+    self.Combat.Toggles.Dragoon.DoTs(false, false)
   else
     self.Combat.Toggles.Ninja.ShadowFang(true, false)
     self.Combat.Toggles.Samurai.Higanbana(true, false)
     self.Combat.Toggles.Summoner.DoTs(true, false)
-    self.Combat.Toggles.Dragoon.FullThrustOnly(false, false)
+    self.Combat.Toggles.Dragoon.DoTs(true, false)
   end
 
   return true
@@ -1058,7 +1058,7 @@ function self.Combat.Toggles.Handler.BurnBoss()
   elseif Player.job == self.jobs.Samurai.id then
     return true
   elseif Player.job == self.jobs.Dragoon.id then
-    return true
+    return self.Combat.Toggles.Dragoon.FullThrustOnly(true, false)
   elseif Player.job == self.jobs.Monk.id then
     return true
   elseif Player.job == self.jobs.DarkKnight.id then

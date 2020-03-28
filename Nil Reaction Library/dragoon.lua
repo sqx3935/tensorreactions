@@ -48,6 +48,7 @@ function NilsReactionLibrary.Combat.Toggles.Dragoon.Reset()
   -- reset quick toggles
   SallyDRG.SkillSettings.BattleLitany.enabled = true
   SallyDRG.SkillSettings.DragonFireDive.enabled = true
+  SallyDRG.SkillSettings.Dots.enabled = true
   SallyDRG.SkillSettings.DragonSight.enabled = true
   SallyDRG.SkillSettings.DragonSightWindow.enabled = true
   SallyDRG.SkillSettings.FullThrustOnly.enabled = false
@@ -76,6 +77,22 @@ function NilsReactionLibrary.Combat.Toggles.Dragoon.BattleLitany(toggleOn)
   if Player.job ~= NilsReactionLibrary.jobs.Dragoon.id then return false end
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then SallyDRG.SkillSettings.BattleLitany.enabled = toggleOn return true end
+  return false
+end
+
+function NilsReactionLibrary.Combat.Toggles.Dragoon.Dots(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Dragoon.id then return false end
+
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.DOT.IsActive = toggleOn == false -- set active if it is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.DOT.TimelineActive = byTimeline and toggleOn == false
+  end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then SallyDRG.SkillSettings.Dots.enabled = toggleOn return true end
   return false
 end
 
@@ -108,8 +125,8 @@ function NilsReactionLibrary.Combat.Toggles.Dragoon.FullThrustOnly(toggleOn, byT
 
   -- timeline overrides everything else.
   if byTimeline then
-    NilsReactionLibrary.Combat.Toggles.Control.DOT.IsActive = toggleOn == false -- set active if it is suppose to be off
-    NilsReactionLibrary.Combat.Toggles.Control.DOT.TimelineActive = byTimeline and toggleOn == false
+    NilsReactionLibrary.Combat.Toggles.Control.BurnBoss.IsActive = toggleOn == false -- set active if it is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.BurnBoss.TimelineActive = byTimeline and toggleOn == false
   end
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then SallyDRG.SkillSettings.FullThrustOnly.enabled = toggleOn return true end 
