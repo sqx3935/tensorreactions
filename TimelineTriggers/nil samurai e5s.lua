@@ -358,6 +358,28 @@ self.used = true\
 	[39] = {
 		[1] = {
 			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 265.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 39;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "f993cd60-5efb-3571-a6be-bdc49bd52eaa";
+		};
+		[2] = {
+			["actions"] = {
 				[1] = {
 					["aType"] = 3;
 					["actionID"] = -1;
@@ -420,10 +442,8 @@ return false";
 				};
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
-self.used = true\
-";
-			["executeType"] = 2;
+			["execute"] = "";
+			["executeType"] = 1;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
@@ -434,27 +454,7 @@ self.used = true\
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "f0a65605-16ff-63c2-ab41-e6d1773320c7";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "CD On";
-			["time"] = 265.6;
-			["timeRange"] = false;
-			["timelineIndex"] = 39;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "39486b74-1b2f-a604-b98a-a13c9f0d254d";
+			["uuid"] = "51185709-cf90-8ead-a34f-a5a9d3baf7e6";
 		};
 	};
 	[41] = {
