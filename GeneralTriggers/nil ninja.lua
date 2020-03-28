@@ -2432,6 +2432,34 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.DOT()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: DOT Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "c17c496a-6bc3-b8a9-b2d1-ea485e1e0a92";
+	};
+	[26] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Omni(false, true) [test timeline override]\
 NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
 \
@@ -2445,14 +2473,14 @@ return nil\
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 10;
+		["timeout"] = 5;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
 	};
-	[26] = {
+	[27] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2476,7 +2504,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75";
 	};
-	[27] = {
+	[28] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2499,30 +2527,6 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84";
-	};
-	[28] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 9;
-		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Reset()\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Reset: toggles on wipe";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 6;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "d416b5ea-7b4f-2e19-aab5-200b070665a6";
 	};
 	[29] = {
 		["actions"] = {
@@ -2549,6 +2553,30 @@ return nil";
 		["uuid"] = "9e765562-61c3-e2aa-b135-e71a4a11ad1c";
 	};
 	[30] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 9;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Reset()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Reset: toggles on wipe";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "d416b5ea-7b4f-2e19-aab5-200b070665a6";
+	};
+	[31] = {
 		["actions"] = {
 		};
 		["conditions"] = {

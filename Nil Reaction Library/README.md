@@ -72,6 +72,7 @@ NOTE2: action name is the nme of the function.
 | TensorRuin |
 | SallyNIN |
 | SallySAM |
+| SallyDRG |
 
 ## TODO
 

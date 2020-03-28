@@ -44,7 +44,8 @@ self.Settings = {
   CurrentMapID = "", -- map id for the player
   IssueACTResetOnWipe = true,
   EnableDebug = false, -- need a ui for this, for now `NilsReactionLibrary.Settings.EnableDebug = true`
-  EnableMCRSupport = false -- TODO: not supported yet, waiting on madao to add support to MCR for exteral applications
+  EnableMCRSupport = false, -- TODO: not supported yet, waiting on madao to add support to MCR for exteral applications
+  TargetDOTLimit = 50 -- turn off dots once targets get x number
 }
 
 function self.Log(string)
@@ -53,6 +54,14 @@ end
 
 function self.isempty(s)
   return s == nil or s == ''
+end
+
+function self.tablelength(T)
+  local count = 0
+  for _ in pairs(T) do
+      count = count + 1
+  end
+  return count
 end
 
 -- ******* References *******
@@ -83,14 +92,13 @@ self.arcs = {
   SallyNIN = "SallyNIN", -- xSalice
   SallyRDM = "SallyRDM", -- xSalice
   SallySAM = "SallySAM", -- xSalice
+  SallyDRG = "SallyDRG", -- xSalice
   SallyWAR = "SallyWAR", -- xSalice
   SallyDRK = "SallyDRK", -- xSalice
   TensorRuin = "TensorRuin", -- Riku
   TensorRequiem = "TensorRequiem", -- Riku
   TensorMagnum = "TensorMagnum" -- Riku
 }
-
-if self.List == nil then self.List = {} end
 
 self.BurnBossList = {
  -- [541] = 1, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
@@ -232,6 +240,7 @@ function self.Reset()
   -- reset correct arc
   if Player.job == self.jobs.Ninja.id then self.Combat.Toggles.Ninja.Reset() end
   if Player.job == self.jobs.Samurai.id then self.Combat.Toggles.Samurai.Reset() end
+  if Player.job == self.jobs.Dragoon.id then self.Combat.Toggles.Dragoon.Reset() end
 
   -- reset shared toggles
   self.Combat.Toggles.Handler.Reset()
@@ -295,6 +304,7 @@ function self.Combat.inOpener()
     return false
   elseif Player.job == self.jobs.Dragoon.id then
     if xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true then return true end
+    if self.WhichArc == self.arcs.SallyDRG and SallyDRG.SkillSettings.Opener.enabled == true then return true end
     return false
   elseif Player.job == self.jobs.Monk.id then
     if xivopeners_mnk ~= nil and xivopeners_mnk.openerStarted == true then return true end
@@ -534,7 +544,17 @@ function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
       return true, actionskill, Player.id, true, interruptCast
     end
   elseif Player.job == self.jobs.Dragoon.id then
-    return true, actionskill, Player.id, true, interruptCast
+    if self.WhichArc() == self.arcs.SallyDRG then
+      if SallyDRG.HotBarConfig.Armslength.enabled ~= nil then
+        SallyDRG.HotBarConfig.Armslength.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, interruptCast
+    end
   elseif Player.job == self.jobs.Monk.id then
     return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.DarkKnight.id then
@@ -741,7 +761,18 @@ function self.Combat.Actions.Sprint()
       return true, actionskill, Player.id, true, false
     end
   elseif Player.job == self.jobs.Dragoon.id then
-    return true, actionskill, Player.id, true, false
+    if self.WhichArc() == self.arcs.SallyDRG then
+      if SallyDRG.HotBarConfig.Sprint.enabled ~= nil then
+        SallyDRG.HotBarConfig.Sprint.enabled= false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
   elseif Player.job == self.jobs.Monk.id then
     return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.DarkKnight.id then
@@ -866,6 +897,8 @@ self.Combat.Toggles.Control = {
   BurnBoss = { IsActive = false, TimelineActive = false},
   AOEBlackList = { IsActive = false, TimelineActive = false},
   CDBlackList = { IsActive = false, TimelineActive = false},
+  DOT = { IsActive = false, TimelineActive = false},
+  Jumps = { IsActive = false, TimelineActive = false},
   OmniWhiteList = { IsActive = false, TimelineActive = false},
   DreamWithinDream = { IsActive = false, TimelineActive = false},
   Kassatsu = { IsActive = false, TimelineActive = false},
@@ -873,7 +906,7 @@ self.Combat.Toggles.Control = {
   Ninjutsu = { IsActive = false, TimelineActive = false },
   Bunshin = { IsActive = false, TimelineActive = false },
   ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
-  ShadowFang = { IsActive = false, TimelineActive = false },
+  --ShadowFang = { IsActive = false, TimelineActive = false },
   TrickAttack = { IsActive = false, TimelineActive = false },
   TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
   DeathWatch = { TimeOfDeath = 0 },
@@ -889,6 +922,8 @@ function self.Combat.Toggles.Handler.Reset()
     BurnBoss = { IsActive = false, TimelineActive = false},
     AOEBlackList = { IsActive = false, TimelineActive = false},
     CDBlackList = { IsActive = false, TimelineActive = false},
+    DOT = { IsActive = false, TimelineActive = false},
+    Jumps = { IsActive = false, TimelineActive = false},
     OmniWhiteList = { IsActive = false, TimelineActive = false},
     DreamWithinDream = { IsActive = false, TimelineActive = false},
     Kassatsu = { IsActive = false, TimelineActive = false},
@@ -896,7 +931,7 @@ function self.Combat.Toggles.Handler.Reset()
     Ninjutsu = { IsActive = false, TimelineActive = false },
     Bunshin = { IsActive = false, TimelineActive = false },
     ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
-    ShadowFang = { IsActive = false, TimelineActive = false },
+    --ShadowFang = { IsActive = false, TimelineActive = false },
     TrickAttack = { IsActive = false, TimelineActive = false },
     TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
     DeathWatch = { TimeOfDeath = 0 },
@@ -906,19 +941,20 @@ end
 
   -- if set by timeline reaction, ignore
 function self.Combat.Toggles.Handler.CD()
-
   local target = Player:GetTarget()
   local contentID = 0
   if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
 
   if self.CDBlackList[contentID] then
-    if Player.job == self.jobs.Ninja.id then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(false, false) return true end end
-    if Player.job == self.jobs.Samurai then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end end
-    if Player.job == self.jobs.Summoner then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(false, false) return true end end
+    if Player.job == self.jobs.Ninja.id and self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(false, false) return true end
+    if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end
+    if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(false, false) return true end
+    if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(true, false) return true end
   else
-    if Player.job == self.jobs.Ninja.id then if self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() return true end end
-    if Player.job == self.jobs.Samurai then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(false, false) return true end end
-    if Player.job == self.jobs.Summoner then if self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(true, false) return true end end
+    if Player.job == self.jobs.Ninja.id and self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() return true end
+    if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(false, false) return true end
+    if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(true, false) return true end
+    if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(false, false) return true end
   end
 
   return false
@@ -936,10 +972,40 @@ function self.Combat.Toggles.Handler.AOE()
     self.Combat.Toggles.Ninja.AOE(false, false)
     self.Combat.Toggles.Samurai.AOE(false, false)
     self.Combat.Toggles.Summoner.AOE(false, false)
+    self.Combat.Toggles.Dragoon.AOE(false, false)
   else
     self.Combat.Toggles.Ninja.AOE(true, false)
     self.Combat.Toggles.Samurai.AOE(true, false)
     self.Combat.Toggles.Summoner.AOE(true, false)
+    self.Combat.Toggles.Dragoon.AOE(true, false)
+  end
+
+  return true
+end
+
+function self.Combat.Toggles.Handler.DOT()
+  -- if set by timeline reaction, ignore
+  if self.Combat.Toggles.Control.DOT.IsActive == true and self.Combat.Toggles.Control.DOT.TimelineActive == true then return false end
+
+  local target = Player:GetTarget()
+  local contentID = 0
+  local targetBuffCount = 0
+  if target ~= nil and table.valid(target) and target.attackable then
+    contentID = target.contentid
+    targetBuffCount = self.tablelength(target.buffs)
+  end
+
+  -- turn off dots if on blacklist or if target has to many dots and about to cap out
+  if self.data.dotBlacklist[contentID] or targetBuffCount >= self.Settings.TargetDOTLimit then
+    self.Combat.Toggles.Ninja.ShadowFang(false, false)
+    self.Combat.Toggles.Samurai.Higanbana(false, false)
+    self.Combat.Toggles.Summoner.DoTs(false, false)
+    self.Combat.Toggles.Dragoon.FullThrustOnly(true, false)
+  else
+    self.Combat.Toggles.Ninja.ShadowFang(true, false)
+    self.Combat.Toggles.Samurai.Higanbana(true, false)
+    self.Combat.Toggles.Summoner.DoTs(true, false)
+    self.Combat.Toggles.Dragoon.FullThrustOnly(false, false)
   end
 
   return true
@@ -956,9 +1022,31 @@ function self.Combat.Toggles.Handler.Omni()
   if self.OmniList[contentID] then
     self.Combat.Toggles.Ninja.Omni(true, false)
     self.Combat.Toggles.Samurai.Omni(false, false) -- we want to turn QT off, which is why this is false
+    self.Combat.Toggles.Dragoon.Omni(false, false) -- we want to turn QT off, which is why this is false
   else
     self.Combat.Toggles.Ninja.Omni(false, false)
     self.Combat.Toggles.Samurai.Omni(true, false)
+    self.Combat.Toggles.Dragoon.Omni(true, false)
+  end
+
+  return true
+end
+
+function self.Combat.Toggles.Handler.Jumps()
+  -- if set by timeline reaction, ignore
+  if self.Combat.Toggles.Control.Jumps.IsActive == true and self.Combat.Toggles.Control.Jumps.TimelineActive == true then return false end
+
+  local target = Player:GetTarget()
+  local contentID = 0
+  if target ~= nil and table.valid(target) and target.attackable then
+    -- protection incase the timeline is to early.
+    if target.castinginfo == nil and target.castinginfo.channelingid ~= nil and target.castinginfo.channelingid > 0 then contentID = target.castinginfo.channelingid end
+  end
+
+  if self.data.jumpBlacklist[contentID] then
+    self.Combat.Toggles.Dragoon.Jumps(false, false) -- we want to turn QT off, which is why this is false
+  else
+    self.Combat.Toggles.Dragoon.Jumps(true, false)
   end
 
   return true
@@ -1008,8 +1096,7 @@ end
 
 -- ** start addon
 function self.Initialize()
-  self.Log("Library Loaded v4.0.1")
-
+  self.Log("Library Loaded v4.0.2")
 end
 
 -- ** on update checks

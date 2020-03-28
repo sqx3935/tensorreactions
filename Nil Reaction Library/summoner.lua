@@ -144,13 +144,19 @@ function NilsReactionLibrary.Combat.Toggles.Summoner.EnergyDrain(toggleOn)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Summoner.DoTs(toggleOn)
-  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+function NilsReactionLibrary.Combat.Toggles.Summoner.DoTs(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Summoner.id then return false end
 
-  if Player.job == NilsReactionLibrary.jobs.Summoner.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_DoTs = toggleOn return true end
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.DOT.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.DOT.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_DoTs = toggleOn return true end
   return false
 end
 

@@ -194,10 +194,18 @@ function NilsReactionLibrary.Combat.Actions.Bloodbath()
         return true, actionskill, Player.id, true, false
       end
       return true, nil, nil, false, false
-    else
-      return true, actionskill, Player.id, true, false
     end
+    return true, actionskill, Player.id, true, false
   elseif Player.job == NilsReactionLibrary.jobs.Dragoon.id then
+    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then
+      if SallyDRG.HotBarConfig.Bloodbath ~= nil then
+        SallyDRG.HotBarConfig.Bloodbath.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+      return true, nil, nil, false, false
+    end
     return true, actionskill, Player.id, true, false
   elseif Player.job == NilsReactionLibrary.jobs.Monk.id then
     return true, actionskill, Player.id, true, false
@@ -242,10 +250,18 @@ function NilsReactionLibrary.Combat.Actions.SecondWind()
         return true, actionskill, Player.id, true, false
       end
       return true, nil, nil, false, false
-    else
-      return true, actionskill, Player.id, true, false
     end
+    return true, actionskill, Player.id, true, false
   elseif Player.job == NilsReactionLibrary.jobs.Dragoon.id then
+    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then
+      if SallyDRG.HotBarConfig.SecondWind ~= nil then
+        SallyDRG.HotBarConfig.SecondWind.enabled = false
+        return true, nil, nil, false, false
+      else
+        return true, actionskill, Player.id, true, false
+      end
+      return true, nil, nil, false, false
+    end
     return true, actionskill, Player.id, true, false
   elseif Player.job == NilsReactionLibrary.jobs.Monk.id then
     return true, actionskill, Player.id, true, false

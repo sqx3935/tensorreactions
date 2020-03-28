@@ -19,7 +19,7 @@ function NilsReactionLibrary.Combat.Actions.ThirdEye(entityID)
   if entityID ~= nil then target = EntityList:Get(entityID) end
   if target == nil or not table.valid(target) or not target.attackable then return false, nil, nil, false, false end
 
-  -- protection incase the timeline is to early. 
+  -- protection incase the timeline is to early.
   if target.castinginfo == nil or target.castinginfo.casttime - target.castinginfo.channeltime > 2.5 then return false, nil, nil, false, false end
 
   -- check cooldown
@@ -165,7 +165,6 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Omni(toggleOn, byTimeline)
   if byTimeline then
     NilsReactionLibrary.Combat.Toggles.Control.OmniWhiteList.IsActive = toggleOn == false -- set active if it is suppose to be off
     NilsReactionLibrary.Combat.Toggles.Control.OmniWhiteList.TimelineActive = byTimeline and toggleOn == false
-    NilsReactionLibrary.Combat.Toggles.Control.OmniWhiteList.LastMoved = Now()
   end
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then
@@ -212,13 +211,19 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Hagakure(toggleOn)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Samurai.Higanbana(toggleOn)
-  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+function NilsReactionLibrary.Combat.Toggles.Samurai.Higanbana(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
 
-  if Player.job == NilsReactionLibrary.jobs.Samurai.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.Higanbana.enabled = toggleOn return true end
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.DOT.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.DOT.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.Higanbana.enabled = toggleOn return true end
   return false
 end
 

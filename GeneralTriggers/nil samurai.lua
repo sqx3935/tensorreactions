@@ -1366,6 +1366,36 @@ end";
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
+		["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SelfHeal()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true\
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = true;
+		["name"] = "Cast: Self Heal";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "4a7c5903-ddf7-d9c5-a4d0-8308f8815f1d";
+	};
+	[13] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
 NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
 \
@@ -1388,7 +1418,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "8fcc666d-adad-3482-849e-c6454d320522";
 	};
-	[13] = {
+	[14] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1415,15 +1445,42 @@ return nil\
 		["used"] = false;
 		["uuid"] = "168608ad-493a-0240-862e-3d244e27d224";
 	};
-	[14] = {
+	[15] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Omni(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.DOT()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: DOT Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "b8a42404-cb00-3844-aa48-90722d4ee0bb";
+	};
+	[16] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
@@ -1435,49 +1492,19 @@ return nil\
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 10;
+		["timeout"] = 5;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "d710cbde-8e1b-95ed-834d-0555f7361379";
 	};
-	[15] = {
+	[17] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SelfHeal()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true\
-return nil\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = true;
-		["name"] = "Cast: Self Heal";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "4a7c5903-ddf7-d9c5-a4d0-8308f8815f1d";
-	};
-	[16] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
 		["eventType"] = 9;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset()\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -1496,12 +1523,12 @@ return nil";
 		["used"] = false;
 		["uuid"] = "fabca588-a3a1-1249-9113-0c3c759201c1";
 	};
-	[17] = {
+	[18] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 10;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset()\
 self.eventConditionMismatch = true -- suppressing the log\

@@ -113,7 +113,6 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.Omni(toggleOn, byTimeline)
   if byTimeline then
     NilsReactionLibrary.Combat.Toggles.Control.OmniWhiteList.IsActive = toggleOn == false -- set active if it is suppose to be off
     NilsReactionLibrary.Combat.Toggles.Control.OmniWhiteList.TimelineActive = byTimeline and toggleOn == false
-    NilsReactionLibrary.Combat.Toggles.Control.OmniWhiteList.LastMoved = Now()
   end
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.Omni.enabled = toggleOn return true end
@@ -330,8 +329,8 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.ShadowFang(toggleOn, byTimelin
 
   -- timeline overrides everything else.
   if byTimeline then
-    NilsReactionLibrary.Combat.Toggles.Control.ShadowFang.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
-    NilsReactionLibrary.Combat.Toggles.Control.ShadowFang.TimelineActive = byTimeline and toggleOn == false
+    NilsReactionLibrary.Combat.Toggles.Control.DOT.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.DOT.TimelineActive = byTimeline and toggleOn == false
   end
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.ShadowFang.enabled = toggleOn return true end
