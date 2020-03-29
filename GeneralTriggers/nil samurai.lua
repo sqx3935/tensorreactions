@@ -687,6 +687,104 @@ end\
 		};
 		["enabled"] = false;
 		["eventType"] = 3;
+		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- if action on cooldown\
+local actionskill = ActionList:Get(1, 7863)\
+if actionskill.cdmax - actionskill.cd > 1 then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- Map, spell id, timer\
+local contentTable = {\
+    -- Dohn Mheg\
+    [821] = {\
+        [15788] = 4, -- Pollen Carona\
+    },\
+    -- Malikah's Well\
+    [836] = {\
+        [16266] = 3, -- Realm Shaker\
+    },\
+    -- Holminster Switch\
+    [837] = {\
+        [17203] = 4.5, -- Tail Swing\
+    },\
+    -- The Twinning\
+    [840] = {\
+        [15802] = 5, -- 128-tonze Swing\
+        [15805] = 5, -- Nerve Gas\
+        [15811] = 5, -- Thrown Flames\
+    },\
+    -- Akadaemia Anyder\
+    [841] = {\
+        [17164] = 5, -- Noahionto\
+    },\
+    -- The Grand Cosmos\
+    [884] = {\
+        [18722] = 3, -- Whirl of Rage\
+        [18725] = 3, -- Self-destruct\
+        [18726] = 3, -- Acid Mist\
+        [18758] = 4, -- Unparalleled Glory\
+    },\
+}\
+\
+local localmapid = Player.localmapid\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		actionskill:Cast(eventArgs.entityID)\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Leg Sweep";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "4c1522f3-fac6-a9e5-9e60-f7d2e3b15a74";
+	};
+	[8] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) or HasBuff(eventArgs.entityID, 1195) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -842,104 +940,6 @@ end";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "2d550a3a-bee2-7a3f-a60e-ef82eba7c474";
-	};
-	[8] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if action on cooldown\
-local actionskill = ActionList:Get(1, 7863)\
-if actionskill.cdmax - actionskill.cd > 1 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- Dohn Mheg\
-    [821] = {\
-        [15788] = 4, -- Pollen Carona\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [16266] = 3, -- Realm Shaker\
-    },\
-    -- Holminster Switch\
-    [837] = {\
-        [17203] = 4.5, -- Tail Swing\
-    },\
-    -- The Twinning\
-    [840] = {\
-        [15802] = 5, -- 128-tonze Swing\
-        [15805] = 5, -- Nerve Gas\
-        [15811] = 5, -- Thrown Flames\
-    },\
-    -- Akadaemia Anyder\
-    [841] = {\
-        [17164] = 5, -- Noahionto\
-    },\
-    -- The Grand Cosmos\
-    [884] = {\
-        [18722] = 3, -- Whirl of Rage\
-        [18725] = 3, -- Self-destruct\
-        [18726] = 3, -- Acid Mist\
-        [18758] = 4, -- Unparalleled Glory\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		actionskill:Cast(eventArgs.entityID)\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Leg Sweep";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "4c1522f3-fac6-a9e5-9e60-f7d2e3b15a74";
 	};
 	[9] = {
 		["actions"] = {
@@ -1546,6 +1546,38 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "655b7c29-2b7f-d039-b98a-6788905f7462";
+	};
+	[19] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "d(\"1\")\
+local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SecondWind()\
+d(\"was successful : \" ..tostring(wasSuccessful))\
+if wasSuccessful == true then\
+ -- return action, targetID, ignoreWeaveRules, allowInterrupt\
+self.used = true\
+else\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt =  NilsReactionLibrary.Combat.Actions.Bloodbath()\
+d(\"was successful1 : \" ..tostring(wasSuccessful))\
+--if wasSuccessful == true then return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+self.used = true";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "test";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "2b1ba4e8-181e-5f48-9854-94a2dbdc0e35";
 	};
 }
 return obj1

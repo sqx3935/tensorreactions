@@ -4,7 +4,73 @@
 -- *                                                                                                        *
 -- **********************************************************************************************************
 
+function NilsReactionLibrary.Combat.Actions.ShadeShift()
 
+  -- return if in opener or outside ogcd
+  if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  -- Skip if under trick window
+  local target = Player:GetTarget()
+  if target ~= nil and table.valid(target) and target.attackable and HasBuff(target.id, 638, 0, 0, Player.id) then
+    return true, nil, nil, false, false
+  end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 2241)
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
+  -- check sch buff and HP
+  -- ignore if have scholar shield or HP is above 75%
+  if HasBuff(Player.id, 297) or Player.hp.percent > 75 then return false, nil, nil, false, false end
+
+  if not Player.job == NilsReactionLibrary.jobs.Ninja.id then return false, nil, nil, false, false end
+  if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then
+    if SallyNIN.HotBarConfig.ShadeShift ~= nil then
+      SallyNIN.HotBarConfig.ShadeShift.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
+  else
+    return true, actionskill, Player.id, true, false
+  end
+  return false, nil, nil, false, false
+end
+
+function NilsReactionLibrary.Combat.Actions.Shukuchi(entityID)
+  if not Player.job == NilsReactionLibrary.jobs.Ninja.id then return false, nil, nil, false, false end
+
+  -- return if in opener or outside ogcd
+  if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  -- return if doing a mudra
+  if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
+
+  -- Get target
+  if NilsReactionLibrary.isempty(entityID) then entityID = 0 end
+  -- check that target does not already have stun
+  local target = Player:GetTarget()
+  if entityID ~= nil and entityID ~= 0 then target = EntityList:Get(entityID) end
+  -- shukuchi can be used on friendly targets, just needs to be valid
+  if target == nil or not table.valid(target) then return false, nil, nil, false, false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 2262)
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then
+    -- use hotbar only if bot is running, otherwise use actionskill
+    if SallyNIN.HotBarConfig.Shukuchi ~= nil and FFXIV_Common_BotRunning then
+      SallyNIN.HotBarConfig.Shukuchi.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
+  else
+    return true, actionskill, target.id, true, false
+  end
+  return false, nil, nil, false, false
+end
 
 -- ********************************** Functions around toggle actions  **************************************
 -- *                                                                                                        *

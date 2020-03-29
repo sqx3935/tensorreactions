@@ -10,6 +10,36 @@
 -- *                                                                                                        *
 -- **********************************************************************************************************
 
+function NilsReactionLibrary.Combat.Actions.ElusiveJump(entityID)
+  if not Player.job == NilsReactionLibrary.jobs.Dragoon.id then return false, nil, nil, false, false end
+
+  -- return if in opener or outside ogcd
+  if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  -- Get target
+  if NilsReactionLibrary.isempty(entityID) then entityID = 0 end
+  -- check that target does not already have stun
+  local target = Player:GetTarget()
+  if entityID ~= nil and entityID ~= 0 then target = EntityList:Get(entityID) end
+  if target == nil or not table.valid(target) then return false, nil, nil, false, false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 94)
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then
+    -- use hotbar only if bot is running, otherwise use actionskill
+    if SallyDRG.HotBarConfig.ElusiveJumpTarget ~= nil and FFXIV_Common_BotRunning then
+      SallyDRG.HotBarConfig.ElusiveJumpTarget.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, target.id, true, false
+    end
+  else
+    return true, actionskill, target.id, true, false
+  end
+  return false, nil, nil, false, false
+end
 
 
 -- ********************************** Functions around toggle actions  **************************************

@@ -10,6 +10,9 @@ Create a library that is usable for all.  While my primary focus will be on `Ten
 ## How to install
 
 ---------------
+
+[how to setup with git](https://github.com/nil2share/tensorreactions/wiki/How-to-setup-git-for-easier-updates)
+
 Copy the library to `C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\Nil Reaction Library`.
 
 Note: soon as everything is converted and reactions are stablized a self updated will be looked into.  At this time I don't know how to do UI's nor an updater so if someone would like help that would be appreciated.

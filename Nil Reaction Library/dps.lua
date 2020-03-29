@@ -154,7 +154,7 @@ function NilsReactionLibrary.Combat.Actions.LegSweep(entityID, actionID)
   elseif Player.job == NilsReactionLibrary.jobs.Monk.id then
     return true, actionskill, target.id, true, false
   end
-  return false
+  return false, nil, nil, false, false
 end
 
 function NilsReactionLibrary.Combat.Actions.Bloodbath()
@@ -215,8 +215,9 @@ end
 
 function NilsReactionLibrary.Combat.Actions.SecondWind()
 
+  NilsReactionLibrary.Log("opener check : " ..tostring(NilsReactionLibrary.Combat.inOpener()))
   -- return if in opener or outside ogcd
-  if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
+  if NilsReactionLibrary.Combat.inOpener() then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7541)

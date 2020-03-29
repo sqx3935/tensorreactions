@@ -9,9 +9,6 @@ self.Info = {
   Version = "1.0.0",
   StartDate = "03/19/2020",
   LastUpdate = "03/xx/2020",
-  ChangeLog = {
-    ["1.0.0"] = "Initial release"
-  }
 }
 
 self.v = table.valid
@@ -45,7 +42,7 @@ self.Settings = {
   IssueACTResetOnWipe = true,
   EnableDebug = false, -- need a ui for this, for now `NilsReactionLibrary.Settings.EnableDebug = true`
   EnableMCRSupport = false, -- TODO: not supported yet, waiting on madao to add support to MCR for exteral applications
-  TargetDOTLimit = 50 -- turn off dots once targets get x number
+  TargetDOTLimit = 25 -- turn off dots once targets get x number
 }
 
 function self.Log(string)
@@ -255,7 +252,7 @@ end
 -- ** Functions around buff checks **
 if self.Buffs == nil then self.Buffs = {} end
 
-function self.Buffs.Duraction(buffID, target)
+function self.Buffs.Duration(buffID, target)
   target = target or Player
   if (table.valid(target.buffs)) then
     for _, buff in pairs(target.buffs) do if buff.id == buffID then return buff.duration end end
@@ -274,6 +271,7 @@ end
 if self.Combat == nil then self.Combat = {} end
 
 function self.Combat.inOpener()
+
   -- Tanks
   if Player.job == self.jobs.Paladin.id then
     if xivopeners_pld ~= nil and xivopeners_pld.openerStarted == true then return true end
@@ -281,12 +279,12 @@ function self.Combat.inOpener()
     return false
   elseif Player.job == self.jobs.Warrior.id then
     if xivopeners_war ~= nil and xivopeners_war.openerStarted == true then return true end
-    if self.WhichArc == self.arcs.SallyWAR and SallyWAR.SkillSettings.Opener.enabled == true then return true end
+    if self.WhichArc() == self.arcs.SallyWAR and SallyWAR.SkillSettings.Opener.enabled == true then return true end
     if Goliath ~= nil and Goliath_Toggle(1, 2) == true then return true end
     return false
   elseif Player.job == self.jobs.DarkKnight.id then
     if xivopeners_drk ~= nil and xivopeners_drk.openerStarted == true then return true end
-    if self.WhichArc == self.arcs.SallyDRK and SallyDRK.SkillSettings.Opener.enabled == true then return true end
+    if self.WhichArc() == self.arcs.SallyDRK and SallyDRK.SkillSettings.Opener.enabled == true then return true end
     if Goliath ~= nil and Goliath_Toggle(1, 2) == true then return true end
     return false
   elseif Player.job == self.jobs.Gunbreaker.id then
@@ -296,21 +294,22 @@ function self.Combat.inOpener()
   -- Melee
   elseif Player.job == self.jobs.Ninja.id then
     if xivopeners_nin ~= nil and xivopeners_nin.openerStarted == true then return true end
-    if self.WhichArc == self.arcs.SallyNIN and SallyNIN.SkillSettings.Opener.enabled == true then return true end
+    if self.WhichArc() == self.arcs.SallyNIN and SallyNIN.SkillSettings.Opener.enabled == true then return true end
     return false
   elseif Player.job == self.jobs.Samurai.id then
     if xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true then return true end
-    if self.WhichArc == self.arcs.SallySAM and SallySAM.SkillSettings.Opener.enabled == true then return true end
+    if self.WhichArc() == self.arcs.SallySAM and SallySAM.SkillSettings.Opener.enabled == true then return true end
     return false
   elseif Player.job == self.jobs.Dragoon.id then
     if xivopeners_drg ~= nil and xivopeners_drg.openerStarted == true then return true end
-    if self.WhichArc == self.arcs.SallyDRG and SallyDRG.SkillSettings.Opener.enabled == true then return true end
+    if self.WhichArc() == self.arcs.SallyDRG and SallyDRG.SkillSettings.Opener.enabled == true then return true end
     return false
   elseif Player.job == self.jobs.Monk.id then
     if xivopeners_mnk ~= nil and xivopeners_mnk.openerStarted == true then return true end
     return false
   end
 
+  self.Log("no opener to job supported : " ..tostring(Player.job))
   -- TODO: add other jobs
   return false
 end
@@ -335,77 +334,6 @@ function self.Combat.Actions.CelestialIntersection()
   if not Player.job == self.jobs.Astrologian.id then return false, nil, nil, false, false end
   return true, actionskill, Player.id, true, false
 end
--- **********************************************************************************************************
-
--- ** Ninja Only Actions ************************************************************************************
-function self.Combat.Actions.ShadeShift()
-
-  -- return if in opener or outside ogcd
-  if self.Combat.inOpener()  then return false, nil, nil, false, false end
-
-  -- Skip if under trick window
-  local target = Player:GetTarget()
-  if target ~= nil and table.valid(target) and target.attackable and HasBuff(target.id, 638, 0, 0, Player.id) then
-    return true, nil, nil, false, false
-  end
-
-  -- check cooldown
-  local actionskill = ActionList:Get(1, 2241)
-  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
-  -- check sch buff and HP
-  -- ignore if have scholar shield or HP is above 75%
-  if HasBuff(Player.id, 297) or Player.hp.percent > 75 then return false, nil, nil, false, false end
-
-  if not Player.job == self.jobs.Ninja.id then return false, nil, nil, false, false end
-  if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
-  if self.WhichArc() == self.arcs.SallyNIN then
-    if SallyNIN.HotBarConfig.ShadeShift ~= nil then
-      SallyNIN.HotBarConfig.ShadeShift.enabled = false
-      return true, nil, nil, false, false
-    else
-      return true, actionskill, Player.id, true, false
-    end
-  else
-    return true, actionskill, Player.id, true, false
-  end
-  return false, nil, nil, false, false
-end
-
-function self.Combat.Actions.Shukuchi(entityID)
-  if not Player.job == self.jobs.Ninja.id then return false, nil, nil, false, false end
-
-  -- return if in opener or outside ogcd
-  if self.Combat.inOpener()  then return false, nil, nil, false, false end
-
-  -- return if doing a mudra
-  if self.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
-
-  -- Get target
-  if self.isempty(entityID) then entityID = 0 end
-  -- check that target does not already have stun
-  local target = Player:GetTarget()
-  if entityID ~= nil and entityID ~= 0 then target = EntityList:Get(entityID) end
-  -- shukuchi can be used on friendly targets, just needs to be valid
-  if target == nil or not table.valid(target) then return false, nil, nil, false, false end
-
-  -- check cooldown
-  local actionskill = ActionList:Get(1, 2262)
-  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
-
-  if self.WhichArc() == self.arcs.SallyNIN then
-    -- use hotbar only if bot is running, otherwise use actionskill
-    if SallyNIN.HotBarConfig.Shukuchi ~= nil and FFXIV_Common_BotRunning then
-      SallyNIN.HotBarConfig.Shukuchi.enabled = false
-      return true, nil, nil, false, false
-    else
-      return true, actionskill, Player.id, true, false
-    end
-  else
-    return true, actionskill, Player.id, true, false
-  end
-  return false, nil, nil, false, false
-end
-
 -- **********************************************************************************************************
 
 -- ** Monk Only Actions ************************************************************************************
@@ -437,10 +365,13 @@ end
 -- **********************************************************************************************************
 
 -- ** Tank jobs ONLY ***************************************************************************************
-function self.Combat.Actions.LowBlow(entityID)
+function self.Combat.Actions.LowBlow(entityID, actionID)
 
   -- return if in opener or outside ogcd
-  if self.Combat.inOpener()  then return false, nil, nil, false, false end
+  if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  if NilsReactionLibrary.isempty(entityID) then entityID = 0 end
+  if NilsReactionLibrary.isempty(actionID) then actionID = 0 end
 
   -- check that target does not already have stun
   local target = Player:GetTarget()
@@ -833,6 +764,7 @@ end
 function self.Combat.Actions.GapClosers(entityID)
   if Player.job == self.jobs.Ninja.id then return self.Combat.Actions.Shukuchi(entityID) end
   if Player.job == self.jobs.Samurai.id then return self.Combat.Actions.Gyoten() end
+  if Player.job == self.jobs.Dragoon.id then return  self.Combat.Actions.ElusiveJump(entityID) end
 
   return true, nil, nil, true, false
 end
