@@ -2200,71 +2200,6 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "-- still a WIP, works until burn boss is on then something breaks, need time to debug\\\
-\
-if Player.job ~= 30 or Player.level < 80 or data.nilDataLoaded == nil or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-local g = Player.gauge\
-local hutonguage = 0\
-if (table.valid(g)) then\
-		for i, k in pairs(g) do\
-  		if i == 2 then\
-						hutonguage = k\
-    end\
-  end\
-end\
-\
-local target = Player:GetTarget()\
-if target == nil or not table.valid(target) or not target.attackable then\
-		if SallyNIN ~= nil and SallyNIN.SkillSettings.ACRefresh.enabled == false then SallyNIN.SkillSettings.ACRefresh.enabled = true end\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if HasBuff(target.id, 638, 0, 0, Player.id) and hutonguage >= 15000 then\
-		if SallyNIN ~= nil and SallyNIN.SkillSettings.ACRefresh.enabled == true then SallyNIN.SkillSettings.ACRefresh.enabled = false end\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- protect against to low of huton if burn boss is on\
-if SallyNIN ~= nil and SallyNIN.SkillSettings.BurnBoss.enabled == true and hutonguage < 10000 then\
-		SallyNIN.HotBarConfig.ArmorCrush.enabled = false\
-	--	self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-if SallyNIN ~= nil and SallyNIN.SkillSettings.ACRefresh.enabled == false then SallyNIN.SkillSettings.ACRefresh.enabled = true end\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Toggle AC Refresh";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "6a7bf182-2cdd-e597-a008-100a62ecb935";
-	};
-	[19] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
 		["enabled"] = true;
 		["eventType"] = 1;
 		["execute"] = "";
@@ -2281,7 +2216,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "55ed74e6-349c-2bea-943e-dc7e4a6fe41d";
 	};
-	[20] = {
+	[19] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2311,7 +2246,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "7ab79981-94e3-4770-863c-4327dc82f83a";
 	};
-	[21] = {
+	[20] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2340,7 +2275,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "dab631d2-70b5-6964-be0c-364f876ea757";
 	};
-	[22] = {
+	[21] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2369,7 +2304,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "01352b9a-9e19-cb7e-8305-fd1d95ab26dc";
 	};
-	[23] = {
+	[22] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2398,7 +2333,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce";
 	};
-	[24] = {
+	[23] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2425,7 +2360,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "092a07d8-25f3-2afb-9b44-1db7a1d108fa";
 	};
-	[25] = {
+	[24] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2453,7 +2388,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "c17c496a-6bc3-b8a9-b2d1-ea485e1e0a92";
 	};
-	[26] = {
+	[25] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2480,7 +2415,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
 	};
-	[27] = {
+	[26] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2504,7 +2439,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75";
 	};
-	[28] = {
+	[27] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2527,6 +2462,30 @@ return nil";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84";
+	};
+	[28] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.ACRefreshAlignment()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: AC Refresh";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "6a7bf182-2cdd-e597-a008-100a62ecb935";
 	};
 	[29] = {
 		["actions"] = {

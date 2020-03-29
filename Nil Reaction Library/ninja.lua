@@ -281,13 +281,19 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.Mug(toggleOn)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Ninja.Kassatsu(toggleOn)
-  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+function NilsReactionLibrary.Combat.Toggles.Ninja.Kassatsu(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Ninja.id then return false end
 
-  if Player.job == NilsReactionLibrary.jobs.Ninja.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.Kassatsu.enabled = toggleOn return true end
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.Kassatsu.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.Kassatsu.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.Kassatsu.enabled = toggleOn return true end
   return false
 end
 
@@ -312,12 +318,9 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.TrueNorth(toggleOn)
 end
 
 function NilsReactionLibrary.Combat.Toggles.Ninja.ACRefresh(toggleOn)
+  if Player.job ~= NilsReactionLibrary.jobs.Ninja.id then return false end
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
-
-  if Player.job == NilsReactionLibrary.jobs.Ninja.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.ACRefresh.enabled = toggleOn return true end
-  end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.ACRefresh.enabled = toggleOn return true end
   return false
 end
 
@@ -355,7 +358,7 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWind
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then
     NilsReactionLibrary.Combat.Toggles.Ninja.CD(true, byTimeline)
     NilsReactionLibrary.Combat.Toggles.Ninja.TrickAttack(false, byTimeline)
-    NilsReactionLibrary.Combat.Toggles.Ninja.Bunshin(false, byTimeline)
+    NilsReactionLibrary.Combat.Toggles.Ninja.Kassatsu(false, byTimeline)
 
     if allowShadowfang == false then NilsReactionLibrary.Combat.Toggles.Ninja.ShadowFang(false, byTimeline) end
   end
@@ -376,6 +379,7 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindo
     NilsReactionLibrary.Combat.Toggles.Ninja.ShadowFang(true, byTimeline)
     NilsReactionLibrary.Combat.Toggles.Ninja.Bunshin(true, byTimeline)
     NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, byTimeline)
+    NilsReactionLibrary.Combat.Toggles.Ninja.Kassatsu(true, byTimeline)
   end
 end
 
@@ -426,9 +430,9 @@ end
 
 -- Attempt to keep DWD in alignment with Trick Window
 function NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.DwDAlignment()
-
   if Player.job ~= NilsReactionLibrary.jobs.Ninja.id or NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() then return false end
 
+  -- always want this on for openers
   if NilsReactionLibrary.Combat.inOpener() then NilsReactionLibrary.Combat.Toggles.Ninja.DWD(true) return false end
 
   local target = Player:GetTarget()
@@ -448,6 +452,7 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.KassatsuAlignment()
 
   if Player.job ~= NilsReactionLibrary.jobs.Ninja.id or NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() then return false end
 
+  -- always want this on for openers
   if NilsReactionLibrary.Combat.inOpener() then NilsReactionLibrary.Combat.Toggles.Ninja.Kassatsu(true) return false end
 
   -- check cooldown
@@ -458,5 +463,23 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.KassatsuAlignment()
     NilsReactionLibrary.Combat.Toggles.Ninja.Kassatsu(false)
   end
 
+  return true
+end
+
+-- Attempt to keep Kassatsu in alignment with Trick Window
+function NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.ACRefreshAlignment()
+  if Player.job ~= NilsReactionLibrary.jobs.Ninja.id then return false end
+
+  -- always want this on for openers
+  if NilsReactionLibrary.Combat.inOpener() then return NilsReactionLibrary.Combat.Toggles.Ninja.ACRefresh(true) end
+
+  local target = Player:GetTarget()
+  if target == nil or not table.valid(target) or not target.attackable then NilsReactionLibrary.Combat.Toggles.Ninja.ACRefresh(true) return true end
+
+  -- if under trick and huton is high enough
+  if HasBuff(target.id, 638, 0, 0, Player.id) and NilsReactionLibrary.data.gauges.huton >= 15000 then NilsReactionLibrary.Combat.Toggles.Ninja.ACRefresh(false) return true end
+
+  -- default to stay on
+  NilsReactionLibrary.Combat.Toggles.Ninja.ACRefresh(true)
   return true
 end

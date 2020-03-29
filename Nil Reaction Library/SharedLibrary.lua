@@ -1111,6 +1111,13 @@ function self.OnUpdate()
     self.Combat.Toggles.Handler.Reset()
   end
 
+  local g = Player.gauge
+  if (table.valid(g)) then
+    for i, k in pairs(g) do
+      if Player.job == self.jobs.Ninja.id then if i == 2 then NilsReactionLibrary.data.gauges.huton = k end end
+    end
+  end
+
   -- Gap close hotkey
   if (GUI:IsKeyDown(17) and GUI:IsKeyDown(16) and GUI:IsKeyDown(190)) and TimeSince(self.Combat.Toggles.Control.GapClosers.LastUsed) > 300 then -- CTRL + Shift + .
     self.Log("gap closer hotkey : " ..tostring(TimeSince(self.Combat.Toggles.Control.GapClosers.LastUsed)))

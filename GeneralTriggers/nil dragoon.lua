@@ -1278,7 +1278,7 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 9;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Dragoon.Reset()\
 self.eventConditionMismatch = true -- suppressing the log\

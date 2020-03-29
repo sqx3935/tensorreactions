@@ -6,6 +6,11 @@
 
 if NilsReactionLibrary.data == nil then NilsReactionLibrary.data = {} end
 
+NilsReactionLibrary.data.gauges = {
+  huton = 0,
+  ninki = 0,
+}
+
 NilsReactionLibrary.data.dotBlacklist = {
   -- [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [7125] = true, -- Putrid Passenger

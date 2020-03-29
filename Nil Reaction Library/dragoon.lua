@@ -80,7 +80,7 @@ function NilsReactionLibrary.Combat.Toggles.Dragoon.BattleLitany(toggleOn)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Dragoon.Dots(toggleOn, byTimeline)
+function NilsReactionLibrary.Combat.Toggles.Dragoon.DoTs(toggleOn, byTimeline)
   if Player.job ~= NilsReactionLibrary.jobs.Dragoon.id then return false end
 
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
@@ -92,7 +92,7 @@ function NilsReactionLibrary.Combat.Toggles.Dragoon.Dots(toggleOn, byTimeline)
     NilsReactionLibrary.Combat.Toggles.Control.DOT.TimelineActive = byTimeline and toggleOn == false
   end
 
-  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then SallyDRG.SkillSettings.Dots.enabled = toggleOn return true end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then SallyDRG.SkillSettings.DoTs.enabled = toggleOn return true end
   return false
 end
 
