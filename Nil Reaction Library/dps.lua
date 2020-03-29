@@ -116,8 +116,8 @@ function NilsReactionLibrary.Combat.Actions.LegSweep(entityID, actionID)
   -- 2 is leg sweep stun
   if target == nil or not table.valid(target) or not target.attackable or HasBuff(target.id, 2) then return false, nil, nil, false, false end
 
-  -- if an action id was passed in, hold legsweet for that action
-  if actionID > 0 and target.action ~= actionID then return false, nil, nil, false, false end
+  -- if an action id was passed in, hold legsweet for that action (trying to capture any movement)
+  if target.action ~= actionID and target.action ~= 13 and target.action ~= 3 then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7863)
