@@ -141,30 +141,6 @@ end";
 		};
 	};
 	[24] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.ThirdEye()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Third Eye";
-			["time"] = 137.4;
-			["timeRange"] = true;
-			["timelineIndex"] = 24;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "b3a83bea-66ae-7349-a32a-85ed3ab7e3ff";
-		};
 	};
 	[33] = {
 		[1] = {

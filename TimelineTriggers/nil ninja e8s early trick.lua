@@ -309,32 +309,6 @@ end";
 	[21] = {
 	};
 	[24] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = false;
-			["eventArgs"] = {
-			};
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.ShadeShift()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Shadeshift";
-			["time"] = 137.4;
-			["timeRange"] = true;
-			["timelineIndex"] = 24;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "df8dcdaf-4512-98d4-8b84-a22a63d5b873";
-		};
 	};
 	[30] = {
 		[1] = {
@@ -1031,7 +1005,7 @@ self.used=true";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0)\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
@@ -1046,7 +1020,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "3860cd56-bdda-ee31-8a5f-e5cb74a35eda";
+			["uuid"] = "b1503fe6-75f6-11a6-bed0-c9aa4e58738f";
 		};
 	};
 	[43] = {
@@ -1646,10 +1620,11 @@ self.used = true";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "";
-			["executeType"] = 1;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(false, true)\
+self.used=true";
+			["executeType"] = 2;
 			["loop"] = false;
-			["luaReturnsAction"] = false;
+			["luaReturnsAction"] = true;
 			["name"] = "Turn off Ninjutsu";
 			["time"] = 535.1;
 			["timeRange"] = true;
@@ -1658,7 +1633,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "4971d147-08dc-abed-bfa2-83d3784717eb";
+			["uuid"] = "d4add43c-9842-544b-bef9-1187fec7dbb2";
 		};
 		[2] = {
 			["actions"] = {
@@ -1707,7 +1682,7 @@ self.used = true";
 			["timerOffset"] = -2.2000000476837;
 			["timerStartOffset"] = -2.4000000953674;
 			["used"] = false;
-			["uuid"] = "4557d2f1-e7b8-2c62-8cd9-1db33ea318aa";
+			["uuid"] = "b4bc8f87-bfc4-f319-af77-b6ba584f35ab";
 		};
 		[3] = {
 			["actions"] = {
@@ -1753,7 +1728,7 @@ self.used = true";
 			["timerOffset"] = -1.6000000238419;
 			["timerStartOffset"] = -1.2999999523163;
 			["used"] = false;
-			["uuid"] = "ffc76271-1b71-0854-a312-43541f39e284";
+			["uuid"] = "d16cecf9-302d-6fef-8c78-2fb5882bb83c";
 		};
 		[4] = {
 			["actions"] = {
@@ -1896,60 +1871,7 @@ self.used = true";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -0.5;
 			["used"] = false;
-			["uuid"] = "cc6b917a-70b2-9de1-8faa-ee7b0c68757e";
-		};
-		[5] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "local val, ent = TensorCore.isAnyEntityCasting(19901)\
-if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 1.2 then\
-  wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
-  if wasSuccessful == true then\
-    self.used = true\
-    return action, targetID, ignoreWeaveRules, allowInterrupt\
-  end\
-end";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-					};
-					["endIfUsed"] = false;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = true;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-			};
-			["enabled"] = false;
-			["eventArgs"] = {
-			};
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Arms Length 2.0";
-			["time"] = 535.1;
-			["timeRange"] = true;
-			["timelineIndex"] = 72;
-			["timerEndOffset"] = 6;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -5;
-			["used"] = false;
-			["uuid"] = "4bf1b080-0baf-ff6e-b384-72dcff2f16f4";
+			["uuid"] = "5d907c1c-7db9-b178-9896-0fea5993c990";
 		};
 	};
 	[73] = {
@@ -2004,6 +1926,8 @@ self.used = true";
 	[74] = {
 	};
 	[86] = {
+	};
+	[88] = {
 		[1] = {
 			["actions"] = {
 			};
@@ -2021,14 +1945,14 @@ end";
 			["loop"] = false;
 			["luaReturnsAction"] = true;
 			["name"] = "Shadeshift";
-			["time"] = 620.4;
+			["time"] = 630.8;
 			["timeRange"] = true;
-			["timelineIndex"] = 86;
+			["timelineIndex"] = 88;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = -4;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "79663e30-b2bb-d26d-928b-d366e39c79c1";
+			["uuid"] = "2a1bc6ba-dae4-740c-82d7-fd7b06625740";
 		};
 	};
 	[89] = {
@@ -2037,12 +1961,15 @@ end";
 				[1] = {
 					["aType"] = 4;
 					["actionID"] = -1;
-					["actionLua"] = "Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
+					["actionLua"] = "SallyNIN.SkillSettings.TrickAttack.enabled = false\
+SallyNIN.SkillSettings.Ninjutsu.enabled = false\
+SallyNIN.SkillSettings.ShadowFang.enabled = false\
+SallyNIN.SkillSettings.SaveCD.enabled = true\
 self.used=true";
 					["allowInterrupt"] = false;
 					["conditions"] = {
 					};
-					["endIfUsed"] = false;
+					["endIfUsed"] = true;
 					["gVar"] = "";
 					["gVarIndex"] = 1;
 					["gVarValue"] = 1;
@@ -2063,12 +1990,15 @@ self.used=true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(false, true)\
 self.used=true";
-			["executeType"] = 2;
+			["executeType"] = 1;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Trick off";
+			["name"] = "Turn stuff off";
 			["time"] = 648.8;
 			["timeRange"] = true;
 			["timelineIndex"] = 89;
@@ -2076,7 +2006,7 @@ self.used=true";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -10;
 			["used"] = false;
-			["uuid"] = "7fbae31f-f3de-e8e0-a79b-37dd0329e554";
+			["uuid"] = "88f0ac8a-66d1-05ec-950f-afea407e5316";
 		};
 	};
 	[90] = {
@@ -2246,16 +2176,15 @@ self.used=true";
 			["used"] = false;
 			["uuid"] = "78e3d4b4-057b-d0fd-9eca-0079b442f136";
 		};
-	};
-	[97] = {
-	};
-	[104] = {
-		[1] = {
+		[2] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 4;
 					["actionID"] = -1;
-					["actionLua"] = "Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
+					["actionLua"] = "SallyNIN.SkillSettings.TrickAttack.enabled = true\
+SallyNIN.SkillSettings.Ninjutsu.enabled = true\
+SallyNIN.SkillSettings.ShadowFang.enabled = true\
+SallyNIN.SkillSettings.SaveCD.enabled = false\
 self.used=true";
 					["allowInterrupt"] = false;
 					["conditions"] = {
@@ -2281,12 +2210,71 @@ self.used=true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
+			["eventArgs"] = {
+			};
+			["execute"] = "Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow()\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, true)\
 self.used=true";
-			["executeType"] = 2;
+			["executeType"] = 1;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Trick off";
+			["name"] = "Turn stuff on";
+			["time"] = 666.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 92;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -3;
+			["used"] = false;
+			["uuid"] = "7dcf3102-3d92-664c-9e11-cbd6f6801f9d";
+		};
+	};
+	[97] = {
+	};
+	[104] = {
+		[1] = {
+			["actions"] = {
+				[1] = {
+					["aType"] = 4;
+					["actionID"] = -1;
+					["actionLua"] = "SallyNIN.SkillSettings.TrickAttack.enabled = false\
+SallyNIN.SkillSettings.Ninjutsu.enabled = false\
+SallyNIN.SkillSettings.ShadowFang.enabled = false\
+SallyNIN.SkillSettings.SaveCD.enabled = true\
+self.used=true";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = true;
+					["gVar"] = "";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = false;
+					["luaReturnsAction"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(false, true)\
+self.used=true";
+			["executeType"] = 1;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Turn stuff off";
 			["time"] = 709.9;
 			["timeRange"] = true;
 			["timelineIndex"] = 104;
@@ -2294,7 +2282,7 @@ self.used=true";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "4cb65a8a-206b-d88c-8bf2-3144ef67f094";
+			["uuid"] = "1bf75e6b-55c0-0bc9-9f6b-da55d7f2b1b0";
 		};
 		[2] = {
 			["actions"] = {
@@ -2327,6 +2315,8 @@ self.used=true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "SallyNIN.HotBarConfig.Suiton.enabled = true";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -2339,7 +2329,7 @@ self.used=true";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "0ddd348b-52cb-7c41-ae2e-78390d09b507";
+			["uuid"] = "408b1aee-511e-05bc-9b0f-20b38ed37d17";
 		};
 	};
 	[106] = {
@@ -2395,7 +2385,10 @@ self.used=true";
 				[1] = {
 					["aType"] = 4;
 					["actionID"] = -1;
-					["actionLua"] = "Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(true, false)\
+					["actionLua"] = "SallyNIN.SkillSettings.TrickAttack.enabled = true\
+SallyNIN.SkillSettings.Ninjutsu.enabled = true\
+SallyNIN.SkillSettings.ShadowFang.enabled = true\
+SallyNIN.SkillSettings.SaveCD.enabled = false\
 self.used=true";
 					["allowInterrupt"] = false;
 					["conditions"] = {
@@ -2421,12 +2414,15 @@ self.used=true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow()\
+NilsReactionLibrary.Combat.Toggles.Ninja.Ninjutsu(true, true)\
 self.used=true";
-			["executeType"] = 2;
+			["executeType"] = 1;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Trick on";
+			["name"] = "Turn stuff on";
 			["time"] = 722.9;
 			["timeRange"] = true;
 			["timelineIndex"] = 107;
@@ -2434,7 +2430,7 @@ self.used=true";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 1;
 			["used"] = false;
-			["uuid"] = "2b697a6b-a19b-de3f-a734-18e2916a6e7f";
+			["uuid"] = "f7d912d6-6cbc-a8ac-8c63-69caf0e2ea1a";
 		};
 	};
 	[109] = {
