@@ -377,7 +377,7 @@ NilsReactionLibrary.data.dotBlacklist = {
     [8268] = true, -- Forgiven Venery
     [9040] = true, -- Pack Armadillo
     [9319] = true, -- electric aether
-    [9320] = true, -- aqueous aether
+--  [9320] = true, -- aqueous aether
     [9321] = true, -- earthen aether
     [9214] = true -- TEA jag dolls
 }

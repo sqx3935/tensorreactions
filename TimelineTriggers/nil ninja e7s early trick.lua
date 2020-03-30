@@ -37,190 +37,29 @@ local obj1 = {
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "eff69fe1-2eb0-c86f-91b9-8419f1b98930";
+			["uuid"] = "0448585b-40e0-525d-8bfd-2ada6660607b";
 		};
 		[2] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "-- used to load custom functions that are used for this timeline\
-\
-if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-\
-if data.nilsPlayground.Toggles == nil then	\
-		data.nilsPlayground.Toggles = {\
-				Ninjutsu = { IsActive = false, LastMoved = 0, TimelineActive = false},\
-				TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },\
-		} \
-end\
-\
-if data.nilsPlayground.CustomConditionChecks == nil then data.nilsPlayground.CustomConditionChecks = {} end\
-\
-if (_G[\"data.nilsPlayground.CustomConditionChecks.IsDoingMudra\"] == nil) then\
-		function data.nilsPlayground.CustomConditionChecks.IsDoingMudra()\
-  		-- 496 Mudra, 1186 TCJ\
-    return HasBuff(Player.id, 496) or HasBuff(Player.id, 1186)\
-		end\
-end\
-\
-if (_G[\"data.nilsPlayground.CustomConditionChecks.NoOpener\"] == nil) then\
-		function data.nilsPlayground.CustomConditionChecks.NoOpener()\
-    -- try not to execute while opener is running\
-    if xivopeners_nin ~= nil and xivopeners_nin.openerStarted == true then return false end\
-\
-    -- checks to see if sally dancer is installed and if its opener is running\
-    if SallyNIN ~= nil and SallyNIN.SkillSettings.Opener.enabled == true then return false end\
-\
-    -- if xivopener is not running nor sally sam opener, then return true that it is safe to execute.\
-    return true\
-		end\
-end\
-\
-\
-if (_G[\"data.nilsPlayground.CustomConditionChecks.CanNinjutsuBeTurnedOff\"] == nil) then\
-		function data.nilsPlayground.CustomConditionChecks.CanNinjutsuBeTurnedOff()\
-    if data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then return false end\
-    return data.nilsPlayground.Toggles.Ninjutsu.IsActive == false\
-		end\
-end\
-\
-\
-if (_G[\"data.nilsPlayground.TurnOffNinjitsu\"] == nil) then\
-		function data.nilsPlayground.TurnOffNinjitsu(byTimeline)\
-    data.nilsPlayground.Toggles.Ninjutsu.IsActive = true\
-				data.nilsPlayground.Toggles.Ninjutsu.TimelineActive = byTimeline\
-    data.nilsPlayground.Toggles.Ninjutsu.LastMoved =  Now()\
-\
-    SallyNIN.SkillSettings.Ninjutsu.enabled = false\
-				SallyNIN.SkillSettings.TrickAttack.enabled = false\
-				SallyNIN.SkillSettings.ShadowFang.enabled = false\
-				SallyNIN.SkillSettings.Bushin.enabled = false\
-				SallyNIN.SkillSettings.SaveCD.enabled = true\
-\
-		end\
-end\
-\
-if (_G[\"data.nilsPlayground.TurnOnNinjitsu\"] == nil) then\
-		function data.nilsPlayground.TurnOnNinjitsu()\
-    data.nilsPlayground.Toggles.Ninjutsu.IsActive = false\
-				data.nilsPlayground.Toggles.Ninjutsu.TimelineActive = false\
-\
-    SallyNIN.SkillSettings.Ninjutsu.enabled = true\
-				SallyNIN.SkillSettings.TrickAttack.enabled = true\
-				SallyNIN.SkillSettings.ShadowFang.enabled = true\
-				SallyNIN.SkillSettings.Bushin.enabled = true\
-				SallyNIN.SkillSettings.SaveCD.enabled = false\
-		end\
-end\
-\
-if (_G[\"data.nilsPlayground.TurnOffTCJ\"] == nil) then\
-		function data.nilsPlayground.TurnOffTCJ(byTimeline)\
-    data.nilsPlayground.Toggles.TCJMove.IsActive = true\
-				data.nilsPlayground.Toggles.TCJMove.TimelineActive = byTimeline\
-    data.nilsPlayground.Toggles.TCJMove.LastMoved =  Now()\
-\
-    SallyNIN.SkillSettings.TCJ.enabled = false\
-		end\
-end\
-\
-if (_G[\"data.nilsPlayground.TurnOnTCJ\"] == nil) then\
-		function data.nilsPlayground.TurnOnTCJ()\
-    data.nilsPlayground.Toggles.TCJMove.IsActive = false\
-				data.nilsPlayground.Toggles.TCJMove.TimelineActive = false\
-\
-    SallyNIN.SkillSettings.TCJ.enabled = true\
-		end\
-end\
-\
-\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["eventArgs"] = {
-			};
-			["execute"] = "";
-			["executeType"] = 1;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Reset()\
+self.used = true\
+";
+			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "Load Dependancies";
+			["name"] = "Reset Toggle Controls";
 			["time"] = 13;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 2;
-			["timerEndOffset"] = 2;
+			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -13;
+			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "610ccf38-2a1f-21a9-997f-81f8a0fb61fa";
-		};
-		[3] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "data.nilsPlayground.TurnOnNinjitsu()\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 2;
-						[2] = 3;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
-			["conditions"] = {
-			};
-			["enabled"] = false;
-			["execute"] = "";
-			["executeType"] = 1;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Turn on Ninjutsu";
-			["time"] = 13;
-			["timeRange"] = true;
-			["timelineIndex"] = 2;
-			["timerEndOffset"] = 2;
-			["timerOffset"] = -6.285;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "4aca478d-01be-ab93-83ca-9f216a80c026";
+			["uuid"] = "178244b2-bfec-3d61-a859-f653aa5db302";
 		};
 	};
 	[22] = {
@@ -268,7 +107,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "5c42fb5e-fcf8-8e4e-8e3e-5e192534cdde";
+			["uuid"] = "b9a2b380-5715-54ab-ae1e-d10f93b7c0d6";
 		};
 	};
 	[23] = {
@@ -316,7 +155,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "647273ba-0691-ab81-84fe-bc4a437a7a63";
+			["uuid"] = "94cfe968-b39b-94f0-857c-b8fa14774919";
 		};
 	};
 	[27] = {
@@ -430,7 +269,7 @@ self.used = true";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "9a531399-f4c8-1d85-907f-b7918b7b91c0";
+			["uuid"] = "b7b61ec4-beea-d031-8684-0087f00f3105";
 		};
 		[2] = {
 			["actions"] = {
@@ -543,7 +382,7 @@ self.used = true ";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "7cada9ca-9a12-95d2-9725-baf8046e25c2";
+			["uuid"] = "591fef35-1d08-7083-b1a8-1977403e4bef";
 		};
 	};
 	[32] = {
@@ -595,7 +434,7 @@ self.used = true\
 			["timerOffset"] = -0.20000000298023;
 			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "7c0a8707-d317-65c8-ae1b-b0b32413d0c2";
+			["uuid"] = "e7be62a5-aff4-751c-befc-fa7fae7ad4f0";
 		};
 		[2] = {
 			["actions"] = {
@@ -674,7 +513,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "d3a350a3-77d4-b046-a5c1-4628bb1c3a00";
+			["uuid"] = "f5275424-3acc-56f0-8858-6eb8f89b5945";
 		};
 	};
 	[39] = {
@@ -722,7 +561,7 @@ self.used = true";
 			["timerOffset"] = -0.025000000000006;
 			["timerStartOffset"] = -2;
 			["used"] = false;
-			["uuid"] = "1fc7a20e-f1c1-6382-bbfa-24e3f1f3af7e";
+			["uuid"] = "27815451-f16b-f3d2-88a1-a9da1c0a9fc4";
 		};
 	};
 	[40] = {
@@ -770,7 +609,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "f344ef53-2df8-293c-ab02-1b3cb4e6fcd3";
+			["uuid"] = "623a7dfc-eb1e-05f0-90eb-94c179e970cb";
 		};
 	};
 	[43] = {
@@ -854,7 +693,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -23;
 			["used"] = false;
-			["uuid"] = "3821d732-9cc6-1e2b-b7e8-cfc89ff4b30f";
+			["uuid"] = "d12c016d-ea6b-3f27-9ad8-bc7515cde4de";
 		};
 		[2] = {
 			["actions"] = {
@@ -902,7 +741,7 @@ self.used = true\
 			["timerOffset"] = -0.20000000298023;
 			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "1a085c7b-98a3-538a-8691-3534bf25b193";
+			["uuid"] = "7e17816d-c2ae-e5cd-8745-489fe8401b0a";
 		};
 	};
 	[55] = {
@@ -989,7 +828,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "3322ec7a-4cc4-e9e7-8ed2-54f17b626be6";
+			["uuid"] = "c4685fd5-13bf-1032-89c8-8ab1d9f72dc2";
 		};
 	};
 	[59] = {
@@ -1037,7 +876,7 @@ self.used = true";
 			["timerOffset"] = -1;
 			["timerStartOffset"] = 2;
 			["used"] = false;
-			["uuid"] = "1472f961-f6e4-c8b7-8ed8-c0d21e5ab282";
+			["uuid"] = "01363165-0f4f-27a7-b37f-77a95967c122";
 		};
 	};
 	[60] = {
@@ -1087,7 +926,7 @@ self.used = true\
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "24db12ce-5501-b430-92a9-56f911e6c8ce";
+			["uuid"] = "cbe6788f-4df3-5741-a287-759f50291a8b";
 		};
 	};
 	[63] = {
@@ -1139,7 +978,7 @@ self.used = true\
 			["timerOffset"] = -0.20000000298023;
 			["timerStartOffset"] = 2;
 			["used"] = false;
-			["uuid"] = "08dcfcc0-70d3-bccc-a113-87904113298b";
+			["uuid"] = "5d20bf76-c3db-4326-bd14-c396cee5a51a";
 		};
 	};
 	[64] = {
@@ -1223,7 +1062,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "6470b66d-7140-2298-94b7-b99789b4664d";
+			["uuid"] = "e65b83d7-a953-f5be-9579-61792d784588";
 		};
 		[2] = {
 			["actions"] = {
@@ -1275,7 +1114,7 @@ self.used = true\
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 3;
 			["used"] = false;
-			["uuid"] = "674e50cd-071d-2e81-8d3d-dc377c90b0e2";
+			["uuid"] = "effb6325-f0b8-54c8-b5f3-839fcacdde49";
 		};
 	};
 	[71] = {
@@ -1389,7 +1228,7 @@ self.used = true\
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "f26a2391-3404-d372-8967-abcd2f48f2f2";
+			["uuid"] = "3097c277-ef2d-d4d2-a9b1-bbd450121744";
 		};
 		[2] = {
 			["actions"] = {
@@ -1504,7 +1343,7 @@ self.used = true ";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "17e4353a-4672-bbf9-a45c-9935bed7a74a";
+			["uuid"] = "58c45082-7428-0272-8f3f-cabe50de289a";
 		};
 	};
 	[75] = {
@@ -1619,7 +1458,7 @@ self.used = true";
 			["timerOffset"] = -3;
 			["timerStartOffset"] = -3;
 			["used"] = false;
-			["uuid"] = "7c43fafc-f869-1e13-a405-2e718ae009f8";
+			["uuid"] = "7e97731d-4bb1-7654-9ec1-411b4399646c";
 		};
 		[2] = {
 			["actions"] = {
@@ -1699,7 +1538,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "3d345343-5766-6ada-b4e4-d6e4395bb361";
+			["uuid"] = "8fb924e7-c793-8fcb-af14-ce962a7b83fb";
 		};
 	};
 	[87] = {
@@ -1813,7 +1652,7 @@ return false";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "33b35b75-7503-10fa-b1f0-b2e7072aae3e";
+			["uuid"] = "a85cd189-b8ee-6490-82cb-0ce64866cf86";
 		};
 		[2] = {
 			["actions"] = {
@@ -1926,7 +1765,7 @@ self.used = true ";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "169bb245-bb0d-dccc-8b60-b4a2c967eb75";
+			["uuid"] = "bb5df314-6191-feb5-a88d-1f55b0722798";
 		};
 	};
 	[101] = {
@@ -2040,7 +1879,7 @@ self.used = true ";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "a5fec237-950e-65b2-be4e-465bbf262939";
+			["uuid"] = "1b5a07d6-6de3-6a62-b065-7467f9513ae0";
 		};
 		[2] = {
 			["actions"] = {
@@ -2153,7 +1992,7 @@ self.used = true ";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "85d0262f-7b56-efb5-badf-d3028b5aa3fd";
+			["uuid"] = "7a92b17f-0d03-af30-bf14-46e8c9f627c9";
 		};
 	};
 	[106] = {
@@ -2267,7 +2106,7 @@ self.used = true ";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "bde18631-006d-93b8-80e1-a60d03aadf20";
+			["uuid"] = "68fc88e5-15ff-cdbd-81fc-f40029406d06";
 		};
 		[2] = {
 			["actions"] = {
@@ -2380,7 +2219,7 @@ self.used = true ";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "267d1867-b4ea-ddca-89e6-3b5dc3047bd3";
+			["uuid"] = "64872f09-9892-6cd2-ac10-2c16e3c25e4d";
 		};
 	};
 	[108] = {
@@ -2462,7 +2301,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "05bd88a3-937e-4fc5-bb5b-d8adb923baea";
+			["uuid"] = "263fd19a-030a-fb97-9b09-e79679081f12";
 		};
 		[2] = {
 			["actions"] = {
@@ -2509,7 +2348,7 @@ self.used = true";
 			["timerOffset"] = 3;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "550d7502-a38b-1743-8f35-7ed861ee61b2";
+			["uuid"] = "47fd0748-f289-9a93-bd13-42dbdb508eaf";
 		};
 	};
 	[109] = {
@@ -2645,7 +2484,7 @@ self.used = true";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "8a16df1a-236e-d1a2-8027-ee33fd5a87c2";
+			["uuid"] = "e546561d-a4e0-1ccb-a27b-62eea890cd73";
 		};
 		[2] = {
 			["actions"] = {
@@ -2758,7 +2597,7 @@ self.used = true ";
 			["timerOffset"] = -5.103;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "0e86bd0e-a431-1e0d-b141-6c74e764c088";
+			["uuid"] = "fd21f8e3-035f-3634-9403-9ab8de045c74";
 		};
 		[3] = {
 			["actions"] = {
@@ -2783,7 +2622,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -30;
 			["used"] = false;
-			["uuid"] = "2e51d522-f6f2-9ce9-8041-9810bbcb90db";
+			["uuid"] = "dba5767c-8c56-2227-977d-04ea070e9bfe";
 		};
 	};
 	["mapID"] = 908;

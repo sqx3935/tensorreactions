@@ -941,13 +941,13 @@ function self.Combat.Toggles.Handler.DOT()
     self.Combat.Toggles.Samurai.Higanbana(false, false)
     self.Combat.Toggles.Summoner.DoTs(false, false)
     self.Combat.Toggles.Dragoon.DoTs(false, false)
-    self.Combat.Toggles.Monk.DoTs(false, false)
+    self.Combat.Toggles.Monk.DOT(false, false)
   else
     self.Combat.Toggles.Ninja.ShadowFang(true, false)
     self.Combat.Toggles.Samurai.Higanbana(true, false)
     self.Combat.Toggles.Summoner.DoTs(true, false)
     self.Combat.Toggles.Dragoon.DoTs(true, false)
-    self.Combat.Toggles.Monk.DoTs(true, false)
+    self.Combat.Toggles.Monk.DOT(true, false)
   end
 
   return true
