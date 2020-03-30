@@ -94,7 +94,11 @@ self.arcs = {
   SallyDRK = "SallyDRK", -- xSalice
   TensorRuin = "TensorRuin", -- Riku
   TensorRequiem = "TensorRequiem", -- Riku
-  TensorMagnum = "TensorMagnum" -- Riku
+  TensorMagnum = "TensorMagnum", -- Riku
+  Kenshin = "Kenshin", -- ACE/Sebbs
+  Haru = "Haru", -- ACE/Sebbs
+  Sting = "Sting", -- ACE/Sebbs
+  Brawler = "Brawler", -- ACE/Sebbs
 }
 
 self.BurnBossList = {
@@ -882,11 +886,13 @@ function self.Combat.Toggles.Handler.CD()
     if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end
     if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(false, false) return true end
     if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(true, false) return true end
+    if Player.job == self.jobs.Monk.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Monk.CD(true, false) return true end
   else
     if Player.job == self.jobs.Ninja.id and self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() return true end
     if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(false, false) return true end
     if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(true, false) return true end
     if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(false, false) return true end
+    if Player.job == self.jobs.Monk.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Monk.CD(false, false) return true end
   end
 
   return false
@@ -905,11 +911,13 @@ function self.Combat.Toggles.Handler.AOE()
     self.Combat.Toggles.Samurai.AOE(false, false)
     self.Combat.Toggles.Summoner.AOE(false, false)
     self.Combat.Toggles.Dragoon.AOE(false, false)
+    self.Combat.Toggles.Monk.AOE(false, false)
   else
     self.Combat.Toggles.Ninja.AOE(true, false)
     self.Combat.Toggles.Samurai.AOE(true, false)
     self.Combat.Toggles.Summoner.AOE(true, false)
     self.Combat.Toggles.Dragoon.AOE(true, false)
+    self.Combat.Toggles.Monk.AOE(true, false)
   end
 
   return true
@@ -933,11 +941,13 @@ function self.Combat.Toggles.Handler.DOT()
     self.Combat.Toggles.Samurai.Higanbana(false, false)
     self.Combat.Toggles.Summoner.DoTs(false, false)
     self.Combat.Toggles.Dragoon.DoTs(false, false)
+    self.Combat.Toggles.Monk.DoTs(false, false)
   else
     self.Combat.Toggles.Ninja.ShadowFang(true, false)
     self.Combat.Toggles.Samurai.Higanbana(true, false)
     self.Combat.Toggles.Summoner.DoTs(true, false)
     self.Combat.Toggles.Dragoon.DoTs(true, false)
+    self.Combat.Toggles.Monk.DoTs(true, false)
   end
 
   return true
@@ -955,10 +965,12 @@ function self.Combat.Toggles.Handler.Omni()
     self.Combat.Toggles.Ninja.Omni(true, false)
     self.Combat.Toggles.Samurai.Omni(false, false) -- we want to turn QT off, which is why this is false
     self.Combat.Toggles.Dragoon.Omni(false, false) -- we want to turn QT off, which is why this is false
+    self.Combat.Toggles.Monk.Omni(false, false) -- we want to turn QT off, which is why this is false
   else
     self.Combat.Toggles.Ninja.Omni(false, false)
     self.Combat.Toggles.Samurai.Omni(true, false)
     self.Combat.Toggles.Dragoon.Omni(true, false)
+    self.Combat.Toggles.Monk.Omni(true, false)
   end
 
   return true

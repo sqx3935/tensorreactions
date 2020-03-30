@@ -13,23 +13,10 @@ local obj1 = {
 		["execute"] = "-- ** Contributors **\
 --[[\
 		* Nil (maintainer)\
-		* \
+		* JRC18\
 ]]\
 \
 -- *************************************************************************************\
-\
---[[ ** Verson 3 **\
-* filter added to `onentitychanneling` to ignore friendly targets\
-* cleaned up code to make it more readable and simplify fall through\
-* added on death monitor and updated general reactions to check the time (Thanks to JC for the suggestion)\
-* removed rubyex feint and knockback\
-* added 2 second delay between heals, this should improve and space out the heals more effectively\
-]]\
-\
---[[ ** Verson 2 **\
-* massive refactor\
-* added support for Anamnesis Anyder\
-]]\
 ";
 		["executeType"] = 2;
 		["luaReturnsAction"] = false;
@@ -1434,6 +1421,164 @@ return nil\
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "8469d13e-6763-6e7b-bac1-06fb3d72fc75";
+	};
+	[14] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: AOE Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "61413625-89fc-2edb-b7a8-e8332dd4a368";
+	};
+	[15] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Handler.CD()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: CD Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "a5246e33-c9b6-bf49-b2a6-035b9af37df7";
+	};
+	[16] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.DOT()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: DOT Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "7ac1a7e4-e541-5bff-9b7c-53de3dd4a932";
+	};
+	[17] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: Omni Whitelist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "ec2788aa-3482-29ff-aab7-b78304a7721e";
+	};
+	[18] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 9;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.Reset()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Reset: toggles on wipe";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "7db5b7be-8809-8066-a443-bb96899998ab";
+	};
+	[19] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 10;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.Reset()\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Reset: toggles on death";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "a209b3a6-3649-941c-bda0-26bb29c824ee";
 	};
 }
 return obj1

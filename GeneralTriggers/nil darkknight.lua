@@ -363,7 +363,11 @@ return nil";
 		};
 		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
+		["execute"] = "-- *** WARNING ***\
+-- TENSOR DRIFT BREAKS THIS IF IN STUTTER MODE\
+-- ***************\
+\
+if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.Toggles == nil then data.nilsPlayground.Toggles = {} end\
 if data.nilsPlayground.Toggles.PlungeMove == nil then data.nilsPlayground.Toggles.PlungeMove = { IsActive = false, TimelineActive = false, LastMove = 0} end\
 \

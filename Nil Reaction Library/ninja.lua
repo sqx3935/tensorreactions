@@ -61,7 +61,7 @@ function NilsReactionLibrary.Combat.Actions.Shukuchi(entityID)
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then
     -- use hotbar only if bot is running, otherwise use actionskill
     if SallyNIN.HotBarConfig.Shukuchi ~= nil and FFXIV_Common_BotRunning then
-      SallyNIN.HotBarConfig.Shukuchi.enabled = false
+      SallyNIN.HotBarConfig.ShukuchiHitbox.enabled = false
       return true, nil, nil, false, false
     else
       return true, actionskill, target.id, true, false
@@ -133,12 +133,9 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.Reset()
 end
 
 function NilsReactionLibrary.Combat.Toggles.Ninja.Opener(toggleOn)
+  if Player.job ~= NilsReactionLibrary.jobs.Ninja.id then return false end
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
-
-  if Player.job == NilsReactionLibrary.jobs.Ninja.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.Opener.enabled = toggleOn return true end
-  end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.Opener.enabled = toggleOn return true end
   return false
 end
 
@@ -242,7 +239,7 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(toggleOn, byTimeline)
     NilsReactionLibrary.Combat.Toggles.Control.TCJMove.LastMoved = Now()
   end
 
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.TCJ.enabled = toggleOn return true end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then SallyNIN.SkillSettings.TCJ.enabled = toggleOn return true end
   return false
 end
 
@@ -452,12 +449,13 @@ end
 function NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TCJMoveDetection()
   if Player.job ~= NilsReactionLibrary.jobs.Ninja.id or Player.incombat == false then return false end
 
+  -- if tensor drift installed, doesn't work in stutter mode, forcing slide if enabled
+  if TensorDrift_SlidecastMode ~= nil and TensorDrift_SlidecastMode ~= "Off" then TensorDrift_SlidecastMode = "slide" end
+
   -- always want this on for openers
   if NilsReactionLibrary.Combat.inOpener() then return NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(true, false) end
-
   -- if set by timeline reaction, ignore
   if NilsReactionLibrary.Combat.Toggles.Control.TCJMove.IsActive == true and NilsReactionLibrary.Combat.Toggles.Control.TCJMove.TimelineActive == true then return false end
-
   if Player:IsMoving() then
     NilsReactionLibrary.Combat.Toggles.Control.TCJMove.IsActive = true
     NilsReactionLibrary.Combat.Toggles.Control.TCJMove.LastMoved = Now()
@@ -475,6 +473,9 @@ end
 
 function NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()
   if Player.job ~= NilsReactionLibrary.jobs.Ninja.id or Player.incombat == false then return false end
+
+  -- if tensor drift installed, doesn't work in stutter mode, forcing slide if enabled
+  if TensorDrift_SlidecastMode ~= nil and TensorDrift_SlidecastMode ~= "Off" then TensorDrift_SlidecastMode = "slide" end
 
   -- always want this on for openers
   if NilsReactionLibrary.Combat.inOpener() then return NilsReactionLibrary.Combat.Toggles.Ninja.Assassinate(true) end

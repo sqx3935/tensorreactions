@@ -167,6 +167,30 @@ end";
 			["uuid"] = "82196554-a538-3432-aa94-74ef0afb5b61";
 		};
 	};
+	[32] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Potion(false)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn off pots";
+			["time"] = 163.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 32;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "a34a716f-6c69-9229-8840-3591fd518c17";
+		};
+	};
 	[36] = {
 		[1] = {
 			["actions"] = {
@@ -272,6 +296,30 @@ end";
 			["uuid"] = "91602fda-9786-21eb-9b7d-eb2c958fe368";
 		};
 	};
+	[45] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 191.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 45;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "7ef3005a-bed3-de82-80bf-4bff21207848";
+		};
+	};
 	[51] = {
 		[1] = {
 			["actions"] = {
@@ -350,6 +398,28 @@ return false";
 			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "6b50a06d-417e-3258-9746-b57c5155d52d";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 205.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 51;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "d76bbd43-a5ae-e946-a514-0ce736375eb3";
 		};
 	};
 	[52] = {
@@ -431,6 +501,30 @@ return false";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "bafdc4c4-f3d9-07dc-ae9e-b897cbc68695";
+		};
+	};
+	[64] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 323.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 64;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "29f739d1-efbe-4c3c-82ed-0e44cb639475";
 		};
 	};
 	[69] = {
@@ -540,6 +634,28 @@ return false";
 			["used"] = false;
 			["uuid"] = "73343916-cc7e-b61d-80b8-dfe8ecd580a1";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 510.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 74;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "038480c0-959a-8453-8c52-bd63e82ca3c3";
+		};
 	};
 	[87] = {
 		[1] = {
@@ -617,6 +733,30 @@ end";
 			["timerStartOffset"] = -20;
 			["used"] = false;
 			["uuid"] = "ffba8ea2-80a0-1cef-be0e-e683ea5cba1f";
+		};
+	};
+	[103] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 646.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 103;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "f024736d-97bf-6682-a966-0384c8a9f32a";
 		};
 	};
 	[106] = {
@@ -723,6 +863,28 @@ return false";
 			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "88e5c8cf-b75c-16f7-b8b0-3f9c3a2a1cf0";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 673.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 107;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "cf0e147e-165f-5fdd-b222-152210cd57ba";
 		};
 	};
 	[108] = {

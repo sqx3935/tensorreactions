@@ -143,6 +143,30 @@ end";
 			["uuid"] = "016b2651-b3d7-142b-8462-39b799cd7611";
 		};
 	};
+	[16] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 117.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 16;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "227df862-ad14-8f68-8f19-3139925b5392";
+		};
+	};
 	[19] = {
 		[1] = {
 			["actions"] = {
@@ -221,6 +245,30 @@ return false";
 			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "efe0022b-2309-0500-8aa3-94342215dc5b";
+		};
+	};
+	[20] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 128.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 20;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "1278ee6c-a5c1-bfb9-b25b-d16a13f31c97";
 		};
 	};
 	[21] = {

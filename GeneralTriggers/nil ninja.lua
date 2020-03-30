@@ -2253,7 +2253,11 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(false, true) [test timeline override]\
+		["execute"] = "-- *** WARNING ***\
+-- TENSOR DRIFT BREAKS THIS IF IN STUTTER MODE\
+-- ***************\
+\
+-- NilsReactionLibrary.Combat.Toggles.Ninja.TCJ(false, true) [test timeline override]\
 NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.TCJMoveDetection()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2280,9 +2284,13 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.Assassinate(false, true) [test timeline override]\
+		["execute"] = "-- *** WARNING ***\
+-- TENSOR DRIFT BREAKS THIS IF IN STUTTER MODE\
+-- ***************\
+\
+-- NilsReactionLibrary.Combat.Toggles.Ninja.Assassinate(false, true) [test timeline override]\
 NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.AssassinateMoveDetection()\
 \
 self.eventConditionMismatch = true -- suppressing the log\

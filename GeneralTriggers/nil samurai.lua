@@ -1547,37 +1547,5 @@ return nil";
 		["used"] = false;
 		["uuid"] = "655b7c29-2b7f-d039-b98a-6788905f7462";
 	};
-	[19] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "d(\"1\")\
-local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SecondWind()\
-d(\"was successful : \" ..tostring(wasSuccessful))\
-if wasSuccessful == true then\
- -- return action, targetID, ignoreWeaveRules, allowInterrupt\
-self.used = true\
-else\
-wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt =  NilsReactionLibrary.Combat.Actions.Bloodbath()\
-d(\"was successful1 : \" ..tostring(wasSuccessful))\
---if wasSuccessful == true then return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
-self.used = true";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "test";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "2b1ba4e8-181e-5f48-9854-94a2dbdc0e35";
-	};
 }
 return obj1
