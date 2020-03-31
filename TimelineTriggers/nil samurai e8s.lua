@@ -923,48 +923,68 @@ self.used = true";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = false;
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "disable assist";
 			["time"] = 535.1;
-			["timeRange"] = false;
+			["timeRange"] = true;
 			["timelineIndex"] = 72;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -1.3999999761581;
-			["timerStartOffset"] = 0;
+			["timerOffset"] = -2.2000000476837;
+			["timerStartOffset"] = -2.4000000953674;
 			["used"] = false;
-			["uuid"] = "1e2a97ff-c9bc-846c-a0fa-5a7f6b76234a";
+			["uuid"] = "1da92f10-7544-78aa-aa49-d4b1530caea7";
 		};
 		[2] = {
 			["actions"] = {
+				[1] = {
+					["aType"] = 1;
+					["actionID"] = 7548;
+					["actionLua"] = "";
+					["allowInterrupt"] = false;
+					["conditions"] = {
+					};
+					["endIfUsed"] = false;
+					["gVar"] = "ACR_TensorMagnum_CD";
+					["gVarIndex"] = 1;
+					["gVarValue"] = 1;
+					["ignoreWeaveRules"] = true;
+					["luaReturnsAction"] = false;
+					["setTarget"] = false;
+					["stopCasting"] = false;
+					["stopMoving"] = false;
+					["targetContentID"] = -1;
+					["targetName"] = "";
+					["targetSubType"] = 1;
+					["targetType"] = 1;
+					["untarget"] = false;
+					["used"] = false;
+					["variableTogglesType"] = 1;
+				};
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "-- 19901 = spellid of Reflected wings\
-local val, ent = TensorCore.isAnyEntityCasting(19901)\
-if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 1.4 then\
-  wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
-  if wasSuccessful == true then\
-    self.used = true\
-    return action, targetID, ignoreWeaveRules, allowInterrupt\
-  end\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Knockback";
+			["eventArgs"] = {
+			};
+			["execute"] = "";
+			["executeType"] = 1;
+			["loop"] = true;
+			["luaReturnsAction"] = false;
+			["name"] = "Arm's Length";
 			["time"] = 535.1;
 			["timeRange"] = true;
 			["timelineIndex"] = 72;
-			["timerEndOffset"] = 6;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -5;
+			["timerEndOffset"] = -0.60000002384186;
+			["timerOffset"] = -1.6000000238419;
+			["timerStartOffset"] = -1.6000000238419;
 			["used"] = false;
-			["uuid"] = "ce290615-ffc0-4917-bddf-9b6bf35d9782";
+			["uuid"] = "594fbf34-b3ff-1ecd-b940-adf5a6adb935";
 		};
 		[3] = {
 			["actions"] = {
@@ -1007,34 +1027,6 @@ self.used = true";
 					["allowInterrupt"] = false;
 					["conditions"] = {
 						[1] = 2;
-					};
-					["endIfUsed"] = true;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["setTarget"] = false;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 1;
-					["untarget"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-				[3] = {
-					["aType"] = 4;
-					["actionID"] = -1;
-					["actionLua"] = "if not FFXIV_Common_BotRunning then\
-		ml_global_information.ToggleRun()\
-end\
-self.used = true";
-					["allowInterrupt"] = false;
-					["conditions"] = {
-						[1] = 3;
 					};
 					["endIfUsed"] = true;
 					["gVar"] = "";
@@ -1119,40 +1111,10 @@ self.used = true";
 					["partyTargetType"] = 1;
 					["setFirstMatch"] = false;
 				};
-				[3] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["category"] = 2;
-					["comparator"] = 1;
-					["conditionLua"] = "";
-					["conditionType"] = 5;
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["lastSkillID"] = 7559;
-					["localmapid"] = -1;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["setFirstMatch"] = false;
-				};
 			};
-			["enabled"] = false;
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -1163,9 +1125,39 @@ self.used = true";
 			["timelineIndex"] = 72;
 			["timerEndOffset"] = 20;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -1.3999999761581;
+			["timerStartOffset"] = -0.5;
 			["used"] = false;
-			["uuid"] = "d7cb3568-2e4c-8dd9-9128-406d78ab3faf";
+			["uuid"] = "f0ddfc8c-1c83-8582-bc99-fb2ad7b36638";
+		};
+		[4] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = false;
+			["eventArgs"] = {
+			};
+			["execute"] = "-- 19901 = spellid of Reflected wings 19913\
+local val, ent = TensorCore.isAnyEntityCasting(19901)\
+if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 1.6 then\
+  wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+  if wasSuccessful == true then\
+    self.used = true\
+    return action, targetID, true, allowInterrupt\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Knockback (experimental)";
+			["time"] = 535.1;
+			["timeRange"] = true;
+			["timelineIndex"] = 72;
+			["timerEndOffset"] = 6;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
+			["used"] = false;
+			["uuid"] = "483b5c53-bcbe-9b88-991a-47b9a9cc5f26";
 		};
 	};
 	[86] = {

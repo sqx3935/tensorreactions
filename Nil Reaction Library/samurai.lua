@@ -131,7 +131,7 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Reset()
   SallySAM.SkillSettings.Kaiten.enabled = true
   SallySAM.SkillSettings.Kyuten.enabled = true
   SallySAM.SkillSettings.Meikyo.enabled = true
-  SallySAM.SkillSettings.Opener.enabled = true 
+  SallySAM.SkillSettings.Opener.enabled = false
   -- SallySAM.SkillSettings.Potion.enabled = true
   SallySAM.SkillSettings.SaveCD.enabled = false
   SallySAM.SkillSettings.Senei.enabled = true
@@ -182,7 +182,7 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.CD(toggleOn, byTimeline)
 
   -- timeline overrides everything else.
   if byTimeline then
-    NilsReactionLibrary.Combat.Toggles.Control.CDBlackList.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.CDBlackList.IsActive = toggleOn == false -- set active if suppose to be off
     NilsReactionLibrary.Combat.Toggles.Control.CDBlackList.TimelineActive = byTimeline and toggleOn == false
   end
 

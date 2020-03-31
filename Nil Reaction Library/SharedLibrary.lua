@@ -101,126 +101,7 @@ self.arcs = {
   Brawler = "Brawler", -- ACE/Sebbs
 }
 
-self.BurnBossList = {
- -- [541] = 1, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
-  [11347] = 1, -- Alexander Prime
-  [11340] = 1, -- Brute Justice
-  [11342] = 2, -- Cruise Chaser
-  [11335] = 2, -- Living Liquid
-  [6358] = 1, -- Alexander
-  [9365] = 2, -- Eden Prime savage
-  [9366] = 4, -- Guardian of Paradise savage
-  [10511] = 2, -- voidwalker savage
-  [10604] = 2, -- Leviathan savage
-  [8486] = 2, -- Leviathan savage
-  [8350] = 2, -- Titan savage
-  [11361] = 1, -- Serial-jointed Command Model
-  [9020] = 1, -- 9s-operated walking fortress
-  [9143] = 1, -- Hobbes
-  [9144] = 1, -- Hobbes
-  [9145] = 1, -- Hobbes
-  [9147] = 1, -- Engels
-  [8353] = 1, -- Innocence
-  [9281] = 1, -- Ramuh --> E5S
-  [9289] = 1, -- Raktapaksa --> E6S
-  [9298] = 1, -- The Idol of Darkness --> E7S
-  [9353] = 1 -- Shiva --> E8S
-}
 
-self.AOEBlackList = {
- -- [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
-  [7097] = true, -- Demon Chadarnook
-  [7646] = true, -- Immortal Key
-  [7662] = true, -- Tokkapchi
-  [7663] = true, -- Mud Slime
-  [7665] = true, -- Muddy Dorpokkur
-  [7672] = true, -- Mist Dragon
-  [7673] = true, -- Draconic Regard
-  [7702] = true, -- Suzaku
-  [7703] = true, -- Scarlet Plume
-  [7704] = true, -- Scarlet Tail Feather
-  [7725] = true, -- Scarlet Lady
-  [8262] = true, -- Forgiven Obscenity
-  [9181] = true, -- Lahabrea's shade
-  [9182] = true, --	Igeyorhm's shade
-  [9287] = true, -- Garuda
-  [9288] = true -- Ifrit -->
-}
-
-self.CDBlackList = {
- -- [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
-  [7129] = true, -- Doom Chimney
-  [7125] = true, -- Putrid Passenger
-  [7233] = true, -- Specter of the Homeland
-  [7234] = true, -- Specter of the Empire
-  [7646] = true, -- Immortal Key
-  [7673] = true, -- Draconic Regard
-  [7703] = true, -- Scarlet Plume
-  [7725] = true, -- Scarlet Lady
-  [8826] = true, -- Shadow of the Ancients
-  [8346] = true, -- Granite Gaol
-  [8342] = true, -- Arcane Sphere
-  [9319] = true, -- electric aether
-  -- [9320] = true, -- aqueous aether
-  [9321] = true -- earthen aether
-}
-
-self.OmniList = {
---  [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
-  [3069] = true, -- Sand Sphere
-  [4815] = true, -- Arcane Sphere
-  [5640] = true, -- Shinryu
-  [5789] = true, -- Tail
-  [6055] = true, -- Neo Exdeath
-  [6257] = true, -- Magitek Pod
-  [6928] = true, -- Shard of Emptiness
-  [6933] = true, -- Aqua Sphere
-  [6934] = true, -- Blizzard III
-  [6950] = true, -- Command Tower
-  [7097] = true, -- Demon Chadarnook
-  [7122] = true, -- Malice
-  [7126] = true, -- Ghost
-  [7127] = true, -- Phantom Train
-  [7202] = true, -- Daidarabotchi
-  [7537] = true, -- Specter of Zenos
-  [7575] = true, -- Iron Chain
-  [7637] = true, -- Left Arm Unit
-  [7638] = true, -- Right Arm Unit
-  [7646] = true, -- Immortal Key
-  [7657] = true, -- Ultima, the High Seraph
-  [7694] = true, -- Dark Crystal
-  [7699] = true, -- Level Checker
-  [7700] = true, -- Level Checker
-  [7899] = true, -- The Thunder God
-  [7901] = true, -- Icewolf
-  [7908] = true, -- Ruination
-  [8145] = true, -- Painted Root
-  [8261] = true, -- Forgiven Whimsy
-  [8267] = true, -- Forgiven Apathy
-  [8270] = true, -- Forgiven Revelry
-  [8342] = true, -- Arcane Sphere
-  [8346] = true, -- Granite Gaol
-  [10643] = true, -- Granite Gaol
-  [8351] = true, -- Aetherial Gaol
-  [8570] = true, -- Iron Chain
-  [8958] = true, -- Liar's Lyre
-  [9143] = true, -- Hobbes
-  [9144] = true, -- Hobbes
-  [9145] = true, -- Hobbes
-  [9147] = true, -- Engels
-  [9020] = true, -- Engels
-  [8486] = true, -- Leviathan savage
-  [10604] = true, -- Leviathan savage
-  [8349] = true, -- Titan Maximum savage
-  [9298] = true, -- The Idol of Darkness
-  [9300] = true, -- Blasphemy
-  [9301] = true, -- Idolatry
-  [9322] = true, -- shiva add Luminous Aether
-  [9320] = true, -- shiva add aqueous
-  [9321] = true, -- shiva add Earthen Aether
-  [9319] = true, -- shiva add electric
-  [9358] = true -- Ice Veil
-}
 
 -- **************************
 
@@ -881,18 +762,18 @@ function self.Combat.Toggles.Handler.CD()
   local contentID = 0
   if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
 
-  if self.CDBlackList[contentID] then
+  if self.data.CDBlackList[contentID] then
     if Player.job == self.jobs.Ninja.id and self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(false, false) return true end
-    if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end
-    if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(false, false) return true end
-    if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(true, false) return true end
-    if Player.job == self.jobs.Monk.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Monk.CD(true, false) return true end
-  else
-    if Player.job == self.jobs.Ninja.id and self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() return true end
     if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(false, false) return true end
-    if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(true, false) return true end
+    if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(false, false) return true end
     if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(false, false) return true end
     if Player.job == self.jobs.Monk.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Monk.CD(false, false) return true end
+  else
+    if Player.job == self.jobs.Ninja.id and self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() return true end
+    if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end
+    if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(true, false) return true end
+    if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(true, false) return true end
+    if Player.job == self.jobs.Monk.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Monk.CD(true, false) return true end
   end
 
   return false
@@ -906,7 +787,7 @@ function self.Combat.Toggles.Handler.AOE()
   local contentID = 0
   if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
 
-  if self.AOEBlackList[contentID] then
+  if self.data.AOEBlackList[contentID] then
     self.Combat.Toggles.Ninja.AOE(false, false)
     self.Combat.Toggles.Samurai.AOE(false, false)
     self.Combat.Toggles.Summoner.AOE(false, false)
@@ -961,7 +842,7 @@ function self.Combat.Toggles.Handler.Omni()
   local contentID = 0
   if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
 
-  if self.OmniList[contentID] then
+  if self.data.OmniList[contentID] then
     self.Combat.Toggles.Ninja.Omni(true, false)
     self.Combat.Toggles.Samurai.Omni(false, false) -- we want to turn QT off, which is why this is false
     self.Combat.Toggles.Dragoon.Omni(false, false) -- we want to turn QT off, which is why this is false
@@ -1040,7 +921,7 @@ end
 
 -- ** start addon
 function self.Initialize()
-  self.Log("Library Loaded v4.0.2")
+  self.Log("Library Loaded v4.0.7")
 end
 
 -- ** on update checks

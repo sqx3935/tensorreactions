@@ -1547,5 +1547,37 @@ return nil";
 		["used"] = false;
 		["uuid"] = "655b7c29-2b7f-d039-b98a-6788905f7462";
 	};
+	[19] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "--if gReactionZoomhackSet == nil then\
+--  gDevHackMaxZoom = 40.0\
+--	 gDevHackMinZoom = 1.5\
+--  gReactionZoomhackSet = true\
+--end\
+\
+if gReactionSpeedhackSet == nil then\
+  gDevHackWalkSpeed = 7.2\
+  gReactionSpeedhackSet = true\
+end\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true ";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Set Hacks";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 1;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "46eae455-7acf-4667-837c-e90ab3228e73";
+	};
 }
 return obj1

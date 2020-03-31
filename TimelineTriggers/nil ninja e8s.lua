@@ -1892,7 +1892,7 @@ self.used = true";
 			["timelineIndex"] = 72;
 			["timerEndOffset"] = -0.60000002384186;
 			["timerOffset"] = -1.6000000238419;
-			["timerStartOffset"] = -1.2999999523163;
+			["timerStartOffset"] = -1.6000000238419;
 			["used"] = false;
 			["uuid"] = "37469db9-299b-58a3-b0eb-b6cc03e03b01";
 		};
@@ -2049,7 +2049,7 @@ self.used = true";
 			};
 			["execute"] = "-- 19901 = spellid of Reflected wings 19913\
 local val, ent = TensorCore.isAnyEntityCasting(19901)\
-if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 0.8 then\
+if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 1.6 then\
   wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
   if wasSuccessful == true then\
     self.used = true\
