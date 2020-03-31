@@ -67,7 +67,9 @@ function NilsReactionLibrary.Combat.Toggles.Monk.CD(toggleOn, byTimeline)
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.Brawler then
     ACR_BrawlerSB_CDs = toggleOn
-	  ACR_BrawlerSB_PerfectBalance = toggleOn
+    ACR_BrawlerSB_PerfectBalance = toggleOn
+    ACR_BrawlerSB_Buffs = toggleOn
+    ACR_BrawlerSB_Riddles = toggleOn
     return true
   end
 
