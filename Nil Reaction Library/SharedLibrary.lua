@@ -42,7 +42,9 @@ self.Settings = {
   IssueACTResetOnWipe = true,
   EnableDebug = false, -- need a ui for this, for now `NilsReactionLibrary.Settings.EnableDebug = true`
   EnableMCRSupport = false, -- TODO: not supported yet, waiting on madao to add support to MCR for exteral applications
-  TargetDOTLimit = 25 -- turn off dots once targets get x number
+  TargetDOTLimit = 25, -- turn off dots once targets get x number
+  SelfHealWithRegen = 10, -- percentage when to cast second wind
+  SelfHealWithoutRegen = 20 -- percentage when to cast second wind
 }
 
 function self.Log(string)
@@ -654,6 +656,7 @@ function self.Combat.Actions.GapClosers(entityID)
   return true, nil, nil, true, false
 end
 
+-- TODO: THis is messy and needs simplified
 function self.Combat.Actions.SelfHeal()
   -- ignore if not in combat
   if Player.incombat == false then return false, nil, nil, true, false end
@@ -668,25 +671,25 @@ function self.Combat.Actions.SelfHeal()
 		hasRegen = true
   end
 
-  -- if has regen, can hold self healing until 20%
+  -- if has regen, can hold self healing until 10% and only if a heal ability has not been used within the last 1000ms
   if hasRegen then
-    if Player.hp.percent <= 20 then
+    if Player.hp.percent <= self.Settings.SelfHealWithRegen and TimeSince(self.Combat.Toggles.Control.SelfHeal.LastUsed) > 1000 then
       local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SecondWind()
-      if wasSuccessful == true then
-        return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt
-      else
-        return NilsReactionLibrary.Combat.Actions.Bloodbath()
+      if wasSuccessful == true then self.Combat.Toggles.Control.SelfHeal.LastUsed = Now() return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt
+      elseif TimeSince(self.Combat.Toggles.Control.SelfHeal.LastUsed) > 1000 then
+        wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Bloodbath()
+        if wasSuccessful == true then self.Combat.Toggles.Control.SelfHeal.LastUsed = Now() return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt end
       end
       return false, nil, nil, true, false
     end
   else
-  -- if no regen , use a self heal at 40%
-    if Player.hp.percent <= 40 then
+  -- if no regen , use a self heal at 20%
+    if Player.hp.percent <= self.Settings.SelfHealWithoutRegen and TimeSince(self.Combat.Toggles.Control.SelfHeal.LastUsed) > 1000 then
       local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SecondWind()
-      if wasSuccessful == true then
-        return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt
-      else
-        return NilsReactionLibrary.Combat.Actions.Bloodbath()
+      if wasSuccessful == true then self.Combat.Toggles.Control.SelfHeal.LastUsed = Now() return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt
+      elseif TimeSince(self.Combat.Toggles.Control.SelfHeal.LastUsed) > 1000 then
+        wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Bloodbath()
+        if wasSuccessful == true then self.Combat.Toggles.Control.SelfHeal.LastUsed = Now() return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt end
       end
       return false, nil, nil, true, false
     end
@@ -723,10 +726,11 @@ self.Combat.Toggles.Control = {
   Ninjutsu = { IsActive = false, TimelineActive = false },
   Bunshin = { IsActive = false, TimelineActive = false },
   ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
-  --ShadowFang = { IsActive = false, TimelineActive = false },
   TrickAttack = { IsActive = false, TimelineActive = false },
   TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
+  IaijutsuWindow = {IsActive = false, TimelineActive = false},
   DeathWatch = { TimeOfDeath = 0 },
+  SelfHeal = { LastUsed = 0 },
   GapClosers = { LastUsed = 0 },
 }
 
@@ -748,10 +752,11 @@ function self.Combat.Toggles.Handler.Reset()
     Ninjutsu = { IsActive = false, TimelineActive = false },
     Bunshin = { IsActive = false, TimelineActive = false },
     ACRefresh = { IsActive = false, LastMoved = 0, TimelineActive = false },
-    --ShadowFang = { IsActive = false, TimelineActive = false },
     TrickAttack = { IsActive = false, TimelineActive = false },
     TrickAttackWindow = { IsActive = false, LastMoved = 0, TimelineActive = false },
+    IaijutsuWindow = {IsActive = false, TimelineActive = false},
     DeathWatch = { TimeOfDeath = 0 },
+    SelfHeal = { LastUsed = 0 },
     GapClosers = { LastUsed = 0 },
   }
 end
@@ -943,8 +948,14 @@ function self.OnUpdate()
     end
   end
 
+  -- timeout gap closer
+  -- if TimeSince(self.Combat.Toggles.Control.GapClosers.LastUsed) > 700 then
+  --   if SallySAM.HotBarConfig.Yaten ~= nil and SallySAM.HotBarConfig.Yaten.enabled == false then SallySAM.HotBarConfig.Yaten.enabled = true end
+  --   if SallySAM.HotBarConfig.Gyoten ~= nil and SallySAM.HotBarConfig.Gyoten.enabled == false then SallySAM.HotBarConfig.Gyoten.enabled = true end
+  -- end
+
   -- Gap close hotkey
-  if (GUI:IsKeyDown(17) and GUI:IsKeyDown(16) and GUI:IsKeyDown(190)) and TimeSince(self.Combat.Toggles.Control.GapClosers.LastUsed) > 300 then -- CTRL + Shift + .
+  if (GUI:IsKeyDown(17) and GUI:IsKeyDown(16) and GUI:IsKeyDown(190)) and TimeSince(self.Combat.Toggles.Control.GapClosers.LastUsed) > 500 then -- CTRL + Shift + .
     self.Log("gap closer hotkey : " ..tostring(TimeSince(self.Combat.Toggles.Control.GapClosers.LastUsed)))
 
     local target = Player:GetTarget()

@@ -150,7 +150,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+			["execute"] = "-- Save CD is default Off, pass true to turn it on\
+\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
 self.used = true\
 ";
 			["executeType"] = 2;
@@ -205,8 +207,10 @@ self.used = true\
 					["buffID"] = -1;
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -254,7 +258,9 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+			["execute"] = "-- Save CD is default Off, pass false to turn it back off\
+\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
 self.used = true\
 ";
 			["executeType"] = 2;
@@ -386,7 +392,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+			["execute"] = "-- Save CD is default Off, pass true to turn it on\
+\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
 self.used = true\
 ";
 			["executeType"] = 2;
@@ -410,7 +418,9 @@ self.used = true\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+			["execute"] = "-- Save CD is default Off, pass false to turn it back off\
+\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
 self.used = true\
 ";
 			["executeType"] = 2;
@@ -463,8 +473,10 @@ self.used = true\
 					["buffID"] = -1;
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -620,7 +632,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+			["execute"] = "-- Save CD is default Off, pass true to turn it on\
+\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
 self.used = true\
 ";
 			["executeType"] = 2;
@@ -675,8 +689,10 @@ self.used = true\
 					["buffID"] = -1;
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -722,7 +738,9 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+			["execute"] = "-- Save CD is default Off, pass false to turn it back off\
+\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
 self.used = true\
 ";
 			["executeType"] = 2;

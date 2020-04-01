@@ -186,8 +186,7 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.CD(toggleOn, byTimeline)
     NilsReactionLibrary.Combat.Toggles.Control.CDBlackList.TimelineActive = byTimeline and toggleOn == false
   end
 
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.SaveCD.enabled = toggleOn return true end
-
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.SaveCD.enabled = toggleOn return true end
   return false
 end
 
@@ -340,5 +339,37 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.AOE(toggleOn, byTimeline)
   end
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.UseAOE.enabled = toggleOn return true end
+  return false
+end
+
+if NilsReactionLibrary.Combat.Toggles.Samurai.Helpers == nil then NilsReactionLibrary.Combat.Toggles.Samurai.Helpers = {} end
+
+function NilsReactionLibrary.Combat.Toggles.Samurai.Helpers.TurnOffCast(byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
+
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.IaijutsuWindow.IsActive = byTimeline -- set active if is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.IaijutsuWindow.TimelineActive = byTimeline
+  end
+
+  NilsReactionLibrary.Combat.Toggles.Samurai.Higanbana(false, byTimeline)
+  return false
+end
+
+function NilsReactionLibrary.Combat.Toggles.Samurai.Helpers.TurnOnCast(byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
+
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.IaijutsuWindow.IsActive = byTimeline -- set active if is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.IaijutsuWindow.TimelineActive = byTimeline
+  end
+
+  NilsReactionLibrary.Combat.Toggles.Samurai.Higanbana(true, byTimeline)
   return false
 end

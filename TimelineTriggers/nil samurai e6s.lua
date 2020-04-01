@@ -148,7 +148,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+			["execute"] = "-- Save CD is default Off, pass true to turn it on\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
 self.used = true\
 ";
 			["executeType"] = 2;
@@ -158,9 +159,9 @@ self.used = true\
 			["time"] = 110.8;
 			["timeRange"] = true;
 			["timelineIndex"] = 15;
-			["timerEndOffset"] = 1;
+			["timerEndOffset"] = 3;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = 2;
 			["used"] = false;
 			["uuid"] = "082ba04f-08aa-8126-a46a-aada6569ac78";
 		};
@@ -196,7 +197,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+			["execute"] = "-- Save CD is default Off, pass false to turn it back off\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
 self.used = true\
 ";
 			["executeType"] = 2;
