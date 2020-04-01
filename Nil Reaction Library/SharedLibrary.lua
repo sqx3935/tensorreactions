@@ -769,15 +769,15 @@ function self.Combat.Toggles.Handler.CD()
 
   if self.data.CDBlackList[contentID] then
     if Player.job == self.jobs.Ninja.id and self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(false, false) return true end
-    if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(false, false) return true end
+    if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end
     if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(false, false) return true end
-    if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(false, false) return true end
+    if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(true, false) return true end
     if Player.job == self.jobs.Monk.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Monk.CD(false, false) return true end
   else
     if Player.job == self.jobs.Ninja.id and self.Combat.Toggles.Control.TrickAttackWindow.TimelineActive == false then self.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow() return true end
-    if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(true, false) return true end
+    if Player.job == self.jobs.Samurai.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Samurai.CD(false, false) return true end
     if Player.job == self.jobs.Summoner.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Summoner.CD(true, false) return true end
-    if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(true, false) return true end
+    if Player.job == self.jobs.Dragoon.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Dragoon.CD(false, false) return true end
     if Player.job == self.jobs.Monk.id and self.Combat.Toggles.Control.CDBlackList.TimelineActive == false then self.Combat.Toggles.Monk.CD(true, false) return true end
   end
 
