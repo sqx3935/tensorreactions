@@ -201,6 +201,11 @@ function self.Combat.inOpener()
   return false
 end
 
+function self.Combat.isoGCDSafe(cdmax, cd, limit)
+  if NilsReactionLibrary.isempty(limit) then limit = .8 end
+  if cdmax - cd > limit then return true else return false end
+end
+
 -- ************************************ Functions around combat actions checks ******************************
 -- *                                                                                                        *
 -- *      This section is only for ability execution, actual logic will be added else where.                *
@@ -211,7 +216,7 @@ if self.Combat.Actions == nil then self.Combat.Actions = {} end
 -- ** Astrologian Only Actions ******************************************************************************
 function self.Combat.Actions.CelestialIntersection()
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if self.Combat.inOpener() then return false, nil, nil, false, false end
 
   -- check cooldown
@@ -226,7 +231,7 @@ end
 -- ** Monk Only Actions ************************************************************************************
 function self.Combat.Actions.RiddleOfEarth()
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check cooldown
@@ -239,7 +244,7 @@ end
 
 function self.Combat.Actions.Mantra()
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check cooldown
@@ -254,7 +259,7 @@ end
 -- ** Tank jobs ONLY ***************************************************************************************
 function self.Combat.Actions.LowBlow(entityID, actionID)
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
 
   if NilsReactionLibrary.isempty(entityID) then entityID = 0 end
@@ -307,14 +312,15 @@ end
 -- entityID, remaining, spellid can be passed in, if so, it will hold using arms length until that time.
 -- assumes if you passing entity you also passin remaining
 function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
+  if self.isempty(entityID) then entityID = 0 end
   if self.isempty(spellid) then spellid = 0 end
   if self.isempty(remaining) then remaining = 4 end
   local interruptCast = false
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
-  if entityID ~= nil then
+  if entityID > 0 then
     local target = EntityList:Get(entityID)
     if target ~= nil and table.valid(target) and target.attackable and target.castinginfo ~= nil then
       -- if spellid is passed in, limit knockback to that id
@@ -419,14 +425,15 @@ end
 -- entityID and remaining can be passed in, if so, it will hold using arms length until that time.
 -- assumes if you passing entity you also passin remaining
 function self.Combat.Actions.SureCast(entityID, remaining, spellid)
+  if self.isempty(entityID) then entityID = 0 end
   if self.isempty(spellid) then spellid = 0 end
   if self.isempty(remaining) then remaining = 4 end
   local interruptCast = false
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
-  if entityID ~= nil then
+  if entityID > 0 then
     local target = EntityList:Get(entityID)
     if target ~= nil and table.valid(target) and target.attackable and target.castinginfo ~= nil then
       -- if spellid is passed in, limit knockback to that id
@@ -486,7 +493,7 @@ end
 -- ** Caster Actions ****************************************************************************************
 function self.Combat.Actions.Addle(entityID)
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check that target does not already have de/buff
@@ -543,7 +550,7 @@ end
 
 function self.Combat.Actions.Sprint()
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if self.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check cooldown
@@ -647,55 +654,9 @@ function self.Combat.Actions.Sprint()
   return false, nil, nil, false, false
 end
 
--- Gap closer defaults to current target, optionally entityid can be passed in.
-function self.Combat.Actions.GapClosers(entityID)
-  if Player.job == self.jobs.Ninja.id then return self.Combat.Actions.Shukuchi(entityID) end
-  if Player.job == self.jobs.Samurai.id then return self.Combat.Actions.Gyoten() end
-  if Player.job == self.jobs.Dragoon.id then return  self.Combat.Actions.ElusiveJump(entityID) end
-
-  return true, nil, nil, true, false
-end
-
--- TODO: THis is messy and needs simplified
+-- TODO: update timelines, will remove this later
 function self.Combat.Actions.SelfHeal()
-  -- ignore if not in combat
-  if Player.incombat == false then return false, nil, nil, true, false end
-
-  -- if player just died, hold self healing
-  if TimeSince(self.Combat.Toggles.Control.DeathWatch.TimeOfDeath) < 5000 then return false, nil, nil, true, false end
-
-  -- 84 bloodbath buff
-  -- check regen buffs
-  local hasRegen = false
-  if  HasBuff(Player.id, 158) or HasBuff(Player.id, 150) or HasBuff(Player.id, 839) or HasBuff(Player.id, 84) then
-		hasRegen = true
-  end
-
-  -- if has regen, can hold self healing until 10% and only if a heal ability has not been used within the last 1000ms
-  if hasRegen then
-    if Player.hp.percent <= self.Settings.SelfHealWithRegen and TimeSince(self.Combat.Toggles.Control.SelfHeal.LastUsed) > 1000 then
-      local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SecondWind()
-      if wasSuccessful == true then self.Combat.Toggles.Control.SelfHeal.LastUsed = Now() return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt
-      elseif TimeSince(self.Combat.Toggles.Control.SelfHeal.LastUsed) > 1000 then
-        wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Bloodbath()
-        if wasSuccessful == true then self.Combat.Toggles.Control.SelfHeal.LastUsed = Now() return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt end
-      end
-      return false, nil, nil, true, false
-    end
-  else
-  -- if no regen , use a self heal at 20%
-    if Player.hp.percent <= self.Settings.SelfHealWithoutRegen and TimeSince(self.Combat.Toggles.Control.SelfHeal.LastUsed) > 1000 then
-      local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SecondWind()
-      if wasSuccessful == true then self.Combat.Toggles.Control.SelfHeal.LastUsed = Now() return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt
-      elseif TimeSince(self.Combat.Toggles.Control.SelfHeal.LastUsed) > 1000 then
-        wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Bloodbath()
-        if wasSuccessful == true then self.Combat.Toggles.Control.SelfHeal.LastUsed = Now() return wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt end
-      end
-      return false, nil, nil, true, false
-    end
-  end
-
-  return false, nil, nil, true, false
+  return NilsReactionLibrary.Combat.Logic.SelfHeal()
 end
 
 -- **********************************************************************************************************
@@ -711,12 +672,15 @@ if self.Combat.Toggles == nil then self.Combat.Toggles = {} end
 -- ** Toggle Control allows for controls to be added based on timeline vs general reactions
 if self.Combat.Toggles.Control == nil then self.Combat.Toggles.Control = {} end
 
+-- TODO: Organize this a little more
 self.Combat.Toggles.Control = {
   TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
   AssassinateMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
   BurnBoss = { IsActive = false, TimelineActive = false},
   AOEBlackList = { IsActive = false, TimelineActive = false},
   CDBlackList = { IsActive = false, TimelineActive = false},
+  Pet = { IsActive = false, TimelineActive = false},
+  Demi = { IsActive = false, TimelineActive = false},
   DOT = { IsActive = false, TimelineActive = false},
   Jumps = { IsActive = false, TimelineActive = false},
   OmniWhiteList = { IsActive = false, TimelineActive = false},
@@ -743,6 +707,8 @@ function self.Combat.Toggles.Handler.Reset()
     BurnBoss = { IsActive = false, TimelineActive = false},
     AOEBlackList = { IsActive = false, TimelineActive = false},
     CDBlackList = { IsActive = false, TimelineActive = false},
+    Pet = { IsActive = false, TimelineActive = false},
+    Demi = { IsActive = false, TimelineActive = false},
     DOT = { IsActive = false, TimelineActive = false},
     Jumps = { IsActive = false, TimelineActive = false},
     OmniWhiteList = { IsActive = false, TimelineActive = false},
@@ -975,7 +941,7 @@ function self.OnUpdate()
       end
     end
 
-    local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.GapClosers()
+    local wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Logic.GapClosers()
     self.Log("GapClosers : " ..tostring(wasSuccessful))
     if wasSuccessful == true then
       self.Combat.Toggles.Control.GapClosers.LastUsed = Now()

@@ -150,119 +150,28 @@ end\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 28 or Player.level < 32 or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
+		["execute"] = "if player.incombat == false then\
+ self.eventConditionMismatch = true -- suppressing the log\
+	self.used = true \
+	return nil\
 end\
 \
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if action on cooldown\
-local actionskill = ActionList:Get(1, 7559)\
-if actionskill.cdmax - actionskill.cd > 1 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Royal City of Rabanastre\
-    [734] = {\
-        [9660] = 4, -- Command Tower\
-    },\
-    -- The Ridorana Lighthouse\
-    [776] = {\
-        [11344] = 4, -- Tsunami\
-        [11369] = 4, -- Ventilate\
-    },\
-    -- The Qitana Ravel\
-    [823] = {\
-        [15520] = 4, -- Heaving Breath\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [15596] = 4, -- High Pressure\
-    },\
-    -- The Halo\
-    [850] = {\
-        [15941] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [851] = {\
-        [16339] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [852] = {\
-        [16630] = 4, -- Geocrush\
-    },\
-    -- The Halo\
-    [854] = {\
-        [15962] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [855] = {\
-        [16370] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [856] = {\
-        [16659] = 4, -- Geocrush\
-        [16694] = 4, -- Dual Earthen Fists\
-    },\
-    -- The Copied Factory\
-    [882] = {\
-        [18627] = 4, -- Shockwave\
-    },\
-    -- The Gandof Thunder Plains\
-    [906] = {\
-        [19404] = 3.5, -- Levinforce\
-    },\
-    -- Cinder Drift\
-    [912] = {\
-        [19182] = 4, -- Screech\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		actionskill:Cast(Player.id)\
-  self.eventConditionMismatch = true -- suppressing the log\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Logic.Knockback(eventArgs.entityID, 0, eventArgs.spellID, true)\
+if wasSuccessful == true then\
   self.used = true\
-  return nil\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
 end\
+\
 ";
 		["executeType"] = 2;
-		["luaReturnsAction"] = false;
+		["luaReturnsAction"] = true;
 		["name"] = "Cast: Knockback";
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
-		["timeout"] = 10;
+		["timeout"] = 5;
 		["timerEndOffset"] = 0;
 		["timerOffset"] = 0;
 		["timerStartOffset"] = 0;

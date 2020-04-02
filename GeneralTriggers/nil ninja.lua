@@ -845,128 +845,6 @@ self.used = true";
 		["conditions"] = {
 		};
 		["enabled"] = false;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if action on cooldown\
-local actionskill = ActionList:Get(1, 7548)\
-if actionskill.cdmax - actionskill.cd > 1 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Royal City of Rabanastre\
-    [734] = {\
-        [9660] = 4, -- Command Tower\
-    },\
-    -- The Ridorana Lighthouse\
-    [776] = {\
-        [11344] = 4, -- Tsunami\
-        [11369] = 4, -- Ventilate\
-    },\
-    -- The Qitana Ravel\
-    [823] = {\
-        [15520] = 4, -- Heaving Breath\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [15596] = 4, -- High Pressure\
-    },\
-    -- The Halo\
-    [850] = {\
-        [15941] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [851] = {\
-        [16339] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [852] = {\
-        [16630] = 4, -- Geocrush\
-    },\
-    -- The Halo\
-    [854] = {\
-        [15962] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [855] = {\
-        [16370] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [856] = {\
-        [16659] = 4, -- Geocrush\
-        [16694] = 4, -- Dual Earthen Fists\
-    },\
-    -- The Copied Factory\
-    [882] = {\
-        [18627] = 4, -- Shockwave\
-    },\
-    -- The Gandof Thunder Plains\
-    [906] = {\
-        [19404] = 3.5, -- Levinforce\
-    },\
-    -- Cinder Drift (use timeline)\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		-- if sally installed, use hotbar, otherwise use base\
-		if SallyNIN ~= nil then SallyNIN.HotBarConfig.Armslength.enabled = false else	actionskill:Cast() end\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Knockback";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 20;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "4ee9e7d1-b233-493d-a089-9ee3bb4c824a";
-	};
-	[10] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if data.nilDataLoaded ~= nil and data.nilDataLoaded == true and NILS_PLAYGROUND ~= nil and NILS_PLAYGROUND == true then\
   self.eventConditionMismatch = true -- suppressing the log\
@@ -1376,6 +1254,87 @@ self.used = true";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "5ebbca48-a7f7-3860-a0dc-d3612fc5eec7";
+	};
+	[10] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 3;
+		["execute"] = "if Player.job ~= 34 or Player.level < 32 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip entities that are not attackable\
+local ent = EntityList:Get(eventArgs.entityID)\
+if ent == nil or ent.attackable == false then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- if action on cooldown\
+local actionskill = ActionList:Get(1, 7493)\
+if actionskill.cdmax - actionskill.cd > 1 then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- Map, spell id, timer\
+local contentTable = {\
+    -- The Royal City of Rabanastre\
+    [734] = {\
+        [9770] = 2, -- Soulfix\
+        [9869] = 2, -- Pomp and Circumstance\
+    },\
+    -- Malikah's Well\
+    [836] = {\
+        [15597] = 4, -- Wellbore\
+    },\
+}\
+\
+local localmapid = Player.localmapid\
+\
+-- skip if wrong map\
+if not contentTable[localmapid] then \
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- skip if wrong spell\
+if not contentTable[localmapid][eventArgs.spellID] then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
+\
+-- keep in queue if event time does not match, otherwise complete the reation\
+if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
+		\
+		-- if sally installed, use hotbar, otherwise use base\
+		if SallySAM ~= nil then SallySAM.HotBarConfig.Yaten.enabled = false else	actionskill:Cast(eventArgs.entityID) end\
+\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return nil\
+end";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Knockback";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 20;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "4ee9e7d1-b233-493d-a089-9ee3bb4c824a";
 	};
 	[11] = {
 		["actions"] = {
@@ -1919,87 +1878,6 @@ end\
 		["conditions"] = {
 		};
 		["enabled"] = false;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false or data.nilsPlayground.CustomConditionChecks.IsDoingMudra() == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Rak'tika Greatwood\
-    [817] = {\
-        [17856] = 1.5, -- Petro Eyes\
-    },\
-    -- Dohn Mheg\
-    [821] = {\
-        [13552] = 1.5, -- Imp Choir\
-    },\
-    -- The Orbonne Monastery\
-    [826] = {\
-        [14200] = 1.5, -- Devitalize\
-        [14423] = 1.5, -- Judgment Blade\
-        [14430] = 1.5, -- Mortal Blow\
-    },\
-    -- Cinder Drift\
-    [912] = {\
-        [19198] = 1.5, -- Negative Aura\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		Player:ClearTarget()\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Stop Casting";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "47a3558d-023c-413c-8cd9-e72a7202df7e";
-	};
-	[15] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.job ~= 30 or data.nilDataLoaded == nil or Player.incombat == false or Player.alive == false or data.nilsPlayground.CustomConditionChecks.NoOpener() == false then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -2055,7 +1933,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "7c8e218d-2938-377f-911d-9478a4881107";
 	};
-	[16] = {
+	[15] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2120,7 +1998,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "39d13900-5b37-8be9-962a-8a2205e70629";
 	};
-	[17] = {
+	[16] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2195,7 +2073,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "04cf4109-bf4a-6c21-91bb-076edb2c1778";
 	};
-	[18] = {
+	[17] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2216,7 +2094,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "55ed74e6-349c-2bea-943e-dc7e4a6fe41d";
 	};
-	[19] = {
+	[18] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2246,7 +2124,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "7ab79981-94e3-4770-863c-4327dc82f83a";
 	};
-	[20] = {
+	[19] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2279,7 +2157,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "dab631d2-70b5-6964-be0c-364f876ea757";
 	};
-	[21] = {
+	[20] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2312,7 +2190,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "01352b9a-9e19-cb7e-8305-fd1d95ab26dc";
 	};
-	[22] = {
+	[21] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2341,7 +2219,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce";
 	};
-	[23] = {
+	[22] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2368,7 +2246,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "092a07d8-25f3-2afb-9b44-1db7a1d108fa";
 	};
-	[24] = {
+	[23] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2396,7 +2274,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "c17c496a-6bc3-b8a9-b2d1-ea485e1e0a92";
 	};
-	[25] = {
+	[24] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2423,7 +2301,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487";
 	};
-	[26] = {
+	[25] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2447,7 +2325,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75";
 	};
-	[27] = {
+	[26] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2471,7 +2349,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84";
 	};
-	[28] = {
+	[27] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2495,7 +2373,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "6a7bf182-2cdd-e597-a008-100a62ecb935";
 	};
-	[29] = {
+	[28] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2519,7 +2397,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "9e765562-61c3-e2aa-b135-e71a4a11ad1c";
 	};
-	[30] = {
+	[29] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -2543,7 +2421,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "d416b5ea-7b4f-2e19-aab5-200b070665a6";
 	};
-	[31] = {
+	[30] = {
 		["actions"] = {
 		};
 		["conditions"] = {

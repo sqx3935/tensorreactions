@@ -484,224 +484,6 @@ if ent == nil or ent.attackable == false then\
 end\
 \
 -- if action on cooldown\
-local actionskill = ActionList:Get(1, 7548)\
-if actionskill.cdmax - actionskill.cd > 1 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Royal City of Rabanastre\
-    [734] = {\
-        [9660] = 4, -- Command Tower\
-    },\
-    -- The Ridorana Lighthouse\
-    [776] = {\
-        [11344] = 4, -- Tsunami\
-        [11369] = 4, -- Ventilate\
-    },\
-    -- The Qitana Ravel\
-    [823] = {\
-        [15520] = 4, -- Heaving Breath\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [15596] = 4, -- High Pressure\
-    },\
-    -- The Halo\
-    [850] = {\
-        [15941] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [851] = {\
-        [16339] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [852] = {\
-        [16630] = 4, -- Geocrush\
-    },\
-    -- The Halo\
-    [854] = {\
-        [15962] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [855] = {\
-        [16370] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [856] = {\
-        [16659] = 4, -- Geocrush\
-        [16694] = 4, -- Dual Earthen Fists\
-    },\
-    -- The Copied Factory\
-    [882] = {\
-        [18627] = 4, -- Shockwave\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		actionskill:Cast(Player.id)\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Knockback";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "2657b322-6d2a-2ca3-aa50-08507357e411";
-	};
-	[6] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Rak'tika Greatwood\
-    [817] = {\
-        [17856] = 1.5, -- Petro Eyes\
-    },\
-    -- Dohn Mheg\
-    [821] = {\
-        [13552] = 1.5, -- Imp Choir\
-    },\
-    -- The Orbonne Monastery\
-    [826] = {\
-        [14200] = 1.5, -- Devitalize\
-        [14423] = 1.5, -- Judgment Blade\
-        [14430] = 1.5, -- Mortal Blow\
-    },\
-    -- Cinder Drift\
-    [912] = {\
-        [19198] = 1.5, -- Negative Aura\
-    },\
-}\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Rak'tika Greatwood\
-    [817] = {\
-        [17856] = 1.5, -- Petro Eyes\
-    },\
-    -- Dohn Mheg\
-    [821] = {\
-        [13552] = 1.5, -- Imp Choir\
-    },\
-    -- The Orbonne Monastery\
-    [826] = {\
-        [14200] = 1.5, -- Devitalize\
-        [14423] = 1.5, -- Judgment Blade\
-        [14430] = 1.5, -- Mortal Blow\
-    },\
-    -- Cinder Drift\
-    [912] = {\
-        [19198] = 1.5, -- Negative Aura\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		Player:ClearTarget()\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Stop Casting";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "46072472-af6e-0885-9a3b-23f57361e01c";
-	};
-	[7] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 34 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sam ~= nil and xivopeners_sam.openerStarted == true) or (SallySAM ~= nil and SallySAM.SkillSettings.Opener.enabled == true) then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- if action on cooldown\
 local actionskill = ActionList:Get(1, 7863)\
 if actionskill.cdmax - actionskill.cd > 1 then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -778,7 +560,7 @@ end";
 		["used"] = false;
 		["uuid"] = "4c1522f3-fac6-a9e5-9e60-f7d2e3b15a74";
 	};
-	[8] = {
+	[6] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -941,7 +723,7 @@ end";
 		["used"] = false;
 		["uuid"] = "2d550a3a-bee2-7a3f-a60e-ef82eba7c474";
 	};
-	[9] = {
+	[7] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1257,7 +1039,7 @@ end \
 		["used"] = false;
 		["uuid"] = "2725dbc3-f93b-880d-ba65-5defae324a35";
 	};
-	[10] = {
+	[8] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1338,7 +1120,7 @@ end";
 		["used"] = false;
 		["uuid"] = "a4fbb6eb-ed5b-fe78-8477-e9aaf3169d80";
 	};
-	[11] = {
+	[9] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1359,14 +1141,54 @@ end";
 		["used"] = false;
 		["uuid"] = "7474ca8e-4466-3c34-b9bd-f804669229ec";
 	};
-	[12] = {
+	[10] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 3;
+		["execute"] = "if Player.incombat == false then\
+ self.eventConditionMismatch = true -- suppressing the log\
+	self.used = true \
+	return nil\
+end\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Logic.Knockback(eventArgs.entityID, 0, eventArgs.spellID, true)\
+if wasSuccessful == true then\
+  self.eventConditionMismatch = true -- suppressing the log\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = true;
+		["name"] = "Cast: Knockback";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 20;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "2657b322-6d2a-2ca3-aa50-08507357e411";
+	};
+	[11] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
-		["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SelfHeal()\
+		["execute"] = "if Player.incombat == false then\
+ self.eventConditionMismatch = true -- suppressing the log\
+	self.used = true \
+	return nil\
+end\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.SelfHeal()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
@@ -1389,7 +1211,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "4a7c5903-ddf7-d9c5-a4d0-8308f8815f1d";
 	};
-	[13] = {
+	[12] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1418,7 +1240,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "8fcc666d-adad-3482-849e-c6454d320522";
 	};
-	[14] = {
+	[13] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1445,7 +1267,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "168608ad-493a-0240-862e-3d244e27d224";
 	};
-	[15] = {
+	[14] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1473,7 +1295,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "b8a42404-cb00-3844-aa48-90722d4ee0bb";
 	};
-	[16] = {
+	[15] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1499,14 +1321,14 @@ return nil\
 		["used"] = false;
 		["uuid"] = "d710cbde-8e1b-95ed-834d-0555f7361379";
 	};
-	[17] = {
+	[16] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = true;
 		["eventType"] = 9;
-		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset()\
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset(true)\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
@@ -1523,14 +1345,14 @@ return nil";
 		["used"] = false;
 		["uuid"] = "fabca588-a3a1-1249-9113-0c3c759201c1";
 	};
-	[18] = {
+	[17] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = true;
 		["eventType"] = 10;
-		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset()\
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset(false)\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
@@ -1547,7 +1369,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "655b7c29-2b7f-d039-b98a-6788905f7462";
 	};
-	[19] = {
+	[18] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1561,7 +1383,7 @@ return nil";
 --end\
 \
 if gReactionSpeedhackSet == nil then\
-  gDevHackWalkSpeed = 7.2\
+  gDevHackWalkSpeed = 8.0\
   gReactionSpeedhackSet = true\
 end\
 self.eventConditionMismatch = true -- suppressing the log\

@@ -5,13 +5,14 @@
 -- **********************************************************************************************************
 
 function NilsReactionLibrary.Combat.Actions.Feint(entityID)
+  if NilsReactionLibrary.isempty(entityID) then entityID = 0 end
 
-  -- return if in opener or outside ogcd
-  if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
+  -- return if in opener
+  if NilsReactionLibrary.Combat.inOpener() then return false, nil, nil, false, false end
 
   -- check that target does not already have fient
   local target = Player:GetTarget()
-  if entityID ~= nil then target = EntityList:Get(entityID) end
+  if entityID > 0 then target = EntityList:Get(entityID) end
   if target == nil or not table.valid(target) or not target.attackable or HasBuff(target.id, 1195) then return false, nil, nil, false, false end
 
   -- check cooldown
@@ -19,11 +20,8 @@ function NilsReactionLibrary.Combat.Actions.Feint(entityID)
   if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
   if Player.job == NilsReactionLibrary.jobs.Ninja.id then
     if NilsReactionLibrary.Buffs.Ninja.IsDoingMudra() then return false, nil, nil, false, false end
-
-  -- Skip if under trick window
-  if HasBuff(target.id, 638, 0, 0, Player.id) then
-    return true, nil, nil, false, false
-  end
+    -- Skip if under trick window
+    if HasBuff(target.id, 638, 0, 0, Player.id) then return true, nil, nil, false, false end
 
     -- if sally installed, use hotbar, otherwise use base
     if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then
@@ -104,7 +102,7 @@ end
 -- actionID if you want to hold leg sweep for an action, example 50 for if the target is moving forward
 function NilsReactionLibrary.Combat.Actions.LegSweep(entityID, actionID)
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
 
   if NilsReactionLibrary.isempty(entityID) then entityID = 0 end
@@ -159,7 +157,7 @@ end
 
 function NilsReactionLibrary.Combat.Actions.Bloodbath()
 
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
 
   -- check cooldown
@@ -215,8 +213,7 @@ end
 
 function NilsReactionLibrary.Combat.Actions.SecondWind()
 
-  NilsReactionLibrary.Log("opener check : " ..tostring(NilsReactionLibrary.Combat.inOpener()))
-  -- return if in opener or outside ogcd
+  -- return if in opener
   if NilsReactionLibrary.Combat.inOpener() then return false, nil, nil, false, false end
 
   -- check cooldown

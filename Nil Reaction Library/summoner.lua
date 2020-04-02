@@ -14,7 +14,9 @@
 
 if NilsReactionLibrary.Combat.Toggles.Summoner == nil then NilsReactionLibrary.Combat.Toggles.Summoner = {} end
 
-function NilsReactionLibrary.Combat.Toggles.Summoner.Reset()
+function NilsReactionLibrary.Combat.Toggles.Summoner.Reset(onwipe)
+  if NilsReactionLibrary.isempty(onwipe) then onwipe = false end
+  
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then
     -- HotBar
     ACR_TensorRuin_Hotbar_Potion = false
@@ -36,9 +38,9 @@ function NilsReactionLibrary.Combat.Toggles.Summoner.Reset()
     ACR_TensorRuin_DoTs = true
     ACR_TensorRuin_BurnR4 = false
     ACR_TensorRuin_HoldAOE = false
-    ACR_TensorRuin_SmartAOE = true
+    ACR_TensorRuin_SmartAOE = false -- recommended to turn off due to fps issues.
     ACR_TensorRuin_SmartDoT = true
-    ACR_TensorRuin_SmartBane = true
+    ACR_TensorRuin_SmartBane = false -- recommended to turn off due to fps issues.
     -- ACR_TensorRuin_Potion = true -- TODO not resetting until a gui with settings can be created
     ACR_TensorRuin_HardRes = false
     ACR_TensorRuin_SwiftRes = false
@@ -68,13 +70,19 @@ function NilsReactionLibrary.Combat.Toggles.Summoner.CD(toggleOn, byTimeline)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Summoner.PetCD(toggleOn)
-  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+function NilsReactionLibrary.Combat.Toggles.Summoner.Pet(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Summoner.id then return false end
 
-  if Player.job == NilsReactionLibrary.jobs.Summoner.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_PetCD = toggleOn return true end
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.Pet.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.Pet.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_PetCD = toggleOn return true end
   return false
 end
 
@@ -114,13 +122,19 @@ function NilsReactionLibrary.Combat.Toggles.Summoner.DWT(toggleOn)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Summoner.Demi(toggleOn)
-  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+function NilsReactionLibrary.Combat.Toggles.Summoner.Demi(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Summoner.id then return false end
 
-  if Player.job == NilsReactionLibrary.jobs.Summoner.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_Demi = toggleOn return true end
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.Demi.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.Demi.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_Demi = toggleOn return true end
   return false
 end
 

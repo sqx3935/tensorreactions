@@ -80,7 +80,10 @@ end
 
 if NilsReactionLibrary.Combat.Toggles.Ninja == nil then NilsReactionLibrary.Combat.Toggles.Ninja = {} end
 
-function NilsReactionLibrary.Combat.Toggles.Ninja.Reset()
+-- if onwipe is passed in, different options can be set, exampe can reenable postions or opener on wipe when you might not want to for a death
+function NilsReactionLibrary.Combat.Toggles.Ninja.Reset(onwipe)
+  if NilsReactionLibrary.isempty(onwipe) then onwipe = false end
+
   if Player.job ~= NilsReactionLibrary.jobs.Ninja.id then return false end
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyNIN then
@@ -89,7 +92,7 @@ function NilsReactionLibrary.Combat.Toggles.Ninja.Reset()
     SallyNIN.SkillSettings.Range.enabled = true
     SallyNIN.SkillSettings.Omni.enabled = false
     SallyNIN.SkillSettings.BurnBoss.enabled = false
-    -- SallyNIN.SkillSettings.Potion.enabled = true
+    SallyNIN.SkillSettings.Potion.enabled = onwipe == true
     SallyNIN.SkillSettings.UseAOE.enabled = true
     SallyNIN.SkillSettings.TCJ.enabled = true
     SallyNIN.SkillSettings.Meisui.enabled = true

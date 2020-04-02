@@ -26,6 +26,9 @@ function NilsReactionLibrary.Combat.Actions.ThirdEye(entityID)
   local actionskill = ActionList:Get(1, 7498)
   if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
+  -- ogcd check to try and protect from clipping
+  if NilsReactionLibrary.Combat.isoGCDSafe(actionskill.cdmax, actionskill.cd, .3) == false then return false, nil, nil, false, false end
+
   if not Player.job == NilsReactionLibrary.jobs.Samurai.id then return false, nil, nil, false, false end
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then
     if SallySAM.HotBarConfig.ThirdEye ~= nil then
@@ -102,7 +105,9 @@ end
 
 if NilsReactionLibrary.Combat.Toggles.Samurai == nil then NilsReactionLibrary.Combat.Toggles.Samurai = {} end
 
-function NilsReactionLibrary.Combat.Toggles.Samurai.Reset()
+function NilsReactionLibrary.Combat.Toggles.Samurai.Reset(onwipe)
+  if NilsReactionLibrary.isempty(onwipe) then onwipe = false end
+
   if NilsReactionLibrary.WhichArc() ~= NilsReactionLibrary.arcs.SallySAM then return false end
 
   -- reset hotbar
@@ -132,7 +137,7 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Reset()
   SallySAM.SkillSettings.Kyuten.enabled = true
   SallySAM.SkillSettings.Meikyo.enabled = true
   SallySAM.SkillSettings.Opener.enabled = false
-  -- SallySAM.SkillSettings.Potion.enabled = true
+  SallySAM.SkillSettings.Potion.enabled = onwipe == true
   SallySAM.SkillSettings.SaveCD.enabled = false
   SallySAM.SkillSettings.Senei.enabled = true
   SallySAM.SkillSettings.Shinten.enabled = true

@@ -323,6 +323,28 @@ self.used = true\
 	[51] = {
 		[1] = {
 			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 205.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 51;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "488d895c-366b-9959-8185-6221a2fdec9c";
+		};
+		[2] = {
+			["actions"] = {
 				[1] = {
 					["aType"] = 3;
 					["actionID"] = -1;
@@ -358,8 +380,10 @@ self.used = true\
 					["buffID"] = -1;
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -397,29 +421,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "446ef7d3-767e-502c-9b4a-9366915d6f43";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
-self.used = true\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "CD On";
-			["time"] = 205.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 51;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "488d895c-366b-9959-8185-6221a2fdec9c";
+			["uuid"] = "ed526420-76c8-d7f2-9b0a-13410a405f9e";
 		};
 	};
 	[52] = {
@@ -558,6 +560,50 @@ end";
 	[74] = {
 		[1] = {
 			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 510.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 74;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "8f78a95f-0dfe-c6d9-b7b4-77ef257e48b2";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Potion(true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn on pots";
+			["time"] = 510.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 74;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "f4c3d470-0e9e-9192-8b41-5b92e9815fcc";
+		};
+		[3] = {
+			["actions"] = {
 				[1] = {
 					["aType"] = 3;
 					["actionID"] = -1;
@@ -593,8 +639,10 @@ end";
 					["buffID"] = -1;
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -632,51 +680,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "3669d4b7-be43-b9dd-92c1-526c99759592";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
-self.used = true\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "CD On";
-			["time"] = 510.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 74;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "8f78a95f-0dfe-c6d9-b7b4-77ef257e48b2";
-		};
-		[3] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Potion(true)\
-self.used = true\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "turn on pots";
-			["time"] = 510.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 74;
-			["timerEndOffset"] = 2;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -1;
-			["used"] = false;
-			["uuid"] = "f4c3d470-0e9e-9192-8b41-5b92e9815fcc";
+			["uuid"] = "ea41f940-8d3e-3d1e-8eea-6bf59e2817f5";
 		};
 	};
 	[87] = {
@@ -786,6 +790,28 @@ self.used = true\
 	[107] = {
 		[1] = {
 			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 673.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 107;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "38c63c7c-a897-affd-8651-5b2375e0abbe";
+		};
+		[2] = {
+			["actions"] = {
 				[1] = {
 					["aType"] = 3;
 					["actionID"] = -1;
@@ -821,8 +847,10 @@ self.used = true\
 					["buffID"] = -1;
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -860,29 +888,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "6b282f4a-6219-3bba-9feb-2d2a2ce407ed";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
-self.used = true\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "CD On";
-			["time"] = 673.5;
-			["timeRange"] = true;
-			["timelineIndex"] = 107;
-			["timerEndOffset"] = 1;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "38c63c7c-a897-affd-8651-5b2375e0abbe";
+			["uuid"] = "813f8cfb-1247-c242-842d-d864b90cbdb7";
 		};
 	};
 	[108] = {

@@ -20,12 +20,6 @@ local obj1 = {
 -- LIBRARY REQUIRED\
 \
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
-\
-\
---[[ ** ChangeLog **\
-* [\"1.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
-*	[\"1.1.0\"] = \"updated reaction libary for new Lua Returns actions, Reflected Wings uses `The's actions to turn off/on arc, knockback itself is utilizing a channel cast time to attempt to optimize when to cast knockback skills\",\
-]]\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
@@ -61,6 +55,33 @@ self.used = true\
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "a7ff2e93-2b0f-e4f8-922f-243cc2b3c0c3";
+		};
+	};
+	[11] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Addle";
+			["time"] = 76.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 11;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
+			["used"] = false;
+			["uuid"] = "53290dfc-bbd5-9993-81ca-2d222c324f6f";
 		};
 	};
 	[24] = {
@@ -124,7 +145,9 @@ end\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(false) == true then\
+			["execute"] = "-- pass false to turn it off\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.CD(false, true) == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
@@ -140,6 +163,54 @@ end";
 			["used"] = false;
 			["uuid"] = "984c08fe-dc9f-3830-a8a2-86dee9f07cae";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- pass false to turn it off\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.Pet(false, true) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Pet Off";
+			["time"] = 201.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 34;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -15;
+			["used"] = false;
+			["uuid"] = "284ca095-ab06-d60c-aa16-4897a2ba47f9";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- pass false to turn it off\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.Demi(false, true) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Demi Off";
+			["time"] = 201.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 34;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -15;
+			["used"] = false;
+			["uuid"] = "c808e03d-926a-7b8d-8d61-8da38d6d08b4";
+		};
 	};
 	[36] = {
 		[1] = {
@@ -148,7 +219,9 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(true) == true then\
+			["execute"] = "-- pass true to turn it back on\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true) == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
@@ -163,6 +236,54 @@ end";
 			["timerStartOffset"] = 4;
 			["used"] = false;
 			["uuid"] = "720d7345-280d-6725-a76b-0debad1f9a10";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- pass true to turn it back on\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.Pet(true, true) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Pet On";
+			["time"] = 213;
+			["timeRange"] = true;
+			["timelineIndex"] = 36;
+			["timerEndOffset"] = 6;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 4;
+			["used"] = false;
+			["uuid"] = "46f3e967-139f-a8fe-b446-c9ea80fcb735";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- pass true to turn it back on\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.Demi(true, true) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Demi On";
+			["time"] = 213;
+			["timeRange"] = true;
+			["timelineIndex"] = 36;
+			["timerEndOffset"] = 6;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 4;
+			["used"] = false;
+			["uuid"] = "708a5a03-3456-b9f1-b26c-938f2ebe2a98";
 		};
 	};
 	[48] = {
@@ -187,7 +308,7 @@ end\
 			["timelineIndex"] = 48;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -5;
+			["timerStartOffset"] = -0.80000001192093;
 			["used"] = false;
 			["uuid"] = "ecf80af5-8ee3-3c7c-a0bc-cac26df42ce2";
 		};
@@ -226,19 +347,21 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "disable assist";
 			["time"] = 535.1;
-			["timeRange"] = false;
+			["timeRange"] = true;
 			["timelineIndex"] = 72;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -1.3999999761581;
-			["timerStartOffset"] = 0;
+			["timerOffset"] = -2.2000000476837;
+			["timerStartOffset"] = -2.4000000953674;
 			["used"] = false;
-			["uuid"] = "e9a7abb3-4fb5-3d6c-b394-7eaa1b6e2deb";
+			["uuid"] = "954c2c97-9ca5-1f28-a073-ac2c81077b26";
 		};
 		[2] = {
 			["actions"] = {
@@ -246,25 +369,21 @@ self.used = true";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "-- 19901 = spellid of Reflected wings\
-local val, ent = TensorCore.isAnyEntityCasting(19901)\
-if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 1.4 then\
-  wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
-  if wasSuccessful == true then\
-    self.used = true\
-    return action, targetID, ignoreWeaveRules, allowInterrupt\
-  end\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, true, allowInterrupt\
 end";
 			["executeType"] = 2;
-			["loop"] = false;
+			["loop"] = true;
 			["luaReturnsAction"] = true;
 			["name"] = "Knockback";
 			["time"] = 535.1;
 			["timeRange"] = true;
 			["timelineIndex"] = 72;
-			["timerEndOffset"] = 6;
+			["timerEndOffset"] = -0.60000002384186;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -5;
+			["timerStartOffset"] = -1.6000000238419;
 			["used"] = false;
 			["uuid"] = "be4e9dd0-2110-00b4-a1dc-b8a5e7759315";
 		};
@@ -470,6 +589,33 @@ self.used = true";
 			["uuid"] = "d15f37ca-112d-3ee9-aebd-c0031a5e0e70";
 		};
 	};
+	[79] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Addle";
+			["time"] = 577.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 79;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
+			["used"] = false;
+			["uuid"] = "795836b5-92fa-1015-8b97-0a2b9d0ae4f1";
+		};
+	};
 	[86] = {
 		[1] = {
 			["actions"] = {
@@ -495,6 +641,34 @@ end\
 			["timerStartOffset"] = -5;
 			["used"] = false;
 			["uuid"] = "84fb241d-867b-972a-8c87-7922afd6729f";
+		};
+	};
+	[90] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Sprint";
+			["time"] = 655.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 90;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "b67215dc-9df9-b140-a510-93437fb8b25d";
 		};
 	};
 	[97] = {

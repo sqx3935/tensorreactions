@@ -53,6 +53,89 @@ NilsReactionLibrary.data.BurnBossList = {
   [9353] = 1 -- Shiva --> E8S
 }
 
+NilsReactionLibrary.data.CelestialIntersection = {
+  -- Dohn Mheg
+  [821] = {
+    [8857] = 4, -- Candy Cane
+    [13732] = 4, -- Crippling Blow
+  },
+  -- Mt. Gulg
+  [822] = {
+    [15611] = 3, -- Rake
+    [15625] = 4, -- Catechism
+    [15634] = 4, -- Sacrament Sforzando
+  },
+  -- The Qitana Ravel
+  [823] = {
+    [15497] = 4, -- Stonefist
+    [15505] = 4, -- Ripper Fang
+    [15513] = 4, -- Rend
+  },
+  -- Malikah's Well
+  [836] = {
+    [15589] = 4.5, -- Stone Flail
+    [15595] = 4.5, -- Efface
+  },
+  -- The Twinning
+  [840] = {
+    [15717] = 4, -- Augurium
+    [15853] = 3, -- Thunder Beam
+    [15867] = 3, -- Rail Cannon
+  },
+  -- Akadaemia Anyder
+  [841] = {
+    [15876] = 4, -- Protolithic Puncture
+    [15907] = 3, -- Shockbolt
+  },
+  -- The Crown of the Immaculate
+  [848] = {
+    [16073] = 5, -- Holy Sword
+    [16077] = 5, -- Righteous Bolt
+  },
+  -- The Core
+  [853] = {
+    [15752] = 6, -- Spear of Paradise
+    [17646] = 6, -- Vice and Virtue
+    [17648] = 6, -- Vice and Virtue
+  },
+  -- The Halo
+  [854] = {
+    [15969] = 5, -- Shadowflame
+    [15970] = 5, -- Shadowflame
+  },
+  -- The Nereus Trench
+  [855] = {
+    [16352] = 5, -- Rip Current
+  },
+  -- The Dancing Plague
+  [858] = {
+    [15660] = 5, -- Fae Light
+    [15670] = 4, -- Hard Swipe
+    [15671] = 4, -- Pummel
+    [15690] = 4, -- Divination Rune
+  },
+  -- The Grand Cosmos
+  [884] = {
+    [18203] = 4, -- Storm of Color
+    [18276] = 5, -- Captive Bolt
+    [18281] = 4, -- Shadowbolt
+    [18757] = 4, -- Peerless Valor
+  },
+  -- The Dying Gasp
+  [885] = {
+    [18342] = 5, -- Ravenous Assault
+    [18370] = 4, -- Fire IV
+    [18371] = 4, -- Blizzard IV
+    [18385] = 5, -- Height of Chaos
+  },
+  -- Anamnesis Anyder                             
+  [898] = {
+    [19305] = 4, -- Fetid Fang
+    [19314] = 4, -- Fetid Fang
+    [19340] = 4, -- Bonebreaker
+  },
+}
+
 NilsReactionLibrary.data.CDBlackList = {
  -- [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing
   [7129] = true, -- Doom Chimney
@@ -179,270 +262,6 @@ NilsReactionLibrary.data.feint = {
         [19305] = 4, -- Fetid Fang
         [19314] = 4, -- Fetid Fang
         [19340] = 4 -- Bonebreaker
-    }
-}
-
-NilsReactionLibrary.data.knockback = {
-    -- The Royal City of Rabanastre
-    [734] = {
-        [9660] = 4 -- Command Tower
-    },
-    -- The Ridorana Lighthouse
-    [776] = {
-        [11344] = 4, -- Tsunami
-        [11369] = 4 -- Ventilate
-    },
-    -- The Qitana Ravel
-    [823] = {
-        [15520] = 4 -- Heaving Breath
-    },
-    -- Malikah's Well
-    [836] = {
-        [15596] = 4 -- High Pressure
-    },
-    -- The Halo
-    [850] = {
-        [15941] = 4 -- Empty Hate
-    },
-    -- The Nereus Trench
-    [851] = {
-        [16339] = 4 -- Tidal Wave
-    },
-    -- Atlas Peak
-    [852] = {
-        [16630] = 4 -- Geocrush
-    },
-    -- The Halo
-    [854] = {
-        [15962] = 4 -- Empty Hate
-    },
-    -- The Nereus Trench
-    [855] = {
-        [16370] = 4 -- Tidal Wave
-    },
-    -- Atlas Peak
-    [856] = {
-        [16659] = 4, -- Geocrush
-        [16694] = 4 -- Dual Earthen Fists
-    },
-    -- The Copied Factory
-    [882] = {
-        [18627] = 4 -- Shockwave
-    }
-}
-
-NilsReactionLibrary.data.shadeshift = {
-    -- The Royal City of Rabanastre
-    [734] = {
-        [9670] = 5, -- Landwaster
-        [9688] = 5, -- Quake IV
-        [9869] = 5 -- Pomp and Circumstance
-    },
-    -- The Ridorana Lighthouse
-    [776] = {
-        [11308] = 5, -- Solar Storm
-        [11325] = 5, -- Water IV
-        [11364] = 5, -- Incinerate
-        [11612] = 5, -- Incinerate
-        [11613] = 5 -- Incinerate
-    },
-    -- The Rak'tika Greatwood
-    [817] = {
-        [17859] = 5 -- Chest Thump
-    },
-    -- Dohn Mheg
-    [821] = {
-        [7822] = 5, -- Landsblood
-        [8915] = 5, -- Tiiimbeeer
-        [13708] = 5 -- Virtuosic Capriccio
-    },
-    -- Mt. Gulg
-    [822] = {
-        [15612] = 5, -- Cyclone Wing
-        [15627] = 5, -- Sacrament of Penance
-        [15636] = 5 -- Orison Fortissimo
-    },
-    -- The Qitana Ravel
-    [823] = {
-        [15499] = 5, -- Lozatl's Scorn
-        [15506] = 5, -- Soundwave
-        [15515] = 5, -- Glossolalia
-        [15520] = 5 -- Heaving Breath
-    },
-    -- The Orbonne Monastery
-    [826] = {
-        [14139] = 5, -- Energy Burst
-        [14439] = 5 -- Divine Light
-    },
-    -- Malikah's Well
-    [836] = {
-        [15590] = 5, -- Head Toss
-        [15596] = 5, -- High Pressure
-        [15601] = 5 -- Intestinal Crank
-    },
-    -- Holminster Switch
-    [837] = {
-        [15813] = 5, -- The Path of Light
-        [15824] = 5, -- Scold's Bridle
-        [15832] = 5 -- Scavenger's Daughter
-    },
-    -- Amaurot
-    [838] = {
-        [15559] = 5, -- the Burning Sky
-        [15578] = 5 -- Therion Charge
-    },
-    -- The Twinning
-    [840] = {
-        [15716] = 5, -- Beastly Roar
-        [15868] = 5 -- High-tension Discharger
-    },
-    -- Akadaemia Anyder
-    [841] = {
-        [15878] = 5, -- Marine Mayhem
-        [15895] = 5, -- Arbor Storm
-        [15908] = 5 -- Thunderbolt
-    },
-    -- The Crown of the Immaculate
-    [848] = {
-        [16072] = 5, -- Scold's Bridle
-        [16106] = 5, -- Shadowreaver
-        [16190] = 5 -- Light Pillar
-    },
-    -- The Core
-    [849] = {
-        [15764] = 5, -- Eden's Gravity
-        [15772] = 5, -- Dimensional Shift
-        [15780] = 5, -- Frago Maximum
-        [15783] = 5 -- Mana Burst
-    },
-    -- The Halo
-    [850] = {
-        [15982] = 5 -- Entropy
-    },
-    -- The Nereus Trench
-    [851] = {
-        [16324] = 5, -- Tidal Roar
-        [17435] = 5 -- Tsunami
-    },
-    -- Atlas Peak
-    [852] = {
-        [16631] = 5, -- Voice of the Land
-        [17382] = 5 -- Earthen Fury
-    },
-    -- The Core
-    [853] = {
-        [15728] = 5, -- Eden's Gravity
-        [15743] = 5, -- Dimensional Shift
-        [15755] = 5, -- Frago Maximus
-        [15759] = 5, -- Mana Burst
-        [17657] = 5 -- Regained Fire III
-    },
-    -- The Halo
-    [854] = {
-        [15971] = 5, -- Doomvoid Cleaver
-        [15984] = 5, -- Entropy
-        [15986] = 5 -- Quietus
-    },
-    -- The Nereus Trench
-    [855] = {
-        [16348] = 5, -- Tidal Roar
-        [16350] = 5, -- Tidal Rage
-        [16396] = 5, -- Tidal Rage
-        [17436] = 5 -- Tsunami
-    },
-    -- Atlas Peak
-    [856] = {
-        [16660] = 5, -- Voice of the Land
-        [16682] = 5, -- Tumult
-        [16699] = 5, -- Earthen Fury
-        [17384] = 5 -- Earthen Fury
-    },
-    -- The Dancing Plague
-    [858] = {
-        [15667] = 5, -- Being Mortal
-        [15674] = 5, -- Puck's Caprice
-        [15681] = 5, -- Puck's Breath
-        [15691] = 5, -- Bright Sabbath
-        [16926] = 5 -- Uplift
-    },
-    -- The Copied Factory
-    [882] = {
-        [18261] = 5, -- Diffuse Laser
-        [18437] = 5, -- Laser-resistance Test
-        [18675] = 5, -- Shrapnel Impact
-        [18678] = 5, -- Laser Saturation
-        [18753] = 5 -- 360-degree Bombing Maneuver
-    },
-    -- The Grand Cosmos
-    [884] = {
-        [18204] = 5, -- Ode to Lost Love
-        [18277] = 5, -- Culling Blade
-        [18851] = 5 -- Immortal Anathema
-    },
-    -- The Dying Gasp
-    [885] = {
-        [18360] = 5, -- Quake III
-        [18367] = 5, -- Annihilation
-        [18380] = 5, -- Blight
-        [18419] = 5, -- Giganomachy
-        [18420] = 5 -- Quadastrike
-    },
-    -- Liminal Space
-    [887] = {
-        [18470] = 4 -- Cascade
-    },
-    -- Cinder Drift
-    [897] = {
-        [19112] = 4, -- Optimized Ultima
-        [19139] = 4, -- Homing Lasers
-        [19141] = 4, -- High-powered Homing
-        [19144] = 4 -- Outrage
-    },
-    -- Anamnesis Anyder
-    [898] = {
-        [19288] = 4, -- The Final Verse
-        [19295] = 4, -- Wanderer's Pyre
-        [19306] = 4, -- Inscrutability
-        [19315] = 4, -- Inscrutability
-        [19321] = 4, -- Ectoplasmic Ray
-        [19322] = 4, -- Ectoplasmic Ray
-        [19324] = 4, -- Seabed Ceremony
-        [19328] = 4 -- Flying Fount
-    }
-}
-
--- LegSweep and LowBlow
-NilsReactionLibrary.data.stun = {
-    -- test , tempest, Tempest Swallow
-    [818] = {[17336] = 5},
-    -- Dohn Mheg
-    [821] = {
-        [15788] = 4 -- Pollen Carona
-    },
-    -- Malikah's Well
-    [836] = {
-        [16266] = 3 -- Realm Shaker
-    },
-    -- Holminster Switch
-    [837] = {
-        [17203] = 4.5 -- Tail Swing
-    },
-    -- The Twinning
-    [840] = {
-        [15802] = 5, -- 128-tonze Swing
-        [15805] = 5, -- Nerve Gas
-        [15811] = 5 -- Thrown Flames
-    },
-    -- Akadaemia Anyder
-    [841] = {
-        [17164] = 5 -- Noahionto
-    },
-    -- The Grand Cosmos
-    [884] = {
-        [18722] = 3, -- Whirl of Rage
-        [18725] = 3, -- Self-destruct
-        [18726] = 3, -- Acid Mist
-        [18758] = 4 -- Unparalleled Glory
     }
 }
 
@@ -1280,6 +1099,680 @@ NilsReactionLibrary.data.jumpBlacklist = {
  [19969] = true, -- Reflected Scythe Kick
  [20023] = true, -- Falling Rock
  [20145] = true -- Iron Chariot
+}
+
+NilsReactionLibrary.data.knockback = {
+    -- The Royal City of Rabanastre
+    [734] = {
+        [9660] = 4 -- Command Tower
+    },
+    -- The Ridorana Lighthouse
+    [776] = {
+        [11344] = 4, -- Tsunami
+        [11369] = 4 -- Ventilate
+    },
+    -- The Qitana Ravel
+    [823] = {
+        [15520] = 4 -- Heaving Breath
+    },
+    -- Malikah's Well
+    [836] = {
+        [15596] = 4 -- High Pressure
+    },
+    -- The Halo
+    [850] = {
+        [15941] = 4 -- Empty Hate
+    },
+    -- The Nereus Trench
+    [851] = {
+        [16339] = 4 -- Tidal Wave
+    },
+    -- Atlas Peak
+    [852] = {
+        [16630] = 4 -- Geocrush
+    },
+    -- The Halo
+    [854] = {
+        [15962] = 4 -- Empty Hate
+    },
+    -- The Nereus Trench
+    [855] = {
+        [16370] = 4 -- Tidal Wave
+    },
+    -- Atlas Peak
+    [856] = {
+        [16659] = 4, -- Geocrush
+        [16694] = 4 -- Dual Earthen Fists
+    },
+    -- The Copied Factory
+    [882] = {
+        [18627] = 4 -- Shockwave
+    }
+}
+
+NilsReactionLibrary.data.shadeshift = {
+    -- The Royal City of Rabanastre
+    [734] = {
+        [9670] = 5, -- Landwaster
+        [9688] = 5, -- Quake IV
+        [9869] = 5 -- Pomp and Circumstance
+    },
+    -- The Ridorana Lighthouse
+    [776] = {
+        [11308] = 5, -- Solar Storm
+        [11325] = 5, -- Water IV
+        [11364] = 5, -- Incinerate
+        [11612] = 5, -- Incinerate
+        [11613] = 5 -- Incinerate
+    },
+    -- The Rak'tika Greatwood
+    [817] = {
+        [17859] = 5 -- Chest Thump
+    },
+    -- Dohn Mheg
+    [821] = {
+        [7822] = 5, -- Landsblood
+        [8915] = 5, -- Tiiimbeeer
+        [13708] = 5 -- Virtuosic Capriccio
+    },
+    -- Mt. Gulg
+    [822] = {
+        [15612] = 5, -- Cyclone Wing
+        [15627] = 5, -- Sacrament of Penance
+        [15636] = 5 -- Orison Fortissimo
+    },
+    -- The Qitana Ravel
+    [823] = {
+        [15499] = 5, -- Lozatl's Scorn
+        [15506] = 5, -- Soundwave
+        [15515] = 5, -- Glossolalia
+        [15520] = 5 -- Heaving Breath
+    },
+    -- The Orbonne Monastery
+    [826] = {
+        [14139] = 5, -- Energy Burst
+        [14439] = 5 -- Divine Light
+    },
+    -- Malikah's Well
+    [836] = {
+        [15590] = 5, -- Head Toss
+        [15596] = 5, -- High Pressure
+        [15601] = 5 -- Intestinal Crank
+    },
+    -- Holminster Switch
+    [837] = {
+        [15813] = 5, -- The Path of Light
+        [15824] = 5, -- Scold's Bridle
+        [15832] = 5 -- Scavenger's Daughter
+    },
+    -- Amaurot
+    [838] = {
+        [15559] = 5, -- the Burning Sky
+        [15578] = 5 -- Therion Charge
+    },
+    -- The Twinning
+    [840] = {
+        [15716] = 5, -- Beastly Roar
+        [15868] = 5 -- High-tension Discharger
+    },
+    -- Akadaemia Anyder
+    [841] = {
+        [15878] = 5, -- Marine Mayhem
+        [15895] = 5, -- Arbor Storm
+        [15908] = 5 -- Thunderbolt
+    },
+    -- The Crown of the Immaculate
+    [848] = {
+        [16072] = 5, -- Scold's Bridle
+        [16106] = 5, -- Shadowreaver
+        [16190] = 5 -- Light Pillar
+    },
+    -- The Core
+    [849] = {
+        [15764] = 5, -- Eden's Gravity
+        [15772] = 5, -- Dimensional Shift
+        [15780] = 5, -- Frago Maximum
+        [15783] = 5 -- Mana Burst
+    },
+    -- The Halo
+    [850] = {
+        [15982] = 5 -- Entropy
+    },
+    -- The Nereus Trench
+    [851] = {
+        [16324] = 5, -- Tidal Roar
+        [17435] = 5 -- Tsunami
+    },
+    -- Atlas Peak
+    [852] = {
+        [16631] = 5, -- Voice of the Land
+        [17382] = 5 -- Earthen Fury
+    },
+    -- The Core
+    [853] = {
+        [15728] = 5, -- Eden's Gravity
+        [15743] = 5, -- Dimensional Shift
+        [15755] = 5, -- Frago Maximus
+        [15759] = 5, -- Mana Burst
+        [17657] = 5 -- Regained Fire III
+    },
+    -- The Halo
+    [854] = {
+        [15971] = 5, -- Doomvoid Cleaver
+        [15984] = 5, -- Entropy
+        [15986] = 5 -- Quietus
+    },
+    -- The Nereus Trench
+    [855] = {
+        [16348] = 5, -- Tidal Roar
+        [16350] = 5, -- Tidal Rage
+        [16396] = 5, -- Tidal Rage
+        [17436] = 5 -- Tsunami
+    },
+    -- Atlas Peak
+    [856] = {
+        [16660] = 5, -- Voice of the Land
+        [16682] = 5, -- Tumult
+        [16699] = 5, -- Earthen Fury
+        [17384] = 5 -- Earthen Fury
+    },
+    -- The Dancing Plague
+    [858] = {
+        [15667] = 5, -- Being Mortal
+        [15674] = 5, -- Puck's Caprice
+        [15681] = 5, -- Puck's Breath
+        [15691] = 5, -- Bright Sabbath
+        [16926] = 5 -- Uplift
+    },
+    -- The Copied Factory
+    [882] = {
+        [18261] = 5, -- Diffuse Laser
+        [18437] = 5, -- Laser-resistance Test
+        [18675] = 5, -- Shrapnel Impact
+        [18678] = 5, -- Laser Saturation
+        [18753] = 5 -- 360-degree Bombing Maneuver
+    },
+    -- The Grand Cosmos
+    [884] = {
+        [18204] = 5, -- Ode to Lost Love
+        [18277] = 5, -- Culling Blade
+        [18851] = 5 -- Immortal Anathema
+    },
+    -- The Dying Gasp
+    [885] = {
+        [18360] = 5, -- Quake III
+        [18367] = 5, -- Annihilation
+        [18380] = 5, -- Blight
+        [18419] = 5, -- Giganomachy
+        [18420] = 5 -- Quadastrike
+    },
+    -- Liminal Space
+    [887] = {
+        [18470] = 4 -- Cascade
+    },
+    -- Cinder Drift
+    [897] = {
+        [19112] = 4, -- Optimized Ultima
+        [19139] = 4, -- Homing Lasers
+        [19141] = 4, -- High-powered Homing
+        [19144] = 4 -- Outrage
+    },
+    -- Anamnesis Anyder
+    [898] = {
+        [19288] = 4, -- The Final Verse
+        [19295] = 4, -- Wanderer's Pyre
+        [19306] = 4, -- Inscrutability
+        [19315] = 4, -- Inscrutability
+        [19321] = 4, -- Ectoplasmic Ray
+        [19322] = 4, -- Ectoplasmic Ray
+        [19324] = 4, -- Seabed Ceremony
+        [19328] = 4 -- Flying Fount
+    }
+}
+
+-- LegSweep and LowBlow
+NilsReactionLibrary.data.stun = {
+    -- test , tempest, Tempest Swallow
+    [818] = {[17336] = 5},
+    -- Dohn Mheg
+    [821] = {
+        [15788] = 4 -- Pollen Carona
+    },
+    -- Malikah's Well
+    [836] = {
+        [16266] = 3 -- Realm Shaker
+    },
+    -- Holminster Switch
+    [837] = {
+        [17203] = 4.5 -- Tail Swing
+    },
+    -- The Twinning
+    [840] = {
+        [15802] = 5, -- 128-tonze Swing
+        [15805] = 5, -- Nerve Gas
+        [15811] = 5 -- Thrown Flames
+    },
+    -- Akadaemia Anyder
+    [841] = {
+        [17164] = 5 -- Noahionto
+    },
+    -- The Grand Cosmos
+    [884] = {
+        [18722] = 3, -- Whirl of Rage
+        [18725] = 3, -- Self-destruct
+        [18726] = 3, -- Acid Mist
+        [18758] = 4 -- Unparalleled Glory
+    }
+}
+
+NilsReactionLibrary.data.thirdeye = {
+  -- test , tempest, Tempest Swallow
+  [818] = {
+    [17336] = 2,
+    [7494] =2,
+  },
+  -- The Royal City of Rabanastre
+  [734] = {
+  [9660] = 2, -- Command Tower
+  [9665] = 2, -- Control Tower
+  [9670] = 2, -- Landwaster
+  [9673] = 2, -- To Dust
+  [9676] = 1, -- Hammerfall
+  [9686] = 2, -- Demolish
+  [9688] = 2, -- Quake IV
+  [9760] = 2, -- Dark Ultima
+  [9767] = 2, -- Coldblood
+  [9774] = 2, -- Fire IV
+  [9776] = 2, -- Unholy Sacrifice
+  [9790] = 2, -- Blizzard IV
+  [9837] = 2, -- Submission Tower
+  [9841] = 2, -- Choco Meteor
+  [9866] = 2, -- Heavenly Subjugation
+  [9869] = 2, -- Pomp and Circumstance
+  },
+  -- The Ridorana Lighthouse
+  [776] = {
+  [11308] = 2, -- Solar Storm
+  [11316] = 2, -- Death Strike
+  [11318] = 2, -- Dust Storm
+  [11325] = 2, -- Water IV
+  [11344] = 3, -- Tsunami
+  [11349] = 2, -- Explosion
+  [11364] = 2, -- Incinerate
+  [11365] = 2, -- Accelerate
+  [11484] = 2, -- Fire IV
+  [11550] = 2, -- Lithobrake
+  [11612] = 2, -- Incinerate
+  [11613] = 2, -- Incinerate
+  },
+  -- Dohn Mheg
+  [821] = {
+  [7822] = 2, -- Landsblood
+  [8915] = 2, -- Tiiimbeeer
+  [13708] = 2, -- Virtuosic Capriccio
+  },
+  -- Mt. Gulg
+  [822] = {
+  [15612] = 2, -- Cyclone Wing
+  [15627] = 2, -- Sacrament of Penance
+  [15636] = 2, -- Orison Fortissimo
+  },
+  -- The Qitana Ravel
+  [823] = {
+  [15499] = 2, -- Lozatl's Scorn
+  [15506] = 2, -- Soundwave
+  [15507] = 2, -- Subsonics
+  [15515] = 2, -- Glossolalia
+  [15525] = 2, -- Confession of Faith
+  },
+  -- The Orbonne Monastery
+  [826] = {
+  [14139] = 2, -- Energy Burst
+  [14172] = 2, -- Burst
+  [14177] = 2, -- Duskblade
+  [14206] = 2, -- Noahionto
+  [14439] = 2, -- Divine Light
+  [14548] = 2, -- Control Tower
+  [14552] = 2, -- Earth Hammer
+  },
+  -- Malikah's Well
+  [836] = {
+  [15590] = 2, -- Head Toss
+  [15593] = 2, -- Flail Smash
+  [15596] = 3, -- High Pressure
+  [15601] = 2, -- Intestinal Crank
+  },
+  -- Holminster Switch
+  [837] = {
+  [15813] = 2, -- The Path of Light
+  [15824] = 2, -- Scold's Bridle
+  [15826] = 2, -- Exorcise
+  [15832] = 2, -- Scavenger's Daughter
+  [16769] = 2, -- Taphephobia
+  [16777] = 2, -- Pendulum
+  [16778] = 2, -- 
+  },
+  -- Amaurot
+  [838] = {
+  [15559] = 2, -- the Burning Sky
+  [15563] = 2, -- the Final Sky
+  [15567] = 2, -- Shrill Shriek
+  [15578] = 2, -- Therion Charge
+  [15587] = 2, -- Shadow Wreck
+  [17108] = 2, -- Cosmic Kiss
+  },
+  -- The Twinning
+  [840] = {
+  [15716] = 2, -- Beastly Roar
+  [15868] = 2, -- High-tension Discharger
+  [17306] = 2, -- Shattered Crystal
+  },
+  -- Akadaemia Anyder
+  [841] = {
+  [15878] = 2, -- Marine Mayhem
+  [15895] = 2, -- Arbor Storm
+  [15908] = 2, -- Thunderbolt
+  },
+  -- The Crown of the Immaculate
+  [848] = {
+  [16072] = 2, -- Scold's Bridle
+  [16106] = 2, -- Shadowreaver
+  [16190] = 2, -- Light Pillar
+  },
+  -- The Core
+  [849] = {
+  [15764] = 2, -- Eden's Gravity
+  [15772] = 2, -- Dimensional Shift
+  [15780] = 2, -- Frago Maximum
+  [15783] = 2, -- Mana Burst
+  [15785] = 2, -- Paradisal Dive
+  [17643] = 2, -- Eden's Fire III
+  },
+  -- The Halo
+  [850] = {
+  [15941] = 3, -- Empty Hate
+  [15982] = 2, -- Entropy
+  },
+  -- The Nereus Trench
+  [851] = {
+  [16324] = 2, -- Tidal Roar
+  [16332] = 2, -- Killer Wave
+  [16339] = 3, -- Tidal Wave
+  [17435] = 2, -- Tsunami
+  },
+  -- Atlas Peak
+  [852] = {
+  [16626] = 2, -- Crumbling Down
+  [16630] = 2, -- Geocrush
+  [16631] = 2, -- Voice of the Land
+  [17382] = 2, -- Earthen Fury
+  },
+  -- The Core
+  [853] = {
+  [15728] = 2, -- Eden's Gravity
+  [15736] = 2, -- Vice and Virtue
+  [15738] = 2, -- Vice and Virtue
+  [15743] = 2, -- Dimensional Shift
+  [15744] = 2, -- Pure Beam
+  [15755] = 2, -- Frago Maximus
+  [15759] = 2, -- Mana Burst
+  [15761] = 2, -- Paradisal Dive
+  [17647] = 2, -- Vice and Virtue
+  [17653] = 2, -- Eden's Fire III
+  [17657] = 2, -- Regained Fire III
+  },
+  -- The Halo
+  [854] = {
+  [15962] = 2, -- Empty Hate
+  [15971] = 2, -- Doomvoid Cleaver
+  [15984] = 2, -- Entropy
+  [15986] = 2, -- Quietus
+  },
+  -- The Nereus Trench
+  [855] = {
+  [16348] = 2, -- Tidal Roar
+  [16350] = 2, -- Tidal Rage
+  [16359] = 2, -- Killer Wave
+  [16370] = 2, -- Tidal Wave
+  [16396] = 2, -- Tidal Rage
+  [17436] = 2, -- Tsunami
+  },
+  -- Atlas Peak
+  [856] = {
+  [16655] = 2, -- Crumbling Down
+  [16659] = 3, -- Geocrush
+  [16660] = 2, -- Voice of the Land
+  [16675] = 2, -- Tectonic Uplift
+  [16682] = 2, -- Tumult
+  [16699] = 2, -- Earthen Fury
+  [17384] = 2, -- Earthen Fury
+  },
+  -- The Dancing Plague
+  [858] = {
+    [15667] = 2, -- Being Mortal
+    [15674] = 2, -- Puck's Caprice
+    [15681] = 2, -- Puck's Breath
+    [15691] = 2, -- Bright Sabbath
+    [16610] = 2, -- Whispering Wind
+    [16926] = 2, -- Uplift
+  },
+  -- The Copied Factory
+  [882] = {
+    [18245] = 2, -- Demolish Structure
+    [18261] = 2, -- Diffuse Laser
+    [18437] = 2, -- Laser-resistance Test
+    [18450] = 2, -- Impact
+    [18639] = 2, -- Forceful Impact
+    [18668] = 2, -- Total Annihilation Maneuver
+    [18675] = 2, -- Shrapnel Impact
+    [18678] = 2, -- Laser Saturation
+    [18753] = 2, -- 360-degree Bombing Maneuver
+  },
+  -- The Grand Cosmos
+  [884] = {
+    [18204] = 2, -- Ode to Lost Love
+    [18209] = 2, -- Ireful Wind
+    [18212] = 2, -- Far Wind
+    [18267] = 3, -- Otherwordly Heat
+    [18277] = 2, -- Culling Blade
+    [18282] = 2, -- Dark Pulse
+    [18285] = 2, -- Dark Well
+    [18851] = 2, -- Immortal Anathema
+  },
+  -- The Dying Gasp
+  [885] = {
+    [18344] = 2, -- Shadow Spread
+    [18360] = 2, -- Quake III
+    [18362] = 2, -- Dark II
+    [18364] = 2, -- Ancient Water III
+    [18367] = 2, -- Annihilation
+    [18380] = 2, -- Blight
+    [18381] = 2, -- Megiddo Flame
+    [18384] = 2, -- Shadow Flare
+    [18401] = 2, -- Wail of the Lost
+    [18403] = 2, -- Bident
+    [18409] = 2, -- Dark Seal
+    [18419] = 2, -- Gigantomachy
+    [18420] = 2, -- Quadrastrike
+  },
+  -- Anamnesis Anyder
+  [898] = {
+    [19288] = 2, -- The Final Verse
+    [19295] = 2, -- Wanderer's Pyre
+    [19315] = 2, -- Inscrutability
+    [19321] = 2, -- Ectoplasmic Ray
+    [19322] = 2, -- Ectoplasmic Ray
+    [19324] = 2, -- Seabed Ceremony
+    [19326] = 2, -- Falling Water 
+    [19328] = 2, -- Flying Fount
+  },
+}
+
+NilsReactionLibrary.data.troubadour = {
+   -- The Royal City of Rabanastre
+   [734] = {
+    [9669] = 4, -- Landwaster
+    [9760] = 2.5, -- Dark Ultima
+},
+-- The Ridorana Lighthouse
+[776] = {
+    [11308] = 4, -- Solar Storm
+    [11318] = 3.5, -- Dust Storm
+    [11325] = 4, -- Water IV
+    [11364] = 4, -- Incinerate
+    [11484] = 4, -- Fire IV
+    [11612] = 4, -- Incinerate
+    [11613] = 4, -- Incinerate
+},
+-- Dohn Mheg
+[821] = {
+    [7822] = 3, -- Landsblood
+    [8915] = 4, -- Tiiimbeeer
+    [13708] = 4, -- Virtuosic Capriccio
+},
+-- Mt. Gulg
+[822] = {
+    [15612] = 3, -- Cyclone Wing
+    [15627] = 4, -- Sacrament of Penance
+    [15636] = 4, -- Orison Fortissimo
+},
+-- The Qitana Ravel
+[823] = {
+    [15499] = 3, -- Lozatl's Scorn
+    [15506] = 3, -- Soundwave
+    [15515] = 3, -- Glossolalia
+    [15524] = 4, -- Confession of Faith
+},
+-- The Orbonne Monastery
+[826] = {
+    [14139] = 4, -- Energy Burst
+    [14206] = 4, -- Noahionto
+    [14439] = 4, -- Divine Light
+},
+-- Malikah's Well
+[836] = {
+    [15590] = 4, -- Head Toss
+    [15601] = 4, -- Intestinal Crank
+},
+-- Holminster Switch
+[837] = {
+    [15813] = 4, -- The Path of Light
+    [15824] = 4, -- Scold's Bridle
+    [15832] = 4, -- Scavenger's Daughter
+},
+-- Amaurot
+[838] = {
+    [15587] = 4, -- Shadow Wreck
+    [17108] = 4, -- Cosmic Kiss
+},
+-- The Twinning
+[840] = {
+    [15716] = 4, -- Beastly Roar
+    [15868] = 3, -- High-tension Discharger
+},
+-- Akadaemia Anyder
+[841] = {
+    [15878] = 3.5, -- Marine Mayhem
+    [15895] = 3, -- Arbor Storm
+    [15908] = 4, -- Thunderbolt
+},
+-- The Crown of the Immaculate
+[848] = {
+    [16072] = 6, -- Scold's Bridle
+    [16106] = 5, -- Shadowreaver
+    [16190] = 5, -- Light Pillar
+},
+-- The Core
+[853] = {
+    [15736] = 6, -- Vice and Virtue
+    [15738] = 6, -- Vice and Virtue
+    [15755] = 5, -- Frago Maximus
+    [15759] = 4, -- Mana Burst
+    [17656] = 5.5, -- Delta Attack
+},
+-- The Halo
+[854] = {
+    [15984] = 6, -- Entropy
+    [15986] = 6, -- Quietus
+},
+-- The Nereus Trench
+[855] = {
+    [16348] = 4, -- Tidal Roar
+    [16350] = 5, -- Tidal Rage
+    [16395] = 5, -- Tidal Rage
+    [17436] = 6, -- Tsunami
+},
+-- Atlas Peak
+[856] = {
+    [16660] = 4, -- Voice of the Land
+    [16682] = 3.6, -- Tumult
+    [16699] = 6, -- Earthen Fury
+    [17384] = 6, -- Earthen Fury
+},
+-- The Dancing Plague
+[858] = {
+    [15667] = 6, -- Being Mortal
+    [15674] = 4, -- Puck's Caprice
+    [15681] = 5, -- Puck's Breath
+    [15691] = 4, -- Bright Sabbath
+},
+-- The Copied Factory
+[882] = {
+    [18261] = 4, -- Diffuse Laser
+    [18437] = 4, -- Laser-resistance Test
+    [18639] = 4, -- Forceful Impact
+    [18675] = 5, -- Shrapnel Impact
+    [18678] = 4, -- Laser Saturation
+    [18753] = 5, -- 360-degree Bombing Maneuver
+},
+-- The Grand Cosmos
+[884] = {
+    [18204] = 4, -- Ode to Lost Love
+    [18277] = 6, -- Culling Blade
+    [18282] = 5, -- Dark Pulse
+    [18851] = 4, -- Immortal Anathema
+},
+-- The Dying Gasp
+[885] = {
+    [18344] = 5, -- Shadow Spread
+    [18360] = 5, -- Quake III
+    [18367] = 5, -- Annihilation
+    [18380] = 5, -- Blight
+    [18384] = 4, -- Shadow Flare
+    [18398] = 4, -- Again the Martyr
+    [18419] = 5, -- Gigantomachy
+    [18420] = 4, -- Quadrastrike
+},
+-- Ashfall
+[903] = {
+    [19415] = 4, -- Superstorm
+},
+-- The Gandof Thunder Plains
+[906] = {
+    [19381] = 4, -- Judgment Volts
+},
+-- Ashfall
+[907] = {
+    [19447] = 4, -- Superstorm
+    [19476] = 4, -- Inferno Howl
+    [19448] = 4, -- Firestorm
+},
+-- Cinder Drift
+[912] = {
+    [19134] = 4, -- Optimized Ultima
+    [20050] = 4, -- Dalamud Impact
+},
+-- Anamnesis Anyder
+[898] = {
+  [19288] = 4, -- The Final Verse
+  [19295] = 4, -- Wanderer's Pyre
+  [19306] = 4, -- Inscrutability
+  [19315] = 4, -- Inscrutability
+  [19321] = 4, -- Ectoplasmic Ray
+  [19322] = 4, -- Ectoplasmic Ray
+  [19324] = 4, -- Seabed Ceremony
+  [19328] = 4, -- Flying Fount	
+},
 }
 
 NilsReactionLibrary.data.OmniList = {

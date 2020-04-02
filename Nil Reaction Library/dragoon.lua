@@ -50,7 +50,9 @@ end
 
 if NilsReactionLibrary.Combat.Toggles.Dragoon == nil then NilsReactionLibrary.Combat.Toggles.Dragoon = {} end
 
-function NilsReactionLibrary.Combat.Toggles.Dragoon.Reset()
+function NilsReactionLibrary.Combat.Toggles.Dragoon.Reset(onwipe)
+  if NilsReactionLibrary.isempty(onwipe) then onwipe = false end
+
   if NilsReactionLibrary.WhichArc() ~= NilsReactionLibrary.arcs.SallyDRG then return false end
 
   -- reset hotbar
@@ -91,7 +93,7 @@ function NilsReactionLibrary.Combat.Toggles.Dragoon.Reset()
   SallyDRG.SkillSettings.Nastrond.enabled = true
   SallyDRG.SkillSettings.Opener.enabled = false
   SallyDRG.SkillSettings.PositionalWindow.enabled = true
-  SallyDRG.SkillSettings.Potion.enabled = true
+  SallyDRG.SkillSettings.Potion.enabled = onwipe == true
   SallyDRG.SkillSettings.Range.enabled = true
   SallyDRG.SkillSettings.SaveCD.enabled = false
   SallyDRG.SkillSettings.SmartTrueNorth.enabled = true
