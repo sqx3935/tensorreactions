@@ -204,32 +204,23 @@ function NilsReactionLibrary.Combat.Toggles.Summoner.HoldAOE(toggleOn)
 end
 
 function NilsReactionLibrary.Combat.Toggles.Summoner.SmartAOE(toggleOn)
+  if Player.job ~= NilsReactionLibrary.jobs.Summoner.id then return false end
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
-
-  if Player.job == NilsReactionLibrary.jobs.Summoner.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_SmartAOE = toggleOn return true end
-  end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_SmartAOE = toggleOn return true end
   return false
 end
 
 function NilsReactionLibrary.Combat.Toggles.Summoner.SmartDoT(toggleOn)
+  if Player.job ~= NilsReactionLibrary.jobs.Summoner.id then return false end
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
-
-  if Player.job == NilsReactionLibrary.jobs.Summoner.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_SmartDoT = toggleOn return true end
-  end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_SmartDoT = toggleOn return true end
   return false
 end
 
 function NilsReactionLibrary.Combat.Toggles.Summoner.SmartBane(toggleOn)
+  if Player.job ~= NilsReactionLibrary.jobs.Summoner.id then return false end
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
-
-  if Player.job == NilsReactionLibrary.jobs.Summoner.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_SmartBane = toggleOn return true end
-  end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then ACR_TensorRuin_SmartBane = toggleOn return true end
   return false
 end
 
