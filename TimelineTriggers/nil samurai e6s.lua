@@ -166,6 +166,35 @@ self.used = true\
 			["uuid"] = "082ba04f-08aa-8126-a46a-aada6569ac78";
 		};
 	};
+	[16] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 119.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 16;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "a863312d-45c9-ba61-89b9-b98daf62329c";
+		};
+	};
 	[17] = {
 		[1] = {
 			["actions"] = {
@@ -430,6 +459,35 @@ self.used = true\
 			["uuid"] = "7a50a87b-61ed-728c-bafe-0cb7a2ccf58f";
 		};
 	};
+	[36] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 240.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 36;
+			["timerEndOffset"] = 4;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "0c9af362-e087-833b-ad38-e3c155aabea4";
+		};
+	};
 	[37] = {
 		[1] = {
 			["actions"] = {
@@ -608,6 +666,35 @@ self.used = true\
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "536e2e20-49e2-9234-ac52-ed3de40514c7";
+		};
+	};
+	[56] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 303.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 56;
+			["timerEndOffset"] = 5;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "931608b3-b9b1-dd36-a0dc-499669dc3991";
 		};
 	};
 	[58] = {

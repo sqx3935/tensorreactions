@@ -694,6 +694,7 @@ self.Combat.Toggles.Control = {
   DOT = { IsActive = false, TimelineActive = false},
   Jumps = { IsActive = false, TimelineActive = false},
   TrueNorth = { IsActive = false, TimelineActive = false},
+  PositionalWindow = { IsActive = false, TimelineActive = false},
   OmniWhiteList = { IsActive = false, TimelineActive = false},
   DreamWithinDream = { IsActive = false, TimelineActive = false},
   Kassatsu = { IsActive = false, TimelineActive = false},
@@ -724,6 +725,7 @@ function self.Combat.Toggles.Handler.Reset()
     DOT = { IsActive = false, TimelineActive = false},
     Jumps = { IsActive = false, TimelineActive = false},
     TrueNorth = { IsActive = false, TimelineActive = false},
+    PositionalWindow = { IsActive = false, TimelineActive = false},
     OmniWhiteList = { IsActive = false, TimelineActive = false},
     DreamWithinDream = { IsActive = false, TimelineActive = false},
     Kassatsu = { IsActive = false, TimelineActive = false},
@@ -925,15 +927,15 @@ function self.OnUpdate()
   local g = Player.gauge
   if (table.valid(g)) then
     for i, k in pairs(g) do
-      if Player.job == self.jobs.Ninja.id then if i == 2 then NilsReactionLibrary.data.gauges.huton = k end end
+      if Player.job == self.jobs.Ninja.id then
+        if i == 1 then NilsReactionLibrary.data.gauges.ninki = k end
+        if i == 2 then NilsReactionLibrary.data.gauges.huton = k end
+      end
+
+      if Player.job == self.jobs.Samurai.id then if i == 3 then NilsReactionLibrary.data.gauges.meditation = k end end
     end
   end
 
-  -- timeout gap closer
-  -- if TimeSince(self.Combat.Toggles.Control.GapClosers.LastUsed) > 700 then
-  --   if SallySAM.HotBarConfig.Yaten ~= nil and SallySAM.HotBarConfig.Yaten.enabled == false then SallySAM.HotBarConfig.Yaten.enabled = true end
-  --   if SallySAM.HotBarConfig.Gyoten ~= nil and SallySAM.HotBarConfig.Gyoten.enabled == false then SallySAM.HotBarConfig.Gyoten.enabled = true end
-  -- end
 
   -- Gap close hotkey
   if (GUI:IsKeyDown(17) and GUI:IsKeyDown(16) and GUI:IsKeyDown(190)) and TimeSince(self.Combat.Toggles.Control.GapClosers.LastUsed) > 500 then -- CTRL + Shift + .

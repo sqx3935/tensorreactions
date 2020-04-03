@@ -24,7 +24,7 @@ function NilsReactionLibrary.Combat.Actions.ThirdEye(entityID)
 
   -- protection incase the timeline is to early.
   local ctr = target.castinginfo.casttime - target.castinginfo.channeltime
-  if target.castinginfo == nil or (ctr > 2.5 and ctr < .8) then return false, nil, nil, false, false end
+  if target.castinginfo == nil or (ctr > 2.8 and ctr < .8) then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7498)
@@ -101,6 +101,9 @@ end
 function NilsReactionLibrary.Combat.Actions.Meditate()
   if not Player.job == NilsReactionLibrary.jobs.Samurai.id then return false, nil, nil, false, false end
 
+  -- no need to Meditate if gauge is already full
+  if NilsReactionLibrary.data.gauges.meditation == 3 then return false, nil, nil, false, false end
+
   -- might cause issue if tensor drift is installed and set to stutter
   -- detect that the player has not moved for at least 500ms
   if TimeSince(NilsReactionLibrary.Combat.Toggles.Control.GapClosers.LastUsed) < 500 then return false, nil, nil, false, false end
@@ -125,8 +128,6 @@ function NilsReactionLibrary.Combat.Actions.Meditate()
   end
   return false, nil, nil, false, false
 end
-
-
 
 -- ********************************** Functions around toggle actions  **************************************
 -- *                                                                                                        *
@@ -183,11 +184,8 @@ end
 
 function NilsReactionLibrary.Combat.Toggles.Samurai.Opener(toggleOn)
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
-
-  if Player.job == NilsReactionLibrary.jobs.Samurai.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.Opener.enabled = toggleOn return true end
-  end
+  if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.Opener.enabled = toggleOn return true end
   return false
 end
 
@@ -197,16 +195,11 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Omni(toggleOn, byTimeline)
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
   if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
 
-  -- timeline overrides everything else.
-  if byTimeline then
-    NilsReactionLibrary.Combat.Toggles.Control.OmniWhiteList.IsActive = toggleOn == false -- set active if it is suppose to be off
-    NilsReactionLibrary.Combat.Toggles.Control.OmniWhiteList.TimelineActive = byTimeline and toggleOn == false
-  end
-
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then
-    SallySAM.SkillSettings.PositionalWindow.enabled = toggleOn
-    SallySAM.SkillSettings.SmartTrueNorth.enabled = toggleOn
-    return true end
+    NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn, byTimeline)
+    NilsReactionLibrary.Combat.Toggles.Samurai.PositionalWindow(toggleOn, byTimeline)
+    return true
+  end
   return false
 end
 
@@ -355,6 +348,22 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn, byT
   end
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.SmartTrueNorth.enabled = toggleOn return true end
+  return false
+end
+
+function NilsReactionLibrary.Combat.Toggles.Samurai.PositionalWindow(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
+
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.PositionalWindow.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.PositionalWindow.TimelineActive = byTimeline and toggleOn == false
+  end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.PositionalWindow.enabled = toggleOn return true end
   return false
 end
 

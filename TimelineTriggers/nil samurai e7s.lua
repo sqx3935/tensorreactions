@@ -320,6 +320,35 @@ self.used = true\
 			["uuid"] = "70d02754-e5e7-7c82-9e49-1cc728347145";
 		};
 	};
+	[47] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 198.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 47;
+			["timerEndOffset"] = 4;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "a6e28ccc-cb21-8d71-b4f6-b62e79994877";
+		};
+	};
 	[51] = {
 		[1] = {
 			["actions"] = {
@@ -505,6 +534,37 @@ return true\
 			["uuid"] = "f3d181d5-9417-f62e-859e-4af204080d0f";
 		};
 	};
+	[62] = {
+	};
+	[63] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 302;
+			["timeRange"] = true;
+			["timelineIndex"] = 63;
+			["timerEndOffset"] = 7;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "7b3d91ce-e55e-3827-b97a-da69ad1bb5af";
+		};
+	};
 	[64] = {
 		[1] = {
 			["actions"] = {
@@ -555,6 +615,33 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "8118bc6d-526b-b7b9-a338-a877ecf73009";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 500;
+			["timeRange"] = true;
+			["timelineIndex"] = 71;
+			["timerEndOffset"] = 4;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "a78eab15-f9fe-f156-aa2d-38f3201bb7c4";
 		};
 	};
 	[74] = {
@@ -783,6 +870,35 @@ self.used = true\
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "49ac854f-d415-fa65-acf1-d5185ed0b728";
+		};
+	};
+	[104] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 658.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 104;
+			["timerEndOffset"] = 8;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "63fb73f8-4c7c-1537-b399-31fd1922bf23";
 		};
 	};
 	[106] = {

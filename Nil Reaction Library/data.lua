@@ -5,7 +5,11 @@
 -- **********************************************************************************************************
 if NilsReactionLibrary.data == nil then NilsReactionLibrary.data = {} end
 
-NilsReactionLibrary.data.gauges = {huton = 0, ninki = 0}
+NilsReactionLibrary.data.gauges = {
+    huton = 0,
+    ninki = 0,
+    meditation = 0,
+}
 
 NilsReactionLibrary.data.AOEBlackList = {
  -- [541] = true, -- striking dummy --TODO: Need to figure out a way to allow this in settings for testing

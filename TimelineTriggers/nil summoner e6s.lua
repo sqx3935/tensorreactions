@@ -301,6 +301,27 @@ self.used = true\
 			["used"] = false;
 			["uuid"] = "91ed1ac3-b1fa-fad4-a50a-d4501fce33f5";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.SmartDoT(false, true)\
+NilsReactionLibrary.Combat.Toggles.Summoner.SmartBane(false, true)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn off smart dot and bane";
+			["time"] = 240.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 36;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "05735fe3-94ad-bc4d-ab5c-689179800f1e";
+		};
 	};
 	[37] = {
 		[1] = {
@@ -562,6 +583,27 @@ self.used = true\
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "80b82cc6-c294-67ea-bd41-3b26b8d0243a";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.SmartDoT(true, true)\
+NilsReactionLibrary.Combat.Toggles.Summoner.SmartBane(true, true)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "turn on smart dot and bane";
+			["time"] = 303.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 56;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "f3d88682-1bc2-7b73-afff-f9521b5abc72";
 		};
 	};
 	[59] = {
