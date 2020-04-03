@@ -561,8 +561,56 @@ self.used = true\
 			["uuid"] = "db66c444-9e0d-0422-85f0-e1ea25f8c914";
 		};
 	};
-	[56] = {
+	[50] = {
 		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- pass false to turn it off\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.Pet(false, true) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Pet Off";
+			["time"] = 293.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 50;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -15;
+			["used"] = false;
+			["uuid"] = "485f8419-67b9-ec07-8dcb-6c22ffa43f78";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- pass false to turn it off\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.Demi(false, true) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Demi Off";
+			["time"] = 293.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 50;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -15;
+			["used"] = false;
+			["uuid"] = "0eaf7843-44a2-d942-9846-a75be2e530ec";
+		};
+		[3] = {
 			["actions"] = {
 			};
 			["conditions"] = {
@@ -575,16 +623,18 @@ self.used = true\
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
-			["time"] = 303.3;
+			["time"] = 293.7;
 			["timeRange"] = true;
-			["timelineIndex"] = 56;
+			["timelineIndex"] = 50;
 			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "80b82cc6-c294-67ea-bd41-3b26b8d0243a";
+			["uuid"] = "a036dde3-4fa6-454c-84d5-4d82bebbe1fb";
 		};
-		[2] = {
+	};
+	[56] = {
+		[1] = {
 			["actions"] = {
 			};
 			["conditions"] = {
@@ -728,6 +778,54 @@ self.used = true\
 			["timerStartOffset"] = -1;
 			["used"] = false;
 			["uuid"] = "8c2e55ff-5c8b-1fb9-8cec-f91e429ed02f";
+		};
+		[4] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- pass true to turn it back on\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.Pet(true, true) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Pet On";
+			["time"] = 324.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 59;
+			["timerEndOffset"] = 3;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "cb1a09ba-f4a6-7e78-8407-fb3f58953ebe";
+		};
+		[5] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- pass true to turn it back on\
+\
+if NilsReactionLibrary.Combat.Toggles.Summoner.Demi(true, true) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Demi On";
+			["time"] = 324.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 59;
+			["timerEndOffset"] = 6;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 4;
+			["used"] = false;
+			["uuid"] = "d3a0d195-afd5-cd91-a780-9710e3f7d457";
 		};
 	};
 	[66] = {
