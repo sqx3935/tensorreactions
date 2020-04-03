@@ -15,19 +15,20 @@ function NilsReactionLibrary.Combat.Actions.ThirdEye(entityID)
   -- return if in opener
   if NilsReactionLibrary.Combat.inOpener() then return false, nil, nil, false, false end
 
+  -- ogcd check to try and protect from clipping
+  if NilsReactionLibrary.Combat.isOGCDSafe(.5) == false then return false, nil, nil, false, false end
+
   local target = Player:GetTarget()
   if entityID ~= nil then target = EntityList:Get(entityID) end
   if target == nil or not table.valid(target) or not target.attackable then return false, nil, nil, false, false end
 
   -- protection incase the timeline is to early.
-  if target.castinginfo == nil or target.castinginfo.casttime - target.castinginfo.channeltime > 2.5 then return false, nil, nil, false, false end
+  local ctr = target.castinginfo.casttime - target.castinginfo.channeltime
+  if target.castinginfo == nil or (ctr > 2.5 and ctr < .8) then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7498)
   if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
-
-  -- ogcd check to try and protect from clipping
-  if NilsReactionLibrary.Combat.isoGCDSafe(actionskill.cdmax, actionskill.cd, .3) == false then return false, nil, nil, false, false end
 
   if not Player.job == NilsReactionLibrary.jobs.Samurai.id then return false, nil, nil, false, false end
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then
@@ -96,6 +97,36 @@ function NilsReactionLibrary.Combat.Actions.Yaten()
   end
   return false, nil, nil, false, false
 end
+
+function NilsReactionLibrary.Combat.Actions.Meditate()
+  if not Player.job == NilsReactionLibrary.jobs.Samurai.id then return false, nil, nil, false, false end
+
+  -- might cause issue if tensor drift is installed and set to stutter
+  -- detect that the player has not moved for at least 500ms
+  if TimeSince(NilsReactionLibrary.Combat.Toggles.Control.GapClosers.LastUsed) < 500 then return false, nil, nil, false, false end
+
+  -- return if in opener or outside ogcd
+  if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
+
+  -- check cooldown
+  local actionskill = ActionList:Get(1, 7497)
+  if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then
+    -- use hotbar only if bot is running, otherwise use actionskill
+    if SallySAM.HotBarConfig.Meditate ~= nil then
+      SallySAM.HotBarConfig.Meditate.enabled = false
+      return true, nil, nil, false, false
+    else
+      return true, actionskill, Player.id, true, false
+    end
+  else
+    return true, actionskill, Player.id, true, false
+  end
+  return false, nil, nil, false, false
+end
+
+
 
 -- ********************************** Functions around toggle actions  **************************************
 -- *                                                                                                        *
@@ -311,13 +342,19 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Shoha(toggleOn)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn)
-  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+function NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
 
-  if Player.job == NilsReactionLibrary.jobs.Samurai.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.SmartTrueNorth.enabled = toggleOn return true end
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.TrueNorth.IsActive = toggleOn == false -- set active if TCJ is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.TrueNorth.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.SmartTrueNorth.enabled = toggleOn return true end
   return false
 end
 

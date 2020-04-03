@@ -160,6 +160,9 @@ function NilsReactionLibrary.Combat.Actions.Bloodbath()
   -- return if in opener
   if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
 
+  -- ogcd check to try and protect from clipping
+  if NilsReactionLibrary.Combat.isOGCDSafe() == false then return false, nil, nil, false, false end
+
   -- check cooldown
   local actionskill = ActionList:Get(1, 7542)
   if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
@@ -215,6 +218,9 @@ function NilsReactionLibrary.Combat.Actions.SecondWind()
 
   -- return if in opener
   if NilsReactionLibrary.Combat.inOpener() then return false, nil, nil, false, false end
+
+  -- ogcd check to try and protect from clipping
+  if NilsReactionLibrary.Combat.isOGCDSafe() == false then return false, nil, nil, false, false end
 
   -- check cooldown
   local actionskill = ActionList:Get(1, 7541)

@@ -201,9 +201,18 @@ function self.Combat.inOpener()
   return false
 end
 
-function self.Combat.isoGCDSafe(cdmax, cd, limit)
+function self.Combat.isOGCDSafe(limit)
   if NilsReactionLibrary.isempty(limit) then limit = .8 end
-  if cdmax - cd > limit then return true else return false end
+  local actionskill = {}
+  if Player.job == self.jobs.Samurai.id then
+    actionskill = ActionList:Get(1, 7477)
+  elseif Player.job == self.jobs.Ninja.id then
+    actionskill = ActionList:Get(1, 2240)
+  else
+    return true
+  end
+
+  return actionskill.cdmax - actionskill.cd > limit
 end
 
 -- ************************************ Functions around combat actions checks ******************************
@@ -674,6 +683,7 @@ if self.Combat.Toggles.Control == nil then self.Combat.Toggles.Control = {} end
 
 -- TODO: Organize this a little more
 self.Combat.Toggles.Control = {
+  LastPlayerMove = { LastMoved = 0 },
   TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
   AssassinateMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
   BurnBoss = { IsActive = false, TimelineActive = false},
@@ -683,6 +693,7 @@ self.Combat.Toggles.Control = {
   Demi = { IsActive = false, TimelineActive = false},
   DOT = { IsActive = false, TimelineActive = false},
   Jumps = { IsActive = false, TimelineActive = false},
+  TrueNorth = { IsActive = false, TimelineActive = false},
   OmniWhiteList = { IsActive = false, TimelineActive = false},
   DreamWithinDream = { IsActive = false, TimelineActive = false},
   Kassatsu = { IsActive = false, TimelineActive = false},
@@ -702,6 +713,7 @@ if self.Combat.Toggles.Handler == nil then self.Combat.Toggles.Handler = {} end
 
 function self.Combat.Toggles.Handler.Reset()
   self.Combat.Toggles.Control = {
+    LastPlayerMove = { LastMoved = 0 },
     TCJMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
     AssassinateMove = { IsActive = false, LastMoved = 0, TimelineActive = false },
     BurnBoss = { IsActive = false, TimelineActive = false},
@@ -711,6 +723,7 @@ function self.Combat.Toggles.Handler.Reset()
     Demi = { IsActive = false, TimelineActive = false},
     DOT = { IsActive = false, TimelineActive = false},
     Jumps = { IsActive = false, TimelineActive = false},
+    TrueNorth = { IsActive = false, TimelineActive = false},
     OmniWhiteList = { IsActive = false, TimelineActive = false},
     DreamWithinDream = { IsActive = false, TimelineActive = false},
     Kassatsu = { IsActive = false, TimelineActive = false},
@@ -906,6 +919,8 @@ function self.OnUpdate()
     -- reset shared toggles
     self.Combat.Toggles.Handler.Reset()
   end
+
+  if Player:IsMoving() then NilsReactionLibrary.Combat.Toggles.Control.LastPlayerMove.LastMoved = Now() end
 
   local g = Player.gauge
   if (table.valid(g)) then

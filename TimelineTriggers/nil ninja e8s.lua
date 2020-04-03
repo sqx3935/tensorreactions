@@ -230,7 +230,7 @@ end";
 					["actionCDValue"] = 0;
 					["actionID"] = -1;
 					["buffCheckType"] = 3;
-					["buffDuration"] = 8;
+					["buffDuration"] = 14;
 					["buffID"] = 240;
 					["category"] = 2;
 					["comparator"] = 2;

@@ -255,7 +255,7 @@ end";
 					["actionCDValue"] = 0;
 					["actionID"] = -1;
 					["buffCheckType"] = 3;
-					["buffDuration"] = 8;
+					["buffDuration"] = 15;
 					["buffID"] = 240;
 					["category"] = 2;
 					["comparator"] = 2;
@@ -289,7 +289,7 @@ end";
 			};
 			["execute"] = "";
 			["executeType"] = 1;
-			["loop"] = false;
+			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "Sprint if Heavy";
 			["time"] = 76.9;
@@ -332,6 +332,34 @@ end";
 	};
 	[24] = {
 	};
+	[31] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Sprint";
+			["time"] = 185.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 31;
+			["timerEndOffset"] = 3;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
+			["used"] = false;
+			["uuid"] = "3b2f3d00-68e7-50e9-b858-bd1247f0106d";
+		};
+	};
 	[33] = {
 		[1] = {
 			["actions"] = {
@@ -358,6 +386,105 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "3c797639-a597-52c7-b63f-c7b3ca45964e";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "true north off";
+			["time"] = 193.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 33;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -2;
+			["used"] = false;
+			["uuid"] = "fa7b19d1-8460-067e-b084-444d856be1d1";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- Save CD is default Off, pass true to turn it on\
+\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 193.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 33;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "a39b1e0d-e486-8b2e-a56d-c2d5e00c734e";
+		};
+	};
+	[34] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- Save CD is default Off, pass false to turn it off\
+\
+NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 201.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 34;
+			["timerEndOffset"] = 3;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 1;
+			["used"] = false;
+			["uuid"] = "f5562b54-f873-0be0-b13a-88740a8c58c9";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 201.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 34;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "f1dba52f-e9e7-4927-96d7-273acccb94bb";
 		};
 	};
 	[37] = {
@@ -391,6 +518,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = false;
@@ -489,7 +618,7 @@ return target == nil or target.hp.current == 0";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["eventArgs"] = {
 			};
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
@@ -508,6 +637,32 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "b72dbea3-9265-5ea3-9036-6cd541cbcae0";
+		};
+		[4] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "local target = Player:GetTarget()\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    SallyNIN.HotBarConfig.LegSweep.enabled = false\
+    self.used = true\
+ end";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = true;
+			["name"] = "Leg Sweep";
+			["time"] = 229.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 37;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "da0843a8-1398-9c8b-957f-aa303b10a09f";
 		};
 	};
 	[39] = {
@@ -560,7 +715,7 @@ end";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["eventArgs"] = {
 			};
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
@@ -579,6 +734,32 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "f42a067f-0954-a385-a6a3-303b308da25f";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "local target = Player:GetTarget()\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    SallyNIN.HotBarConfig.LegSweep.enabled = false\
+    self.used = true\
+ end";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = true;
+			["name"] = "Leg Sweep";
+			["time"] = 243.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 39;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "290416d6-2f21-1f94-8981-3bf3276fb1a4";
 		};
 	};
 	[41] = {
@@ -631,7 +812,7 @@ end";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["eventArgs"] = {
 			};
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
@@ -650,6 +831,32 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "868af16f-d22d-a338-bfbc-72374ff37975";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "local target = Player:GetTarget()\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    SallyNIN.HotBarConfig.LegSweep.enabled = false\
+    self.used = true\
+ end";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = true;
+			["name"] = "Leg Sweep";
+			["time"] = 257.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 41;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "10167c2d-dfdb-c57d-8a77-8e26e35e2d7c";
 		};
 	};
 	[43] = {
@@ -858,6 +1065,8 @@ self.used = true";
 				};
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "";
 			["executeType"] = 1;
 			["loop"] = true;
@@ -877,7 +1086,7 @@ self.used = true";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
@@ -895,6 +1104,61 @@ end";
 			["used"] = false;
 			["uuid"] = "b2209565-59c0-4d96-bb1d-ae82890eeba7";
 		};
+		[4] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "local target = Player:GetTarget()\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    SallyNIN.HotBarConfig.LegSweep.enabled = false\
+    self.used = true\
+ end";
+			["executeType"] = 2;
+			["loop"] = true;
+			["luaReturnsAction"] = true;
+			["name"] = "Leg Sweep";
+			["time"] = 271.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 43;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "2022f3c1-c64f-75d5-b19d-187c615460ee";
+		};
+		[5] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
+-- ** this uses Player.ismoving detection **\
+\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Meditate()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Meditate (Test)";
+			["time"] = 271.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 43;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 4;
+			["used"] = false;
+			["uuid"] = "a6cbbc7c-1e13-5f43-b649-21f41b7783a0";
+		};
+	};
+	[45] = {
 	};
 	[46] = {
 		[1] = {
@@ -977,6 +1241,28 @@ return true\
 			["used"] = false;
 			["uuid"] = "967eddaa-7e8f-9bb5-8faf-c8d37a663f70";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "true north on";
+			["time"] = 350.5;
+			["timeRange"] = true;
+			["timelineIndex"] = 46;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "9770ce5f-659b-a482-9938-988e5e41e452";
+		};
 	};
 	[48] = {
 		[1] = {
@@ -1031,6 +1317,32 @@ end";
 		};
 	};
 	[53] = {
+	};
+	[55] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.ThirdEye()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Third Eye";
+			["time"] = 413.2;
+			["timeRange"] = true;
+			["timelineIndex"] = 55;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "26253b80-c9c8-5fbe-9b73-ce0c59f4ec21";
+		};
 	};
 	[58] = {
 		[1] = {
@@ -1352,6 +1664,32 @@ end";
 			["timerStartOffset"] = -5;
 			["used"] = false;
 			["uuid"] = "483b5c53-bcbe-9b88-991a-47b9a9cc5f26";
+		};
+	};
+	[73] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.ThirdEye()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Third Eye";
+			["time"] = 540.1;
+			["timeRange"] = true;
+			["timelineIndex"] = 73;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "574f19f8-e82f-e2be-8435-f15700481c8a";
 		};
 	};
 	[86] = {
