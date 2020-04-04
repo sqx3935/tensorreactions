@@ -192,15 +192,9 @@ end
 function NilsReactionLibrary.Combat.Toggles.Samurai.Omni(toggleOn, byTimeline)
   if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
 
-  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
-  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
-
-  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then
-    NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn, byTimeline)
-    NilsReactionLibrary.Combat.Toggles.Samurai.PositionalWindow(toggleOn, byTimeline)
-    return true
-  end
-  return false
+  NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(toggleOn, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.PositionalWindow(toggleOn, byTimeline)
+  return true
 end
 
 function NilsReactionLibrary.Combat.Toggles.Samurai.CD(toggleOn, byTimeline)

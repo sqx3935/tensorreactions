@@ -824,6 +824,11 @@ function self.Combat.Toggles.Handler.Omni()
   -- if set by timeline reaction, ignore
   if self.Combat.Toggles.Control.OmniWhiteList.IsActive == true and self.Combat.Toggles.Control.OmniWhiteList.TimelineActive == true then return false end
 
+  -- special check for Samurai
+  if Player.job == self.jobs.Samurai.id then
+    if self.Combat.Toggles.Control.TrueNorth.IsActive == true and self.Combat.Toggles.Control.TrueNorth.TimelineActive == true then return false end
+  end
+
   local target = Player:GetTarget()
   local contentID = 0
   if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end
