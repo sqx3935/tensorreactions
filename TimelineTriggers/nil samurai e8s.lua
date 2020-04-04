@@ -291,7 +291,7 @@ end";
 			["executeType"] = 1;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
-			["name"] = "Sprint if Heavy";
+			["name"] = "Sprint early if Heavy";
 			["time"] = 76.9;
 			["timeRange"] = true;
 			["timelineIndex"] = 11;
@@ -300,6 +300,32 @@ end";
 			["timerStartOffset"] = -8;
 			["used"] = false;
 			["uuid"] = "fae7f380-9cb8-b199-91c1-6f87b327dfd7";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Sprint";
+			["time"] = 76.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 11;
+			["timerEndOffset"] = 3;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "45f9b3a4-6f9a-3a5b-98d0-58ad7573a3b0";
 		};
 	};
 	[20] = {

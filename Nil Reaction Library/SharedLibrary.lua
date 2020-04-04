@@ -11,6 +11,13 @@ self.Info = {
   LastUpdate = "03/xx/2020",
 }
 
+self.params ={
+  off = false,
+  on = true,
+  isTimeline = true,
+  isNotTimeline = false,
+}
+
 self.v = table.valid
 function self.valid(...)
     local tbl = {...}

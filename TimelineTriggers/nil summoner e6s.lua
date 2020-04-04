@@ -10,21 +10,8 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = false;
-			["execute"] = "-- ** Contributors **\
---[[\
-		* Nil (maintainer)\
-]]\
-\
--- *************************************************************************************\
-\
--- LIBRARY REQUIRED\
-\
+			["execute"] = "-- LIBRARY REQUIRED\
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
-\
---[[ ** ChangeLog **\
-* [\"4.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
-*	[\"4.1.0\"] = \"updated reaction libary for new Lua Returns actions\",\
-]]\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
@@ -60,6 +47,30 @@ self.used = true\
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "42f68447-979e-bd46-a3ba-0154ea11af91";
+		};
+	};
+	[3] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.AOE(NilsReactionLibrary.params.off, NilsReactionLibrary.params.isTimeline)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Turn off AOE";
+			["time"] = 27.1;
+			["timeRange"] = false;
+			["timelineIndex"] = 3;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "f39b3a3d-68a1-6530-805a-488558e9177f";
 		};
 	};
 	[8] = {
@@ -654,6 +665,30 @@ NilsReactionLibrary.Combat.Toggles.Summoner.SmartBane(true, true)";
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "f3d88682-1bc2-7b73-afff-f9521b5abc72";
+		};
+	};
+	[58] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.AOE(NilsReactionLibrary.params.on, NilsReactionLibrary.params.isTimeline)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Turn on AOE";
+			["time"] = 320.4;
+			["timeRange"] = false;
+			["timelineIndex"] = 58;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "0724d635-1a04-c1c6-927b-af161b5a50ff";
 		};
 	};
 	[59] = {

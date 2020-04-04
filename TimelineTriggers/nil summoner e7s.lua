@@ -10,22 +10,8 @@ local obj1 = {
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "-- ** Contributors **\
---[[\
-		* Nil (maintainer)\
-]]\
-\
--- *************************************************************************************\
-\
--- LIBRARY REQUIRED\
-\
+			["execute"] = "-- LIBRARY REQUIRED\
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
-\
-\
---[[ ** ChangeLog **\
-* [\"4.0.0\"] = \"Initial release, Thanks MattyIce and Boosted for answering questions about smn \"\
-*	[\"4.1.0\"] = \"updated reaction libary for new Lua Returns actions\",\
-]]\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
