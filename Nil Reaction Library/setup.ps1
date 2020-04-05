@@ -4,14 +4,6 @@
 # setup lib for library
 New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\Nil Reaction Library" -Target "C:\Projects\src\github.com\nil2share\tensorreactions\Nil Reaction Library"
 
-# loop through timeline and seutp symbolic link
-Get-ChildItem "C:\Projects\src\github.com\nil2share\tensorreactions\TimelineTriggers" -Filter *.lua | 
-Foreach-Object {
-    New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\TimelineTriggers\$_" -Target $_.FullName
-}
+New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\TimelineTriggers\nil" -Target "C:\Projects\src\github.com\nil2share\tensorreactions\TimelineTriggers\nil"
 
-# loop through general and seutp symbolic link
-Get-ChildItem "C:\Projects\src\github.com\nil2share\tensorreactions\GeneralTriggers" -Filter *.lua | 
-Foreach-Object {
-    New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\GeneralTriggers\$_" -Target $_.FullName
-}
+New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\GeneralTriggers\nil" -Target "C:\Projects\src\github.com\nil2share\tensorreactions\GeneralTriggers\nil"

@@ -7,16 +7,22 @@
 ---------------
 Created reactions for `Tensor Reactions` (Currently), can be easily adapted to other things.
 
-**Warning Warning Warning Warning** Shared Library is now required for these, click on it to see instructions
+**Warning Warning Warning Warning** Shared Library is now required for these, [click on it to see instructions](https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library)
+
+Library has a setup script that will setup the timeline/general reactions or copy to
+
+`C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\TimelineTriggers\nil`
+
+`C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\GeneralTriggers\nil`
 
 ## Conversion status
 
 | Job | Status |
 |---|---|
-| Summoner| Code Complete needs testing.|
-| Ninja | Code Complete needs testing.|
-| Samurai | Code Complete needs testing.|
-| Dragoon | Code Complete needs testing.|
+| Summoner| (E5S-E8S) Code Complete needs testing.|
+| Ninja | (E5S-E8S) Code Complete needs testing.|
+| Samurai | (E5S-E8S) Code Complete needs testing.|
+| Dragoon | (E5S-E8S) Code Complete needs testing.|
 | All | others are WIP.|
 
 ## Donation

@@ -76,6 +76,7 @@ NOTE2: action name is the nme of the function.
 | SallyNIN |
 | SallySAM |
 | SallyDRG |
+| SallyDNC |
 
 ## TODO
 

@@ -16,7 +16,7 @@ if NilsReactionLibrary.Combat.Toggles.Summoner == nil then NilsReactionLibrary.C
 
 function NilsReactionLibrary.Combat.Toggles.Summoner.Reset(onwipe)
   if NilsReactionLibrary.isempty(onwipe) then onwipe = false end
-  
+
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.TensorRuin then
     -- HotBar
     ACR_TensorRuin_Hotbar_Potion = false
