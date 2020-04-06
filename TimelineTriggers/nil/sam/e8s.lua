@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-
+{};
 } -- multiRefObjects
 local obj1 = {
 	[2] = {
@@ -161,6 +161,7 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = 240;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -174,6 +175,7 @@ end";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -193,6 +195,7 @@ end";
 					["buffCheckType"] = 2;
 					["buffDuration"] = 0;
 					["buffID"] = 496;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -206,6 +209,7 @@ end";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -225,6 +229,7 @@ end";
 					["buffCheckType"] = 2;
 					["buffDuration"] = 0;
 					["buffID"] = 1186;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -238,6 +243,7 @@ end";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -257,6 +263,7 @@ end";
 					["buffCheckType"] = 3;
 					["buffDuration"] = 15;
 					["buffID"] = 240;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 2;
 					["conditionLua"] = "";
@@ -270,6 +277,7 @@ end";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -419,6 +427,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.SmartTrueNorth(false, true)\
 self.used = true\
 ";
@@ -431,7 +441,7 @@ self.used = true\
 			["timelineIndex"] = 33;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
+			["timerStartOffset"] = -3;
 			["used"] = false;
 			["uuid"] = "fa7b19d1-8460-067e-b084-444d856be1d1";
 		};
@@ -441,11 +451,9 @@ self.used = true\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "-- Save CD is default Off, pass true to turn it on\
-\
-NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
-self.used = true\
-";
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOff(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -455,9 +463,31 @@ self.used = true\
 			["timelineIndex"] = 33;
 			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -1;
+			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "a39b1e0d-e486-8b2e-a56d-c2d5e00c734e";
+			["uuid"] = "1df066e8-2cc7-09e2-b19e-57c2ef4f63d4";
+		};
+		[4] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.PotionOff(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Potion Off";
+			["time"] = 193.3;
+			["timeRange"] = true;
+			["timelineIndex"] = 33;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -10;
+			["used"] = false;
+			["uuid"] = "3e30592d-c5e5-2afc-984e-1c459ced723e";
 		};
 	};
 	[34] = {
@@ -467,30 +497,8 @@ self.used = true\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "-- Save CD is default Off, pass false to turn it off\
-\
-NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
-self.used = true\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "CD On";
-			["time"] = 201.5;
-			["timeRange"] = true;
-			["timelineIndex"] = 34;
-			["timerEndOffset"] = 3;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = 1;
-			["used"] = false;
-			["uuid"] = "f5562b54-f873-0be0-b13a-88740a8c58c9";
-		};
-		[2] = {
-			["actions"] = {
+			["eventArgs"] = {
 			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
 			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
 -- ** this uses Player.ismoving detection **\
 \
@@ -506,11 +514,35 @@ end";
 			["time"] = 201.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 34;
-			["timerEndOffset"] = 2;
+			["timerEndOffset"] = 3;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -1;
 			["used"] = false;
 			["uuid"] = "f1dba52f-e9e7-4927-96d7-273acccb94bb";
+		};
+	};
+	[36] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOn(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 213;
+			["timeRange"] = true;
+			["timelineIndex"] = 36;
+			["timerEndOffset"] = 6;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 4;
+			["used"] = false;
+			["uuid"] = "9d13b672-fa26-d661-9e88-46112d8853b9";
 		};
 	};
 	[37] = {
@@ -596,6 +628,7 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 4;
 					["comparator"] = 1;
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -610,6 +643,7 @@ return target == nil or target.hp.current == 0";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -669,7 +703,7 @@ end";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["eventArgs"] = {
 			};
 			["execute"] = "local target = Player:GetTarget()\
@@ -741,7 +775,7 @@ end";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = false;
+			["enabled"] = true;
 			["eventArgs"] = {
 			};
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
@@ -766,12 +800,12 @@ end";
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["eventArgs"] = {
 			};
 			["execute"] = "local target = Player:GetTarget()\
   if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    SallyNIN.HotBarConfig.LegSweep.enabled = false\
+    SallySAM.HotBarConfig.LegSweep.enabled = false\
     self.used = true\
  end";
 			["executeType"] = 2;
@@ -999,6 +1033,7 @@ self.used = true";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 2;
 					["conditionLua"] = "";
@@ -1012,6 +1047,7 @@ self.used = true";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -1031,6 +1067,7 @@ self.used = true";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 1;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -1044,6 +1081,7 @@ self.used = true";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -1063,6 +1101,7 @@ self.used = true";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -1076,6 +1115,7 @@ self.used = true";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -1162,6 +1202,8 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
+			["eventArgs"] = {
+			};
 			["execute"] = "-- ** Warning might not work as expected if you have Tensor drift installed and set to stutter **\
 -- ** this uses Player.ismoving detection **\
 \
@@ -1185,6 +1227,72 @@ end";
 		};
 	};
 	[45] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOn(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 292.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 45;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 1;
+			["used"] = false;
+			["uuid"] = "794f373d-680a-5415-9393-afa813ed16eb";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.DOTOn(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Dot On";
+			["time"] = 292.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 45;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 1;
+			["used"] = false;
+			["uuid"] = "e2491ed0-19cd-1cc6-a63c-6e49297008a9";
+		};
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.PotionOn(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Potion On";
+			["time"] = 292.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 45;
+			["timerEndOffset"] = 10;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 5;
+			["used"] = false;
+			["uuid"] = "c2274759-c352-4abc-bcd4-ed8da6933718";
+		};
 	};
 	[46] = {
 		[1] = {
@@ -1222,6 +1330,7 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 4;
 					["comparator"] = 1;
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -1238,6 +1347,7 @@ return true\
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -1585,6 +1695,7 @@ self.used = true";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 3;
 					["buffID"] = 1209;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 2;
 					["conditionLua"] = "";
@@ -1598,6 +1709,7 @@ self.used = true";
 					["inCombatType"] = 1;
 					["lastSkillID"] = 7548;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -1617,6 +1729,7 @@ self.used = true";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 2;
 					["conditionLua"] = "";
@@ -1630,6 +1743,7 @@ self.used = true";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -1796,6 +1910,34 @@ end";
 			["uuid"] = "5e36a6b7-c9c9-dfd1-90bb-92ba2466340d";
 		};
 	};
+	[93] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["eventArgs"] = {
+			};
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+if wasSuccessful == true then\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = true;
+			["name"] = "Sprint";
+			["time"] = 668.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 93;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "1d6de744-5a82-6bfd-8ac1-1adaa7ab8393";
+		};
+	};
 	[97] = {
 		[1] = {
 			["actions"] = {
@@ -1820,6 +1962,31 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "78368f83-d52c-596e-b350-77275ef9885e";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
+  if NilsReactionLibrary.Logic.Toggles.BurnBossOn(NilsReactionLibrary.params.isTimeline) == true then\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Burn Boss";
+			["time"] = 676.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 97;
+			["timerEndOffset"] = 200;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "84234e64-9ede-1c72-94cb-40900955f04a";
 		};
 	};
 	[109] = {

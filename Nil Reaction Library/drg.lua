@@ -237,9 +237,18 @@ function NilsReactionLibrary.Combat.Toggles.Dragoon.PositionalWindow(toggleOn)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Dragoon.Potion(toggleOn)
+function NilsReactionLibrary.Combat.Toggles.Dragoon.Potion(toggleOn, byTimeline)
   if Player.job ~= NilsReactionLibrary.jobs.Dragoon.id then return false end
+
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.Potion.IsActive = toggleOn == false -- set active if it is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.Potion.TimelineActive = byTimeline and toggleOn == false
+  end
+
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallyDRG then SallyDRG.SkillSettings.Potion.enabled = toggleOn return true end
   return false
 end

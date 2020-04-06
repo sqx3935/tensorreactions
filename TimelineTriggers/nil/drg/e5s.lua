@@ -9,27 +9,14 @@ local obj1 = {
 			};
 			["conditions"] = {
 			};
-			["enabled"] = false;
-			["execute"] = "-- ** Contributors **\
---[[\
-		* Nil (maintainer)\
-]]\
-\
--- *************************************************************************************\
-\
--- LIBRARY REQUIRED\
-\
+			["enabled"] = true;
+			["execute"] = "-- LIBRARY REQUIRED\
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
-\
---[[ ** ChangeLog **\
-* [\"4.0.0\"] = \"Initial release \"\
-*	[\"4.1.0\"] = \"timeline reaction\",\
-]]\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "dragoon-timeline-e5s-changes";
+			["name"] = "ReadME";
 			["time"] = 12;
 			["timeRange"] = false;
 			["timelineIndex"] = 1;
@@ -37,7 +24,7 @@ local obj1 = {
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "9011087b-a4dc-c9c7-9ae6-c43f21e0983b";
+			["uuid"] = "95e2074d-f7e7-df52-a90c-44cff20ad0d1";
 		};
 		[2] = {
 			["actions"] = {
@@ -59,7 +46,7 @@ self.used = true\
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "377c3adf-dfd8-1d5f-8da6-e088df50ce96";
+			["uuid"] = "a853d153-0282-00d4-abfb-5ec00dc11f55";
 		};
 	};
 	[2] = {
@@ -140,6 +127,52 @@ end";
 			["uuid"] = "b04e10b0-c812-8f8a-a967-aebc1624ce22";
 		};
 	};
+	[17] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOff(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump off";
+			["time"] = 125.8;
+			["timeRange"] = true;
+			["timelineIndex"] = 17;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "a03a1c4a-1fdf-4d4d-88fa-9f682cdc735f";
+		};
+	};
+	[18] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOff(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD Off";
+			["time"] = 127.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 18;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "fe914477-fbd6-9c56-b485-c758d25dcbcd";
+		};
+	};
 	[19] = {
 		[1] = {
 			["actions"] = {
@@ -149,6 +182,7 @@ end";
 					["actionLua"] = "";
 					["allowInterrupt"] = false;
 					["conditions"] = {
+						[1] = 1;
 					};
 					["endIfUsed"] = false;
 					["gVar"] = "";
@@ -169,6 +203,44 @@ end";
 				};
 			};
 			["conditions"] = {
+				[1] = {
+					["actionCDValue"] = 0;
+					["actionID"] = -1;
+					["buffCheckType"] = 1;
+					["buffDuration"] = 0;
+					["buffID"] = -1;
+					["buffIDList"] = {
+					};
+					["category"] = 4;
+					["comparator"] = 1;
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
+					["conditionType"] = 1;
+					["contentid"] = -1;
+					["enmityValue"] = 0;
+					["gaugeIndex"] = 1;
+					["gaugeValue"] = 0;
+					["hpType"] = 1;
+					["hpValue"] = 0;
+					["inCombatType"] = 1;
+					["lastSkillID"] = -1;
+					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
+					["mpType"] = 1;
+					["mpValue"] = 0;
+					["partyHpType"] = 1;
+					["partyHpValue"] = 0;
+					["partyMpType"] = 1;
+					["partyMpValue"] = 0;
+					["partyTargetContentID"] = -1;
+					["partyTargetName"] = "";
+					["partyTargetNumber"] = 1;
+					["partyTargetSubType"] = 1;
+					["partyTargetType"] = 1;
+					["setFirstMatch"] = false;
+				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
@@ -180,10 +252,54 @@ end";
 			["timeRange"] = true;
 			["timelineIndex"] = 19;
 			["timerEndOffset"] = 8;
-			["timerOffset"] = 3.715;
+			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "7d654b61-1ea7-6e53-b73d-c2b127de622f";
+			["uuid"] = "e53d8d6d-f18b-74b3-b6fe-0f6e048ea97b";
+		};
+	};
+	[20] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOn(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump on";
+			["time"] = 128.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 20;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "2978d3e2-08da-305c-96f1-31632de5bea0";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOn(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 128.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 20;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -0.5;
+			["used"] = false;
+			["uuid"] = "65938f05-af87-b083-8b98-30effeba804f";
 		};
 	};
 	[21] = {
@@ -264,8 +380,50 @@ end";
 			["uuid"] = "3fc5eaac-8b00-8e3f-9b02-afcb9fa538ae";
 		};
 	};
+	[35] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOff(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump off";
+			["time"] = 253;
+			["timeRange"] = true;
+			["timelineIndex"] = 35;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "5e6ad86d-572d-e794-9567-f7c3323d567b";
+		};
+	};
 	[39] = {
 		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOn(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump on";
+			["time"] = 265.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 39;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "5e703948-d3bd-b4a6-875f-4aa554f85063";
+		};
+		[2] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 3;
@@ -300,10 +458,14 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = {
+					};
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -314,6 +476,7 @@ return false";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -341,7 +504,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "d53fdea1-ad29-3abc-8f4d-d95b1718f9e3";
+			["uuid"] = "95b2cc70-7531-7c1f-b38a-7509925c5853";
 		};
 	};
 	[41] = {
@@ -423,9 +586,51 @@ end";
 			["used"] = false;
 			["uuid"] = "56ca85db-23ef-04a4-93d5-4c5c1905673d";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOff(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump off";
+			["time"] = 411.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 66;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "dea97c52-e476-8a8f-b787-ea4e8730c1e6";
+		};
+	};
+	[68] = {
 	};
 	[72] = {
 		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOn(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump on";
+			["time"] = 432.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 72;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "33df106e-17d1-080d-a1b7-c5f4b97147bd";
+		};
+		[2] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 3;
@@ -460,10 +665,14 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = {
+					};
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -474,6 +683,7 @@ return false";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -501,7 +711,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "e5cb96eb-e25d-c183-9e26-89b84c33c22c";
+			["uuid"] = "60876fb4-946a-a8fc-bcf2-3334689a0b87";
 		};
 	};
 	[81] = {
@@ -528,6 +738,31 @@ end";
 			["timerStartOffset"] = -4;
 			["used"] = false;
 			["uuid"] = "a0b10127-bfbb-a217-b81c-7911c7ca8329";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
+  if NilsReactionLibrary.Logic.Toggles.BurnBossOn(NilsReactionLibrary.params.isTimeline) == true then\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Burn Boss";
+			["time"] = 477;
+			["timeRange"] = true;
+			["timelineIndex"] = 81;
+			["timerEndOffset"] = 200;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "c700001c-19d0-b0a9-9b01-ace6bc586367";
 		};
 	};
 	[85] = {

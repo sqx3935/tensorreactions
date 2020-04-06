@@ -136,7 +136,7 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(false) == true then\
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOff(NilsReactionLibrary.params.isTimeline) == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
@@ -148,7 +148,7 @@ end";
 			["timelineIndex"] = 18;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -10;
 			["used"] = false;
 			["uuid"] = "444f5406-3c4a-d48c-8649-3670d196701a";
 		};
@@ -189,10 +189,14 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = {
+					};
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -203,6 +207,7 @@ return false";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -230,7 +235,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "c6dd054c-5f60-731d-ba7c-f08073104325";
+			["uuid"] = "52d08ae8-6514-51ec-b4a1-366c2f0f2dac";
 		};
 	};
 	[20] = {
@@ -240,7 +245,7 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "if NilsReactionLibrary.Combat.Toggles.Summoner.CD(true) == true then\
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOn(NilsReactionLibrary.params.isTimeline) == true then\
   self.used = true\
 end";
 			["executeType"] = 2;
@@ -318,9 +323,9 @@ end\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(false, true)\
-self.used = true\
-";
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOff(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -330,13 +335,35 @@ self.used = true\
 			["timelineIndex"] = 38;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -10;
 			["used"] = false;
-			["uuid"] = "f6034740-be95-2e98-a807-a2daff19e8ed";
+			["uuid"] = "b05729c0-7921-8464-a0c1-8f6587c72e54";
 		};
 	};
 	[39] = {
 		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 265.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 39;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -0.5;
+			["used"] = false;
+			["uuid"] = "556b4b94-a29f-1937-9c10-599f6ea63494";
+		};
+		[2] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 3;
@@ -371,10 +398,14 @@ self.used = true\
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = {
+					};
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -385,6 +416,7 @@ return false";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -412,29 +444,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "dc1e4803-677f-f4f7-b341-47f2c6aa4804";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
-self.used = true\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "CD On";
-			["time"] = 265.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 39;
-			["timerEndOffset"] = 1;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -0.5;
-			["used"] = false;
-			["uuid"] = "556b4b94-a29f-1937-9c10-599f6ea63494";
+			["uuid"] = "84e8bf94-4447-eba7-b3d3-ac7f93817c26";
 		};
 	};
 	[41] = {
@@ -527,9 +537,9 @@ end\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(false, true)\
-self.used = true\
-";
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOff(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
@@ -539,13 +549,35 @@ self.used = true\
 			["timelineIndex"] = 71;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -15;
+			["timerStartOffset"] = -10;
 			["used"] = false;
-			["uuid"] = "20a9e2b8-4bae-a2f1-b38a-7ed02c203c3b";
+			["uuid"] = "f5e8f7ce-d273-739c-a5dd-e2424cb0b630";
 		};
 	};
 	[72] = {
 		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 432.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 72;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -0.5;
+			["used"] = false;
+			["uuid"] = "85cd91ab-cdad-7977-958b-2f7d65348d61";
+		};
+		[2] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 3;
@@ -580,10 +612,14 @@ self.used = true\
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = {
+					};
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -594,6 +630,7 @@ return false";
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -621,29 +658,7 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "6dbaa128-2192-e0ea-b382-b11055b16bda";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
-self.used = true\
-";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "CD On";
-			["time"] = 432.7;
-			["timeRange"] = true;
-			["timelineIndex"] = 72;
-			["timerEndOffset"] = 1;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -0.5;
-			["used"] = false;
-			["uuid"] = "fc758277-18d0-421e-b345-cc61af8c9d8c";
+			["uuid"] = "aacb3d0e-5c86-42e8-a505-78b6df60f218";
 		};
 	};
 	[73] = {
@@ -726,6 +741,31 @@ end";
 			["timerStartOffset"] = -5;
 			["used"] = false;
 			["uuid"] = "46c36be1-0d42-98a1-942a-939bf3327c1e";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
+  if NilsReactionLibrary.Logic.Toggles.BurnBossOn(NilsReactionLibrary.params.isTimeline) == true then\
+    self.used = true\
+  end\
+end";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Burn Boss";
+			["time"] = 477;
+			["timeRange"] = true;
+			["timelineIndex"] = 81;
+			["timerEndOffset"] = 200;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "deb2cbd9-78ac-2b98-96d8-38b94bda1356";
 		};
 	};
 	[82] = {
@@ -918,31 +958,6 @@ end\
 		};
 	};
 	[103] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "local target = Player:GetTarget()\
-if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
-  if NilsReactionLibrary.Combat.Toggles.Summoner.BurnR4(true) == true then\
-    self.used = true\
-  end\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Burn Boss";
-			["time"] = 628.4;
-			["timeRange"] = true;
-			["timelineIndex"] = 103;
-			["timerEndOffset"] = 1;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -30;
-			["used"] = false;
-			["uuid"] = "e81349cc-d031-1471-860a-608a29009340";
-		};
 	};
 	["mapID"] = 906;
 	["version"] = 4;

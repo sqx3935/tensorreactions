@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-{};
+
 } -- multiRefObjects
 local obj1 = {
 	[1] = {
@@ -9,14 +9,14 @@ local obj1 = {
 			};
 			["conditions"] = {
 			};
-			["enabled"] = true;
+			["enabled"] = false;
 			["execute"] = "-- LIBRARY REQUIRED\
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 ";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "ReadME";
+			["name"] = "Readme";
 			["time"] = 12;
 			["timeRange"] = false;
 			["timelineIndex"] = 1;
@@ -24,7 +24,7 @@ local obj1 = {
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "f029f4a3-28bc-0e7e-9c13-cd581179cc6b";
+			["uuid"] = "c178fcb5-1eda-db06-9413-33a348d9c92f";
 		};
 		[2] = {
 			["actions"] = {
@@ -46,33 +46,7 @@ self.used = true\
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "23417abc-87c9-2ffa-9665-14a2beb9cc7f";
-		};
-	};
-	[2] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Sprint";
-			["time"] = 22.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 2;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "3584d4c2-4e8a-d637-bf44-03c43bc8b0e1";
+			["uuid"] = "9a5dc08f-214b-5e8a-94d8-9d015acf748d";
 		};
 	};
 	[4] = {
@@ -82,23 +56,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 35.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 4;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "42ea7867-26a0-7a33-8c55-73ca472f42b1";
+			["uuid"] = "4b716ffe-3e55-6a93-ba22-497b38cf8169";
 		};
 	};
 	[7] = {
@@ -108,73 +83,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 63.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 7;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "39f77c98-e87f-b91c-86db-75331627cb94";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Mantra()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Mantra";
-			["time"] = 63.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 7;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "1735508e-f817-efb2-ac92-0a5c65cc6352";
-		};
-	};
-	[9] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Feint";
-			["time"] = 73.4;
-			["timeRange"] = true;
-			["timelineIndex"] = 9;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "89720faa-819b-ee96-b413-f887a9ad44ce";
+			["uuid"] = "9805d305-5dfd-b852-ab20-88156b762fd8";
 		};
 	};
 	[14] = {
@@ -198,33 +124,31 @@ end";
 			["timelineIndex"] = 14;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "889a4211-417e-7835-aaf9-dfcdb63523c8";
+			["uuid"] = "12c911e4-52fb-d745-83d3-d069ead6fbe7";
 		};
 	};
-	[16] = {
+	[17] = {
 		[1] = {
 			["actions"] = {
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(true, true)\
-self.used = true\
-";
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOff(NilsReactionLibrary.params.isTimeline)";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "CD Off";
-			["time"] = 117.7;
+			["name"] = "Jump off";
+			["time"] = 125.8;
 			["timeRange"] = true;
-			["timelineIndex"] = 16;
-			["timerEndOffset"] = 1;
+			["timelineIndex"] = 17;
+			["timerEndOffset"] = 2;
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "33a78b07-c1d0-544e-81dd-580af4de3213";
+			["uuid"] = "2a5721b0-68a3-fcd8-aaaa-9f68662a944a";
 		};
 	};
 	[18] = {
@@ -248,7 +172,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "8041c745-a4c2-e309-8e7b-f7d1f1fec9b8";
+			["uuid"] = "76295866-f2d9-e218-965c-ce9c905dec9a";
 		};
 	};
 	[19] = {
@@ -333,11 +257,31 @@ return true\
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "71f07c8b-1141-d6f2-876c-b6b239e0b401";
+			["uuid"] = "6daa5953-6208-62cb-9b2e-dde60037ca2d";
 		};
 	};
 	[20] = {
 		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOn(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump on";
+			["time"] = 128.9;
+			["timeRange"] = true;
+			["timelineIndex"] = 20;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "f20de77e-a7c9-8a7f-96bf-93425595199c";
+		};
+		[2] = {
 			["actions"] = {
 			};
 			["conditions"] = {
@@ -357,33 +301,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = -0.5;
 			["used"] = false;
-			["uuid"] = "63c553d3-3682-f6c9-8781-4b081a7c0eb8";
-		};
-	};
-	[21] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Feint";
-			["time"] = 138.1;
-			["timeRange"] = true;
-			["timelineIndex"] = 21;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "0daa5b77-56e0-e726-a242-bbd3090427dc";
+			["uuid"] = "fe453a32-aa9e-814a-b2a9-c88a7f85c7b4";
 		};
 	};
 	[22] = {
@@ -393,75 +311,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 148.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 22;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "997ed312-a9e6-4036-a6e7-70feb860697d";
-		};
-	};
-	[24] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Mantra()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Mantra";
-			["time"] = 163.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 24;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "2e68a098-d791-caab-a61f-feb5defd4966";
-		};
-	};
-	[28] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Feint";
-			["time"] = 198.5;
-			["timeRange"] = true;
-			["timelineIndex"] = 28;
-			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "19eab767-9626-3733-9c9c-548bfbe7a6c8";
+			["uuid"] = "d929ae58-d13b-46c0-96ff-67d458aa1bdb";
 		};
 	};
 	[31] = {
@@ -471,73 +338,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 221.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 31;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "c8f7bbae-de7a-f3b0-8609-46c42cdd13e0";
-		};
-	};
-	[33] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
-			["time"] = 244.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 33;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "67b6ed5d-8acd-8d91-8c47-7ba810ab0e60";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Sprint";
-			["time"] = 244.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 33;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "c4a971e6-b4ef-8224-a03b-a5340ba0ad4d";
+			["uuid"] = "7426d6e9-96ab-82ae-ac0f-b12ad2bbe162";
 		};
 	};
 	[35] = {
@@ -547,21 +365,43 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(true, true)\
-self.used = true\
-";
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOff(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump off";
+			["time"] = 253;
+			["timeRange"] = true;
+			["timelineIndex"] = 35;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "eebb176f-cbad-5e2f-9ac6-cef18c335ad6";
+		};
+	};
+	[38] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOff(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
-			["time"] = 253;
+			["time"] = 263.4;
 			["timeRange"] = true;
-			["timelineIndex"] = 35;
+			["timelineIndex"] = 38;
 			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "31e1c263-c5d6-084b-a945-85387a964c33";
+			["uuid"] = "618d3e57-91f0-d611-937b-2300bfb94d16";
 		};
 	};
 	[39] = {
@@ -571,21 +411,19 @@ self.used = true\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(false, true)\
-self.used = true\
-";
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOn(NilsReactionLibrary.params.isTimeline)";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
-			["name"] = "CD On";
+			["name"] = "Jump on";
 			["time"] = 265.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 39;
-			["timerEndOffset"] = 1;
+			["timerEndOffset"] = 2;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "16ac1aee-99e2-9281-9717-eb40542f8c7b";
+			["uuid"] = "750af778-961a-4b08-9be2-57c4874f4331";
 		};
 		[2] = {
 			["actions"] = {
@@ -622,11 +460,14 @@ self.used = true\
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
-					["buffIDList"] = multiRefObjects[1];
+					["buffIDList"] = {
+					};
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -665,10 +506,30 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "a802c637-2f23-d335-adb6-5c12d4d8bc22";
+			["uuid"] = "e11292cf-d3e6-3986-bd25-a59c271cf4cc";
 		};
-	};
-	[41] = {
+		[3] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
+self.used = true\
+";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "CD On";
+			["time"] = 265.6;
+			["timeRange"] = true;
+			["timelineIndex"] = 39;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -0.5;
+			["used"] = false;
+			["uuid"] = "dd62e81e-f1a1-c3da-8a13-333ef0e44985";
+		};
 	};
 	[42] = {
 		[1] = {
@@ -677,75 +538,24 @@ return false";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 267.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 42;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "25a7d33d-7bf2-6534-8eb4-bb2815db50c2";
-		};
-	};
-	[47] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Feint";
-			["time"] = 305.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 47;
-			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "d97406c2-aefa-56df-981c-a7b7aa62ab44";
-		};
-	};
-	[49] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Mantra()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Mantra";
-			["time"] = 309;
-			["timeRange"] = true;
-			["timelineIndex"] = 49;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "00e05dc0-0a83-9765-a944-5938c2c2823e";
+			["uuid"] = "dd855a80-3c62-114e-9c99-7604ff68c440";
 		};
 	};
 	[52] = {
@@ -755,49 +565,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 317.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 52;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "a9c4db78-96e3-fd3a-8ae6-c6d398f834c8";
-		};
-	};
-	[63] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Feint";
-			["time"] = 380.1;
-			["timeRange"] = true;
-			["timelineIndex"] = 63;
-			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "863c21c7-e17d-7c3f-8bed-37cff15d1203";
+			["uuid"] = "2c0bd55e-ae30-fb1b-8e92-a10361bf5c99";
 		};
 	};
 	[64] = {
@@ -807,23 +592,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 388.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 64;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "7ff622e6-49c5-d6c5-94ac-546dcceb1b2c";
+			["uuid"] = "2406a603-17c8-c504-b047-1247c24536c1";
 		};
 	};
 	[66] = {
@@ -846,38 +632,78 @@ end";
 			["timeRange"] = true;
 			["timelineIndex"] = 66;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
+			["timerOffset"] = 0;
 			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "fb90dcf4-ca61-9301-933b-c53447e085d5";
+			["uuid"] = "0c7c0233-e736-6f72-959a-728033a48855";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOff(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump off";
+			["time"] = 411.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 66;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "323d32bc-c813-bda6-a161-d8f941584983";
 		};
 	};
-	[70] = {
+	[68] = {
 		[1] = {
 			["actions"] = {
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(true, true)\
-self.used = true\
-";
+			["execute"] = "if NilsReactionLibrary.Logic.Toggles.CDOff(NilsReactionLibrary.params.isTimeline) == true then\
+  self.used = true\
+end";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
-			["time"] = 429.4;
+			["time"] = 420.1;
 			["timeRange"] = true;
-			["timelineIndex"] = 70;
+			["timelineIndex"] = 68;
 			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -1;
 			["used"] = false;
-			["uuid"] = "4f543b66-3ff1-5c22-a06e-912f13a4258c";
+			["uuid"] = "320bbe78-28fe-5564-a6fb-875497bc80cd";
 		};
 	};
 	[72] = {
 		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Logic.Toggles.JumpsOn(NilsReactionLibrary.params.isTimeline)";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Jump on";
+			["time"] = 432.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 72;
+			["timerEndOffset"] = 2;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -1;
+			["used"] = false;
+			["uuid"] = "99bec0ad-d8d6-2c2a-9764-283847989316";
+		};
+		[2] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 3;
@@ -912,11 +738,14 @@ self.used = true\
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
-					["buffIDList"] = multiRefObjects[1];
+					["buffIDList"] = {
+					};
 					["category"] = 4;
 					["comparator"] = 1;
-					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
+					["conditionLua"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable then return false end\
+return true\
+";
 					["conditionType"] = 1;
 					["contentid"] = -1;
 					["enmityValue"] = 0;
@@ -955,15 +784,15 @@ return false";
 			["timerOffset"] = 1.375;
 			["timerStartOffset"] = -8;
 			["used"] = false;
-			["uuid"] = "52518617-4101-e1ab-8049-2d82fc4e5844";
+			["uuid"] = "3e342397-80a1-e1ab-a70a-1bf136250393";
 		};
-		[2] = {
+		[3] = {
 			["actions"] = {
 			};
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "NilsReactionLibrary.Combat.Toggles.Monk.CD(false, true)\
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Summoner.CD(true, true)\
 self.used = true\
 ";
 			["executeType"] = 2;
@@ -975,12 +804,10 @@ self.used = true\
 			["timelineIndex"] = 72;
 			["timerEndOffset"] = 1;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
+			["timerStartOffset"] = -0.5;
 			["used"] = false;
-			["uuid"] = "0296d968-73f2-bf3c-bffc-b0e536f00eaf";
+			["uuid"] = "b942d3a5-b844-5702-a62b-13ec6cef7380";
 		};
-	};
-	[73] = {
 	};
 	[74] = {
 		[1] = {
@@ -989,23 +816,24 @@ self.used = true\
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 434.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 74;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "0d20ebeb-374d-8566-b9c5-5f394e632bf8";
+			["uuid"] = "70b7a7cf-0fae-0308-b633-d0221ef0c694";
 		};
 	};
 	[76] = {
@@ -1015,23 +843,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 450.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 76;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "45075f31-0602-d869-8ae6-ea0e5d76c06a";
+			["uuid"] = "2d2b8bd2-00e1-b9c8-aaed-7b1a9370e713";
 		};
 	};
 	[81] = {
@@ -1055,9 +884,9 @@ end";
 			["timelineIndex"] = 81;
 			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "f6f70b9d-395e-d2df-88af-b5984a550603";
+			["uuid"] = "86e1fcc7-edfa-d41d-9aba-91da6fc0b6f6";
 		};
 		[2] = {
 			["actions"] = {
@@ -1082,7 +911,7 @@ end";
 			["timerOffset"] = 0;
 			["timerStartOffset"] = 0;
 			["used"] = false;
-			["uuid"] = "4ceeea99-57d0-3151-b9c6-5a91c989d431";
+			["uuid"] = "82781fab-69a5-1dbe-8991-9785a7e7551b";
 		};
 	};
 	[82] = {
@@ -1092,49 +921,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 487.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 82;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "8c91f366-00eb-2c43-9f5f-a97f494697a3";
-		};
-	};
-	[85] = {
-		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Feint()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Feint";
-			["time"] = 510;
-			["timeRange"] = true;
-			["timelineIndex"] = 85;
-			["timerEndOffset"] = 0;
 			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "a3427ed9-2ba7-ec0d-9635-54fd16da8edd";
+			["uuid"] = "e79b52d4-a78f-9ad5-b559-94303b47795b";
 		};
 	};
 	[90] = {
@@ -1144,23 +948,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 523.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 90;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "4ef48fed-e657-d2f5-a5c7-c29bd98c7d1a";
+			["uuid"] = "b3ccb30a-04c1-678f-a112-814255dda69c";
 		};
 	};
 	[96] = {
@@ -1170,23 +975,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 554.9;
 			["timeRange"] = true;
 			["timelineIndex"] = 96;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "dc073213-8d20-5c96-91ab-eb49bb4c30ae";
+			["uuid"] = "cfbbc179-b1c8-aaf6-acc1-e572786089c7";
 		};
 	};
 	[97] = {
@@ -1196,23 +1002,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 566;
 			["timeRange"] = true;
 			["timelineIndex"] = 97;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "94c3a393-6a42-45fc-974f-9073a28b57a0";
+			["uuid"] = "84b619b0-08c1-c292-aa09-2d07fdfe71e0";
 		};
 	};
 	[99] = {
@@ -1222,47 +1029,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 583.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 99;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "96a4d679-83ff-b44f-bfdd-bec3c58f26d0";
-		};
-		[2] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Mantra()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Mantra";
-			["time"] = 583.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 99;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "80cfcff8-d498-9692-9350-1d12f6da3ace";
+			["uuid"] = "4ef0b092-b1e3-7cd0-ab39-9590005bb7c3";
 		};
 	};
 	[100] = {
@@ -1272,23 +1056,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 594.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 100;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "bd0104c6-0523-d3b8-869c-3fb86e9b3e9b";
+			["uuid"] = "95a1b850-0a8c-a63e-846a-2a762ed227b5";
 		};
 	};
 	[101] = {
@@ -1298,23 +1083,24 @@ end";
 			["conditions"] = {
 			};
 			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+end\
+";
 			["executeType"] = 2;
 			["loop"] = false;
 			["luaReturnsAction"] = true;
-			["name"] = "Riddle of Earth";
+			["name"] = "Addle";
 			["time"] = 605.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 101;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = -20;
-			["timerStartOffset"] = -20;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "02d55ecc-7ac4-7ce8-b930-9d7028ec386c";
+			["uuid"] = "8d8b3f2d-1ac0-a9fb-b6d7-0fad3d3331ee";
 		};
 	};
 	["mapID"] = 906;

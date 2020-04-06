@@ -10,51 +10,6 @@ local obj1 = {
 		};
 		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "-- ** Contributors **\
---[[\
-		* Nil (maintainer)\
-		* \
-]]\
-\
--- *************************************************************************************\
-\
---[[ ** Verson 4 **\
-* filter added to `onentitychanneling` to ignore friendly targets\
-* cleaned up code to make it more readable and simplify fall through\
-* added on wipe reset\
-* added on death monitor and updated general reactions to check the time\
-]]\
-\
---[[ ** Verson 3 **\
-* added reactions for Anamnesis Anyder\
-* fixed target for addle\
-* remove alive check (will add back if it is not overkill)\
-]]\
-\
---[[ ** Verson 2 **\
-* massive refactor, removes the need to have sally vs other reactions\
-]]\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "redmage-general-changes";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 0;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "4b82a2e5-a125-8399-babd-4e9e2839fe58";
-	};
-	[2] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
 		["luaReturnsAction"] = false;
@@ -69,212 +24,7 @@ local obj1 = {
 		["used"] = false;
 		["uuid"] = "4af213cf-260d-ce8f-9e96-f08572df690f";
 	};
-	[3] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 35 or Player.level < 32 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if action on cooldown\
-local actionskill = ActionList:Get(1, 7559)\
-if actionskill.cdmax - actionskill.cd > 1 then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Royal City of Rabanastre\
-    [734] = {\
-        [9660] = 4, -- Command Tower\
-    },\
-    -- The Ridorana Lighthouse\
-    [776] = {\
-        [11344] = 4, -- Tsunami\
-        [11369] = 4, -- Ventilate\
-    },\
-    -- The Qitana Ravel\
-    [823] = {\
-        [15520] = 4, -- Heaving Breath\
-    },\
-    -- Malikah's Well\
-    [836] = {\
-        [15596] = 4, -- High Pressure\
-    },\
-    -- The Halo\
-    [850] = {\
-        [15941] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [851] = {\
-        [16339] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [852] = {\
-        [16630] = 4, -- Geocrush\
-    },\
-    -- The Halo\
-    [854] = {\
-        [15962] = 4, -- Empty Hate\
-    },\
-    -- The Nereus Trench\
-    [855] = {\
-        [16370] = 4, -- Tidal Wave\
-    },\
-    -- Atlas Peak\
-    [856] = {\
-        [16659] = 4, -- Geocrush\
-        [16694] = 4, -- Dual Earthen Fists\
-    },\
-    -- The Copied Factory\
-    [882] = {\
-        [18627] = 4, -- Shockwave\
-    },\
-    -- The Gandof Thunder Plains\
-    [906] = {\
-        [19404] = 3.5, -- Levinforce\
-    },\
-    -- Cinder Drift\
-    [912] = {\
-        [19182] = 4, -- Screech\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		-- if sally installed, use hotbar, otherwise use base\
-		if SallyRDM ~= nil then SallyRDM.HotBarConfig.SureCast.enabled = false else	actionskill:Cast(Player.id) end\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Knockback";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "86fa526c-6042-117f-9e44-b2ff77c962eb";
-	};
-	[4] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 3;
-		["execute"] = "if Player.job ~= 35 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_rdm ~= nil and xivopeners_rdm.openerStarted == true) or (SallyRDM ~= nil and SallyRDM.SkillSettings.Opener.enabled == true) then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip entities that are not attackable\
-local ent = EntityList:Get(eventArgs.entityID)\
-if ent == nil or ent.attackable == false then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- Map, spell id, timer\
-local contentTable = {\
-    -- The Rak'tika Greatwood\
-    [817] = {\
-        [17856] = 1.5, -- Petro Eyes\
-    },\
-    -- Dohn Mheg\
-    [821] = {\
-        [13552] = 1.5, -- Imp Choir\
-    },\
-    -- The Orbonne Monastery\
-    [826] = {\
-        [14200] = 1.5, -- Devitalize\
-        [14423] = 1.5, -- Judgment Blade\
-        [14430] = 1.5, -- Mortal Blow\
-    },\
-    -- Cinder Drift\
-    [912] = {\
-        [19198] = 1.5, -- Negative Aura\
-    },\
-}\
-\
-local localmapid = Player.localmapid\
-\
--- skip if wrong map\
-if not contentTable[localmapid] then \
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- skip if wrong spell\
-if not contentTable[localmapid][eventArgs.spellID] then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
--- keep in queue if event time does not match, otherwise complete the reation\
-if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTable[localmapid][eventArgs.spellID]) then \
-		Player:ClearTarget()\
-  self.eventConditionMismatch = true -- suppressing the log\
-  self.used = true\
-  return nil\
-end\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Stop Casting";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "2f139fa3-c3c6-66f3-ae58-ee85976e4b5e";
-	};
-	[5] = {
+	[2] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -502,7 +252,7 @@ end\
 		["used"] = false;
 		["uuid"] = "be5f5b27-65f9-521a-bbd9-38904c2f0b26";
 	};
-	[6] = {
+	[3] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -571,7 +321,7 @@ return nil\
 		["used"] = false;
 		["uuid"] = "67b57e7c-6a08-10fa-b185-2635737c4d38";
 	};
-	[7] = {
+	[4] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -618,7 +368,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "902f4b9a-cfce-5c29-91b8-0d7ff9361c33";
 	};
-	[8] = {
+	[5] = {
 		["actions"] = {
 		};
 		["conditions"] = {

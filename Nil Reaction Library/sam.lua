@@ -106,7 +106,7 @@ function NilsReactionLibrary.Combat.Actions.Meditate()
 
   -- might cause issue if tensor drift is installed and set to stutter
   -- detect that the player has not moved for at least 500ms
-  if TimeSince(NilsReactionLibrary.Combat.Toggles.Control.GapClosers.LastUsed) < 500 then return false, nil, nil, false, false end
+  if TimeSince(NilsReactionLibrary.Combat.Toggles.Control.LastPlayerMove.LastMoved) < 500 then return false, nil, nil, false, false end
 
   -- return if in opener or outside ogcd
   if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end
@@ -289,13 +289,20 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Meikyo(toggleOn)
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Samurai.Potion(toggleOn)
-  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+function NilsReactionLibrary.Combat.Toggles.Samurai.Potion(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
 
-  if Player.job == NilsReactionLibrary.jobs.Samurai.id then
-    -- if tensor installed
-    if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.Potion.enabled = toggleOn return true end
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.Potion.IsActive = toggleOn == false -- set active if it is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.Potion.TimelineActive = byTimeline and toggleOn == false
   end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.Potion.enabled = toggleOn return true end
+
   return false
 end
 

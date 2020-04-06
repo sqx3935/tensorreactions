@@ -515,7 +515,7 @@ function NilsReactionLibrary.Combat.Toggles.Redmage.RepriseMovement(toggleOn, by
   return false
 end
 
-function NilsReactionLibrary.Combat.Toggles.Redmage.SaveCD(toggleOn, byTimeline)
+function NilsReactionLibrary.Combat.Toggles.Redmage.CD(toggleOn, byTimeline)
   if Player.job ~= NilsReactionLibrary.jobs.Redmage.id then return false end
 
   if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end

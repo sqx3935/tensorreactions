@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-
+{};
 } -- multiRefObjects
 local obj1 = {
 	[20] = {
@@ -70,6 +70,7 @@ local obj1 = {
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 4;
 					["comparator"] = 1;
 					["conditionLua"] = "local val, ent = TensorCore.isAnyEntityCasting(15962)\
@@ -84,6 +85,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -103,6 +105,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 2;
 					["conditionLua"] = "";
@@ -116,6 +119,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -135,6 +139,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["buffCheckType"] = 2;
 					["buffDuration"] = 0;
 					["buffID"] = 496;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -148,6 +153,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -167,6 +173,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["buffCheckType"] = 2;
 					["buffDuration"] = 0;
 					["buffID"] = 1186;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -180,6 +187,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -248,6 +256,7 @@ self.used = true";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 4;
 					["comparator"] = 1;
 					["conditionLua"] = "local val, ent = TensorCore.isAnyEntityCasting(15962)\
@@ -262,6 +271,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -281,6 +291,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 2;
 					["conditionLua"] = "";
@@ -294,6 +305,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -313,6 +325,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["buffCheckType"] = 2;
 					["buffDuration"] = 0;
 					["buffID"] = 496;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -326,6 +339,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -345,6 +359,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["buffCheckType"] = 2;
 					["buffDuration"] = 0;
 					["buffID"] = 1186;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -358,6 +373,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -426,6 +442,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 4;
 					["comparator"] = 1;
 					["conditionLua"] = "local val, ent = TensorCore.isAnyEntityCasting(15962)\
@@ -440,6 +457,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;
@@ -459,6 +477,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 2;
 					["conditionLua"] = "";
@@ -472,6 +491,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 					["inCombatType"] = 1;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
+					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
 					["partyHpType"] = 1;

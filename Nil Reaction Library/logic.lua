@@ -6,6 +6,8 @@
 
 if NilsReactionLibrary.Combat.Logic == nil then NilsReactionLibrary.Combat.Logic = {} end
 
+if NilsReactionLibrary.Logic == nil then NilsReactionLibrary.Logic = {} end
+
 function NilsReactionLibrary.Combat.Logic.Feint(entityID, remaining, spellID, useList)
 
   -- return if in opener
@@ -227,6 +229,139 @@ function NilsReactionLibrary.Combat.Logic.SelfHeal()
   return false, nil, nil, true, false
 end
 
+-- *************************************** Shared toggle actions  *******************************************
+-- *                                                                                                        *
+-- *                                              Toggles                                                   *
+-- *                                                                                                        *
+-- **********************************************************************************************************
 
+if NilsReactionLibrary.Logic.Toggles == nil then NilsReactionLibrary.Logic.Toggles = {} end
 
+function NilsReactionLibrary.Logic.Toggles.AOEOff(byTimeline)
+  -- sally
+  NilsReactionLibrary.Combat.Toggles.Dragoon.AOE(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Ninja.AOE(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.UseAOE(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.AOE(NilsReactionLibrary.params.off, byTimeline)
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Monk.AOE(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Summoner.AOE(NilsReactionLibrary.params.off, byTimeline)
 
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.AOEOon(byTimeline)
+  -- sally
+  NilsReactionLibrary.Combat.Toggles.Dragoon.AOE(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Ninja.AOE(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.UseAOE(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.AOE(NilsReactionLibrary.params.on, byTimeline)
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Monk.AOE(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Summoner.AOE(NilsReactionLibrary.params.on, byTimeline)
+
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.JumpsOff(byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Dragoon.Jumps(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.JumpIn(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.JumpOut(NilsReactionLibrary.params.off, byTimeline)
+
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.JumpsOn(byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Dragoon.Jumps(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.JumpIn(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.JumpOut(NilsReactionLibrary.params.on, byTimeline)
+
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.CDOff(byTimeline)
+  -- Turn on Save CD
+  NilsReactionLibrary.Combat.Toggles.Dragoon.CD(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Monk.CD(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Ninja.CD(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.CD(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.CD(NilsReactionLibrary.params.on, byTimeline)
+
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Summoner.CD(NilsReactionLibrary.params.off, byTimeline)
+
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.CDOn(byTimeline)
+  -- Turn off Save CD
+  NilsReactionLibrary.Combat.Toggles.Dragoon.CD(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Monk.CD(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Ninja.CD(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.CD(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.CD(NilsReactionLibrary.params.off, byTimeline)
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Summoner.CD(NilsReactionLibrary.params.on, byTimeline)
+
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.DOTOff(byTimeline)
+  -- sally
+  NilsReactionLibrary.Combat.Toggles.Dragoon.DoTs(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Ninja.ShadowFang(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.Higanbana(NilsReactionLibrary.params.off, byTimeline)
+
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Summoner.DoTs(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Monk.DOT(NilsReactionLibrary.params.off, byTimeline)
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.DOTOn(byTimeline)
+  -- sally
+  NilsReactionLibrary.Combat.Toggles.Dragoon.DoTs(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Ninja.ShadowFang(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.Higanbana(NilsReactionLibrary.params.on, byTimeline)
+
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Summoner.DoTs(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Monk.DOT(NilsReactionLibrary.params.on, byTimeline)
+
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.PotionOff(byTimeline)
+  -- sally
+  NilsReactionLibrary.Combat.Toggles.Dragoon.Potion(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Ninja.Potion(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.Potion(NilsReactionLibrary.params.off, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.Potion(NilsReactionLibrary.params.off, byTimeline)
+
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Summoner.DoTs(NilsReactionLibrary.params.off, byTimeline)
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.PotionOn(byTimeline)
+  -- sally
+  NilsReactionLibrary.Combat.Toggles.Dragoon.Potion(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Ninja.Potion(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Redmage.Potion(NilsReactionLibrary.params.on, byTimeline)
+  NilsReactionLibrary.Combat.Toggles.Samurai.Potion(NilsReactionLibrary.params.on, byTimeline)
+
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Summoner.DoTs(NilsReactionLibrary.params.on, byTimeline)
+
+  return true
+end
+
+function NilsReactionLibrary.Logic.Toggles.BurnBossOn(byTimeline)
+  -- sally
+  NilsReactionLibrary.Combat.Toggles.Ninja.BurnBoss(NilsReactionLibrary.params.on, byTimeline)
+
+  -- variables
+  NilsReactionLibrary.Combat.Toggles.Summoner.BurnR4(NilsReactionLibrary.params.on, byTimeline)
+
+  return true
+end
