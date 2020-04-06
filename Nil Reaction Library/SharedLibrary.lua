@@ -935,9 +935,9 @@ function self.Combat.Toggles.Handler.Jumps()
   end
 
   if self.data.jumpBlacklist[contentID] then
-    self.Combat.Toggles.Dragoon.Jumps(false, false) -- we want to turn QT off, which is why this is false
+    NilsReactionLibrary.Logic.Toggles.JumpsOff(false)
   else
-    self.Combat.Toggles.Dragoon.Jumps(true, false)
+    NilsReactionLibrary.Logic.Toggles.JumpsOn(false)
   end
 
   return true

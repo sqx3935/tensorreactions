@@ -328,6 +328,32 @@ return nil\
 		};
 		["enabled"] = true;
 		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Jumps()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: Jumps Blacklist";
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "0d5e7c10-ddb0-eff1-ab20-e30dc2c480e2";
+	};
+	[5] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
 \
@@ -368,7 +394,7 @@ return nil";
 		["used"] = false;
 		["uuid"] = "902f4b9a-cfce-5c29-91b8-0d7ff9361c33";
 	};
-	[5] = {
+	[6] = {
 		["actions"] = {
 		};
 		["conditions"] = {
