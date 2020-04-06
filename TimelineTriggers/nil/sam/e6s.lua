@@ -298,7 +298,7 @@ self.used = true\
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
-					["buffIDList"] = multiRefObjects[1];
+					["buffIDList"] = multiRefObjects[2];
 					["category"] = 4;
 					["comparator"] = 1;
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -725,7 +725,7 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = 2235;
-					["buffIDList"] = multiRefObjects[2];
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -759,7 +759,7 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = 2236;
-					["buffIDList"] = multiRefObjects[2];
+					["buffIDList"] = multiRefObjects[1];
 					["category"] = 2;
 					["comparator"] = 1;
 					["conditionLua"] = "";
@@ -1550,7 +1550,7 @@ end";
 					["buffCheckType"] = 1;
 					["buffDuration"] = 0;
 					["buffID"] = -1;
-					["buffIDList"] = multiRefObjects[1];
+					["buffIDList"] = multiRefObjects[2];
 					["category"] = 4;
 					["comparator"] = 1;
 					["conditionLua"] = "local target = Player:GetTarget()\

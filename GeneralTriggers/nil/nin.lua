@@ -2180,7 +2180,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "-- *** WARNING ***\
 -- TENSOR DRIFT BREAKS THIS IF IN STUTTER MODE\

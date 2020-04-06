@@ -2,5 +2,5 @@
 Name=NilsReactionLibrary
 Dependencies=minionlib,ACR,TensorCore,SallyLib
 Version=1
-Files=data.lua,dnc.lua,dps.lua,drg.lua,drk.lua,logic.lua,mnk.lua,nin.lua,rdm.lua,sam.lua,SharedLibrary.lua,smn.lua,war.lua
+Files=SharedLibrary.lua,data.lua,logic.lua,dps.lua,dnc.lua,drg.lua,drk.lua,mnk.lua,nin.lua,rdm.lua,sam.lua,smn.lua,war.lua
 enabled=1
