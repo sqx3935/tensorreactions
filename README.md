@@ -19,10 +19,12 @@ Library has a setup script that will setup the timeline/general reactions or cop
 
 | Job | Status |
 |---|---|
-| Summoner| (E5S-E8S) Code Complete needs testing.|
-| Ninja | (E5S-E8S) Code Complete needs testing.|
-| Samurai | (E5S-E8S) Code Complete needs testing.|
 | Dragoon | (E5S-E8S) Code Complete needs testing.|
+| Monk | (E5S-E8S) Code Complete needs testing.|
+| Ninja | (E5S-E8S) Code Complete needs testing.|
+| Redmage | (E5S-E8S) Code Complete needs testing.|
+| Samurai | (E5S-E8S) Code Complete needs testing.|
+| Summoner| (E5S-E8S) Code Complete needs testing.|
 | All | others are WIP.|
 
 ## Donation

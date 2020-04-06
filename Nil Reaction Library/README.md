@@ -73,10 +73,14 @@ NOTE2: action name is the nme of the function.
 | ARC |
 |---|
 | TensorRuin |
-| SallyNIN |
-| SallySAM |
-| SallyDRG |
 | SallyDNC |
+| SallyDRG |
+| SallyDRK |
+| SallyNIN |
+| SallyRDM |
+| SallySAM |
+| SallyWAR |
+|ACE Brawler (Monk) |
 
 ## TODO
 
