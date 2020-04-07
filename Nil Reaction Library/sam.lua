@@ -177,6 +177,7 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Reset(onwipe)
   SallySAM.SkillSettings.SmartTrueNorth.enabled = true
   SallySAM.SkillSettings.Tsubame.enabled = true
   SallySAM.SkillSettings.UseAOE.enabled = true
+  SallySAM.SkillSettings.Enpi.enabled = true
 
   NilsReactionLibrary.Combat.Toggles.Handler.Reset()
   return true
@@ -303,6 +304,22 @@ function NilsReactionLibrary.Combat.Toggles.Samurai.Potion(toggleOn, byTimeline)
 
   if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.Potion.enabled = toggleOn return true end
 
+  return false
+end
+
+function NilsReactionLibrary.Combat.Toggles.Samurai.Range(toggleOn, byTimeline)
+  if Player.job ~= NilsReactionLibrary.jobs.Samurai.id then return false end
+
+  if NilsReactionLibrary.isempty(toggleOn) then toggleOn = true end
+  if NilsReactionLibrary.isempty(byTimeline) then byTimeline = false end
+
+  -- timeline overrides everything else.
+  if byTimeline then
+    NilsReactionLibrary.Combat.Toggles.Control.Range.IsActive = toggleOn == false -- set active if it is suppose to be off
+    NilsReactionLibrary.Combat.Toggles.Control.Range.TimelineActive = byTimeline and toggleOn == false
+  end
+
+  if NilsReactionLibrary.WhichArc() == NilsReactionLibrary.arcs.SallySAM then SallySAM.SkillSettings.Enpi.enabled = toggleOn return true end
   return false
 end
 

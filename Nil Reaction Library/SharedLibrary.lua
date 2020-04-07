@@ -176,7 +176,7 @@ function self.Combat.inOpener()
     if self.WhichArc() == self.arcs.SallyWAR and SallyWAR.SkillSettings.Opener.enabled == true then return true end
     if Goliath ~= nil and Goliath_Toggle(1, 2) == true then return true end
     return false
-  elseif Player.job == self.jobs.DarkKnight.id then
+  elseif Player.job == self.jobs.Darkknight.id then
     if xivopeners_drk ~= nil and xivopeners_drk.openerStarted == true then return true end
     if self.WhichArc() == self.arcs.SallyDRK and SallyDRK.SkillSettings.Opener.enabled == true then return true end
     if Goliath ~= nil and Goliath_Toggle(1, 2) == true then return true end
@@ -290,7 +290,7 @@ function self.Combat.Actions.LowBlow(entityID, actionID)
   local actionskill = ActionList:Get(1, 7540)
   if actionskill:IsReady(target.id) == false then return false, nil, nil, false, false end
 
-  if Player.job == self.jobs.DarkKnight.id then
+  if Player.job == self.jobs.Darkknight.id then
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyDRK then
       if SallyDRK.HotBarConfig.LowBlow.enabled ~= nil then
@@ -397,7 +397,7 @@ function self.Combat.Actions.ArmsLength(entityID, remaining, spellid)
     end
   elseif Player.job == self.jobs.Monk.id then
     return true, actionskill, Player.id, true, interruptCast
-  elseif Player.job == self.jobs.DarkKnight.id then
+  elseif Player.job == self.jobs.Darkknight.id then
     return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Warrior.id then
     if self.WhichArc() == self.arcs.SallyWAR then
@@ -470,9 +470,9 @@ function self.Combat.Actions.SureCast(entityID, remaining, spellid)
   local actionskill = ActionList:Get(1, 7559)
   if actionskill:IsReady(Player.id) == false then return false, nil, nil, false, false end
 
-  if Player.job == self.jobs.WhiteMage.id then
+  if Player.job == self.jobs.Whitemage.id then
     return true, actionskill, Player.id, true, interruptCast
-  elseif Player.job == self.jobs.BlackMage.id then
+  elseif Player.job == self.jobs.Blackmage.id then
     return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Summoner.id then
     -- if tensor installed, use hotbar, otherwise use base
@@ -486,7 +486,7 @@ function self.Combat.Actions.SureCast(entityID, remaining, spellid)
     return true, actionskill, Player.id, true, interruptCast
   elseif Player.job == self.jobs.Astrologian.id then
     return true, actionskill, Player.id, true, interruptCast
-  elseif Player.job == self.jobs.RedMage.id then
+  elseif Player.job == self.jobs.Redmage.id then
     if self.WhichArc() == self.arcs.SallyRDM then
       if SallyRDM.HotBarConfig.SureCast.enabled ~= nil then
         SallyRDM.HotBarConfig.SureCast.enabled= false
@@ -529,9 +529,9 @@ function self.Combat.Actions.Addle(entityID)
     else
       return true, actionskill, target.id, true, false
     end
-  elseif Player.job == self.jobs.BlackMage.id then
+  elseif Player.job == self.jobs.Blackmage.id then
     return true, actionskill, target.id, true, false
-  elseif Player.job == self.jobs.RedMage.id then
+  elseif Player.job == self.jobs.Redmage.id then
     -- if sally installed, use hotbar, otherwise use base
     if self.WhichArc() == self.arcs.SallyRDM then
       if SallyRDM.HotBarConfig.Addle.enabled ~= nil then
@@ -553,12 +553,12 @@ end
 -- ** ALL ***************************************************************************************************
 function self.Combat.Actions.Knockback(entityID, remaining)
   if
-    Player.job == self.jobs.Ninja.id or Player.job == self.jobs.Samurai.id or Player.job == self.jobs.Dragoon.id or Player.job == self.jobs.Monk.id or Player.job == self.jobs.DarkKnight.id or Player.job == self.jobs.Warrior.id or
+    Player.job == self.jobs.Ninja.id or Player.job == self.jobs.Samurai.id or Player.job == self.jobs.Dragoon.id or Player.job == self.jobs.Monk.id or Player.job == self.jobs.Darkknight.id or Player.job == self.jobs.Warrior.id or
       Player.job == self.jobs.Paladin.id or Player.job == self.jobs.Gunbreaker.id or Player.job == self.jobs.Bard.id or Player.job == self.jobs.Machinist.id or
       Player.job == self.jobs.Dancer.id
   then
     return self.Combat.Actions.ArmsLength(entityID, remaining)
-  elseif Player.job == self.jobs.WhiteMage.id or Player.job == self.jobs.BlackMage.id or Player.job == self.jobs.Summoner.id or Player.job == self.jobs.Scholar.id or Player.job == self.jobs.Astrologian.id or Player.job == self.jobs.RedMage.id then
+  elseif Player.job == self.jobs.Whitemage.id or Player.job == self.jobs.Blackmage.id or Player.job == self.jobs.Summoner.id or Player.job == self.jobs.Scholar.id or Player.job == self.jobs.Astrologian.id or Player.job == self.jobs.Redmage.id then
     return self.Combat.Actions.SureCast(entityID, remaining)
   end
   return false, nil, nil, false, false
@@ -616,7 +616,7 @@ function self.Combat.Actions.Sprint()
     end
   elseif Player.job == self.jobs.Monk.id then
     return true, actionskill, Player.id, true, false
-  elseif Player.job == self.jobs.DarkKnight.id then
+  elseif Player.job == self.jobs.Darkknight.id then
     return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Warrior.id then
     if self.WhichArc() == self.arcs.SallyWAR then
@@ -652,9 +652,9 @@ function self.Combat.Actions.Sprint()
     else
       return true, actionskill, Player.id, true, false
     end
-  elseif Player.job == self.jobs.WhiteMage.id then
+  elseif Player.job == self.jobs.Whitemage.id then
     return true, actionskill, Player.id, true, false
-  elseif Player.job == self.jobs.BlackMage.id then
+  elseif Player.job == self.jobs.Blackmage.id then
     return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Summoner.id then
     return true, actionskill, Player.id, true, false
@@ -662,7 +662,7 @@ function self.Combat.Actions.Sprint()
     return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Astrologian.id then
     return true, actionskill, Player.id, true, false
-  elseif Player.job == self.jobs.RedMage.id then
+  elseif Player.job == self.jobs.Redmage.id then
     return true, actionskill, Player.id, true, false
   elseif Player.job == self.jobs.Machinist.id then
     return true, actionskill, Player.id, true, false
@@ -952,7 +952,7 @@ function self.Combat.Toggles.Handler.BurnBoss()
     return self.Combat.Toggles.Dragoon.FullThrustOnly(true, false)
   elseif Player.job == self.jobs.Monk.id then
     return true
-  elseif Player.job == self.jobs.DarkKnight.id then
+  elseif Player.job == self.jobs.Darkknight.id then
     return true
   elseif Player.job == self.jobs.Warrior.id then
     return true
@@ -967,9 +967,9 @@ function self.Combat.Toggles.Handler.BurnBoss()
   elseif Player.job == self.jobs.Dancer.id then
     if self.WhichArc() == self.arcs.SallyDNC then SallyDNC.SkillSettings.BurnBoss.enabled = true end
     return true
-  elseif Player.job == self.jobs.WhiteMage.id then
+  elseif Player.job == self.jobs.Whitemage.id then
     return true
-  elseif Player.job == self.jobs.BlackMage.id then
+  elseif Player.job == self.jobs.Blackmage.id then
     return true
   elseif Player.job == self.jobs.Summoner.id then
     return self.Combat.Toggles.Summoner.BurnR4(true)
@@ -977,7 +977,7 @@ function self.Combat.Toggles.Handler.BurnBoss()
     return true
   elseif Player.job == self.jobs.Astrologian.id then
     return true
-  elseif Player.job == self.jobs.RedMage.id then
+  elseif Player.job == self.jobs.Redmage.id then
     return true
   elseif Player.job == self.jobs.Machinist.id then
     return true

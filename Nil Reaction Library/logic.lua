@@ -140,7 +140,7 @@ function NilsReactionLibrary.Combat.Logic.Stun(entityID, spellID, actionID, useL
 
     if Player.job == NilsReactionLibrary.jobs.Ninja.id and Player.job == NilsReactionLibrary.jobs.Samurai.id and Player.job == NilsReactionLibrary.jobs.Dragoon.id and Player.job == NilsReactionLibrary.jobs.Monk.id then
       return NilsReactionLibrary.Combat.Actions.LegSweep(entityID, actionID)
-    elseif Player.job == NilsReactionLibrary.jobs.Warrior.id and Player.job == NilsReactionLibrary.jobs.DarkKnight.id and Player.job == NilsReactionLibrary.jobs.Paladin.id and Player.job == NilsReactionLibrary.jobs.Gunbreaker.id then
+    elseif Player.job == NilsReactionLibrary.jobs.Warrior.id and Player.job == NilsReactionLibrary.jobs.Darkknight.id and Player.job == NilsReactionLibrary.jobs.Paladin.id and Player.job == NilsReactionLibrary.jobs.Gunbreaker.id then
       return NilsReactionLibrary.Combat.Actions.LowBlow(entityID, actionID)
     end
 
@@ -149,7 +149,7 @@ function NilsReactionLibrary.Combat.Logic.Stun(entityID, spellID, actionID, useL
 
   if Player.job == NilsReactionLibrary.jobs.Ninja.id and Player.job == NilsReactionLibrary.jobs.Samurai.id and Player.job == NilsReactionLibrary.jobs.Dragoon.id and Player.job == NilsReactionLibrary.jobs.Monk.id then
     return NilsReactionLibrary.Combat.Actions.LegSweep(entityID, actionID)
-  elseif Player.job == NilsReactionLibrary.jobs.Warrior.id and Player.job == NilsReactionLibrary.jobs.DarkKnight.id and Player.job == NilsReactionLibrary.jobs.Paladin.id and Player.job == NilsReactionLibrary.jobs.Gunbreaker.id then
+  elseif Player.job == NilsReactionLibrary.jobs.Warrior.id and Player.job == NilsReactionLibrary.jobs.Darkknight.id and Player.job == NilsReactionLibrary.jobs.Paladin.id and Player.job == NilsReactionLibrary.jobs.Gunbreaker.id then
     return NilsReactionLibrary.Combat.Actions.LowBlow(entityID, actionID)
   end
 

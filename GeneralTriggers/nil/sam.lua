@@ -1312,7 +1312,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
 \
