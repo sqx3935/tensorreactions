@@ -174,7 +174,9 @@ NilsReactionLibrary.data.dotBlacklist = {
     [9319] = true, -- electric aether
 --  [9320] = true, -- aqueous aether
     [9321] = true, -- earthen aether
-    [9214] = true -- TEA jag dolls
+    [9214] = true, -- TEA jag dolls
+    [3819] = true, -- Magitek Turret
+    [9342] = true -- Confines of Memory
 }
 
 NilsReactionLibrary.data.feint = {
