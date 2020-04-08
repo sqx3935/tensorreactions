@@ -51,7 +51,8 @@ self.Settings = {
   EnableMCRSupport = false, -- TODO: not supported yet, waiting on madao to add support to MCR for exteral applications
   TargetDOTLimit = 25, -- turn off dots once targets get x number
   SelfHealWithRegen = 10, -- percentage when to cast second wind
-  SelfHealWithoutRegen = 20 -- percentage when to cast second wind
+  SelfHealWithoutRegen = 20, -- percentage when to cast second wind
+  MeditationMoveLimit = 1000 -- Time to wait after moving before attempting to meditate (SAM)
 }
 
 function self.Log(string)
@@ -96,7 +97,7 @@ self.jobs = {
 self.arcs = {
   SallyDNC = "SallyDNC", -- xSalice
   SallyNIN = "SallyNIN", -- xSalice
-  SallyRDM = "SallyRDM", -- xSalice
+  SallyRDM = "SallyRdm", -- xSalice
   SallySAM = "SallySAM", -- xSalice
   SallyDRG = "SallyDRG", -- xSalice
   SallyWAR = "SallyWAR", -- xSalice
@@ -798,6 +799,7 @@ function self.Combat.Toggles.Handler.Reset()
     IaijutsuWindow = {IsActive = false, TimelineActive = false},
     Acceleration = {IsActive = false, TimelineActive = false},
     DelayMelee = {IsActive = false, TimelineActive = false},
+    CorpsMelee = {IsActive = false, TimelineActive = false},
     DualCastRaise = {IsActive = false, TimelineActive = false},
     Embolden = {IsActive = false, TimelineActive = false},
     JumpIn = {IsActive = false, TimelineActive = false},

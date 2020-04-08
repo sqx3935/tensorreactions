@@ -184,7 +184,7 @@ function NilsReactionLibrary.Combat.Logic.ThirdEye(entityID, remaining, spellID,
     return NilsReactionLibrary.Combat.Actions.ThirdEye()
   end
 
-  return NilsReactionLibrary.Combat.Actions.ThirdEye(entityID)
+  return NilsReactionLibrary.Combat.Actions.ThirdEye(entityID, spellID)
 end
 
 -- TODO: This is messy and needs simplified

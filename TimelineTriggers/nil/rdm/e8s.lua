@@ -399,6 +399,27 @@ end";
 			["used"] = false;
 			["uuid"] = "f39e45bc-f108-c76e-b9bf-69de6b36288a";
 		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Redmage.CorpsMelee(true, true)\
+self.used = true";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Melee Only";
+			["time"] = 137.4;
+			["timeRange"] = true;
+			["timelineIndex"] = 24;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "18ae180a-4322-4985-9c26-9f3b4e91bfde";
+		};
 	};
 	[29] = {
 		[1] = {
@@ -420,6 +441,27 @@ end";
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "6f534513-9f57-b973-8c11-4b033b3a5a3a";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Redmage.CorpsMelee(false, true)\
+self.used = true";
+			["executeType"] = 2;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Melee Only off";
+			["time"] = 164.7;
+			["timeRange"] = true;
+			["timelineIndex"] = 29;
+			["timerEndOffset"] = 1;
+			["timerOffset"] = 0;
+			["timerStartOffset"] = 0;
+			["used"] = false;
+			["uuid"] = "6140a23d-e327-89a1-bd60-e116ebaccb6c";
 		};
 	};
 	[31] = {

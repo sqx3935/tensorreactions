@@ -11,7 +11,11 @@
 -- **********************************************************************************************************
 
 -- entityID can be passed in, so that the cast time can be checked.
-function NilsReactionLibrary.Combat.Actions.ThirdEye(entityID)
+function NilsReactionLibrary.Combat.Actions.ThirdEye(entityID, spellID)
+
+  if NilsReactionLibrary.isempty(entityID) then entityID = 0 end
+  if NilsReactionLibrary.isempty(spellID) then spellID = 0 end
+
   -- return if in opener
   if NilsReactionLibrary.Combat.inOpener() then return false, nil, nil, false, false end
 
@@ -19,8 +23,14 @@ function NilsReactionLibrary.Combat.Actions.ThirdEye(entityID)
   if NilsReactionLibrary.Combat.isOGCDSafe(.5) == false then return false, nil, nil, false, false end
 
   local target = Player:GetTarget()
-  if entityID ~= nil then target = EntityList:Get(entityID) end
+  if entityID ~= 0 then target = EntityList:Get(entityID) end
   if target == nil or not table.valid(target) or not target.attackable then return false, nil, nil, false, false end
+
+  -- if a spellid is provided check to see if any entity is casting it
+ -- local val, ent = TensorCore.isAnyEntityCasting(spellID)
+--if val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 4.0
+
+  if spellID > 0 then if target.castinginfo.castingid ~= spellID then return false, nil, nil, false, false end end
 
   -- protection incase the timeline is to early.
   local ctr = target.castinginfo.casttime - target.castinginfo.channeltime
@@ -106,7 +116,7 @@ function NilsReactionLibrary.Combat.Actions.Meditate()
 
   -- might cause issue if tensor drift is installed and set to stutter
   -- detect that the player has not moved for at least 500ms
-  if TimeSince(NilsReactionLibrary.Combat.Toggles.Control.LastPlayerMove.LastMoved) < 500 then return false, nil, nil, false, false end
+  if TimeSince(NilsReactionLibrary.Combat.Toggles.Control.LastPlayerMove.LastMoved) < NilsReactionLibrary.Settings.MeditationMoveLimit then return false, nil, nil, false, false end
 
   -- return if in opener or outside ogcd
   if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end

@@ -101,7 +101,8 @@ end";
 			["enabled"] = true;
 			["eventArgs"] = {
 			};
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.ThirdEye()\
+			["execute"] = "-- limit 3rd eye to only Heavenly strike\
+wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.ThirdEye(0, 19809)\
 if wasSuccessful == true then\
   self.used = true\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
