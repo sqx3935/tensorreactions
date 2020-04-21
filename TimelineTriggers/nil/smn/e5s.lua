@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-
+{};
 } -- multiRefObjects
 local obj1 = {
 	[1] = {
@@ -14,9 +14,11 @@ local obj1 = {
 -- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Readme";
+			["throttleTime"] = 0;
 			["time"] = 12;
 			["timeRange"] = false;
 			["timelineIndex"] = 1;
@@ -36,9 +38,11 @@ local obj1 = {
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Reset Toggle Controls";
+			["throttleTime"] = 0;
 			["time"] = 12;
 			["timeRange"] = false;
 			["timelineIndex"] = 1;
@@ -49,6 +53,33 @@ self.used = true\
 			["uuid"] = "5ac1cc4c-9c8d-4b0a-ae2a-a0b81d56a55c";
 		};
 	};
+	[2] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+";
+			["executeType"] = 2;
+			["lastUse"] = 0;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Sprint";
+			["throttleTime"] = 0;
+			["time"] = 22.2;
+			["timeRange"] = false;
+			["timelineIndex"] = 2;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -2;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "764ff14c-5cb8-f6a3-b4db-b2ce878fdea7";
+		};
+	};
 	[4] = {
 		[1] = {
 			["actions"] = {
@@ -57,23 +88,24 @@ self.used = true\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 35.6;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 4;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "b18d925f-78b2-4696-a5b8-3a95cceb6656";
+			["uuid"] = "eae99922-fa9f-8080-8033-93b123091061";
 		};
 	};
 	[7] = {
@@ -84,23 +116,24 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 63.3;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 7;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "7598bb27-b378-ea8f-86e8-c067e1a4aeae";
+			["uuid"] = "2e3cecb6-6ae2-d252-a505-1c8b7f9fd95f";
 		};
 	};
 	[14] = {
@@ -111,22 +144,23 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Knockback";
+			["throttleTime"] = 0;
 			["time"] = 96.2;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 14;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -5;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
 			["used"] = false;
-			["uuid"] = "bff9450d-72e4-529b-af82-92d29bf8aa54";
+			["uuid"] = "fdd63a20-45e4-7414-8c67-7fc1c6572b35";
 		};
 	};
 	[18] = {
@@ -140,9 +174,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
+			["throttleTime"] = 0;
 			["time"] = 127.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 18;
@@ -170,6 +206,8 @@ end";
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -178,6 +216,8 @@ end";
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -198,6 +238,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[1];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -205,11 +246,13 @@ return true\
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -219,15 +262,22 @@ return true\
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
+			["throttleTime"] = 0;
 			["time"] = 128.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 19;
@@ -249,9 +299,11 @@ return true\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD On";
+			["throttleTime"] = 0;
 			["time"] = 128.9;
 			["timeRange"] = true;
 			["timelineIndex"] = 20;
@@ -270,23 +322,24 @@ end";
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 148.3;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 22;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "efda0602-e3b1-2688-9e64-69cc91069c14";
+			["uuid"] = "d418cb18-3fa5-5ecf-98fb-39b0ba91ad27";
 		};
 	};
 	[31] = {
@@ -297,23 +350,51 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 221.2;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 31;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "ebfa0270-2dd7-a33c-867a-cc66115be996";
+			["uuid"] = "e3e5b868-8247-798e-a89e-85a38cd5903b";
+		};
+	};
+	[33] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+";
+			["executeType"] = 2;
+			["lastUse"] = 0;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Sprint";
+			["throttleTime"] = 0;
+			["time"] = 244.6;
+			["timeRange"] = false;
+			["timelineIndex"] = 33;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -2;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "3fb7b331-c763-2cbe-b8f5-0fda25df4d69";
 		};
 	};
 	[38] = {
@@ -327,9 +408,11 @@ end\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
+			["throttleTime"] = 0;
 			["time"] = 263.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 38;
@@ -351,9 +434,11 @@ end";
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD On";
+			["throttleTime"] = 0;
 			["time"] = 265.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 39;
@@ -379,6 +464,8 @@ self.used = true\
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -387,6 +474,8 @@ self.used = true\
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -407,6 +496,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[1];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -414,11 +504,13 @@ return true\
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -428,15 +520,22 @@ return true\
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
+			["throttleTime"] = 0;
 			["time"] = 265.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 39;
@@ -457,23 +556,24 @@ return true\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 267.5;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 42;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "ed5a1880-27c8-f76a-bc25-610929904188";
+			["uuid"] = "f16d463d-6726-c9ad-9e74-dd4f4771fa76";
 		};
 	};
 	[52] = {
@@ -484,23 +584,24 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 317.4;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 52;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "a78f7700-3ca6-157f-9b60-83b79ca192f1";
+			["uuid"] = "8a078ba4-9def-36c1-bc44-30f436593446";
 		};
 	};
 	[64] = {
@@ -511,23 +612,51 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 388.3;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 64;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
 			["uuid"] = "b98d0d4b-aa58-ff33-acd2-2cda1702d1b4";
+		};
+	};
+	[66] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+";
+			["executeType"] = 2;
+			["lastUse"] = 0;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Sprint";
+			["throttleTime"] = 0;
+			["time"] = 411.7;
+			["timeRange"] = false;
+			["timelineIndex"] = 66;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -2;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "5ab6f0a0-fd75-da20-9059-aa18dd2ab731";
 		};
 	};
 	[71] = {
@@ -541,9 +670,11 @@ end\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
+			["throttleTime"] = 0;
 			["time"] = 430.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 71;
@@ -565,9 +696,11 @@ end";
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD On";
+			["throttleTime"] = 0;
 			["time"] = 432.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 72;
@@ -593,6 +726,8 @@ self.used = true\
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -601,6 +736,8 @@ self.used = true\
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -621,6 +758,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[1];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -628,11 +766,13 @@ return true\
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -642,15 +782,22 @@ return true\
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
+			["throttleTime"] = 0;
 			["time"] = 432.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 72;
@@ -671,20 +818,21 @@ return true\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 434.6;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 74;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
 			["uuid"] = "582bf412-c35e-4190-9400-ca5d95a9dc29";
@@ -698,51 +846,28 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 450.4;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 76;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "3e078cd1-4164-eb39-8e6e-26f6d7a701d8";
+			["uuid"] = "c897af80-9ded-ec26-9194-1fa9209e2b83";
 		};
 	};
 	[81] = {
 		[1] = {
-			["actions"] = {
-			};
-			["conditions"] = {
-			};
-			["enabled"] = true;
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end";
-			["executeType"] = 2;
-			["loop"] = false;
-			["luaReturnsAction"] = true;
-			["name"] = "Knockback";
-			["time"] = 477;
-			["timeRange"] = true;
-			["timelineIndex"] = 81;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -5;
-			["used"] = false;
-			["uuid"] = "46c36be1-0d42-98a1-942a-939bf3327c1e";
-		};
-		[2] = {
 			["actions"] = {
 			};
 			["conditions"] = {
@@ -755,9 +880,11 @@ if target ~= nil and table.valid(target) and target.attackable and target.hp.per
   end\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Burn Boss";
+			["throttleTime"] = 0;
 			["time"] = 477;
 			["timeRange"] = true;
 			["timelineIndex"] = 81;
@@ -766,6 +893,31 @@ end";
 			["timerStartOffset"] = 0;
 			["used"] = false;
 			["uuid"] = "deb2cbd9-78ac-2b98-96d8-38b94bda1356";
+		};
+		[2] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Knockback()\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+";
+			["executeType"] = 2;
+			["lastUse"] = 0;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Knockback";
+			["throttleTime"] = 0;
+			["time"] = 477;
+			["timeRange"] = false;
+			["timelineIndex"] = 81;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -4;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "4eb66d00-22c0-38ad-88ee-40518dbc5471";
 		};
 	};
 	[82] = {
@@ -776,23 +928,24 @@ end";
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 487.4;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 82;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "57cc0866-31b2-aa05-851c-4a063952f424";
+			["uuid"] = "cd912edc-dcd9-676d-a525-1fdbf5320ed9";
 		};
 	};
 	[90] = {
@@ -803,23 +956,24 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 523.2;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 90;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "c529c1e3-2992-04bf-a3c2-2fc1dd72d66f";
+			["uuid"] = "57d9d478-763b-58df-9bba-377f02641d1d";
 		};
 	};
 	[96] = {
@@ -830,23 +984,24 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 554.9;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 96;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "54942034-55d8-e2a4-910f-f1183e98b01c";
+			["uuid"] = "0f0ed1ac-46ab-e24a-80e3-ae1eac311de8";
 		};
 	};
 	[97] = {
@@ -857,23 +1012,24 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 566;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 97;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "c888d703-1393-59ed-998d-d464e5b73e52";
+			["uuid"] = "26e18935-0dcc-49e4-bc9e-e2ca03d6f44b";
 		};
 	};
 	[99] = {
@@ -884,23 +1040,24 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 583.2;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 99;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "55de786a-6784-4381-b5dd-7563ad032951";
+			["uuid"] = "eb5e7068-1b52-25a9-b298-c019e47debdd";
 		};
 	};
 	[100] = {
@@ -911,23 +1068,24 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 594.3;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 100;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "a09b85de-8ab0-84b2-b0d1-5e0d70a4182c";
+			["uuid"] = "4404ac10-d600-40db-8dbe-494be2408dcc";
 		};
 	};
 	[101] = {
@@ -938,26 +1096,52 @@ end\
 			};
 			["enabled"] = true;
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Addle()\
-if wasSuccessful == true then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Addle";
+			["throttleTime"] = 0;
 			["time"] = 605.4;
-			["timeRange"] = true;
+			["timeRange"] = false;
 			["timelineIndex"] = 101;
 			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
+			["timerOffset"] = -5;
 			["timerStartOffset"] = -5;
 			["used"] = false;
-			["uuid"] = "61381382-a280-b48a-87db-fa9694e3aec7";
+			["uuid"] = "d4fb59cc-3375-e752-b7d9-d0d38f9787cb";
 		};
 	};
 	[103] = {
+		[1] = {
+			["actions"] = {
+			};
+			["conditions"] = {
+			};
+			["enabled"] = true;
+			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
+self.used = true\
+return action, targetID, ignoreWeaveRules, allowInterrupt\
+";
+			["executeType"] = 2;
+			["lastUse"] = 0;
+			["loop"] = false;
+			["luaReturnsAction"] = false;
+			["name"] = "Sprint";
+			["throttleTime"] = 0;
+			["time"] = 628.4;
+			["timeRange"] = false;
+			["timelineIndex"] = 103;
+			["timerEndOffset"] = 0;
+			["timerOffset"] = -2;
+			["timerStartOffset"] = -4;
+			["used"] = false;
+			["uuid"] = "685ca995-67ad-43b0-b995-8567a71c8865";
+		};
 	};
 	["mapID"] = 906;
 	["version"] = 4;

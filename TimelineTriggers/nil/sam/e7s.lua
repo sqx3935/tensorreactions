@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-{};
+{};{};
 } -- multiRefObjects
 local obj1 = {
 	[2] = {
@@ -27,9 +27,11 @@ local obj1 = {
 *	[\"4.1.0\"] = \"timeline reaction\",\
 ]]";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "samurai-timeline-e7s-changes";
+			["throttleTime"] = 0;
 			["time"] = 13;
 			["timeRange"] = false;
 			["timelineIndex"] = 2;
@@ -49,9 +51,11 @@ local obj1 = {
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Reset Toggle Controls";
+			["throttleTime"] = 0;
 			["time"] = 13;
 			["timeRange"] = false;
 			["timelineIndex"] = 2;
@@ -79,6 +83,8 @@ self.used = true\
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -87,6 +93,8 @@ self.used = true\
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -103,6 +111,7 @@ self.used = true\
 					["comparator"] = 1;
 					["conditionLua"] = "";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[2];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -110,11 +119,13 @@ self.used = true\
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -124,15 +135,22 @@ self.used = true\
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Retarget boss when stuned";
+			["throttleTime"] = 0;
 			["time"] = 116.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 22;
@@ -156,9 +174,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 139.9;
 			["timeRange"] = true;
 			["timelineIndex"] = 27;
@@ -180,9 +200,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "turn off pots";
+			["throttleTime"] = 0;
 			["time"] = 163.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 32;
@@ -206,9 +228,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 170.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 36;
@@ -236,6 +260,8 @@ end";
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -244,6 +270,8 @@ end";
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -260,6 +288,7 @@ end";
 					["comparator"] = 1;
 					["conditionLua"] = "";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[2];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -267,11 +296,13 @@ end";
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -281,15 +312,22 @@ end";
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Retarget boss when stuned";
+			["throttleTime"] = 0;
 			["time"] = 177.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 38;
@@ -311,9 +349,11 @@ end";
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
+			["throttleTime"] = 0;
 			["time"] = 191.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 45;
@@ -340,9 +380,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Meditate (Test)";
+			["throttleTime"] = 0;
 			["time"] = 198.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 47;
@@ -364,9 +406,11 @@ end";
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD On";
+			["throttleTime"] = 0;
 			["time"] = 205.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 51;
@@ -392,6 +436,8 @@ self.used = true\
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -400,6 +446,8 @@ self.used = true\
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -419,6 +467,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[2];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -426,11 +475,13 @@ return true\
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -440,15 +491,22 @@ return true\
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
+			["throttleTime"] = 0;
 			["time"] = 205.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 51;
@@ -478,6 +536,8 @@ return true\
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -486,6 +546,8 @@ return true\
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -502,6 +564,7 @@ return true\
 					["comparator"] = 1;
 					["conditionLua"] = "";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[2];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -509,11 +572,13 @@ return true\
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -523,15 +588,22 @@ return true\
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Retarget boss when stuned";
+			["throttleTime"] = 0;
 			["time"] = 264.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 58;
@@ -560,9 +632,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Meditate (Test)";
+			["throttleTime"] = 0;
 			["time"] = 302;
 			["timeRange"] = true;
 			["timelineIndex"] = 63;
@@ -584,9 +658,11 @@ end";
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
+			["throttleTime"] = 0;
 			["time"] = 323.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 64;
@@ -612,9 +688,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 500;
 			["timeRange"] = true;
 			["timelineIndex"] = 71;
@@ -639,9 +717,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Meditate (Test)";
+			["throttleTime"] = 0;
 			["time"] = 500;
 			["timeRange"] = true;
 			["timelineIndex"] = 71;
@@ -661,9 +741,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
+			["throttleTime"] = 0;
 			["time"] = 500;
 			["timeRange"] = true;
 			["timelineIndex"] = 71;
@@ -685,9 +767,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "turn on pots";
+			["throttleTime"] = 0;
 			["time"] = 510.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 74;
@@ -713,6 +797,8 @@ end";
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -721,6 +807,8 @@ end";
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -741,6 +829,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[2];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -748,11 +837,13 @@ return true\
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -762,15 +853,22 @@ return true\
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
+			["throttleTime"] = 0;
 			["time"] = 510.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 74;
@@ -790,9 +888,11 @@ return true\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD On";
+			["throttleTime"] = 0;
 			["time"] = 510.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 74;
@@ -816,9 +916,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 565.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 87;
@@ -842,9 +944,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 617.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 97;
@@ -868,9 +972,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 636.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 101;
@@ -892,9 +998,11 @@ end";
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD Off";
+			["throttleTime"] = 0;
 			["time"] = 646.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 103;
@@ -921,9 +1029,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Meditate (Test)";
+			["throttleTime"] = 0;
 			["time"] = 658.8;
 			["timeRange"] = true;
 			["timelineIndex"] = 104;
@@ -947,9 +1057,11 @@ end";
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "CD On";
+			["throttleTime"] = 0;
 			["time"] = 673.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 107;
@@ -975,6 +1087,8 @@ self.used = true\
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -983,6 +1097,8 @@ self.used = true\
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -1002,6 +1118,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[2];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -1009,11 +1126,13 @@ return true\
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -1023,15 +1142,22 @@ return true\
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
+			["throttleTime"] = 0;
 			["time"] = 673.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 107;
@@ -1054,9 +1180,11 @@ if target ~= nil and table.valid(target) and target.attackable and target.hp.per
   end\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Burn Boss";
+			["throttleTime"] = 0;
 			["time"] = 673.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 107;
@@ -1088,9 +1216,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 736.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 113;
@@ -1114,9 +1244,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 746.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 114;
@@ -1148,9 +1280,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 814.8;
 			["timeRange"] = true;
 			["timelineIndex"] = 120;
@@ -1174,9 +1308,11 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
-			["luaReturnsAction"] = true;
+			["luaReturnsAction"] = false;
 			["name"] = "Third Eye";
+			["throttleTime"] = 0;
 			["time"] = 824.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 121;

@@ -12,8 +12,10 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "-- Actions --";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -240,8 +242,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Addle";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -309,8 +313,10 @@ self.used = true\
 return nil\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Embolden";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -335,8 +341,10 @@ self.used = true \
 return nil\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "QT: Jumps Blacklist";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -382,8 +390,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Reset: on death";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -438,8 +448,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Reset: toggles on wipe";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;

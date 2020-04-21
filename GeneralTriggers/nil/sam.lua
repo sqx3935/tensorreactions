@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-{};
+{};{};
 } -- multiRefObjects
 local obj1 = {
 	[1] = {
@@ -39,8 +39,10 @@ local obj1 = {
 ]]\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "samurai-general-changes";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -69,6 +71,8 @@ local obj1 = {
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
 				["luaReturnsAction"] = false;
+				["name"] = "";
+				["potType"] = 1;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -77,6 +81,8 @@ local obj1 = {
 				["targetSubType"] = 1;
 				["targetType"] = 3;
 				["untarget"] = false;
+				["useForWeaving"] = false;
+				["usePot"] = false;
 				["used"] = false;
 				["variableTogglesType"] = 1;
 			};
@@ -88,11 +94,12 @@ local obj1 = {
 				["buffCheckType"] = 1;
 				["buffDuration"] = 0;
 				["buffID"] = -1;
-				["buffIDList"] = multiRefObjects[1];
+				["buffIDList"] = multiRefObjects[2];
 				["category"] = 1;
 				["comparator"] = 1;
 				["conditionLua"] = "";
 				["conditionType"] = 2;
+				["conditions"] = multiRefObjects[1];
 				["contentid"] = 9214;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -117,11 +124,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 0;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = -1;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -131,6 +140,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 			[2] = {
@@ -139,11 +153,12 @@ local obj1 = {
 				["buffCheckType"] = 1;
 				["buffDuration"] = 0;
 				["buffID"] = -1;
-				["buffIDList"] = multiRefObjects[1];
+				["buffIDList"] = multiRefObjects[2];
 				["category"] = 1;
 				["comparator"] = 2;
 				["conditionLua"] = "";
 				["conditionType"] = 3;
+				["conditions"] = multiRefObjects[1];
 				["contentid"] = -1;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -168,11 +183,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 22;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = -1;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -182,6 +199,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 			[3] = {
@@ -190,11 +212,12 @@ local obj1 = {
 				["buffCheckType"] = 1;
 				["buffDuration"] = 0;
 				["buffID"] = -1;
-				["buffIDList"] = multiRefObjects[1];
+				["buffIDList"] = multiRefObjects[2];
 				["category"] = 2;
 				["comparator"] = 1;
 				["conditionLua"] = "";
 				["conditionType"] = 8;
+				["conditions"] = multiRefObjects[1];
 				["contentid"] = -1;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -219,11 +242,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 0;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = 887;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -233,15 +258,22 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to hand when doll is 22%";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -270,6 +302,8 @@ local obj1 = {
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
 				["luaReturnsAction"] = false;
+				["name"] = "";
+				["potType"] = 1;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -278,6 +312,8 @@ local obj1 = {
 				["targetSubType"] = 1;
 				["targetType"] = 3;
 				["untarget"] = false;
+				["useForWeaving"] = false;
+				["usePot"] = false;
 				["used"] = false;
 				["variableTogglesType"] = 1;
 			};
@@ -289,11 +325,12 @@ local obj1 = {
 				["buffCheckType"] = 1;
 				["buffDuration"] = 0;
 				["buffID"] = -1;
-				["buffIDList"] = multiRefObjects[1];
+				["buffIDList"] = multiRefObjects[2];
 				["category"] = 1;
 				["comparator"] = 1;
 				["conditionLua"] = "";
 				["conditionType"] = 2;
+				["conditions"] = multiRefObjects[1];
 				["contentid"] = 9214;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -318,11 +355,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 0;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = -1;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -332,6 +371,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 			[2] = {
@@ -340,11 +384,12 @@ local obj1 = {
 				["buffCheckType"] = 1;
 				["buffDuration"] = 0;
 				["buffID"] = -1;
-				["buffIDList"] = multiRefObjects[1];
+				["buffIDList"] = multiRefObjects[2];
 				["category"] = 1;
 				["comparator"] = 2;
 				["conditionLua"] = "";
 				["conditionType"] = 3;
+				["conditions"] = multiRefObjects[1];
 				["contentid"] = -1;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -369,11 +414,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 22;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = -1;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -383,6 +430,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 			[3] = {
@@ -391,11 +443,12 @@ local obj1 = {
 				["buffCheckType"] = 1;
 				["buffDuration"] = 0;
 				["buffID"] = -1;
-				["buffIDList"] = multiRefObjects[1];
+				["buffIDList"] = multiRefObjects[2];
 				["category"] = 2;
 				["comparator"] = 1;
 				["conditionLua"] = "";
 				["conditionType"] = 8;
+				["conditions"] = multiRefObjects[1];
 				["contentid"] = -1;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -420,11 +473,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 0;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = 887;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -434,15 +489,22 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to living liquid when doll is 22%";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -462,8 +524,10 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "-- Actions --";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -560,8 +624,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Leg Sweep";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -723,8 +789,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Feint";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1039,8 +1107,10 @@ end \
   \
 --end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Third Eye";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1120,8 +1190,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Yaten";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1133,27 +1205,6 @@ end";
 		["uuid"] = "a4fbb6eb-ed5b-fe78-8477-e9aaf3169d80";
 	};
 	[9] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "";
-		["executeType"] = 1;
-		["luaReturnsAction"] = false;
-		["name"] = "---- Revamp ----";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "7474ca8e-4466-3c34-b9bd-f804669229ec";
-	};
-	[10] = {
 		["actions"] = {
 		};
 		["conditions"] = {
@@ -1175,8 +1226,10 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = true;
 		["name"] = "Cast: Knockback";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1187,12 +1240,153 @@ end\
 		["used"] = false;
 		["uuid"] = "2657b322-6d2a-2ca3-aa50-08507357e411";
 	};
-	[11] = {
+	[10] = {
 		["actions"] = {
 		};
 		["conditions"] = {
 		};
 		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "---- Revamp ----";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "7474ca8e-4466-3c34-b9bd-f804669229ec";
+	};
+	[11] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Handler.CD()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: CD Blacklist";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "168608ad-493a-0240-862e-3d244e27d224";
+	};
+	[12] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.DOT()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: DOT Blacklist";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "b8a42404-cb00-3844-aa48-90722d4ee0bb";
+	};
+	[13] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: Omni Whitelist";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "d710cbde-8e1b-95ed-834d-0555f7361379";
+	};
+	[14] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "QT: AOE Blacklist";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "8fcc666d-adad-3482-849e-c6454d320522";
+	};
+	[15] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.incombat == false then\
  self.eventConditionMismatch = true -- suppressing the log\
@@ -1211,8 +1405,10 @@ self.used = true\
 return nil\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = true;
 		["name"] = "Cast: Self Heal";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1222,116 +1418,6 @@ return nil\
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "4a7c5903-ddf7-d9c5-a4d0-8308f8815f1d";
-	};
-	[12] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: AOE Blacklist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "8fcc666d-adad-3482-849e-c6454d320522";
-	};
-	[13] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Handler.CD()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: CD Blacklist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "168608ad-493a-0240-862e-3d244e27d224";
-	};
-	[14] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
-		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.DOT()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: DOT Blacklist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "b8a42404-cb00-3844-aa48-90722d4ee0bb";
-	};
-	[15] = {
-		["actions"] = {
-		};
-		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-";
-		["executeType"] = 2;
-		["luaReturnsAction"] = false;
-		["name"] = "QT: Omni Whitelist";
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "d710cbde-8e1b-95ed-834d-0555f7361379";
 	};
 	[16] = {
 		["actions"] = {
@@ -1345,8 +1431,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Reset: toggles on wipe";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1369,8 +1457,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Reset: toggles on death";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1388,21 +1478,23 @@ return nil";
 		};
 		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "--if gReactionZoomhackSet == nil then\
---  gDevHackMaxZoom = 40.0\
---	 gDevHackMinZoom = 1.5\
---  gReactionZoomhackSet = true\
---end\
+		["execute"] = "if gReactionZoomhackSet == nil then\
+  gDevHackMaxZoom = 40.0\
+	 gDevHackMinZoom = 1.5\
+  gReactionZoomhackSet = true\
+end\
 \
 if gReactionSpeedhackSet == nil then\
-  gDevHackWalkSpeed = 8.0\
+  gDevHackWalkSpeed = 8\
   gReactionSpeedhackSet = true\
 end\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Set Hacks";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1412,6 +1504,55 @@ self.used = true ";
 		["timerStartOffset"] = 0;
 		["used"] = false;
 		["uuid"] = "46eae455-7acf-4667-837c-e90ab3228e73";
+	};
+	[19] = {
+		["actions"] = {
+		};
+		["conditions"] = {
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "data.nilstest = false\
+if data.count == nil then data.count = 0 end\
+data.count = data.count + 1\
+\
+d(data.count)\
+--wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionCore.Hotbar.Samurai.ThirdEye()\
+--wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionCore.Hotbar.Samurai.Sprint()\
+--wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionCore.Hotbar.Samurai.SecondWind()\
+--wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionCore.Hotbar.Samurai.BloodBath()\
+--wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionCore.Hotbar.Samurai.Feint()\
+--wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionCore.Hotbar.Samurai.LegSweep()\
+\
+SallySAM.HotBarConfig.ThirdEye.enabled = false\
+SallySAM.HotBarConfig.Sprint.enabled = false\
+SallySAM.HotBarConfig.SecondWind.enabled = false\
+SallySAM.HotBarConfig.Bloodbath.enabled = false\
+SallySAM.HotBarConfig.Feint.enabled = false\
+SallySAM.HotBarConfig.LegSweep.enabled = false\
+\
+--d(\"wassuccssful \" ..tostring(wasSuccessful))\
+if data.count > 300 then\
+  data.count = 0\
+  self.used = true\
+  return action, targetID, ignoreWeaveRules, allowInterrupt\
+end\
+\
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = true;
+		["name"] = "test";
+		["throttleTime"] = 10000;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "7e1c4056-3cc5-d62b-b0f9-ea28c99bc99d";
 	};
 }
 return obj1

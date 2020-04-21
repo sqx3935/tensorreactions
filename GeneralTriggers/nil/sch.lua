@@ -31,8 +31,10 @@ local obj1 = {
 ]]\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "sch-general-changes";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -52,8 +54,10 @@ local obj1 = {
 		["eventType"] = 9;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "-- Actions --";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -133,8 +137,10 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Stop Casting";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -166,8 +172,10 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = true;
 		["name"] = "Cast: Knockback";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -430,8 +438,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Fey Illumination";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -680,8 +690,10 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Adloquium";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -934,8 +946,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Excogitation";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1188,8 +1202,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Succor";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1264,8 +1280,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Chain Stratagem";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1285,8 +1303,10 @@ return nil";
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "-- Healing --";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1369,8 +1389,10 @@ if not table.valid(plistOne) then \
 		plistOne = EntityList(\"alive,chartype=9,targetable,maxdistance=30,distanceto=\" .. tostring(Player.id))\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Heal: Fey Union";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1403,8 +1425,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Reset: on death";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;

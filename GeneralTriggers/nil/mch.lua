@@ -30,8 +30,10 @@ local obj1 = {
 ]]\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "mch-general-changes";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -51,8 +53,10 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "-- Actions --";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -175,8 +179,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Knockback";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -256,8 +262,10 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Stop Casting";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -312,8 +320,10 @@ if cinfo.casttime <= 4  then \
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Head Graze";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -555,8 +565,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Tactician";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -589,8 +601,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Reset: on death";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;

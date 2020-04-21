@@ -116,7 +116,7 @@ function NilsReactionLibrary.Combat.Actions.Meditate()
 
   -- might cause issue if tensor drift is installed and set to stutter
   -- detect that the player has not moved for at least 500ms
-  if TimeSince(NilsReactionLibrary.Combat.Toggles.Control.LastPlayerMove.LastMoved) < NilsReactionLibrary.Settings.MeditationMoveLimit then return false, nil, nil, false, false end
+  if TimeSince(NilsReactionLibrary.Combat.Toggles.Control.LastPlayerMove.LastMoved) > NilsReactionLibrary.Settings.MeditationMoveLimit then return false, nil, nil, false, false end
 
   -- return if in opener or outside ogcd
   if NilsReactionLibrary.Combat.inOpener()  then return false, nil, nil, false, false end

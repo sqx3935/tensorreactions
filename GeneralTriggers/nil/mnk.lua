@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-{};
+{};{};
 } -- multiRefObjects
 local obj1 = {
 	[1] = {
@@ -19,8 +19,10 @@ local obj1 = {
 -- *************************************************************************************\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "monk-general-changes";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -49,6 +51,8 @@ local obj1 = {
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
 				["luaReturnsAction"] = false;
+				["name"] = "";
+				["potType"] = 1;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -57,6 +61,8 @@ local obj1 = {
 				["targetSubType"] = 1;
 				["targetType"] = 3;
 				["untarget"] = false;
+				["useForWeaving"] = false;
+				["usePot"] = false;
 				["used"] = false;
 				["variableTogglesType"] = 1;
 			};
@@ -73,6 +79,7 @@ local obj1 = {
 				["comparator"] = 1;
 				["conditionLua"] = "";
 				["conditionType"] = 2;
+				["conditions"] = multiRefObjects[2];
 				["contentid"] = 9214;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -97,11 +104,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 0;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = -1;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -111,6 +120,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 			[2] = {
@@ -124,6 +138,7 @@ local obj1 = {
 				["comparator"] = 2;
 				["conditionLua"] = "";
 				["conditionType"] = 3;
+				["conditions"] = multiRefObjects[2];
 				["contentid"] = -1;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -148,11 +163,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 22;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = -1;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -162,6 +179,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 			[3] = {
@@ -175,6 +197,7 @@ local obj1 = {
 				["comparator"] = 1;
 				["conditionLua"] = "";
 				["conditionType"] = 8;
+				["conditions"] = multiRefObjects[2];
 				["contentid"] = -1;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -199,11 +222,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 0;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = 887;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -213,6 +238,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 		};
@@ -220,8 +250,10 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to hand when doll is 22%";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -250,6 +282,8 @@ local obj1 = {
 				["gVarValue"] = 1;
 				["ignoreWeaveRules"] = false;
 				["luaReturnsAction"] = false;
+				["name"] = "";
+				["potType"] = 1;
 				["setTarget"] = true;
 				["stopCasting"] = false;
 				["stopMoving"] = false;
@@ -258,6 +292,8 @@ local obj1 = {
 				["targetSubType"] = 1;
 				["targetType"] = 3;
 				["untarget"] = false;
+				["useForWeaving"] = false;
+				["usePot"] = false;
 				["used"] = false;
 				["variableTogglesType"] = 1;
 			};
@@ -274,6 +310,7 @@ local obj1 = {
 				["comparator"] = 1;
 				["conditionLua"] = "";
 				["conditionType"] = 2;
+				["conditions"] = multiRefObjects[2];
 				["contentid"] = 9214;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -298,11 +335,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 0;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = -1;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -312,6 +351,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 			[2] = {
@@ -325,6 +369,7 @@ local obj1 = {
 				["comparator"] = 2;
 				["conditionLua"] = "";
 				["conditionType"] = 3;
+				["conditions"] = multiRefObjects[2];
 				["contentid"] = -1;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -349,11 +394,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 22;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = -1;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -363,6 +410,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 			[3] = {
@@ -376,6 +428,7 @@ local obj1 = {
 				["comparator"] = 1;
 				["conditionLua"] = "";
 				["conditionType"] = 8;
+				["conditions"] = multiRefObjects[2];
 				["contentid"] = -1;
 				["enmityValue"] = 0;
 				["eventArgOptionType"] = 1;
@@ -400,11 +453,13 @@ local obj1 = {
 				["hpType"] = 1;
 				["hpValue"] = 0;
 				["inCombatType"] = 1;
+				["inRangeValue"] = 0;
 				["lastSkillID"] = -1;
 				["localmapid"] = 887;
 				["matchAnyBuff"] = false;
 				["mpType"] = 1;
 				["mpValue"] = 0;
+				["name"] = "";
 				["partyHpType"] = 1;
 				["partyHpValue"] = 0;
 				["partyMpType"] = 1;
@@ -414,6 +469,11 @@ local obj1 = {
 				["partyTargetNumber"] = 1;
 				["partyTargetSubType"] = 1;
 				["partyTargetType"] = 1;
+				["rangeCheckSourceSubType"] = 1;
+				["rangeCheckSourceType"] = 1;
+				["rangeSourceContentID"] = -1;
+				["rangeSourceName"] = "";
+				["setEventTargetSubtype"] = 1;
 				["setFirstMatch"] = false;
 			};
 		};
@@ -421,8 +481,10 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "TEA: swap to living liquid when doll is 22%";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -442,8 +504,10 @@ local obj1 = {
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "-- Actions --";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -562,8 +626,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Knockback";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -660,8 +726,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Leg Sweep";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -741,8 +809,10 @@ end\
 \
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Stop Casting";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -902,8 +972,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Feint";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -971,8 +1043,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Brotherhood";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1283,8 +1357,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Riddle of Earth";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1371,8 +1447,10 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
 end\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Cast: Mantra";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1392,8 +1470,10 @@ end\
 		["eventType"] = 1;
 		["execute"] = "";
 		["executeType"] = 1;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "---- Revamp ----";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1422,8 +1502,10 @@ self.used = true\
 return nil\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = true;
 		["name"] = "Cast: Self Heal";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1451,8 +1533,10 @@ return nil\
 \
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "QT: AOE Blacklist";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1478,8 +1562,10 @@ self.used = true \
 return nil\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "QT: CD Blacklist";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1506,8 +1592,10 @@ return nil\
 \
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "QT: DOT Blacklist";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1532,8 +1620,10 @@ self.used = true \
 return nil\
 ";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "QT: Omni Whitelist";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1556,8 +1646,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Reset: toggles on wipe";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;
@@ -1580,8 +1672,10 @@ self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil";
 		["executeType"] = 2;
+		["lastUse"] = 0;
 		["luaReturnsAction"] = false;
 		["name"] = "Reset: toggles on death";
+		["throttleTime"] = 0;
 		["time"] = 0;
 		["timeRange"] = false;
 		["timelineIndex"] = 0;

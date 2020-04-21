@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-{};
+{};{};
 } -- multiRefObjects
 local obj1 = {
 	[2] = {
@@ -428,9 +428,11 @@ d(\"timeline dependancy loaded\")\
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Dependancies";
+			["throttleTime"] = 0;
 			["time"] = 14.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 2;
@@ -450,9 +452,11 @@ self.used = true\
 self.used = true\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Reset Toggle Controls";
+			["throttleTime"] = 0;
 			["time"] = 14.5;
 			["timeRange"] = false;
 			["timelineIndex"] = 2;
@@ -474,9 +478,11 @@ self.used = true\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Feint";
+			["throttleTime"] = 0;
 			["time"] = 72.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 14;
@@ -498,9 +504,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 134.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 24;
@@ -521,9 +529,11 @@ end";
 			["execute"] = "SallyNIN.SkillSettings.TrueNorth.enabled = false\
 self.used = true";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "True North off";
+			["throttleTime"] = 0;
 			["time"] = 157.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 27;
@@ -549,6 +559,8 @@ self.used = true";
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -557,6 +569,8 @@ self.used = true";
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -574,6 +588,7 @@ self.used = true";
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[2];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -581,11 +596,13 @@ return false";
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -595,15 +612,22 @@ return false";
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
+			["throttleTime"] = 0;
 			["time"] = 157.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 27;
@@ -631,9 +655,11 @@ end		\
 \
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "True North and back on";
+			["throttleTime"] = 0;
 			["time"] = 157.6;
 			["timeRange"] = true;
 			["timelineIndex"] = 27;
@@ -655,9 +681,11 @@ end		\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 196.9;
 			["timeRange"] = true;
 			["timelineIndex"] = 31;
@@ -679,9 +707,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Feint";
+			["throttleTime"] = 0;
 			["time"] = 205.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 32;
@@ -707,9 +737,11 @@ self.used = true\
 \
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 221.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 35;
@@ -731,9 +763,11 @@ self.used = true\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 237.1;
 			["timeRange"] = true;
 			["timelineIndex"] = 38;
@@ -755,9 +789,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 253.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 40;
@@ -779,9 +815,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 314.3;
 			["timeRange"] = true;
 			["timelineIndex"] = 50;
@@ -802,9 +840,11 @@ end";
 			["execute"] = "SallySAM.SkillSettings.TrueNorth.enabled = false\
 self.used = true";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "True North off";
+			["throttleTime"] = 0;
 			["time"] = 337.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 53;
@@ -830,6 +870,8 @@ self.used = true";
 					["gVarValue"] = 1;
 					["ignoreWeaveRules"] = false;
 					["luaReturnsAction"] = false;
+					["name"] = "";
+					["potType"] = 1;
 					["setTarget"] = true;
 					["stopCasting"] = false;
 					["stopMoving"] = false;
@@ -838,6 +880,8 @@ self.used = true";
 					["targetSubType"] = 1;
 					["targetType"] = 5;
 					["untarget"] = false;
+					["useForWeaving"] = false;
+					["usePot"] = false;
 					["used"] = false;
 					["variableTogglesType"] = 1;
 				};
@@ -855,6 +899,7 @@ self.used = true";
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false";
 					["conditionType"] = 1;
+					["conditions"] = multiRefObjects[2];
 					["contentid"] = -1;
 					["enmityValue"] = 0;
 					["gaugeIndex"] = 1;
@@ -862,11 +907,13 @@ return false";
 					["hpType"] = 1;
 					["hpValue"] = 0;
 					["inCombatType"] = 1;
+					["inRangeValue"] = 0;
 					["lastSkillID"] = -1;
 					["localmapid"] = -1;
 					["matchAnyBuff"] = false;
 					["mpType"] = 1;
 					["mpValue"] = 0;
+					["name"] = "";
 					["partyHpType"] = 1;
 					["partyHpValue"] = 0;
 					["partyMpType"] = 1;
@@ -876,15 +923,22 @@ return false";
 					["partyTargetNumber"] = 1;
 					["partyTargetSubType"] = 1;
 					["partyTargetType"] = 1;
+					["rangeCheckSourceSubType"] = 1;
+					["rangeCheckSourceType"] = 1;
+					["rangeSourceContentID"] = -1;
+					["rangeSourceName"] = "";
+					["setEventTargetSubtype"] = 1;
 					["setFirstMatch"] = false;
 				};
 			};
 			["enabled"] = true;
 			["execute"] = "";
 			["executeType"] = 1;
+			["lastUse"] = 0;
 			["loop"] = true;
 			["luaReturnsAction"] = false;
 			["name"] = "target boss";
+			["throttleTime"] = 0;
 			["time"] = 337.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 53;
@@ -908,9 +962,11 @@ if actionskill.cdmax - actionskill.cd < 1 then \
 end		\
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "True North and back on";
+			["throttleTime"] = 0;
 			["time"] = 337.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 53;
@@ -932,9 +988,11 @@ end		\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 375.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 57;
@@ -956,9 +1014,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Feint";
+			["throttleTime"] = 0;
 			["time"] = 383.8;
 			["timeRange"] = true;
 			["timelineIndex"] = 58;
@@ -984,9 +1044,11 @@ self.used = true\
 \
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 399.9;
 			["timeRange"] = true;
 			["timelineIndex"] = 61;
@@ -1008,9 +1070,11 @@ self.used = true\
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 415.4;
 			["timeRange"] = true;
 			["timelineIndex"] = 65;
@@ -1032,9 +1096,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 431.7;
 			["timeRange"] = true;
 			["timelineIndex"] = 67;
@@ -1060,9 +1126,11 @@ if SallyNIN ~= nil then	SallyNIN.SkillSettings.Omni.enabled = true end\
 \
 self.used = true";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Enable Omni";
+			["throttleTime"] = 0;
 			["time"] = 865.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 72;
@@ -1081,9 +1149,11 @@ self.used = true";
 			["execute"] = "data.nilsPlayground.TurnOffTrickAttackWindow(true)\
 self.used = true";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Turn off TrickAttack";
+			["throttleTime"] = 0;
 			["time"] = 865.5;
 			["timeRange"] = true;
 			["timelineIndex"] = 72;
@@ -1119,9 +1189,11 @@ end\
 \
 ";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Turn on Trick when Buff";
+			["throttleTime"] = 0;
 			["time"] = 1000;
 			["timeRange"] = true;
 			["timelineIndex"] = 73;
@@ -1150,9 +1222,11 @@ if target ~= nil and table.valid(target) and target.attackable and not HasBuff(t
   self.used = true\
 end		";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Feint";
+			["throttleTime"] = 0;
 			["time"] = 1052;
 			["timeRange"] = true;
 			["timelineIndex"] = 82;
@@ -1175,9 +1249,11 @@ end		";
 			["execute"] = "data.nilsPlayground.TurnOffTCJ(true)\
 self.used = true";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Turn off TCJ";
+			["throttleTime"] = 0;
 			["time"] = 1143.8;
 			["timeRange"] = true;
 			["timelineIndex"] = 91;
@@ -1199,9 +1275,11 @@ self.used = true";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Arm's Length";
+			["throttleTime"] = 0;
 			["time"] = 1156;
 			["timeRange"] = true;
 			["timelineIndex"] = 92;
@@ -1222,9 +1300,11 @@ end";
 			["execute"] = "data.nilsPlayground.TurnOnTCJ()\
 self.used = true";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Turn On TCJ";
+			["throttleTime"] = 0;
 			["time"] = 1157;
 			["timeRange"] = false;
 			["timelineIndex"] = 93;
@@ -1246,9 +1326,11 @@ self.used = true";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 1235.1;
 			["timeRange"] = true;
 			["timelineIndex"] = 103;
@@ -1270,9 +1352,11 @@ end";
   self.used = true\
 end";
 			["executeType"] = 2;
+			["lastUse"] = 0;
 			["loop"] = false;
 			["luaReturnsAction"] = false;
 			["name"] = "Shadeshift";
+			["throttleTime"] = 0;
 			["time"] = 1245.2;
 			["timeRange"] = true;
 			["timelineIndex"] = 104;
