@@ -5,76 +5,69 @@ local multiRefObjects = {
 local obj1 = {
 	[1] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "-- ** Contributors **\
---[[\
-		* Nil (maintainer)\
-		* \
-]]\
+		},
+		["enabled"] = false,
+		["eventType"] = 1,
+		["execute"] = "-- if fey union is on cooldown, rest can be ignored\
+local feyUnionActionskill = ActionList:Get(1, 7437)\
+if feyUnionActionskill.cdmax - feyUnionActionskill.cd > 1 then\
+		self.eventConditionMismatch = true -- suppressing the log\
+		self.used = true \
+		return nil\
+end\
 \
--- *************************************************************************************\
+feyUnionActionskill:Cast(Player.id)\
 \
---[[ ** Verson 3 **\
-* filter added to `onentitychanneling` to ignore friendly targets\
-* cleaned up code to make it more readable and simplify fall through\
-* added on death monitor and updated general reactions to check the time\
-]]\
 \
---[[ ** Verson 2 **\
-* massive refactor\
-* added check for seraph\
-* fixed chain strategem check (thanks felmy for letting me know)\
-]]\
-";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "sch-general-changes";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 0;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "bd9f38ed-895d-7b4d-82f7-f5742642e58e";
-	};
+\
+feyUnionActionskill:Cast(Player.id)",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "sch-general-changes",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 6,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "bd9f38ed-895d-7b4d-82f7-f5742642e58e",
+	},
 	[2] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 9;
-		["execute"] = "";
-		["executeType"] = 1;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "-- Actions --";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 0;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "e466b109-2521-f962-8205-1828de3b6ad2";
-	};
+		},
+		["enabled"] = false,
+		["eventType"] = 9,
+		["execute"] = "",
+		["executeType"] = 1,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "-- Actions --",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 0,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "e466b109-2521-f962-8205-1828de3b6ad2",
+	},
 	[3] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
+		},
+		["enabled"] = false,
+		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 28 or Player.level < 32 or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -135,29 +128,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end\
 \
-";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Stop Casting";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "bda83fc6-3c1e-8699-b29d-9279ae2b3c93";
-	};
+",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Stop Casting",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "bda83fc6-3c1e-8699-b29d-9279ae2b3c93",
+	},
 	[4] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
+		},
+		["enabled"] = false,
+		["eventType"] = 3,
 		["execute"] = "if player.incombat == false then\
  self.eventConditionMismatch = true -- suppressing the log\
 	self.used = true \
@@ -170,29 +163,29 @@ if wasSuccessful == true then\
   return action, targetID, ignoreWeaveRules, allowInterrupt\
 end\
 \
-";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = true;
-		["name"] = "Cast: Knockback";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "876952fe-ee22-dfe3-aa5a-2758fbf90339";
-	};
+",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = true,
+		["name"] = "Cast: Knockback",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 5,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "876952fe-ee22-dfe3-aa5a-2758fbf90339",
+	},
 	[5] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
+		},
+		["enabled"] = false,
+		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -436,29 +429,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.eventConditionMismatch = true -- suppressing the log\
   self.used = true\
   return nil\
-end";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Fey Illumination";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "52ae51c1-2221-8299-9aff-29762e8937ed";
-	};
+end",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Fey Illumination",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "52ae51c1-2221-8299-9aff-29762e8937ed",
+	},
 	[6] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
+		},
+		["enabled"] = false,
+		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -688,29 +681,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end\
 \
-";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Adloquium";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "559dc354-856c-d7a1-a0d0-a5dc59938b1e";
-	};
+",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Adloquium",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "559dc354-856c-d7a1-a0d0-a5dc59938b1e",
+	},
 	[7] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
+		},
+		["enabled"] = false,
+		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -944,29 +937,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.eventConditionMismatch = true -- suppressing the log\
   self.used = true\
   return nil\
-end";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Excogitation";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "a59477a4-bd1a-a309-a48a-6952f3cf6769";
-	};
+end",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Excogitation",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "a59477a4-bd1a-a309-a48a-6952f3cf6769",
+	},
 	[8] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 3;
+		},
+		["enabled"] = false,
+		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 28 or Player.level < 30 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -1200,29 +1193,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.eventConditionMismatch = true -- suppressing the log\
   self.used = true\
   return nil\
-end";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Succor";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "9ad5c5e7-5a2d-c55d-adf2-ad1fab51f92f";
-	};
+end",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Succor",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "9ad5c5e7-5a2d-c55d-adf2-ad1fab51f92f",
+	},
 	[9] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
+		},
+		["enabled"] = false,
+		["eventType"] = 1,
 		["execute"] = "-- ONLY ENABLE IF YOU UNDERSTAND WHY --\
 \
 if Player.job ~= 28 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_sch ~= nil and xivopeners_sch.openerStarted == true) then\
@@ -1278,52 +1271,52 @@ if HasBuff(Player.id, 786) or HasBuff(Player.id, 1185) or HasBuff(Player.id, 182
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
-return nil";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Chain Stratagem";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "bfb241f5-36ea-e46c-b38b-8a88a20ebc5b";
-	};
+return nil",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Chain Stratagem",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "bfb241f5-36ea-e46c-b38b-8a88a20ebc5b",
+	},
 	[10] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "";
-		["executeType"] = 1;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "-- Healing --";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 0;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "6a919f7a-2030-a0a4-9766-ef0bf79a455b";
-	};
+		},
+		["enabled"] = false,
+		["eventType"] = 1,
+		["execute"] = "",
+		["executeType"] = 1,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "-- Healing --",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 0,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "6a919f7a-2030-a0a4-9766-ef0bf79a455b",
+	},
 	[11] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
+		},
+		["enabled"] = false,
+		["eventType"] = 1,
 		["execute"] = "--[[\
 NOT WORKING YET\
 \
@@ -1387,29 +1380,29 @@ local plistOne = EntityList(\"alive,myparty,friendly,lowesthealth, maxdistance=3
 -- support for npc team (ex. Trust)\
 if not table.valid(plistOne) then \
 		plistOne = EntityList(\"alive,chartype=9,targetable,maxdistance=30,distanceto=\" .. tostring(Player.id))\
-end";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Heal: Fey Union";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "6762caf7-4a01-023b-8bc0-860b60d14026";
-	};
+end",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Heal: Fey Union",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 5,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "6762caf7-4a01-023b-8bc0-860b60d14026",
+	},
 	[12] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
+		},
+		["enabled"] = false,
+		["eventType"] = 1,
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
 \
@@ -1423,21 +1416,21 @@ data.nilsPlayground.timeOfDeath = Now()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
-return nil";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Reset: on death";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "afec987f-4a18-2e49-bcbb-15fd5c9ee9f0";
-	};
+return nil",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Reset: on death",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "afec987f-4a18-2e49-bcbb-15fd5c9ee9f0",
+	},
 }
 return obj1

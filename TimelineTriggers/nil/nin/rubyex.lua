@@ -1,15 +1,15 @@
 -- Persistent Data
 local multiRefObjects = {
-{};{};
+{},{},
 } -- multiRefObjects
 local obj1 = {
 	[2] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "-- checks and loads dependancy functions in the event that you do not have my general dependancies loaded.\
 \
 if data.nilsPlayground == nil then\
@@ -426,223 +426,223 @@ end\
 \
 d(\"timeline dependancy loaded\")\
 self.used = true\
-";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Dependancies";
-			["throttleTime"] = 0;
-			["time"] = 14.5;
-			["timeRange"] = true;
-			["timelineIndex"] = 2;
-			["timerEndOffset"] = 14;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -20;
-			["used"] = false;
-			["uuid"] = "d6651d50-00a5-c7f0-bd04-b6c8ae59a84a";
-		};
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dependancies",
+			["throttleTime"] = 0,
+			["time"] = 14.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 2,
+			["timerEndOffset"] = 14,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -20,
+			["used"] = false,
+			["uuid"] = "d6651d50-00a5-c7f0-bd04-b6c8ae59a84a",
+		},
 		[2] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Reset()\
 self.used = true\
-";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Reset Toggle Controls";
-			["throttleTime"] = 0;
-			["time"] = 14.5;
-			["timeRange"] = false;
-			["timelineIndex"] = 2;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "26e4c108-2f0c-43d3-aed7-5b890cc84588";
-		};
-	};
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Reset Toggle Controls",
+			["throttleTime"] = 0,
+			["time"] = 14.5,
+			["timeRange"] = false,
+			["timelineIndex"] = 2,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "26e4c108-2f0c-43d3-aed7-5b890cc84588",
+		},
+	},
 	[14] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Feint";
-			["throttleTime"] = 0;
-			["time"] = 72.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 14;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "c25dfdfb-6051-171e-9d5d-74a8e2e223cf";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Feint",
+			["throttleTime"] = 0,
+			["time"] = 72.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 14,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "c25dfdfb-6051-171e-9d5d-74a8e2e223cf",
+		},
+	},
 	[24] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 134.7;
-			["timeRange"] = true;
-			["timelineIndex"] = 24;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "eeb40cda-de2a-1570-837d-daae48349d28";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 134.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 24,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "eeb40cda-de2a-1570-837d-daae48349d28",
+		},
+	},
 	[27] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "SallyNIN.SkillSettings.TrueNorth.enabled = false\
-self.used = true";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "True North off";
-			["throttleTime"] = 0;
-			["time"] = 157.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 27;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -3;
-			["timerStartOffset"] = -8;
-			["used"] = false;
-			["uuid"] = "e958ecbe-a8e6-fd47-9829-c1c0c8eff282";
-		};
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "True North off",
+			["throttleTime"] = 0,
+			["time"] = 157.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 27,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -3,
+			["timerStartOffset"] = -8,
+			["used"] = false,
+			["uuid"] = "e958ecbe-a8e6-fd47-9829-c1c0c8eff282",
+		},
 		[2] = {
 			["actions"] = {
 				[1] = {
-					["aType"] = 3;
-					["actionID"] = -1;
-					["actionLua"] = "";
-					["allowInterrupt"] = false;
+					["aType"] = 3,
+					["actionID"] = -1,
+					["actionLua"] = "",
+					["allowInterrupt"] = false,
 					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = false;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["name"] = "";
-					["potType"] = 1;
-					["setTarget"] = true;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 5;
-					["untarget"] = false;
-					["useForWeaving"] = false;
-					["usePot"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
+						[1] = 1,
+					},
+					["endIfUsed"] = false,
+					["gVar"] = "",
+					["gVarIndex"] = 1,
+					["gVarValue"] = 1,
+					["ignoreWeaveRules"] = false,
+					["luaReturnsAction"] = false,
+					["name"] = "",
+					["potType"] = 1,
+					["setTarget"] = true,
+					["stopCasting"] = false,
+					["stopMoving"] = false,
+					["targetContentID"] = -1,
+					["targetName"] = "",
+					["targetSubType"] = 1,
+					["targetType"] = 5,
+					["untarget"] = false,
+					["useForWeaving"] = false,
+					["usePot"] = false,
+					["used"] = false,
+					["variableTogglesType"] = 1,
+				},
+			},
 			["conditions"] = {
 				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["buffIDList"] = multiRefObjects[1];
-					["category"] = 4;
-					["comparator"] = 1;
+					["actionCDValue"] = 0,
+					["actionID"] = -1,
+					["buffCheckType"] = 1,
+					["buffDuration"] = 0,
+					["buffID"] = -1,
+					["buffIDList"] = multiRefObjects[1],
+					["category"] = 4,
+					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
-					["conditionType"] = 1;
-					["conditions"] = multiRefObjects[2];
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["inRangeValue"] = 0;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["matchAnyBuff"] = false;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["name"] = "";
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["rangeCheckSourceSubType"] = 1;
-					["rangeCheckSourceType"] = 1;
-					["rangeSourceContentID"] = -1;
-					["rangeSourceName"] = "";
-					["setEventTargetSubtype"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["lastUse"] = 0;
-			["loop"] = true;
-			["luaReturnsAction"] = false;
-			["name"] = "target boss";
-			["throttleTime"] = 0;
-			["time"] = 157.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 27;
-			["timerEndOffset"] = 5;
-			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -5;
-			["used"] = false;
-			["uuid"] = "5f9ee68d-0b8b-f1bc-be30-81e0b5af2507";
-		};
+return false",
+					["conditionType"] = 1,
+					["conditions"] = multiRefObjects[2],
+					["contentid"] = -1,
+					["enmityValue"] = 0,
+					["gaugeIndex"] = 1,
+					["gaugeValue"] = 0,
+					["hpType"] = 1,
+					["hpValue"] = 0,
+					["inCombatType"] = 1,
+					["inRangeValue"] = 0,
+					["lastSkillID"] = -1,
+					["localmapid"] = -1,
+					["matchAnyBuff"] = false,
+					["mpType"] = 1,
+					["mpValue"] = 0,
+					["name"] = "",
+					["partyHpType"] = 1,
+					["partyHpValue"] = 0,
+					["partyMpType"] = 1,
+					["partyMpValue"] = 0,
+					["partyTargetContentID"] = -1,
+					["partyTargetName"] = "",
+					["partyTargetNumber"] = 1,
+					["partyTargetSubType"] = 1,
+					["partyTargetType"] = 1,
+					["rangeCheckSourceSubType"] = 1,
+					["rangeCheckSourceType"] = 1,
+					["rangeSourceContentID"] = -1,
+					["rangeSourceName"] = "",
+					["setEventTargetSubtype"] = 1,
+					["setFirstMatch"] = false,
+				},
+			},
+			["enabled"] = true,
+			["execute"] = "",
+			["executeType"] = 1,
+			["lastUse"] = 0,
+			["loop"] = true,
+			["luaReturnsAction"] = false,
+			["name"] = "target boss",
+			["throttleTime"] = 0,
+			["time"] = 157.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 27,
+			["timerEndOffset"] = 5,
+			["timerOffset"] = 1.375,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "5f9ee68d-0b8b-f1bc-be30-81e0b5af2507",
+		},
 		[3] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "local actionskill =  ActionList:Get(1, 7546)\
 if actionskill.cdmax - actionskill.cd < 1 then \
   if SallyNIN ~= nil then SallyNIN.HotBarConfig.TrueNorth.enabled = true = false else	actionskill:Get(1, 7546):Cast(Player.id) end\
@@ -653,524 +653,524 @@ end		\
 \
 \
 \
-";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "True North and back on";
-			["throttleTime"] = 0;
-			["time"] = 157.6;
-			["timeRange"] = true;
-			["timelineIndex"] = 27;
-			["timerEndOffset"] = 2;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "a417c075-0474-9ec9-8439-d1b1985477b7";
-		};
-	};
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "True North and back on",
+			["throttleTime"] = 0,
+			["time"] = 157.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 27,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "a417c075-0474-9ec9-8439-d1b1985477b7",
+		},
+	},
 	[31] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 196.9;
-			["timeRange"] = true;
-			["timelineIndex"] = 31;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "8f00f6f9-395c-d3fe-8ebb-ca7d5036a595";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 196.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 31,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "8f00f6f9-395c-d3fe-8ebb-ca7d5036a595",
+		},
+	},
 	[32] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Feint";
-			["throttleTime"] = 0;
-			["time"] = 205.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 32;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "b9a963e3-0d3f-6625-8d79-50aab4a82754";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Feint",
+			["throttleTime"] = 0,
+			["time"] = 205.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 32,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "b9a963e3-0d3f-6625-8d79-50aab4a82754",
+		},
+	},
 	[35] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "local actionskill = ActionList:Get(1, 2241)\
 \
 -- if sally installed, use hotbar, otherwise use base\
 if SallyNIN ~= nil then SallyNIN.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast() end \
 self.used = true\
 \
-";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 221.4;
-			["timeRange"] = true;
-			["timelineIndex"] = 35;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "8385af3a-daa4-b214-adca-2b1eafe4f152";
-		};
-	};
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 221.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 35,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "8385af3a-daa4-b214-adca-2b1eafe4f152",
+		},
+	},
 	[38] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 237.1;
-			["timeRange"] = true;
-			["timelineIndex"] = 38;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "cbfc3162-a142-037f-8642-771193fe45c1";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 237.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 38,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "cbfc3162-a142-037f-8642-771193fe45c1",
+		},
+	},
 	[40] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 253.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 40;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "88d47f81-ee92-dfea-a18c-582d48f45652";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 253.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 40,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "88d47f81-ee92-dfea-a18c-582d48f45652",
+		},
+	},
 	[50] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 314.3;
-			["timeRange"] = true;
-			["timelineIndex"] = 50;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "64ab0d3f-8ebd-73bb-955a-a23d72b6661b";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 314.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 50,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "64ab0d3f-8ebd-73bb-955a-a23d72b6661b",
+		},
+	},
 	[53] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "SallySAM.SkillSettings.TrueNorth.enabled = false\
-self.used = true";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "True North off";
-			["throttleTime"] = 0;
-			["time"] = 337.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 53;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -3;
-			["timerStartOffset"] = -8;
-			["used"] = false;
-			["uuid"] = "9aec3630-c44b-7b5e-beea-80c819c0deb4";
-		};
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "True North off",
+			["throttleTime"] = 0,
+			["time"] = 337.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 53,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -3,
+			["timerStartOffset"] = -8,
+			["used"] = false,
+			["uuid"] = "9aec3630-c44b-7b5e-beea-80c819c0deb4",
+		},
 		[2] = {
 			["actions"] = {
 				[1] = {
-					["aType"] = 3;
-					["actionID"] = -1;
-					["actionLua"] = "";
-					["allowInterrupt"] = false;
+					["aType"] = 3,
+					["actionID"] = -1,
+					["actionLua"] = "",
+					["allowInterrupt"] = false,
 					["conditions"] = {
-						[1] = 1;
-					};
-					["endIfUsed"] = false;
-					["gVar"] = "";
-					["gVarIndex"] = 1;
-					["gVarValue"] = 1;
-					["ignoreWeaveRules"] = false;
-					["luaReturnsAction"] = false;
-					["name"] = "";
-					["potType"] = 1;
-					["setTarget"] = true;
-					["stopCasting"] = false;
-					["stopMoving"] = false;
-					["targetContentID"] = -1;
-					["targetName"] = "";
-					["targetSubType"] = 1;
-					["targetType"] = 5;
-					["untarget"] = false;
-					["useForWeaving"] = false;
-					["usePot"] = false;
-					["used"] = false;
-					["variableTogglesType"] = 1;
-				};
-			};
+						[1] = 1,
+					},
+					["endIfUsed"] = false,
+					["gVar"] = "",
+					["gVarIndex"] = 1,
+					["gVarValue"] = 1,
+					["ignoreWeaveRules"] = false,
+					["luaReturnsAction"] = false,
+					["name"] = "",
+					["potType"] = 1,
+					["setTarget"] = true,
+					["stopCasting"] = false,
+					["stopMoving"] = false,
+					["targetContentID"] = -1,
+					["targetName"] = "",
+					["targetSubType"] = 1,
+					["targetType"] = 5,
+					["untarget"] = false,
+					["useForWeaving"] = false,
+					["usePot"] = false,
+					["used"] = false,
+					["variableTogglesType"] = 1,
+				},
+			},
 			["conditions"] = {
 				[1] = {
-					["actionCDValue"] = 0;
-					["actionID"] = -1;
-					["buffCheckType"] = 1;
-					["buffDuration"] = 0;
-					["buffID"] = -1;
-					["buffIDList"] = multiRefObjects[1];
-					["category"] = 4;
-					["comparator"] = 1;
+					["actionCDValue"] = 0,
+					["actionID"] = -1,
+					["buffCheckType"] = 1,
+					["buffDuration"] = 0,
+					["buffID"] = -1,
+					["buffIDList"] = multiRefObjects[1],
+					["category"] = 4,
+					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
-return false";
-					["conditionType"] = 1;
-					["conditions"] = multiRefObjects[2];
-					["contentid"] = -1;
-					["enmityValue"] = 0;
-					["gaugeIndex"] = 1;
-					["gaugeValue"] = 0;
-					["hpType"] = 1;
-					["hpValue"] = 0;
-					["inCombatType"] = 1;
-					["inRangeValue"] = 0;
-					["lastSkillID"] = -1;
-					["localmapid"] = -1;
-					["matchAnyBuff"] = false;
-					["mpType"] = 1;
-					["mpValue"] = 0;
-					["name"] = "";
-					["partyHpType"] = 1;
-					["partyHpValue"] = 0;
-					["partyMpType"] = 1;
-					["partyMpValue"] = 0;
-					["partyTargetContentID"] = -1;
-					["partyTargetName"] = "";
-					["partyTargetNumber"] = 1;
-					["partyTargetSubType"] = 1;
-					["partyTargetType"] = 1;
-					["rangeCheckSourceSubType"] = 1;
-					["rangeCheckSourceType"] = 1;
-					["rangeSourceContentID"] = -1;
-					["rangeSourceName"] = "";
-					["setEventTargetSubtype"] = 1;
-					["setFirstMatch"] = false;
-				};
-			};
-			["enabled"] = true;
-			["execute"] = "";
-			["executeType"] = 1;
-			["lastUse"] = 0;
-			["loop"] = true;
-			["luaReturnsAction"] = false;
-			["name"] = "target boss";
-			["throttleTime"] = 0;
-			["time"] = 337.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 53;
-			["timerEndOffset"] = 5;
-			["timerOffset"] = 1.375;
-			["timerStartOffset"] = -5;
-			["used"] = false;
-			["uuid"] = "93334d97-d2c4-eb96-b6ca-247e878901e0";
-		};
+return false",
+					["conditionType"] = 1,
+					["conditions"] = multiRefObjects[2],
+					["contentid"] = -1,
+					["enmityValue"] = 0,
+					["gaugeIndex"] = 1,
+					["gaugeValue"] = 0,
+					["hpType"] = 1,
+					["hpValue"] = 0,
+					["inCombatType"] = 1,
+					["inRangeValue"] = 0,
+					["lastSkillID"] = -1,
+					["localmapid"] = -1,
+					["matchAnyBuff"] = false,
+					["mpType"] = 1,
+					["mpValue"] = 0,
+					["name"] = "",
+					["partyHpType"] = 1,
+					["partyHpValue"] = 0,
+					["partyMpType"] = 1,
+					["partyMpValue"] = 0,
+					["partyTargetContentID"] = -1,
+					["partyTargetName"] = "",
+					["partyTargetNumber"] = 1,
+					["partyTargetSubType"] = 1,
+					["partyTargetType"] = 1,
+					["rangeCheckSourceSubType"] = 1,
+					["rangeCheckSourceType"] = 1,
+					["rangeSourceContentID"] = -1,
+					["rangeSourceName"] = "",
+					["setEventTargetSubtype"] = 1,
+					["setFirstMatch"] = false,
+				},
+			},
+			["enabled"] = true,
+			["execute"] = "",
+			["executeType"] = 1,
+			["lastUse"] = 0,
+			["loop"] = true,
+			["luaReturnsAction"] = false,
+			["name"] = "target boss",
+			["throttleTime"] = 0,
+			["time"] = 337.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 53,
+			["timerEndOffset"] = 5,
+			["timerOffset"] = 1.375,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "93334d97-d2c4-eb96-b6ca-247e878901e0",
+		},
 		[3] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "local actionskill =  ActionList:Get(1, 7546)\
 if actionskill.cdmax - actionskill.cd < 1 then \
   if SallyNIN ~= nil then SallyNIN.HotBarConfig.TrueNorth.enabled = true = false else	actionskill:Get(1, 7546):Cast(Player.id) end\
   SallyNIN.SkillSettings.TrueNorth.enabled = true\
   self.used = true\
 end		\
-";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "True North and back on";
-			["throttleTime"] = 0;
-			["time"] = 337.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 53;
-			["timerEndOffset"] = 2;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -2;
-			["used"] = false;
-			["uuid"] = "0e0c4fa8-7453-328e-b4cf-a515f7835a88";
-		};
-	};
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "True North and back on",
+			["throttleTime"] = 0,
+			["time"] = 337.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 53,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "0e0c4fa8-7453-328e-b4cf-a515f7835a88",
+		},
+	},
 	[57] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 375.5;
-			["timeRange"] = true;
-			["timelineIndex"] = 57;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "3610d1d5-8cae-9c8a-857b-306149cad46e";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 375.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 57,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "3610d1d5-8cae-9c8a-857b-306149cad46e",
+		},
+	},
 	[58] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteFeint() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Feint";
-			["throttleTime"] = 0;
-			["time"] = 383.8;
-			["timeRange"] = true;
-			["timelineIndex"] = 58;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "be00d80a-cfd4-4e04-83d3-a2f3444c0503";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Feint",
+			["throttleTime"] = 0,
+			["time"] = 383.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 58,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "be00d80a-cfd4-4e04-83d3-a2f3444c0503",
+		},
+	},
 	[61] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "local actionskill = ActionList:Get(1, 2241)\
 \
 -- if sally installed, use hotbar, otherwise use base\
 if SallyNIN ~= nil then SallyNIN.HotBarConfig.ShadeShift.enabled = false else	actionskill:Cast() end \
 self.used = true\
 \
-";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 399.9;
-			["timeRange"] = true;
-			["timelineIndex"] = 61;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "c448788d-722f-9af2-ab46-6e50fba0852b";
-		};
-	};
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 399.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 61,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "c448788d-722f-9af2-ab46-6e50fba0852b",
+		},
+	},
 	[65] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 415.4;
-			["timeRange"] = true;
-			["timelineIndex"] = 65;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "c913a97e-a976-3181-8cd2-07fec63628cb";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 415.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 65,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "c913a97e-a976-3181-8cd2-07fec63628cb",
+		},
+	},
 	[67] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 431.7;
-			["timeRange"] = true;
-			["timelineIndex"] = 67;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "c9474345-356c-8f54-b860-a1ce2dccf33f";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 431.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 67,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "c9474345-356c-8f54-b860-a1ce2dccf33f",
+		},
+	},
 	[72] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "-- putting this on a loop becuase it can mess up if the group wipe resets.\
 \
 data.nilsPlayground.Toggles.OmniWhiteList.TimelineActive == true\
 \
 if SallyNIN ~= nil then	SallyNIN.SkillSettings.Omni.enabled = true end\
 \
-self.used = true";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Enable Omni";
-			["throttleTime"] = 0;
-			["time"] = 865.5;
-			["timeRange"] = true;
-			["timelineIndex"] = 72;
-			["timerEndOffset"] = 10;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -10;
-			["used"] = false;
-			["uuid"] = "8f46bfd4-d192-f881-8629-9729857bfeb8";
-		};
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Enable Omni",
+			["throttleTime"] = 0,
+			["time"] = 865.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 72,
+			["timerEndOffset"] = 10,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -10,
+			["used"] = false,
+			["uuid"] = "8f46bfd4-d192-f881-8629-9729857bfeb8",
+		},
 		[2] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "data.nilsPlayground.TurnOffTrickAttackWindow(true)\
-self.used = true";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Turn off TrickAttack";
-			["throttleTime"] = 0;
-			["time"] = 865.5;
-			["timeRange"] = true;
-			["timelineIndex"] = 72;
-			["timerEndOffset"] = 4;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "668a30b0-92db-b5a9-9fc3-919e7807630e";
-		};
-	};
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off TrickAttack",
+			["throttleTime"] = 0,
+			["time"] = 865.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 72,
+			["timerEndOffset"] = 4,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "668a30b0-92db-b5a9-9fc3-919e7807630e",
+		},
+	},
 	[73] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "local hasBuff = false\
 if HasBuff(Player.id,2211) then \
   hasBuff = true\
@@ -1187,30 +1187,30 @@ if hasBuff == true then\
   self.used = true\
 end\
 \
-";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Turn on Trick when Buff";
-			["throttleTime"] = 0;
-			["time"] = 1000;
-			["timeRange"] = true;
-			["timelineIndex"] = 73;
-			["timerEndOffset"] = 20;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "91272cad-4611-c09d-8339-acf1978972f2";
-		};
-	};
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn on Trick when Buff",
+			["throttleTime"] = 0,
+			["time"] = 1000,
+			["timeRange"] = true,
+			["timelineIndex"] = 73,
+			["timerEndOffset"] = 20,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "91272cad-4611-c09d-8339-acf1978972f2",
+		},
+	},
 	[82] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "local target = Player:GetTarget()\
 if target ~= nil and table.valid(target) and target.attackable and not HasBuff(target.id, 1195)  then\
   local actionskill = ActionList:Get(1, 7549)\
@@ -1220,154 +1220,154 @@ if target ~= nil and table.valid(target) and target.attackable and not HasBuff(t
 		  if SallyNIN ~= nil then SallyNIN.HotBarConfig.Feint.enabled = false else	actionskill:Cast(target.id) end\
   end		\
   self.used = true\
-end		";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Feint";
-			["throttleTime"] = 0;
-			["time"] = 1052;
-			["timeRange"] = true;
-			["timelineIndex"] = 82;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "a1e77a99-2075-96d5-91d3-12411218cdf6";
-		};
-	};
+end		",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Feint",
+			["throttleTime"] = 0,
+			["time"] = 1052,
+			["timeRange"] = true,
+			["timelineIndex"] = 82,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "a1e77a99-2075-96d5-91d3-12411218cdf6",
+		},
+	},
 	[90] = {
-	};
+	},
 	[91] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "data.nilsPlayground.TurnOffTCJ(true)\
-self.used = true";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Turn off TCJ";
-			["throttleTime"] = 0;
-			["time"] = 1143.8;
-			["timeRange"] = true;
-			["timelineIndex"] = 91;
-			["timerEndOffset"] = 10;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "d0ae3f25-371b-298a-9a95-0912da19bf0a";
-		};
-	};
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off TCJ",
+			["throttleTime"] = 0,
+			["time"] = 1143.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 91,
+			["timerEndOffset"] = 10,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "d0ae3f25-371b-298a-9a95-0912da19bf0a",
+		},
+	},
 	[92] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteArmsLength() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Arm's Length";
-			["throttleTime"] = 0;
-			["time"] = 1156;
-			["timeRange"] = true;
-			["timelineIndex"] = 92;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "ef6aa3af-5a37-68b5-8bf0-dd082261acf5";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Arm's Length",
+			["throttleTime"] = 0,
+			["time"] = 1156,
+			["timeRange"] = true,
+			["timelineIndex"] = 92,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "ef6aa3af-5a37-68b5-8bf0-dd082261acf5",
+		},
+	},
 	[93] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "data.nilsPlayground.TurnOnTCJ()\
-self.used = true";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Turn On TCJ";
-			["throttleTime"] = 0;
-			["time"] = 1157;
-			["timeRange"] = false;
-			["timelineIndex"] = 93;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = 0;
-			["timerStartOffset"] = 0;
-			["used"] = false;
-			["uuid"] = "fe2674af-b7b1-82da-972c-aa6c88d9f76f";
-		};
-	};
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn On TCJ",
+			["throttleTime"] = 0,
+			["time"] = 1157,
+			["timeRange"] = false,
+			["timelineIndex"] = 93,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "fe2674af-b7b1-82da-972c-aa6c88d9f76f",
+		},
+	},
 	[103] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 1235.1;
-			["timeRange"] = true;
-			["timelineIndex"] = 103;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "fb3ba0fe-4ce8-1bf2-8571-63c0a21a7259";
-		};
-	};
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 1235.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 103,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "fb3ba0fe-4ce8-1bf2-8571-63c0a21a7259",
+		},
+	},
 	[104] = {
 		[1] = {
 			["actions"] = {
-			};
+			},
 			["conditions"] = {
-			};
-			["enabled"] = true;
+			},
+			["enabled"] = true,
 			["execute"] = "if data.nilsPlayground.ExecuteShadeShift() == true then\
   self.used = true\
-end";
-			["executeType"] = 2;
-			["lastUse"] = 0;
-			["loop"] = false;
-			["luaReturnsAction"] = false;
-			["name"] = "Shadeshift";
-			["throttleTime"] = 0;
-			["time"] = 1245.2;
-			["timeRange"] = true;
-			["timelineIndex"] = 104;
-			["timerEndOffset"] = 0;
-			["timerOffset"] = -4;
-			["timerStartOffset"] = -4;
-			["used"] = false;
-			["uuid"] = "50353ffc-8751-65f1-8d26-16bf97d79ff9";
-		};
-	};
-	["mapID"] = 912;
-	["version"] = 2;
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shadeshift",
+			["throttleTime"] = 0,
+			["time"] = 1245.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 104,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "50353ffc-8751-65f1-8d26-16bf97d79ff9",
+		},
+	},
+	["mapID"] = 912,
+	["version"] = 2,
 }
 return obj1

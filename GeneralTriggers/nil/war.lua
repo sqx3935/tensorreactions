@@ -5,11 +5,11 @@ local multiRefObjects = {
 local obj1 = {
 	[1] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
+		},
+		["enabled"] = false,
+		["eventType"] = 1,
 		["execute"] = "-- ** Contributors **\
 --[[\
 		* Nil (maintainer)\
@@ -32,52 +32,52 @@ local obj1 = {
 --[[ ** Verson 2 **\
 * massive refactor, removes the need to have sally vs other reactions\
 ]]\
-";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "warrior-general-changes";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 0;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "56826b54-c6c5-d545-bce6-1afda454c7a9";
-	};
+",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "warrior-general-changes",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 0,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "56826b54-c6c5-d545-bce6-1afda454c7a9",
+	},
 	[2] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = false;
-		["eventType"] = 1;
-		["execute"] = "";
-		["executeType"] = 1;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "-- Actions --";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 0;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "d3b0aa39-c52d-402d-bf43-f8c182d1d13b";
-	};
+		},
+		["enabled"] = false,
+		["eventType"] = 1,
+		["execute"] = "",
+		["executeType"] = 1,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "-- Actions --",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 0,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "d3b0aa39-c52d-402d-bf43-f8c182d1d13b",
+	},
 	[3] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 3;
+		},
+		["enabled"] = true,
+		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 21 or Player.level < 32 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -182,29 +182,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.used = true\
   return nil\
 end\
-";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Knockback";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "6df25657-b516-a801-88db-ab06142b2dfa";
-	};
+",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Knockback",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "6df25657-b516-a801-88db-ab06142b2dfa",
+	},
 	[4] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 3;
+		},
+		["enabled"] = true,
+		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 21 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true)  or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -265,29 +265,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   return nil\
 end\
 \
-";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Stop Casting";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "e0f02dcf-2558-c44d-82b5-601f85e0c354";
-	};
+",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Stop Casting",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "e0f02dcf-2558-c44d-82b5-601f85e0c354",
+	},
 	[5] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 3;
+		},
+		["enabled"] = true,
+		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 21 or Player.level < 18 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -323,29 +323,29 @@ if cinfo.casttime <= 4  then \
   self.eventConditionMismatch = true -- suppressing the log\
   self.used = true\
   return nil\
-end";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Interject";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "41037981-e3fc-f399-ab2d-f24e0c6dbcb9";
-	};
+end",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Interject",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "41037981-e3fc-f399-ab2d-f24e0c6dbcb9",
+	},
 	[6] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
+		},
+		["enabled"] = true,
+		["eventType"] = 1,
 		["execute"] = "if Player.job ~= 21 or Player.level < 58 or Player.incombat == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -383,29 +383,29 @@ end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true\
-return nil";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: Equilibrium";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "94481fe2-5147-9eed-9798-4af3a9fb0f8a";
-	};
+return nil",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: Equilibrium",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "94481fe2-5147-9eed-9798-4af3a9fb0f8a",
+	},
 	[7] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
+		},
+		["enabled"] = true,
+		["eventType"] = 1,
 		["execute"] = "if Player.job ~= 21 or Player.level < 56 or Player.incombat == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -486,29 +486,29 @@ self.used = true \
 return nil\
 \
 \
-";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Cast: NascentorRaw";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 5;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "97e042bf-e2cd-0327-bd68-d2eb98b9c811";
-	};
+",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Cast: NascentorRaw",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 5,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "97e042bf-e2cd-0327-bd68-d2eb98b9c811",
+	},
 	[8] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 1;
+		},
+		["enabled"] = true,
+		["eventType"] = 1,
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
 \
@@ -544,29 +544,29 @@ end\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
-return nil";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Reset: on death";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "6bfbc488-68a2-47cd-8bac-319d57919ed4";
-	};
+return nil",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Reset: on death",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "6bfbc488-68a2-47cd-8bac-319d57919ed4",
+	},
 	[9] = {
 		["actions"] = {
-		};
+		},
 		["conditions"] = {
-		};
-		["enabled"] = true;
-		["eventType"] = 9;
+		},
+		["enabled"] = true,
+		["eventType"] = 9,
 		["execute"] = "if Player.job ~= 21 or SallyWAR == nil then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -609,21 +609,21 @@ SallyWAR.SkillSettings.UseAOE.enabled = true\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
-return nil";
-		["executeType"] = 2;
-		["lastUse"] = 0;
-		["luaReturnsAction"] = false;
-		["name"] = "Reset: toggles on wipe";
-		["throttleTime"] = 0;
-		["time"] = 0;
-		["timeRange"] = false;
-		["timelineIndex"] = 0;
-		["timeout"] = 10;
-		["timerEndOffset"] = 0;
-		["timerOffset"] = 0;
-		["timerStartOffset"] = 0;
-		["used"] = false;
-		["uuid"] = "c126da4b-ad43-8a33-acd9-8c028a601139";
-	};
+return nil",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Reset: toggles on wipe",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 10,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "c126da4b-ad43-8a33-acd9-8c028a601139",
+	},
 }
 return obj1
