@@ -1245,7 +1245,7 @@ end\
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 1,
 		["execute"] = "",
 		["executeType"] = 1,
@@ -1386,7 +1386,7 @@ return nil\
 		},
 		["conditions"] = {
 		},
-		["enabled"] = false,
+		["enabled"] = true,
 		["eventType"] = 1,
 		["execute"] = "if Player.incombat == false then\
  self.eventConditionMismatch = true -- suppressing the log\
@@ -1406,7 +1406,7 @@ return nil\
 ",
 		["executeType"] = 2,
 		["lastUse"] = 0,
-		["luaReturnsAction"] = true,
+		["luaReturnsAction"] = false,
 		["name"] = "Cast: Self Heal",
 		["throttleTime"] = 0,
 		["time"] = 0,
@@ -1476,7 +1476,7 @@ return nil",
 		},
 		["conditions"] = {
 		},
-		["enabled"] = false,
+		["enabled"] = true,
 		["eventType"] = 1,
 		["execute"] = "if gReactionZoomhackSet == nil then\
   gDevHackMaxZoom = 40.0\
@@ -1541,7 +1541,7 @@ end\
 ",
 		["executeType"] = 2,
 		["lastUse"] = 0,
-		["luaReturnsAction"] = true,
+		["luaReturnsAction"] = false,
 		["name"] = "test",
 		["throttleTime"] = 10000,
 		["time"] = 0,

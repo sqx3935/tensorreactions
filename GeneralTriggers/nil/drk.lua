@@ -337,42 +337,6 @@ end",
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
-		["eventType"] = 1,
-		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
-if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
-\
-if Player.alive == true then\
-		self.eventConditionMismatch = true -- suppressing the log\
-		self.used = true \
-		return nil\
-end\
-\
-data.nilsPlayground.timeOfDeath = Now()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Reset: on death",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "8278fa23-8ede-895c-b5f1-e4d58871ca94",
-	},
-	[7] = {
-		["actions"] = {
-		},
-		["conditions"] = {
-		},
 		["enabled"] = false,
 		["eventType"] = 1,
 		["execute"] = "-- *** WARNING ***\
