@@ -26,7 +26,7 @@ self.used = true\
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "06eda0ca-5595-6aa9-b8e6-6dd2ae505d02",
+			["uuid"] = "67c026ac-e70f-17ae-a785-3e87dd2dbdfe",
 		},
 	},
 	[2] = {
@@ -54,7 +54,7 @@ end\
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "3e91a4e5-2d93-b9f3-92a6-d47865d9e906",
+			["uuid"] = "57bcbeb3-d434-738f-b82e-c2a3cbc78fd4",
 		},
 	},
 	[7] = {
@@ -80,7 +80,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "4a41c9d3-d95f-72b5-bd01-7d78cf89ea02",
+			["uuid"] = "b41d9bfe-b40b-fae2-a18e-a09925767d0e",
 		},
 	},
 	[9] = {
@@ -106,7 +106,7 @@ end",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "cdc1bd80-498a-c2b6-8384-a638e74d6151",
+			["uuid"] = "2373be98-23cf-0463-bdaa-38529899b70b",
 		},
 	},
 	[14] = {
@@ -132,62 +132,63 @@ end",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "a90733c7-bbfa-ae52-b285-c2f717eba2ea",
+			["uuid"] = "ceca2271-a625-9136-a20b-c8b1dd594407",
 		},
 	},
 	[16] = {
+	},
+	[17] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "-- Save CD is default Off, pass true to turn it on\
-\
-NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
-self.used = true\
-",
+			["execute"] = "NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaReturnsAction"] = false,
 			["name"] = "CD Off",
 			["throttleTime"] = 0,
-			["time"] = 117.7,
-			["timeRange"] = true,
-			["timelineIndex"] = 16,
+			["time"] = 125.8,
+			["timeRange"] = false,
+			["timelineIndex"] = 17,
 			["timerEndOffset"] = 1,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerOffset"] = 1,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "c232a8ab-4b22-1312-94a5-5442250ac4bb",
+			["uuid"] = "d4a295a1-69e7-6139-b4a1-711b96db8ff3",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
+  self.used = true\
+end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 125.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 17,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "9e75ea7a-d4f7-d242-b722-54de62b025fc",
 		},
 	},
 	[18] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionLibrary.Logic.Toggles.CDOff(NilsReactionLibrary.params.isTimeline)\
-self.used = true\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "CD Off",
-			["throttleTime"] = 0,
-			["time"] = 127.4,
-			["timeRange"] = true,
-			["timelineIndex"] = 18,
-			["timerEndOffset"] = 1,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
-			["used"] = false,
-			["uuid"] = "eb931a35-2c58-e846-a89f-a5327aa91b75",
-		},
 	},
 	[19] = {
 		[1] = {
@@ -229,7 +230,7 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -237,7 +238,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -284,7 +285,7 @@ return true\
 			["timerOffset"] = 1.375,
 			["timerStartOffset"] = -8,
 			["used"] = false,
-			["uuid"] = "46f6dccc-1c72-641d-8c5a-51a7ab0574c2",
+			["uuid"] = "ffa5bf91-0e0b-80af-8e8a-695168060e97",
 		},
 	},
 	[20] = {
@@ -294,22 +295,22 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionLibrary.Logic.Toggles.CDOn(NilsReactionLibrary.params.isTimeline)\
-  self.used = true",
+			["execute"] = "NilsReactionCore.Logic.Toggles.CDOn(NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "CD On",
+			["name"] = "CD ON",
 			["throttleTime"] = 0,
 			["time"] = 128.9,
-			["timeRange"] = true,
+			["timeRange"] = false,
 			["timelineIndex"] = 20,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -0.5,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "fa5fc85e-79e8-0a52-8ee4-131979036b0d",
+			["uuid"] = "b537f2ed-f76f-bfc0-892a-a09f23e62f26",
 		},
 	},
 	[21] = {
@@ -335,7 +336,7 @@ end",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "215d810c-9d48-9c1a-8f92-d31e886b4e1e",
+			["uuid"] = "15cd44ba-fb2e-2e21-a787-4e6752f9b2e7",
 		},
 	},
 	[22] = {
@@ -361,7 +362,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "ce94989d-7e92-8fcf-b3e1-27f912ff9731",
+			["uuid"] = "6a9f75cf-ff99-d8a8-8e22-663c249c5c69",
 		},
 	},
 	[28] = {
@@ -387,7 +388,7 @@ end",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "f0c197e7-205f-dc6b-8283-06ea679e6060",
+			["uuid"] = "e65a2d4e-c46d-845f-b8af-899c7b976430",
 		},
 	},
 	[31] = {
@@ -413,39 +414,12 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "33b13453-fc20-b250-a7ab-796576eecdc9",
+			["uuid"] = "d5c164c5-4c31-7568-9bd1-2f27155b5053",
 		},
 	},
 	[32] = {
 	},
 	[33] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
-if wasSuccessful then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 244.6,
-			["timeRange"] = true,
-			["timelineIndex"] = 33,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = -4,
-			["used"] = false,
-			["uuid"] = "90636e49-20a7-9a41-9c34-f0adc83011d9",
-		},
 	},
 	[35] = {
 		[1] = {
@@ -454,11 +428,8 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "-- Save CD is default Off, pass true to turn it on\
-\
-NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
-self.used = true\
-",
+			["execute"] = "NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -466,13 +437,41 @@ self.used = true\
 			["name"] = "CD Off",
 			["throttleTime"] = 0,
 			["time"] = 253,
-			["timeRange"] = true,
+			["timeRange"] = false,
 			["timelineIndex"] = 35,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "bbb8820e-4342-3c34-a555-cf9069e2ca4e",
+			["uuid"] = "5b18e939-de9a-03c5-a868-9a31dcfdae0c",
+		},
+	},
+	[37] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
+  self.used = true\
+end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 262.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 37,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "89b234b3-dc65-dd96-8dce-7c72d26d595c",
 		},
 	},
 	[39] = {
@@ -482,25 +481,22 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "-- Save CD is default Off, pass false to turn it back off\
-\
-NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
-self.used = true\
-",
+			["execute"] = "NilsReactionCore.Logic.Toggles.CDOn(NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "CD On",
+			["name"] = "CD ON",
 			["throttleTime"] = 0,
 			["time"] = 265.6,
-			["timeRange"] = true,
+			["timeRange"] = false,
 			["timelineIndex"] = 39,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "22d746af-9b39-f647-9e63-d502da245089",
+			["uuid"] = "f37a2b48-adee-018f-9342-f2d80bb37bc1",
 		},
 		[2] = {
 			["actions"] = {
@@ -541,7 +537,7 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -549,7 +545,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -596,7 +592,7 @@ return true\
 			["timerOffset"] = 1.375,
 			["timerStartOffset"] = -8,
 			["used"] = false,
-			["uuid"] = "cb55e8f4-355c-8485-a046-73bb97e9c61b",
+			["uuid"] = "03024310-61ae-2ab5-a628-f2e60163ef1a",
 		},
 	},
 	[41] = {
@@ -624,7 +620,7 @@ end",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "6e1c5c64-80ff-5299-bb95-cc93ffc6031a",
+			["uuid"] = "8a1ea29d-d726-8477-86e4-9eb85f659a54",
 		},
 	},
 	[52] = {
@@ -650,7 +646,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "a177d60b-c6de-0c0a-af6e-118de7949284",
+			["uuid"] = "fa0d3718-aa80-3f8d-a31a-7cafabf2b0fb",
 		},
 	},
 	[63] = {
@@ -676,7 +672,7 @@ end",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "2d3401b3-dbd9-248a-995a-e439d1cce67c",
+			["uuid"] = "96515ce4-fe86-0a10-a6f6-5db83efed5cd",
 		},
 	},
 	[64] = {
@@ -702,37 +698,10 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "812b99e7-e4c0-4d04-822e-98b6f049be47",
+			["uuid"] = "a8fe348d-859c-ed87-81e0-d361bfdc56f3",
 		},
 	},
 	[66] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.Sprint()\
-if wasSuccessful then\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 411.7,
-			["timeRange"] = true,
-			["timelineIndex"] = 66,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = -4,
-			["used"] = false,
-			["uuid"] = "de9832c2-ade4-bf13-a774-92b55c4acddd",
-		},
 	},
 	[70] = {
 		[1] = {
@@ -741,11 +710,8 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "-- Save CD is default Off, pass true to turn it on\
-\
-NilsReactionLibrary.Combat.Toggles.Samurai.CD(true, true)\
-self.used = true\
-",
+			["execute"] = "NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -753,13 +719,39 @@ self.used = true\
 			["name"] = "CD Off",
 			["throttleTime"] = 0,
 			["time"] = 429.4,
-			["timeRange"] = true,
+			["timeRange"] = false,
 			["timelineIndex"] = 70,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "23eb8202-50a6-c099-b741-56ab4362931f",
+			["uuid"] = "dee31ca4-3fa0-993d-add7-db72d6c19196",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
+  self.used = true\
+end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 429.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 70,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "dc22b8e2-ee39-1027-93d1-99eed724218f",
 		},
 	},
 	[72] = {
@@ -802,7 +794,7 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -810,7 +802,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -857,7 +849,7 @@ return true\
 			["timerOffset"] = 1.375,
 			["timerStartOffset"] = -8,
 			["used"] = false,
-			["uuid"] = "101eb92b-a612-0c95-8f5c-6f4f06b9a0e7",
+			["uuid"] = "dc324f11-aba1-b5c4-86b1-9674622851a3",
 		},
 		[2] = {
 			["actions"] = {
@@ -865,11 +857,8 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "-- Save CD is default Off, pass false to turn it back off\
-\
-NilsReactionLibrary.Combat.Toggles.Samurai.CD(false, true)\
-self.used = true\
-",
+			["execute"] = "NilsReactionCore.Logic.Toggles.CDOn(NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -877,13 +866,13 @@ self.used = true\
 			["name"] = "CD On",
 			["throttleTime"] = 0,
 			["time"] = 432.7,
-			["timeRange"] = true,
+			["timeRange"] = false,
 			["timelineIndex"] = 72,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "e9fa3fba-5f00-c093-86f7-0ec3ce175418",
+			["uuid"] = "ed527490-43e0-8112-8e7b-b29f7d439c9a",
 		},
 	},
 	[73] = {
@@ -911,7 +900,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "8680666d-7345-c58b-b05d-493632845a88",
+			["uuid"] = "41b8ec46-5d2d-1455-9110-7991b7d34e35",
 		},
 	},
 	[81] = {
@@ -923,7 +912,7 @@ end",
 			["enabled"] = true,
 			["execute"] = "local target = Player:GetTarget()\
 if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
-  if NilsReactionLibrary.Logic.Toggles.BurnBossOn(NilsReactionLibrary.params.isTimeline) == true then\
+  if NilsReactionCore.Logic.Toggles.BurnBossOn(NilsReactionCore.params.isTimeline) == true then\
     self.used = true\
   end\
 end",
@@ -940,7 +929,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "cfc203f2-a203-a11f-95b7-3b7c6091066e",
+			["uuid"] = "788dea40-bc21-26bc-b328-e3d5d4f8bf54",
 		},
 		[2] = {
 			["actions"] = {
@@ -964,7 +953,7 @@ end",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "5cd96273-b21f-ae0c-b3b8-55c5481ead6b",
+			["uuid"] = "8d0eab6a-5a20-49a9-a06e-710f2cf5f43f",
 		},
 	},
 	[82] = {
@@ -990,7 +979,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "8ca3ca97-ab49-a683-8fb6-d02cac765fc2",
+			["uuid"] = "c5e61914-2487-6057-853a-80d992aa0be0",
 		},
 	},
 	[85] = {
@@ -1016,7 +1005,7 @@ end",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "2689d8ca-670b-eb2a-91d2-c1a6f9f369de",
+			["uuid"] = "2b121307-390c-684d-9684-fd9bfac59d75",
 		},
 	},
 	[90] = {
@@ -1042,7 +1031,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "871feea4-eee4-9110-b093-e889207e4868",
+			["uuid"] = "027b4fd5-48c5-06d4-a60b-30c822ca109d",
 		},
 	},
 	[96] = {
@@ -1068,7 +1057,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "b3bd9f99-d2fb-09ef-9b8a-8d62ec775edd",
+			["uuid"] = "e2f0a2ff-946e-c26d-9304-35d068f880b6",
 		},
 	},
 	[97] = {
@@ -1094,7 +1083,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "55e05b4c-396e-efec-a29d-ad9224a76c3c",
+			["uuid"] = "3e042946-ac18-205f-9e49-7c79c143a400",
 		},
 	},
 	[99] = {
@@ -1120,7 +1109,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "eb695d9b-cdbc-e7ae-be3a-a3d887c4feb2",
+			["uuid"] = "83e109c5-2a83-06e5-89ae-afda42508c1b",
 		},
 	},
 	[100] = {
@@ -1146,7 +1135,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "09455238-afce-75cb-823e-afe77add3f41",
+			["uuid"] = "b419a55a-aed3-410d-8f2d-1284afa4f11d",
 		},
 	},
 	[101] = {
@@ -1172,7 +1161,7 @@ end",
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -2,
 			["used"] = false,
-			["uuid"] = "702ecab6-1bec-8cb1-a8e0-8e47dd5ffde1",
+			["uuid"] = "69ddabae-dd26-d05f-9f4a-43d313a66922",
 		},
 	},
 	[103] = {

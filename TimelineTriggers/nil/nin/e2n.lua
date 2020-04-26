@@ -181,7 +181,7 @@ local obj1 = {
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "6e380ede-ed1c-7eac-a7d2-27ce9d323d90",
+			["uuid"] = "41d3a0a6-fae2-e65f-bff6-7719d93c10af",
 		},
 		[2] = {
 			["actions"] = {
@@ -361,7 +361,7 @@ self.used = true",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "6491e399-c2d9-6601-b5da-7381d6b17ca0",
+			["uuid"] = "a04a5921-616b-aa49-aec5-ff7a47892984",
 		},
 	},
 	[16] = {
@@ -586,7 +586,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "150dc411-62b2-1e01-a317-31ec01dcdfc4",
+			["uuid"] = "5a7b9e70-6b88-7754-ad24-5fc524258934",
 		},
 		[2] = {
 			["actions"] = {
@@ -810,7 +810,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "3b3d2ccf-19f6-ccd2-9d05-a87f4b95c3f5",
+			["uuid"] = "01cd515e-f61a-b0ec-a8c9-6cb6e62403e6",
 		},
 	},
 	[18] = {
@@ -1035,7 +1035,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "3725a204-a880-122b-994f-f9068c737dcb",
+			["uuid"] = "6bdf7d20-ec18-fbfb-80f6-e1a8fbaf4161",
 		},
 		[2] = {
 			["actions"] = {
@@ -1259,7 +1259,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "53799a61-f58d-2cff-9dfa-8aa6c1586353",
+			["uuid"] = "43db7f87-5b7e-331f-867f-860cb183b17b",
 		},
 	},
 	[21] = {
@@ -1440,7 +1440,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "945cf2c3-9565-5d39-bcb0-b7c9b7a01ac3",
+			["uuid"] = "c14ac634-1f63-df1d-aceb-494fd2673662",
 		},
 		[2] = {
 			["actions"] = {
@@ -1620,7 +1620,7 @@ self.used = true",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "8eff0c37-ee62-5791-a0cf-f7531c2fb48a",
+			["uuid"] = "966513ca-3971-d0e7-8853-ace649732147",
 		},
 	},
 	[27] = {
@@ -1845,7 +1845,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "dce8b812-f01f-e364-b1fe-3318c2b5e620",
+			["uuid"] = "5ad3c560-676f-8d43-beaa-33107d1bbf53",
 		},
 		[2] = {
 			["actions"] = {
@@ -2069,7 +2069,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "20364320-21a6-e8c8-a544-06a17c9e19de",
+			["uuid"] = "27904d87-0559-34a3-9500-15ac1423c55c",
 		},
 	},
 	[29] = {
@@ -2250,7 +2250,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "832518e3-a8f3-9924-ab1f-705df7b15548",
+			["uuid"] = "8643aad4-c4d7-5189-95c7-499cbe7e570f",
 		},
 		[2] = {
 			["actions"] = {
@@ -2430,7 +2430,7 @@ self.used = true",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "0ea7932e-7793-3008-a764-7bb87da95742",
+			["uuid"] = "7937afc1-d912-198c-9c54-c5e81e879d3e",
 		},
 	},
 	[35] = {
@@ -2611,7 +2611,7 @@ self.used = true",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "dba464d5-4b40-5d31-9781-b161bc554a2d",
+			["uuid"] = "4607fa0d-6f66-3439-a043-2e86f6e4fda8",
 		},
 		[2] = {
 			["actions"] = {
@@ -2791,7 +2791,7 @@ self.used = true",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "112d795e-4ff0-b17c-bead-c8492a377c93",
+			["uuid"] = "9192b766-7896-0588-9c81-53cc3c848af7",
 		},
 	},
 	[37] = {
@@ -3016,7 +3016,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "6bc3b10a-a5b5-444d-b7dd-aa0663cc0652",
+			["uuid"] = "eba73a9b-2449-60f1-a28b-4c0fa963a4a0",
 		},
 		[2] = {
 			["actions"] = {
@@ -3240,7 +3240,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "faa02aef-fa4b-b2bf-9041-61a0dfc4df22",
+			["uuid"] = "2b84e031-ce98-9f32-8c58-67b5c9e67d16",
 		},
 	},
 	[44] = {
@@ -3465,7 +3465,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "c6d538e7-4948-1480-a29d-6ae0e1370b55",
+			["uuid"] = "e1173e38-28b1-9ef1-9c68-70069b12046e",
 		},
 		[2] = {
 			["actions"] = {
@@ -3689,7 +3689,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "ed9d1513-9ec0-42de-bb0b-31497b1ed2d0",
+			["uuid"] = "c950e530-c50a-f784-9804-e275ed3b7f44",
 		},
 	},
 	[48] = {
@@ -3870,7 +3870,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "48171f9c-b0d8-f059-9543-2dabbd790d3a",
+			["uuid"] = "d343044c-5af3-9116-be35-8c871b31cfb0",
 		},
 		[2] = {
 			["actions"] = {
@@ -4050,7 +4050,7 @@ self.used = true",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "a1ad5e83-beca-c10f-a888-e107ecdf033d",
+			["uuid"] = "74f15b36-d21a-8f88-bb67-889f33b30772",
 		},
 	},
 	[50] = {
@@ -4275,7 +4275,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "24803e4f-73f7-1b78-8dad-777ea1093fd3",
+			["uuid"] = "44ee0fce-2eed-7802-90dc-debd4556f914",
 		},
 		[2] = {
 			["actions"] = {
@@ -4499,7 +4499,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "ca4faa71-ff2b-d307-a99c-dfb433ca50cc",
+			["uuid"] = "8a1cc950-a60c-d62b-908a-b3e286ddd8c9",
 		},
 	},
 	[57] = {
@@ -4724,7 +4724,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "ec1ec20a-fcb0-941b-bad0-5e136abf6cf7",
+			["uuid"] = "072cfac4-738b-8b26-9b0d-1e33b9460319",
 		},
 		[2] = {
 			["actions"] = {
@@ -4948,7 +4948,7 @@ return val and ent and ent.castinginfo.casttime - ent.castinginfo.channeltime < 
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "4453f560-206d-aabc-bbed-ade15b24312d",
+			["uuid"] = "0034db6b-dde7-cec2-aa09-2e31742c1bf8",
 		},
 	},
 	["mapID"] = 850,

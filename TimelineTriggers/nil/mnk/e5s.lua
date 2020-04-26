@@ -50,7 +50,7 @@ self.used = true\
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "23417abc-87c9-2ffa-9665-14a2beb9cc7f",
+			["uuid"] = "f124acb7-07b5-7803-9d4a-13b7116fb22f",
 		},
 	},
 	[2] = {
@@ -77,7 +77,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "bbdf327e-08e7-bdac-83f8-3931fd284da4",
+			["uuid"] = "67ac659b-c7f3-f5e5-b32b-e10b3cf95a03",
 		},
 	},
 	[4] = {
@@ -89,8 +89,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["enabled"] = true,
 			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.RiddleOfEarth()\
 self.used = true\
-return action, targetID, ignoreWeaveRules, allowInterrupt\
-",
+return action, targetID, ignoreWeaveRules, allowInterrupt",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -104,7 +103,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "42ea7867-26a0-7a33-8c55-73ca472f42b1",
+			["uuid"] = "5c542abd-b0d9-0bb0-b598-5702ed0032e3",
 		},
 	},
 	[7] = {
@@ -131,7 +130,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "39f77c98-e87f-b91c-86db-75331627cb94",
+			["uuid"] = "2818dee2-61b8-627e-8c58-8f249d6407a9",
 		},
 		[2] = {
 			["actions"] = {
@@ -156,7 +155,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "1735508e-f817-efb2-ac92-0a5c65cc6352",
+			["uuid"] = "7201fe68-3fd4-9a5d-a57b-a81e43b915da",
 		},
 	},
 	[9] = {
@@ -183,7 +182,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "58dd6d8c-8b0d-143a-87cd-3126d01fb141",
+			["uuid"] = "4a3f1725-4e39-0ac3-925f-e26524dfbcfe",
 		},
 	},
 	[14] = {
@@ -210,7 +209,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "ced94f11-c659-4be5-adcc-762f7f10883a",
+			["uuid"] = "039e5567-2064-bec0-a2e7-c85faaf52a90",
 		},
 	},
 	[16] = {
@@ -236,7 +235,7 @@ self.used = true\
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "33a78b07-c1d0-544e-81dd-580af4de3213",
+			["uuid"] = "3bd56c92-f672-2f74-b3af-9fde6d6a1cac",
 		},
 	},
 	[18] = {
@@ -261,7 +260,7 @@ self.used = true",
 			["timerOffset"] = -1,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "8041c745-a4c2-e309-8e7b-f7d1f1fec9b8",
+			["uuid"] = "61b8634d-47dd-7c59-ad5a-7536bd8a54b0",
 		},
 	},
 	[19] = {
@@ -313,7 +312,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -360,7 +359,7 @@ return true\
 			["timerOffset"] = 1.375,
 			["timerStartOffset"] = -8,
 			["used"] = false,
-			["uuid"] = "71f07c8b-1141-d6f2-876c-b6b239e0b401",
+			["uuid"] = "1aa195f5-45b9-bf1b-8f62-04b34e9634ac",
 		},
 	},
 	[20] = {
@@ -385,7 +384,7 @@ self.used = true",
 			["timerOffset"] = -0.5,
 			["timerStartOffset"] = -0.5,
 			["used"] = false,
-			["uuid"] = "63c553d3-3682-f6c9-8781-4b081a7c0eb8",
+			["uuid"] = "44520cdf-7c6d-9c2c-af60-e27de11f0887",
 		},
 	},
 	[21] = {
@@ -412,7 +411,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "dec2dd42-13ff-ea63-92b4-fc0185dc5035",
+			["uuid"] = "abd21840-50ec-3396-8eee-80e33893f848",
 		},
 	},
 	[22] = {
@@ -438,7 +437,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt",
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "997ed312-a9e6-4036-a6e7-70feb860697d",
+			["uuid"] = "c6fedee5-5f17-3ba3-b7bb-96ff0c25a6c7",
 		},
 	},
 	[24] = {
@@ -464,7 +463,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt",
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "2e68a098-d791-caab-a61f-feb5defd4966",
+			["uuid"] = "4c064fdf-1198-9855-9c46-f79be64a38f3",
 		},
 	},
 	[28] = {
@@ -491,7 +490,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "376fa6ba-0252-36fb-b4bc-35209af8bd90",
+			["uuid"] = "ff64b4cd-e63c-02f8-908e-4a32bd251b00",
 		},
 	},
 	[31] = {
@@ -517,7 +516,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt",
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "c8f7bbae-de7a-f3b0-8609-46c42cdd13e0",
+			["uuid"] = "c605fba6-d600-20ce-a9f8-a942a7a68376",
 		},
 	},
 	[33] = {
@@ -543,7 +542,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt",
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "67b6ed5d-8acd-8d91-8c47-7ba810ab0e60",
+			["uuid"] = "7340153a-5468-8549-8caf-038652d9f329",
 		},
 		[2] = {
 			["actions"] = {
@@ -569,7 +568,7 @@ end",
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "c4a971e6-b4ef-8224-a03b-a5340ba0ad4d",
+			["uuid"] = "4b6122ed-ffc3-07a1-b440-65cae9ef98e6",
 		},
 	},
 	[35] = {
@@ -595,7 +594,7 @@ self.used = true\
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "31e1c263-c5d6-084b-a945-85387a964c33",
+			["uuid"] = "d90af0cb-0d59-4955-a576-1fa116c4fd80",
 		},
 	},
 	[39] = {
@@ -621,7 +620,7 @@ self.used = true\
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "16ac1aee-99e2-9281-9717-eb40542f8c7b",
+			["uuid"] = "a2349121-67b0-c9df-9538-eac2b4584478",
 		},
 		[2] = {
 			["actions"] = {
@@ -662,13 +661,13 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -715,7 +714,7 @@ return false",
 			["timerOffset"] = 1.375,
 			["timerStartOffset"] = -8,
 			["used"] = false,
-			["uuid"] = "a802c637-2f23-d335-adb6-5c12d4d8bc22",
+			["uuid"] = "b3ca42ff-272b-da72-8022-ddc06cfe1239",
 		},
 	},
 	[41] = {
@@ -744,7 +743,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "25a7d33d-7bf2-6534-8eb4-bb2815db50c2",
+			["uuid"] = "bda5fbe9-98af-8fb6-933b-357a9c9a33fc",
 		},
 	},
 	[47] = {
@@ -771,7 +770,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "0fe5e7e4-8a78-369c-ad2c-6a914f942835",
+			["uuid"] = "1fe29ade-4ad5-bdf0-88e3-23e16940241d",
 		},
 	},
 	[49] = {
@@ -797,7 +796,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt",
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "00e05dc0-0a83-9765-a944-5938c2c2823e",
+			["uuid"] = "9c27c373-0f9f-7309-a951-c5033b4924e9",
 		},
 	},
 	[52] = {
@@ -824,7 +823,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "a9c4db78-96e3-fd3a-8ae6-c6d398f834c8",
+			["uuid"] = "0338c7f1-79d2-6f31-ac67-9944a7cdb509",
 		},
 	},
 	[63] = {
@@ -851,7 +850,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "2684b6c6-b996-33b2-a352-c98e1fbf7d5d",
+			["uuid"] = "2eb99234-efeb-794d-9dc6-9f6c354b6b10",
 		},
 	},
 	[64] = {
@@ -877,7 +876,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt",
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "7ff622e6-49c5-d6c5-94ac-546dcceb1b2c",
+			["uuid"] = "ed16c441-ba94-dc49-920c-8f8775ed2b38",
 		},
 	},
 	[66] = {
@@ -904,7 +903,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "9645cb38-37cf-dd92-a982-78501929320d",
+			["uuid"] = "46a04c93-9960-9ac6-a46b-a076a9ad2abd",
 		},
 	},
 	[70] = {
@@ -930,7 +929,7 @@ self.used = true\
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "4f543b66-3ff1-5c22-a06e-912f13a4258c",
+			["uuid"] = "b64a8195-c0c2-6126-b994-571f2bce7997",
 		},
 	},
 	[72] = {
@@ -973,13 +972,13 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -1026,7 +1025,7 @@ return false",
 			["timerOffset"] = 1.375,
 			["timerStartOffset"] = -8,
 			["used"] = false,
-			["uuid"] = "52518617-4101-e1ab-8049-2d82fc4e5844",
+			["uuid"] = "18123c6b-38d1-c221-b75f-795c83f2b203",
 		},
 		[2] = {
 			["actions"] = {
@@ -1050,7 +1049,7 @@ self.used = true\
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "0296d968-73f2-bf3c-bffc-b0e536f00eaf",
+			["uuid"] = "6af34e83-0581-1a33-a510-66c409bda647",
 		},
 	},
 	[73] = {
@@ -1078,7 +1077,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt",
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "0d20ebeb-374d-8566-b9c5-5f394e632bf8",
+			["uuid"] = "9ce4ba21-2ca3-0458-9e48-9f8925200d16",
 		},
 	},
 	[76] = {
@@ -1105,7 +1104,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "45075f31-0602-d869-8ae6-ea0e5d76c06a",
+			["uuid"] = "a9f3fc5b-8056-6011-8700-2c02d58dc590",
 		},
 	},
 	[81] = {
@@ -1134,7 +1133,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "4ceeea99-57d0-3151-b9c6-5a91c989d431",
+			["uuid"] = "c6b04c01-1086-6db8-a3a5-cfad7f287467",
 		},
 		[2] = {
 			["actions"] = {
@@ -1159,7 +1158,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "462acc45-ff07-ccac-b472-944918dec6b1",
+			["uuid"] = "357978eb-56de-4008-882a-95dd16ed809c",
 		},
 	},
 	[82] = {
@@ -1186,7 +1185,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "8c91f366-00eb-2c43-9f5f-a97f494697a3",
+			["uuid"] = "0653f231-efc3-8858-bdeb-cdd68414853e",
 		},
 	},
 	[85] = {
@@ -1213,7 +1212,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "05dccded-7b0f-a952-83dd-26b64213d897",
+			["uuid"] = "a8825c6b-063b-149b-81c8-049c61a7a4b4",
 		},
 	},
 	[90] = {
@@ -1240,7 +1239,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "4ef48fed-e657-d2f5-a5c7-c29bd98c7d1a",
+			["uuid"] = "080cad50-6b57-bb76-9693-6f63eb4212dd",
 		},
 	},
 	[96] = {
@@ -1267,7 +1266,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "dc073213-8d20-5c96-91ab-eb49bb4c30ae",
+			["uuid"] = "24aa4140-dea1-460a-99d9-764ee1772b74",
 		},
 	},
 	[97] = {
@@ -1294,7 +1293,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "94c3a393-6a42-45fc-974f-9073a28b57a0",
+			["uuid"] = "c0dc37a7-72eb-50e3-8cfb-30419cb76e65",
 		},
 	},
 	[99] = {
@@ -1321,7 +1320,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "96a4d679-83ff-b44f-bfdd-bec3c58f26d0",
+			["uuid"] = "3ef6936a-55ea-a691-ac9a-98a30af4c679",
 		},
 		[2] = {
 			["actions"] = {
@@ -1346,7 +1345,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -4,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "80cfcff8-d498-9692-9350-1d12f6da3ace",
+			["uuid"] = "816515fd-3c20-1a3b-b437-ac679708a80c",
 		},
 	},
 	[100] = {
@@ -1373,7 +1372,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "bd0104c6-0523-d3b8-869c-3fb86e9b3e9b",
+			["uuid"] = "a9aa7f35-828b-5507-9822-a908e8f1d83c",
 		},
 	},
 	[101] = {
@@ -1400,7 +1399,7 @@ return action, targetID, ignoreWeaveRules, allowInterrupt\
 			["timerOffset"] = -20,
 			["timerStartOffset"] = -20,
 			["used"] = false,
-			["uuid"] = "02d55ecc-7ac4-7ce8-b930-9d7028ec386c",
+			["uuid"] = "d9e8e5a0-0279-8626-903b-91352741463c",
 		},
 	},
 	["mapID"] = 906,

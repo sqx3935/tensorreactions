@@ -2343,37 +2343,6 @@ return nil\
 		},
 		["enabled"] = false,
 		["eventType"] = 1,
-		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
-NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
-\
-self.eventConditionMismatch = true -- suppressing the log\
-self.used = true \
-return nil\
-\
-\
-",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "QT: AOE Blacklist",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 5,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce",
-	},
-	[22] = {
-		["actions"] = {
-		},
-		["conditions"] = {
-		},
-		["enabled"] = false,
-		["eventType"] = 1,
 		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.CD(false, true) [test timeline override]\
 NilsReactionLibrary.Combat.Toggles.Handler.CD()\
 \
@@ -2396,7 +2365,7 @@ return nil\
 		["used"] = false,
 		["uuid"] = "092a07d8-25f3-2afb-9b44-1db7a1d108fa",
 	},
-	[23] = {
+	[22] = {
 		["actions"] = {
 		},
 		["conditions"] = {
@@ -2426,7 +2395,7 @@ return nil\
 		["used"] = false,
 		["uuid"] = "c17c496a-6bc3-b8a9-b2d1-ea485e1e0a92",
 	},
-	[24] = {
+	[23] = {
 		["actions"] = {
 		},
 		["conditions"] = {
@@ -2455,12 +2424,12 @@ return nil\
 		["used"] = false,
 		["uuid"] = "89f9825f-2837-2ac3-bb7c-134f32ed6487",
 	},
-	[25] = {
+	[24] = {
 		["actions"] = {
 		},
 		["conditions"] = {
 		},
-		["enabled"] = false,
+		["enabled"] = true,
 		["eventType"] = 1,
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.DwDAlignment()\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2481,12 +2450,12 @@ return nil",
 		["used"] = false,
 		["uuid"] = "dba15316-f2f4-b3f3-922d-74628cc99c75",
 	},
-	[26] = {
+	[25] = {
 		["actions"] = {
 		},
 		["conditions"] = {
 		},
-		["enabled"] = false,
+		["enabled"] = true,
 		["eventType"] = 1,
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.KassatsuAlignment()\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2507,12 +2476,43 @@ return nil",
 		["used"] = false,
 		["uuid"] = "bbefeca0-9a82-8b8b-87aa-a3f759f88d84",
 	},
-	[27] = {
+	[26] = {
 		["actions"] = {
 		},
 		["conditions"] = {
 		},
 		["enabled"] = false,
+		["eventType"] = 1,
+		["execute"] = "-- NilsReactionLibrary.Combat.Toggles.Ninja.AOE(false, true) [test timeline override]\
+NilsReactionLibrary.Combat.Toggles.Handler.AOE()\
+\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true \
+return nil\
+\
+\
+",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "QT: AOE Blacklist",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 5,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "aaaa541c-73ba-f4ea-91dd-ac0da24bdcce",
+	},
+	[27] = {
+		["actions"] = {
+		},
+		["conditions"] = {
+		},
+		["enabled"] = true,
 		["eventType"] = 1,
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.ACRefreshAlignment()\
 self.eventConditionMismatch = true -- suppressing the log\

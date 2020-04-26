@@ -44,12 +44,12 @@ local obj1 = {
 				["buffCheckType"] = 1,
 				["buffDuration"] = 0,
 				["buffID"] = -1,
-				["buffIDList"] = multiRefObjects[3],
+				["buffIDList"] = multiRefObjects[4],
 				["category"] = 1,
 				["comparator"] = 1,
 				["conditionLua"] = "",
 				["conditionType"] = 2,
-				["conditions"] = multiRefObjects[4],
+				["conditions"] = multiRefObjects[3],
 				["contentid"] = 9214,
 				["enmityValue"] = 0,
 				["eventArgOptionType"] = 1,
@@ -103,12 +103,12 @@ local obj1 = {
 				["buffCheckType"] = 1,
 				["buffDuration"] = 0,
 				["buffID"] = -1,
-				["buffIDList"] = multiRefObjects[3],
+				["buffIDList"] = multiRefObjects[4],
 				["category"] = 1,
 				["comparator"] = 2,
 				["conditionLua"] = "",
 				["conditionType"] = 3,
-				["conditions"] = multiRefObjects[4],
+				["conditions"] = multiRefObjects[3],
 				["contentid"] = -1,
 				["enmityValue"] = 0,
 				["eventArgOptionType"] = 1,
@@ -162,12 +162,12 @@ local obj1 = {
 				["buffCheckType"] = 1,
 				["buffDuration"] = 0,
 				["buffID"] = -1,
-				["buffIDList"] = multiRefObjects[3],
+				["buffIDList"] = multiRefObjects[4],
 				["category"] = 2,
 				["comparator"] = 1,
 				["conditionLua"] = "",
 				["conditionType"] = 8,
-				["conditions"] = multiRefObjects[4],
+				["conditions"] = multiRefObjects[3],
 				["contentid"] = -1,
 				["enmityValue"] = 0,
 				["eventArgOptionType"] = 1,
@@ -537,7 +537,7 @@ return nil\
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 1,
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.DOT()\
 \
@@ -567,10 +567,32 @@ return nil\
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 1,
-		["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
+		["execute"] = "--NilsReactionLibrary.Combat.Toggles.Handler.Omni()\
 \
+--NilsReactionCore.Toggles.Handler.OMNIWhitelist()\
+\
+function OMNIWhitelist()\
+d(\"1\")\
+  if NilsReactionCore.Toggles.Control.OmniWhiteList.IsActive == true or NilsReactionCore.Toggles.Control.OmniWhiteList.TimelineActive == true then return false end\
+d(\"2\")\
+  local target = Player:GetTarget()\
+  local contentID = 0\
+  if target ~= nil and table.valid(target) and target.attackable then contentID = target.contentid end\
+d(\"3\")\
+  if NilsReactionCore.data.omniList[contentID] then\
+d(\"4\")\
+    NilsReactionCore.Logic.Toggles.OmniOn(NilsReactionCore.params.isNotTimeline)\
+  else\
+d(\"5\")\
+    NilsReactionCore.Logic.Toggles.OmniOff(NilsReactionCore.params.isNotTimeline)\
+  end\
+d(\"6\")\
+  return false\
+end\
+\
+OMNIWhitelist()\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
 return nil\
@@ -626,7 +648,7 @@ return nil\
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 9,
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset(true)\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -652,7 +674,7 @@ return nil",
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 10,
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset(false)\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -672,6 +694,40 @@ return nil",
 		["timerStartOffset"] = 0,
 		["used"] = false,
 		["uuid"] = "cac914d4-19dd-ea49-8808-dfd7dedfddc9",
+	},
+	[10] = {
+		["actions"] = {
+		},
+		["conditions"] = {
+		},
+		["enabled"] = false,
+		["eventType"] = 1,
+		["execute"] = "if gReactionZoomhackSet == nil then\
+  gDevHackMaxZoom = 40.0\
+	 gDevHackMinZoom = 1.5\
+  gReactionZoomhackSet = true\
+end\
+\
+if gReactionSpeedhackSet == nil then\
+  gDevHackWalkSpeed = 8\
+  gReactionSpeedhackSet = true\
+end\
+self.eventConditionMismatch = true -- suppressing the log\
+self.used = true ",
+		["executeType"] = 2,
+		["lastUse"] = 0,
+		["luaReturnsAction"] = false,
+		["name"] = "Set Hacks",
+		["throttleTime"] = 0,
+		["time"] = 0,
+		["timeRange"] = false,
+		["timelineIndex"] = 0,
+		["timeout"] = 1,
+		["timerEndOffset"] = 0,
+		["timerOffset"] = 0,
+		["timerStartOffset"] = 0,
+		["used"] = false,
+		["uuid"] = "ecfa9130-8738-0dd7-a83d-785cd57c94df",
 	},
 }
 return obj1

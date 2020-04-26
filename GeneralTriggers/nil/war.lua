@@ -76,7 +76,7 @@ local obj1 = {
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 21 or Player.level < 32 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.incombat == false or Player.alive == false or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true) or (Goliath ~= nil and Goliath_Toggle(1, 2) == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -203,7 +203,7 @@ end\
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 3,
 		["execute"] = "if Player.job ~= 21 or Player.incombat == false or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_war ~= nil and xivopeners_war.openerStarted == true) or (SallyWAR ~= nil and SallyWAR.SkillSettings.Opener.enabled == true)  or (Goliath ~= nil and Goliath_Toggle(1, 2) == true)  then\
 		self.eventConditionMismatch = true -- suppressing the log\
@@ -507,7 +507,7 @@ return nil\
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 1,
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
@@ -565,7 +565,7 @@ return nil",
 		},
 		["conditions"] = {
 		},
-		["enabled"] = true,
+		["enabled"] = false,
 		["eventType"] = 9,
 		["execute"] = "if Player.job ~= 21 or SallyWAR == nil then\
 		self.eventConditionMismatch = true -- suppressing the log\

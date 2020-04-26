@@ -9,43 +9,6 @@ local obj1 = {
 			},
 			["conditions"] = {
 			},
-			["enabled"] = false,
-			["execute"] = "-- ** Contributors **\
---[[\
-		* Nil (maintainer)\
-  * Yang Xiao Long\
-]]\
-\
--- *************************************************************************************\
-\
--- LIBRARY REQUIRED\
-\
--- Install https://github.com/nil2share/tensorreactions/tree/master/Nil%20Reaction%20Library into C:\\MINIONAPP\\Bots\\FFXIVMinion64\\LuaMods\\Nil Reaction Library\
-\
---[[ ** ChangeLog **\
-* [\"4.0.0\"] = \"Initial release \"\
-*	[\"4.1.0\"] = \"timeline reaction\",\
-]]",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "samurai-timeline-e7s-changes",
-			["throttleTime"] = 0,
-			["time"] = 13,
-			["timeRange"] = false,
-			["timelineIndex"] = 2,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "104457d9-8d2a-fc67-939c-721707434426",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
 			["enabled"] = true,
 			["execute"] = "NilsReactionLibrary.Combat.Toggles.Handler.Reset()\
 self.used = true\
