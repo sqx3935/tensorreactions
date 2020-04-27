@@ -5,11 +5,11 @@ local multiRefObjects = {
 local obj1 = {
 	[1] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = false,
-		["eventType"] = 1,
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
 		["execute"] = "-- ** Contributors **\
 --[[\
 		* Nil (maintainer)\
@@ -28,52 +28,52 @@ local obj1 = {
 * complete refactor\
 * added reactions for Anamnesis Anyder\
 ]]\
-",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "ast-general-changes",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 0,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "47b4d4e2-6e15-a4ab-ae43-b478329abf9b",
-	},
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "ast-general-changes";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 0;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "47b4d4e2-6e15-a4ab-ae43-b478329abf9b";
+	};
 	[2] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = false,
-		["eventType"] = 1,
-		["execute"] = "",
-		["executeType"] = 1,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "-- Actions --",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 0,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "5e916cb9-0ea3-b902-b44b-42e65cbefb07",
-	},
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "-- Actions --";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 0;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "5e916cb9-0ea3-b902-b44b-42e65cbefb07";
+	};
 	[3] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 3,
+		};
+		["enabled"] = true;
+		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 33 or Player.alive == false or Player.level < 32 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_ast ~= nil and xivopeners_ast.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -176,29 +176,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.eventConditionMismatch = true -- suppressing the log\
   self.used = true\
   return nil\
-end",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Cast: Knockback",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "65391f5c-f47f-e4f7-82cf-cd8803e4ced5",
-	},
+end";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Knockback";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "65391f5c-f47f-e4f7-82cf-cd8803e4ced5";
+	};
 	[4] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 3,
+		};
+		["enabled"] = true;
+		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 33 or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_ast ~= nil and xivopeners_ast.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -258,29 +258,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.used = true\
   return nil\
 end\
-",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Cast: Stop Casting",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "eef801e3-fe8c-d1fc-8efb-dd6b77eb316c",
-	},
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Stop Casting";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "eef801e3-fe8c-d1fc-8efb-dd6b77eb316c";
+	};
 	[5] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 3,
+		};
+		["enabled"] = true;
+		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 33 or Player.alive == false or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or Player.level < 74 or (xivopeners_ast ~= nil and xivopeners_ast.openerStarted == true) or (MissingBuff(Player,839) and MissingBuff(Player,840)) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -410,29 +410,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.used = true\
   return nil\
 end\
-",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Cast: Celestial Intersection",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "1732944c-8414-4795-86e8-c069a25a19db",
-	},
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Celestial Intersection";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "1732944c-8414-4795-86e8-c069a25a19db";
+	};
 	[6] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 1,
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
 \
@@ -446,21 +446,21 @@ data.nilsPlayground.timeOfDeath = Now()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
-return nil",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Reset: on death",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "fe50cecb-a008-263d-9349-c29a4728e62f",
-	},
+return nil";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "Reset: on death";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "fe50cecb-a008-263d-9349-c29a4728e62f";
+	};
 }
 return obj1

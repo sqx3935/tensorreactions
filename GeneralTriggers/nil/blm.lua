@@ -5,11 +5,11 @@ local multiRefObjects = {
 local obj1 = {
 	[1] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = false,
-		["eventType"] = 1,
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
 		["execute"] = "-- ** Contributors **\
 --[[\
 		* Nil (maintainer)\
@@ -26,52 +26,52 @@ local obj1 = {
 \
 --[[ ** Verson 2 **\
 * massive refactor\
-]]",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "blackmage-general-changes",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 0,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "107963e9-39eb-c013-b22f-b44acd6bec31",
-	},
+]]";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "blackmage-general-changes";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 0;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "107963e9-39eb-c013-b22f-b44acd6bec31";
+	};
 	[2] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = false,
-		["eventType"] = 1,
-		["execute"] = "",
-		["executeType"] = 1,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "-- Actions --",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 0,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "315ed0a6-2a0f-944f-94c0-84bacb5a5216",
-	},
+		};
+		["enabled"] = false;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "-- Actions --";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 0;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "315ed0a6-2a0f-944f-94c0-84bacb5a5216";
+	};
 	[3] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 3,
+		};
+		["enabled"] = true;
+		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 25 or Player.level < 32 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_blm ~= nil and xivopeners_blm.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -175,29 +175,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.used = true\
   return nil\
 end\
-",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Cast: Knockback",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "fbc38f14-5efd-07b4-8f70-cb6a6f99d07f",
-	},
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Knockback";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "fbc38f14-5efd-07b4-8f70-cb6a6f99d07f";
+	};
 	[4] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 3,
+		};
+		["enabled"] = true;
+		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 25 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_blm ~= nil and xivopeners_blm.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -257,29 +257,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.used = true\
   return nil\
 end\
-",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Cast: Stop Casting",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "d3149c18-ddba-7282-9c38-6040bc6cf3e4",
-	},
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Stop Casting";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "d3149c18-ddba-7282-9c38-6040bc6cf3e4";
+	};
 	[5] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 3,
+		};
+		["enabled"] = true;
+		["eventType"] = 3;
 		["execute"] = "if Player.job ~= 25 or (data.nilsPlayground ~= nil and data.nilsPlayground.timeOfDeath ~= nil and TimeSince(data.nilsPlayground.timeOfDeath) < 5000) or (xivopeners_blm ~= nil and xivopeners_blm.openerStarted == true) then\
 		self.eventConditionMismatch = true -- suppressing the log\
 		self.used = true \
@@ -484,29 +484,29 @@ if ent.castinginfo.casttime - ent.castinginfo.channeltime <= tonumber(contentTab
   self.used = true\
   return nil\
 end\
-",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Cast: Addle",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "332e6a12-320d-f91b-9ddc-d9ded9d5ea85",
-	},
+";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "Cast: Addle";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "332e6a12-320d-f91b-9ddc-d9ded9d5ea85";
+	};
 	[6] = {
 		["actions"] = {
-		},
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 1,
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
 		["execute"] = "if data.nilsPlayground == nil then	data.nilsPlayground = {} end\
 if data.nilsPlayground.timeOfDeath == nil then data.nilsPlayground.timeOfDeath = 0 end\
 \
@@ -520,72 +520,72 @@ data.nilsPlayground.timeOfDeath = Now()\
 \
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true \
-return nil",
-		["executeType"] = 2,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "Reset: on death",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 10,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "547fd6ea-56be-f525-b9dd-616a1adcd672",
-	},
+return nil";
+		["executeType"] = 2;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "Reset: on death";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 10;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "547fd6ea-56be-f525-b9dd-616a1adcd672";
+	};
 	[7] = {
 		["actions"] = {
 			[1] = {
-				["aType"] = 1,
-				["actionID"] = 157,
-				["actionLua"] = "",
-				["allowInterrupt"] = false,
+				["aType"] = 1;
+				["actionID"] = 157;
+				["actionLua"] = "";
+				["allowInterrupt"] = false;
 				["conditions"] = {
-				},
-				["endIfUsed"] = false,
-				["gVar"] = "",
-				["gVarIndex"] = 1,
-				["gVarValue"] = 1,
-				["ignoreWeaveRules"] = false,
-				["luaReturnsAction"] = false,
-				["name"] = "",
-				["potType"] = 1,
-				["setTarget"] = false,
-				["stopCasting"] = false,
-				["stopMoving"] = false,
-				["targetContentID"] = -1,
-				["targetName"] = "",
-				["targetSubType"] = 1,
-				["targetType"] = 1,
-				["untarget"] = false,
-				["useForWeaving"] = false,
-				["usePot"] = false,
-				["used"] = false,
-				["variableTogglesType"] = 1,
-			},
-		},
+				};
+				["endIfUsed"] = false;
+				["gVar"] = "";
+				["gVarIndex"] = 1;
+				["gVarValue"] = 1;
+				["ignoreWeaveRules"] = false;
+				["luaReturnsAction"] = false;
+				["name"] = "";
+				["potType"] = 1;
+				["setTarget"] = false;
+				["stopCasting"] = false;
+				["stopMoving"] = false;
+				["targetContentID"] = -1;
+				["targetName"] = "";
+				["targetSubType"] = 1;
+				["targetType"] = 1;
+				["untarget"] = false;
+				["useForWeaving"] = false;
+				["usePot"] = false;
+				["used"] = false;
+				["variableTogglesType"] = 1;
+			};
+		};
 		["conditions"] = {
-		},
-		["enabled"] = true,
-		["eventType"] = 1,
-		["execute"] = "",
-		["executeType"] = 1,
-		["lastUse"] = 0,
-		["luaReturnsAction"] = false,
-		["name"] = "test",
-		["throttleTime"] = 0,
-		["time"] = 0,
-		["timeRange"] = false,
-		["timelineIndex"] = 0,
-		["timeout"] = 5,
-		["timerEndOffset"] = 0,
-		["timerOffset"] = 0,
-		["timerStartOffset"] = 0,
-		["used"] = false,
-		["uuid"] = "c42d108b-02b8-6ad5-a2cf-648044416d33",
-	},
+		};
+		["enabled"] = true;
+		["eventType"] = 1;
+		["execute"] = "";
+		["executeType"] = 1;
+		["lastUse"] = 0;
+		["luaReturnsAction"] = false;
+		["name"] = "test";
+		["throttleTime"] = 0;
+		["time"] = 0;
+		["timeRange"] = false;
+		["timelineIndex"] = 0;
+		["timeout"] = 5;
+		["timerEndOffset"] = 0;
+		["timerOffset"] = 0;
+		["timerStartOffset"] = 0;
+		["used"] = false;
+		["uuid"] = "c42d108b-02b8-6ad5-a2cf-648044416d33";
+	};
 }
 return obj1
