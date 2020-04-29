@@ -1386,7 +1386,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if Player.incombat == false then\
  self.eventConditionMismatch = true -- suppressing the log\
@@ -1424,7 +1424,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 9;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset(true)\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -1450,7 +1450,7 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 10;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Samurai.Reset(false)\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -1476,7 +1476,7 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "if gReactionZoomhackSet == nil then\
   gDevHackMaxZoom = 40.0\

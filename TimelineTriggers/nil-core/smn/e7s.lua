@@ -1936,7 +1936,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Combat.Toggles.Summoner.Pet(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NilsReactionCore.Toggles.Summoner.Pet(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end\
 ",
@@ -2133,7 +2133,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Combat.Toggles.Summoner.Pet(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NilsReactionCore.Toggles.Summoner.Pet(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end\
 ",
@@ -3113,7 +3113,7 @@ self.used = true\
 			["enabled"] = true,
 			["execute"] = "local target = Player:GetTarget()\
 if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 7 then\
-		NilsReactionCore.Combat.Toggles.Summoner.Pet(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+		NilsReactionCore.Toggles.Summoner.Pet(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
   NilsReactionCore.Toggles.Summoner.Demi(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
   NilsReactionCore.Logic.Toggles.DOTOff(NilsReactionCore.params.isTimeline)\
   self.used = true\
@@ -3312,7 +3312,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Combat.Toggles.Summoner.Pet(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NilsReactionCore.Toggles.Summoner.Pet(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end\
 ",
@@ -3460,7 +3460,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Combat.Toggles.Summoner.Pet(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NilsReactionCore.Toggles.Summoner.Pet(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end\
 ",
@@ -3684,7 +3684,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Combat.Toggles.Summoner.Pet(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NilsReactionCore.Toggles.Summoner.Pet(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end\
 ",

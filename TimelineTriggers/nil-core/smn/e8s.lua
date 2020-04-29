@@ -444,7 +444,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Combat.Toggles.Summoner.Pet(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NilsReactionCore.Toggles.Summoner.Pet(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end\
 ",
@@ -1162,7 +1162,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Combat.Toggles.Summoner.Pet(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NilsReactionCore.Toggles.Summoner.Pet(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end\
 ",

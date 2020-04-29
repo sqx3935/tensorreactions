@@ -958,7 +958,7 @@ self.used = true",
 			},
 			["enabled"] = true,
 			["execute"] = "-- timeline control\
-NilsReactionCore.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -2771,7 +2771,7 @@ self.used=true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(NilsReactionCore.params.isTimeline)\
+			["execute"] = "NilsReactionCore.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(NilsReactionCore.params.isTimeline)\
 self.used=true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -3060,7 +3060,7 @@ self.used=true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Combat.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(NilsReactionCore.params.isTimeline)\
+			["execute"] = "NilsReactionCore.Toggles.Ninja.Helpers.TurnOnTrickAttackWindow(NilsReactionCore.params.isTimeline)\
 self.used=true",
 			["executeType"] = 2,
 			["lastUse"] = 0,

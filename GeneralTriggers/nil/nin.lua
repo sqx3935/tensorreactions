@@ -2429,7 +2429,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.DwDAlignment()\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2455,7 +2455,7 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.KassatsuAlignment()\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2512,7 +2512,7 @@ return nil\
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Helpers.ACRefreshAlignment()\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2538,7 +2538,7 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 10;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Reset()\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2564,7 +2564,7 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = false;
+		["enabled"] = true;
 		["eventType"] = 9;
 		["execute"] = "NilsReactionLibrary.Combat.Toggles.Ninja.Reset()\
 self.eventConditionMismatch = true -- suppressing the log\
@@ -2590,18 +2590,16 @@ return nil";
 		};
 		["conditions"] = {
 		};
-		["enabled"] = true;
+		["enabled"] = false;
 		["eventType"] = 1;
-		["execute"] = "if gReactionZoomhackSet == nil then\
-  gDevHackMaxZoom = 40.0\
-	 gDevHackMinZoom = 1.5\
-  gReactionZoomhackSet = true\
-end\
+		["execute"] = "--for _, member in pairs(EntityList(\"myparty\")) do d(\"nil : \" ..tostring(member.incombat)) if member.incombat == true then d(\"nil true\") end end\
 \
-if gReactionSpeedhackSet == nil then\
-  gDevHackWalkSpeed = 8\
-  gReactionSpeedhackSet = true\
-end\
+local party = EntityList(\"myparty\")\
+if table.size(party) == 0 then d(\"add\") party[Player.id] = Player end\
+for _, member in pairs(party) do d(\"nil : \" ..tostring(member.incombat)) if member.incombat == true then d(\"nil true\") end end\
+--d(party[0].name)\
+\
+\
 self.eventConditionMismatch = true -- suppressing the log\
 self.used = true ";
 		["executeType"] = 2;
