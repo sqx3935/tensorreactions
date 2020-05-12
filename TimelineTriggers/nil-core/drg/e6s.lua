@@ -61,9 +61,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -71,7 +69,7 @@ end",
 			["name"] = "Knockback",
 			["throttleTime"] = 0,
 			["time"] = 73.6,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 8,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
@@ -84,7 +82,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -109,7 +107,7 @@ self.used = true",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -128,6 +126,29 @@ self.used = true",
 		},
 	},
 	[17] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dragon Sight Off",
+			["throttleTime"] = 0,
+			["time"] = 122,
+			["timeRange"] = false,
+			["timelineIndex"] = 17,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "331c6c73-5a01-a3c8-94e8-dbebb116e6c1",
+		},
 	},
 	[18] = {
 		[1] = {
@@ -178,7 +199,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -232,7 +253,7 @@ return true\
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.CDOn(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -276,6 +297,29 @@ self.used = true\
 			["used"] = false,
 			["uuid"] = "6924fe7e-f6ef-0a6f-8a09-54d5398cc8c0",
 		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.on, NilsReactionCore.params.isNotTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dragon Sight On",
+			["throttleTime"] = 0,
+			["time"] = 122.5,
+			["timeRange"] = false,
+			["timelineIndex"] = 18,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 3,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "cb4f6481-6c85-9c5c-855f-2180c7322637",
+		},
 	},
 	[22] = {
 		[1] = {
@@ -284,9 +328,7 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -386,6 +428,31 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "fdb7979b-004c-507f-9045-57ef35e5681a",
 		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dragon Sight Off",
+			["throttleTime"] = 0,
+			["time"] = 235.7,
+			["timeRange"] = false,
+			["timelineIndex"] = 35,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "0363cd6d-114a-8d45-80c4-5c3660514dae",
+		},
+	},
+	[36] = {
 	},
 	[37] = {
 		[1] = {
@@ -436,7 +503,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -479,9 +546,9 @@ return true\
 			["time"] = 245.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 37,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 10,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -10,
 			["used"] = false,
 			["uuid"] = "b6d5595e-bb27-5642-a46a-f95dade0f60e",
 		},
@@ -578,12 +645,12 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -620,12 +687,12 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -674,6 +741,29 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "a614a208-4179-f428-8f4e-9aa71d36d6da",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.on, NilsReactionCore.params.isNotTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dragon Sight On",
+			["throttleTime"] = 0,
+			["time"] = 248.4,
+			["timeRange"] = false,
+			["timelineIndex"] = 38,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 2,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "98c78072-1875-103c-b77b-2b047f5c2718",
+		},
 	},
 	[44] = {
 		[1] = {
@@ -682,9 +772,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -705,7 +793,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -823,7 +911,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -926,7 +1014,7 @@ self.used = true\
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -944,6 +1032,8 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "7eca56d7-1f43-4fa8-b435-b784d1947dd7",
 		},
+	},
+	[67] = {
 	},
 	[69] = {
 		[1] = {
@@ -1104,7 +1194,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,
@@ -1183,7 +1273,7 @@ self.used = true",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -1237,7 +1327,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -1263,9 +1353,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1289,9 +1377,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1313,9 +1399,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.TrueNorth() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.TrueNorth() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1379,7 +1463,7 @@ end",
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["enmityValue"] = 0,
 					["gaugeIndex"] = 1,

@@ -535,7 +535,7 @@ self.used = table.size(drawnOrbs) >= 4",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Toggles.Redmage.CorpsMelee(false, true)\
+			["execute"] = "NilsReactionLibrary.Combat.Toggles.Redmage.CorpsMelee(false, true)\
 self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,

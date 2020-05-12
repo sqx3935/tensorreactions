@@ -7,3 +7,5 @@ New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMod
 New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\TimelineTriggers\nil" -Target "C:\Projects\src\github.com\nil2share\tensorreactions\TimelineTriggers\nil"
 
 New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\GeneralTriggers\nil" -Target "C:\Projects\src\github.com\nil2share\tensorreactions\GeneralTriggers\nil"
+
+New-Item -f -ItemType SymbolicLink -Path "C:\MINIONAPP\Bots\FFXIVMinion64\LuaMods\TensorReactions\GeneralTriggers\nil-core" -Target "C:\Projects\src\github.com\nil2share\tensorreactions\TimelineTriggers\nil-core"

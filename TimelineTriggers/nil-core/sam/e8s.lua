@@ -330,9 +330,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -354,9 +352,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = false,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -378,9 +374,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Samurai.ThirdEye() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Samurai.ThirdEye() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -404,9 +398,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -565,6 +557,31 @@ end",
 			["uuid"] = "d81e81c1-612f-8fc8-a63c-5558fff0938a",
 		},
 	},
+	[32] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Logic.Toggles.DOTOff(NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dot Off",
+			["throttleTime"] = 0,
+			["time"] = 190.2,
+			["timeRange"] = false,
+			["timelineIndex"] = 32,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -10,
+			["used"] = false,
+			["uuid"] = "8beb76cd-aa0f-19eb-b641-8042b6c95543",
+		},
+	},
 	[33] = {
 		[1] = {
 			["actions"] = {
@@ -595,7 +612,7 @@ self.used = true\
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -642,9 +659,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Samurai.ThirdEye() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Samurai.ThirdEye() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -659,6 +674,28 @@ end",
 			["timerStartOffset"] = -3,
 			["used"] = false,
 			["uuid"] = "1c7ba356-4c6f-b1d6-bb41-e99a69012fd8",
+		},
+		[5] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Toggles.Samurai.Meikyo(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off Meikyo",
+			["throttleTime"] = 0,
+			["time"] = 193.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 33,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "d7dee7b7-b622-b8c4-92b8-7982a3ed0c3b",
 		},
 	},
 	[34] = {
@@ -686,6 +723,28 @@ self.used = true",
 			["timerStartOffset"] = 4,
 			["used"] = false,
 			["uuid"] = "d0a4e5bf-1c18-fe71-8bbf-7049fcf6ee91",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Toggles.Samurai.Meikyo(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn on Meikyo",
+			["throttleTime"] = 0,
+			["time"] = 213,
+			["timeRange"] = true,
+			["timelineIndex"] = 36,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "eb6b2c13-1383-aee3-b727-036ec8b3a1cd",
 		},
 	},
 	[37] = {
@@ -842,21 +901,21 @@ return target == nil or target.hp.current == 0",
 			["enabled"] = false,
 			["execute"] = "local target = Player:GetTarget()\
 if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-  NilsReactionCore.Hotbar.LegSweep()\
+  NilsReactionCore.Hotbar.Stun()\
   self.used = true\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
-			["loop"] = true,
+			["loop"] = false,
 			["luaReturnsAction"] = false,
 			["name"] = "Leg Sweep",
 			["throttleTime"] = 0,
 			["time"] = 229.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 37,
-			["timerEndOffset"] = 10,
+			["timerEndOffset"] = 20,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "02283ace-b7a6-9dc4-8823-095ae61e1f63",
 		},
@@ -866,9 +925,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Samurai.ThirdEye() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Samurai.ThirdEye() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -990,7 +1047,7 @@ return target == nil or target.hp.current == 0",
 			["enabled"] = false,
 			["execute"] = "local target = Player:GetTarget()\
 if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-  NilsReactionCore.Hotbar.LegSweep()\
+  NilsReactionCore.Hotbar.Stun()\
   self.used = true\
 end",
 			["executeType"] = 2,
@@ -1078,9 +1135,9 @@ end",
 			["time"] = 257.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 41,
-			["timerEndOffset"] = 15,
+			["timerEndOffset"] = 25,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -10,
+			["timerStartOffset"] = -3,
 			["used"] = false,
 			["uuid"] = "ee4ccd5c-027c-0baf-9263-2d4f8b8b8678",
 		},
@@ -1188,7 +1245,7 @@ return target == nil or target.hp.current == 0",
 			["enabled"] = false,
 			["execute"] = "local target = Player:GetTarget()\
 if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-  NilsReactionCore.Hotbar.LegSweep()\
+  NilsReactionCore.Hotbar.Stun()\
   self.used = true\
 end",
 			["executeType"] = 2,
@@ -1503,7 +1560,7 @@ self.used = true",
 			["enabled"] = false,
 			["execute"] = "local target = Player:GetTarget()\
 if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-  NilsReactionCore.Hotbar.LegSweep()\
+  NilsReactionCore.Hotbar.Stun()\
   self.used = true\
 end",
 			["executeType"] = 2,
@@ -1692,6 +1749,29 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "625d3135-fae1-f3be-9440-9604faa3dee6",
 		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Logic.Toggles.DOTOn(NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dot On",
+			["throttleTime"] = 0,
+			["time"] = 350.5,
+			["timeRange"] = false,
+			["timelineIndex"] = 46,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -10,
+			["used"] = false,
+			["uuid"] = "c9626506-206c-fdf8-b1c0-c79c014355dc",
+		},
 	},
 	[48] = {
 		[1] = {
@@ -1753,7 +1833,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Hotbar.Samurai.ThirdEye() == true then\
 self.used = true\
 end",
@@ -1909,7 +1989,7 @@ self.used = true",
 			["timelineIndex"] = 72,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -2.2000000476837,
-			["timerStartOffset"] = -2.4000000953674,
+			["timerStartOffset"] = -2.5,
 			["used"] = false,
 			["uuid"] = "047b69d9-c136-9931-af5f-ae52a57e727b",
 		},
@@ -1933,7 +2013,7 @@ end",
 			["timelineIndex"] = 72,
 			["timerEndOffset"] = -0.60000002384186,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -1.6000000238419,
+			["timerStartOffset"] = -1.7000000476837,
 			["used"] = false,
 			["uuid"] = "e3d971b8-ea7c-9303-ac86-446e33dbc06b",
 		},

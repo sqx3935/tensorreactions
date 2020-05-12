@@ -36,9 +36,7 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-  self.used = true\
-end\
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
 \
 ",
 			["executeType"] = 2,
@@ -64,9 +62,7 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -74,7 +70,7 @@ end",
 			["name"] = "Feint",
 			["throttleTime"] = 0,
 			["time"] = 73.4,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 9,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
@@ -90,9 +86,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -115,7 +109,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -133,6 +127,29 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "c1a86ec4-2b19-1813-a7e7-10f33f2600ce",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dragon Sight Off",
+			["throttleTime"] = 0,
+			["time"] = 125.8,
+			["timeRange"] = false,
+			["timelineIndex"] = 17,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "95d823e6-19d0-8e57-b4e8-b1af53de0299",
+		},
 	},
 	[18] = {
 		[1] = {
@@ -140,7 +157,7 @@ self.used = true",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
 self.used = true\
 ",
@@ -252,37 +269,38 @@ return true\
 			["time"] = 128.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 19,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 10,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -10,
 			["used"] = false,
 			["uuid"] = "c5c88adc-c2cf-ff3e-b8e7-0a65597c99fc",
 		},
-	},
-	[20] = {
-		[1] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Jump on",
+			["name"] = "Dragon Sight On",
 			["throttleTime"] = 0,
-			["time"] = 128.9,
+			["time"] = 128.6,
 			["timeRange"] = false,
-			["timelineIndex"] = 20,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = -0.5,
-			["timerStartOffset"] = -1,
+			["timelineIndex"] = 19,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "e81c0f36-806f-39b9-847f-921465e30624",
+			["uuid"] = "40003606-ccab-1f2e-bb06-3bcdc9ddbd4d",
 		},
-		[2] = {
+	},
+	[20] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -301,10 +319,33 @@ self.used = true\
 			["timeRange"] = false,
 			["timelineIndex"] = 20,
 			["timerEndOffset"] = 1,
-			["timerOffset"] = -0.5,
+			["timerOffset"] = 0,
 			["timerStartOffset"] = -0.5,
 			["used"] = false,
 			["uuid"] = "99b16c36-a176-dfc6-a97d-3c4050219bf8",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dragon Sight On",
+			["throttleTime"] = 0,
+			["time"] = 128.9,
+			["timeRange"] = false,
+			["timelineIndex"] = 20,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 2,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "cbc2c175-2ad6-a778-a6bd-e6c3934086f6",
 		},
 	},
 	[21] = {
@@ -314,9 +355,7 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -332,6 +371,29 @@ end",
 			["used"] = false,
 			["uuid"] = "f96e656d-7a70-f061-b347-b747cfb2fdcb",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = false,
+			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump on",
+			["throttleTime"] = 0,
+			["time"] = 138.1,
+			["timeRange"] = false,
+			["timelineIndex"] = 21,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 3,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "a17e0a55-f362-e424-8421-77e477ffac8e",
+		},
 	},
 	[28] = {
 		[1] = {
@@ -340,9 +402,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -366,9 +426,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-  self.used = true\
-end\
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
 \
 ",
 			["executeType"] = 2,
@@ -387,13 +445,38 @@ end\
 			["uuid"] = "2bfcdef7-779d-2c50-98d5-94a20438620d",
 		},
 	},
-	[35] = {
+	[34] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dragon Sight Off",
+			["throttleTime"] = 0,
+			["time"] = 249.5,
+			["timeRange"] = false,
+			["timelineIndex"] = 34,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "d821dfb2-5981-e088-b1f5-de31afe2a849",
+		},
+	},
+	[35] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -418,7 +501,7 @@ self.used = true",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -536,6 +619,31 @@ return true\
 	},
 	[41] = {
 	},
+	[42] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Toggles.Dragoon.DragonSight(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dragon Sight On",
+			["throttleTime"] = 0,
+			["time"] = 267.5,
+			["timeRange"] = false,
+			["timelineIndex"] = 42,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 3,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "8e81f434-4b4e-ba73-978c-96edab780df4",
+		},
+	},
 	[47] = {
 		[1] = {
 			["actions"] = {
@@ -594,7 +702,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -607,7 +715,7 @@ self.used = true",
 			["timeRange"] = false,
 			["timelineIndex"] = 66,
 			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
+			["timerOffset"] = 3,
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "ca10d785-ffdd-c533-ad31-ec82f6ea084d",
@@ -618,9 +726,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-  self.used = true\
-end\
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
 \
 ",
 			["executeType"] = 2,
@@ -630,11 +736,11 @@ end\
 			["name"] = "Sprint",
 			["throttleTime"] = 0,
 			["time"] = 411.7,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 66,
-			["timerEndOffset"] = 0,
+			["timerEndOffset"] = 2,
 			["timerOffset"] = -2,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -2,
 			["used"] = false,
 			["uuid"] = "417998c8-d5e1-b033-805a-fff9fb0094ca",
 		},
@@ -647,7 +753,7 @@ end\
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -660,7 +766,7 @@ self.used = true",
 			["timeRange"] = false,
 			["timelineIndex"] = 72,
 			["timerEndOffset"] = 2,
-			["timerOffset"] = -1,
+			["timerOffset"] = 2,
 			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "c1ae42ee-7806-2c3b-8197-6ff53d137b5b",
@@ -756,9 +862,9 @@ return true\
 			["time"] = 432.7,
 			["timeRange"] = true,
 			["timelineIndex"] = 72,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 10,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -10,
 			["used"] = false,
 			["uuid"] = "5aede7eb-ad02-a4a7-ae4f-92c1a4b0d526",
 		},
@@ -770,9 +876,7 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -780,7 +884,7 @@ end",
 			["name"] = "Knockback",
 			["throttleTime"] = 0,
 			["time"] = 477,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 81,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
@@ -823,9 +927,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -833,7 +935,7 @@ end",
 			["name"] = "Feint",
 			["throttleTime"] = 0,
 			["time"] = 510,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 85,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,

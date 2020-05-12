@@ -114,9 +114,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
