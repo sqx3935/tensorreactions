@@ -1,34 +1,9 @@
 -- Persistent Data
 local multiRefObjects = {
-{},{},
+
 } -- multiRefObjects
 local obj1 = {
 	[1] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Hotbar.Toggles.Init()\
-self.used = true\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reset Toggle Controls",
-			["throttleTime"] = 0,
-			["time"] = 12,
-			["timeRange"] = false,
-			["timelineIndex"] = 1,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -12,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "1d1bb14c-53a9-8368-9d9a-51afe121193e",
-		},
 	},
 	[2] = {
 		[1] = {
@@ -81,9 +56,7 @@ self.used = true\
 			["used"] = false,
 			["uuid"] = "cf72a582-9b9a-3c47-a106-ebc9e5725503",
 		},
-	},
-	[9] = {
-		[1] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -97,12 +70,37 @@ self.used = true\
 			["luaReturnsAction"] = false,
 			["name"] = "Feint",
 			["throttleTime"] = 0,
+			["time"] = 63.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 7,
+			["timerEndOffset"] = 6,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = 2,
+			["used"] = false,
+			["uuid"] = "5aee8689-76e7-628d-81b6-c2724c0f3f8b",
+		},
+	},
+	[9] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = false,
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Feint",
+			["throttleTime"] = 0,
 			["time"] = 73.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 9,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -5,
+			["timerStartOffset"] = -8,
 			["used"] = false,
 			["uuid"] = "ecb00345-ec02-f98b-b86d-6521bc2433eb",
 		},
@@ -159,32 +157,6 @@ end\
 			["used"] = false,
 			["uuid"] = "c23ffc4a-9606-ddf7-838b-3fb681f64ec1",
 		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = false,
-			["execute"] = "if NilsReactionCore.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(NilsReactionCore.params.isTimeline, NilsReactionCore.params.off) then\
-self.used = true\
-end\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Trick window off",
-			["throttleTime"] = 0,
-			["time"] = 117.7,
-			["timeRange"] = true,
-			["timelineIndex"] = 16,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "709f2ac6-4ede-c09a-a321-bb477fe9ac67",
-		},
 	},
 	[17] = {
 		[1] = {
@@ -232,7 +204,7 @@ end\
 			["timelineIndex"] = 17,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = -2,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -4,
 			["used"] = false,
 			["uuid"] = "117b4505-dff0-875f-97e8-5ed33b4f1eb1",
 		},
@@ -292,7 +264,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -387,7 +359,7 @@ end",
 			["timelineIndex"] = 19,
 			["timerEndOffset"] = 10,
 			["timerOffset"] = 7.5,
-			["timerStartOffset"] = -1.5,
+			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "47db1d71-0453-a8ff-ac91-3574094306c2",
 		},
@@ -695,13 +667,13 @@ end\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1054,13 +1026,13 @@ end\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,

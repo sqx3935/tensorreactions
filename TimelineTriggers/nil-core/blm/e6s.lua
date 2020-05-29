@@ -4,31 +4,6 @@ local multiRefObjects = {
 } -- multiRefObjects
 local obj1 = {
 	[2] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Hotbar.Toggles.Init()\
-self.used = true\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reset Toggle Controls",
-			["throttleTime"] = 0,
-			["time"] = 18,
-			["timeRange"] = false,
-			["timelineIndex"] = 2,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -18,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "fa7bd85f-39c8-17d5-9c5b-ef71402971f3",
-		},
 	},
 	[3] = {
 		[1] = {

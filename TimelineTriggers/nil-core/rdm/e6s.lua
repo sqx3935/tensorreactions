@@ -4,31 +4,6 @@ local multiRefObjects = {
 } -- multiRefObjects
 local obj1 = {
 	[2] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Hotbar.Toggles.Init()\
-self.used = true\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reset Toggle Controls",
-			["throttleTime"] = 0,
-			["time"] = 18,
-			["timeRange"] = false,
-			["timelineIndex"] = 2,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -18,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "318c8e30-20f7-e3aa-8d89-945715e8c83e",
-		},
 	},
 	[3] = {
 		[1] = {
@@ -186,7 +161,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -436,7 +411,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -594,12 +569,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -637,12 +612,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -828,7 +803,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1126,7 +1101,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,

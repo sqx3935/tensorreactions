@@ -1,34 +1,9 @@
 -- Persistent Data
 local multiRefObjects = {
-{},{},
+
 } -- multiRefObjects
 local obj1 = {
 	[2] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Hotbar.Toggles.Init()\
-self.used = true\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reset Toggle Controls",
-			["throttleTime"] = 0,
-			["time"] = 18,
-			["timeRange"] = false,
-			["timelineIndex"] = 2,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -18,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "60860f7f-c318-0ff9-b7a4-a3b42cb15d55",
-		},
 	},
 	[3] = {
 		[1] = {

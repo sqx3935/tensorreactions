@@ -4,31 +4,6 @@ local multiRefObjects = {
 } -- multiRefObjects
 local obj1 = {
 	[1] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Hotbar.Toggles.Init()\
-self.used = true\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reset Toggle Controls",
-			["throttleTime"] = 0,
-			["time"] = 12,
-			["timeRange"] = false,
-			["timelineIndex"] = 1,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -12,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "40876113-e0d5-efee-9614-54987979188d",
-		},
 	},
 	[2] = {
 		[1] = {
@@ -243,7 +218,7 @@ end\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -251,7 +226,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -566,7 +541,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -574,7 +549,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -837,7 +812,7 @@ end\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -845,7 +820,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,

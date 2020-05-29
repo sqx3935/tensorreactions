@@ -4,31 +4,6 @@ local multiRefObjects = {
 } -- multiRefObjects
 local obj1 = {
 	[1] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Hotbar.Toggles.Init()\
-self.used = true\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reset Toggle Controls",
-			["throttleTime"] = 0,
-			["time"] = 12,
-			["timeRange"] = false,
-			["timelineIndex"] = 1,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -12,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "5e4155d6-2dae-b2f2-96c0-70368b58023a",
-		},
 	},
 	[2] = {
 		[1] = {
@@ -37,9 +12,7 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-  self.used = true\
-end\
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
 \
 ",
 			["executeType"] = 2,
@@ -50,11 +23,11 @@ end\
 			["name"] = "Sprint",
 			["throttleTime"] = 0,
 			["time"] = 22.2,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 2,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -2,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -2,
 			["used"] = false,
 			["uuid"] = "a145ff51-6579-d873-a66e-bd51b2587e20",
 		},
