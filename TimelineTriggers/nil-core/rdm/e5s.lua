@@ -12,9 +12,7 @@ local obj1 = {
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-  self.used = true\
-end\
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
 \
 ",
 			["executeType"] = 2,
@@ -91,9 +89,7 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -118,7 +114,9 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -127,11 +125,11 @@ end",
 			["name"] = "Jump off",
 			["throttleTime"] = 0,
 			["time"] = 125.8,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 17,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -4,
 			["used"] = false,
 			["uuid"] = "6fe9512d-555f-6156-bcc6-e2fc3193a541",
 		},
@@ -144,7 +142,7 @@ end",
 			},
 			["enabled"] = true,
 			["execute"] = "NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
-  self.used = true",
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -276,7 +274,9 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -287,7 +287,7 @@ return true\
 			["time"] = 128.9,
 			["timeRange"] = true,
 			["timelineIndex"] = 20,
-			["timerEndOffset"] = 2,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -300,7 +300,7 @@ return true\
 			},
 			["enabled"] = true,
 			["execute"] = "NilsReactionCore.Logic.Toggles.CDOn(NilsReactionCore.params.isTimeline)\
-  self.used = true",
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -311,7 +311,7 @@ return true\
 			["time"] = 128.9,
 			["timeRange"] = true,
 			["timelineIndex"] = 20,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -0.5,
 			["used"] = false,
@@ -375,9 +375,7 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-  self.used = true\
-end\
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
 \
 ",
 			["executeType"] = 2,
@@ -388,11 +386,11 @@ end\
 			["name"] = "Sprint",
 			["throttleTime"] = 0,
 			["time"] = 244.6,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 33,
-			["timerEndOffset"] = 0,
+			["timerEndOffset"] = 2,
 			["timerOffset"] = -2,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -2,
 			["used"] = false,
 			["uuid"] = "e215d56e-fff2-1e4a-a6bd-08c0a58863f4",
 		},
@@ -404,7 +402,9 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -415,7 +415,7 @@ end\
 			["time"] = 253,
 			["timeRange"] = true,
 			["timelineIndex"] = 35,
-			["timerEndOffset"] = 2,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
@@ -456,7 +456,9 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -686,7 +688,9 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -695,7 +699,7 @@ self.used = true\
 			["name"] = "Jump off",
 			["throttleTime"] = 0,
 			["time"] = 411.7,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 66,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
@@ -765,7 +769,9 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -998,9 +1004,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1034,7 +1038,7 @@ end",
 			["name"] = "Addle",
 			["throttleTime"] = 0,
 			["time"] = 487.4,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 82,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -5,
@@ -1059,7 +1063,7 @@ end",
 			["name"] = "Addle",
 			["throttleTime"] = 0,
 			["time"] = 523.2,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 90,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -5,
@@ -1084,7 +1088,7 @@ end",
 			["name"] = "Addle",
 			["throttleTime"] = 0,
 			["time"] = 554.9,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 96,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -5,
@@ -1109,7 +1113,7 @@ end",
 			["name"] = "Addle",
 			["throttleTime"] = 0,
 			["time"] = 566,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 97,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -5,
@@ -1134,7 +1138,7 @@ end",
 			["name"] = "Addle",
 			["throttleTime"] = 0,
 			["time"] = 583.2,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 99,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -5,
@@ -1159,7 +1163,7 @@ end",
 			["name"] = "Addle",
 			["throttleTime"] = 0,
 			["time"] = 594.3,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 100,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -5,
@@ -1184,7 +1188,7 @@ end",
 			["name"] = "Addle",
 			["throttleTime"] = 0,
 			["time"] = 605.4,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 101,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -5,

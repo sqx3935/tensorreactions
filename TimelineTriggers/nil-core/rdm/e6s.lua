@@ -38,7 +38,9 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -63,7 +65,9 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -161,7 +165,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -411,7 +415,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -569,12 +573,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -612,12 +616,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -676,7 +680,9 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -803,7 +809,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -913,7 +919,9 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1101,7 +1109,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1185,7 +1193,9 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOff(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1240,7 +1250,9 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.JumpsOn(NilsReactionCore.params.isTimeline)",
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
