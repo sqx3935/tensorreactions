@@ -31,6 +31,33 @@ self.used = true",
 			["uuid"] = "fa2cb64c-24a6-60b4-82fd-46b2efe5fd01",
 		},
 	},
+	[5] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 39.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 5,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "5b1d301e-db72-8a75-b794-13e0890e8fc0",
+		},
+	},
 	[8] = {
 		[1] = {
 			["actions"] = {
@@ -313,7 +340,7 @@ self.used = true",
 			["uuid"] = "cb4f6481-6c85-9c5c-855f-2180c7322637",
 		},
 	},
-	[22] = {
+	[21] = {
 		[1] = {
 			["actions"] = {
 			},
@@ -328,15 +355,17 @@ self.used = true",
 			["luaReturnsAction"] = false,
 			["name"] = "Feint",
 			["throttleTime"] = 0,
-			["time"] = 147.1,
-			["timeRange"] = false,
-			["timelineIndex"] = 22,
+			["time"] = 143.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 21,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -6,
 			["used"] = false,
-			["uuid"] = "436798a5-f401-0e02-b979-ca2d77133a0b",
+			["uuid"] = "236107cc-6905-d3be-a16f-c7b5f463e99e",
 		},
+	},
+	[22] = {
 	},
 	[26] = {
 		[1] = {
@@ -374,16 +403,41 @@ self.used = table.size(markedClones) >= 4",
 			["uuid"] = "ec9d0e21-e6e2-a5a0-b734-45e19a574892",
 		},
 	},
-	[35] = {
+	[30] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 215.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 30,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "9e5cf694-2a46-9434-9aea-25772e8ef6bb",
+		},
+	},
+	[34] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -391,16 +445,18 @@ end",
 			["luaReturnsAction"] = false,
 			["name"] = "Feint",
 			["throttleTime"] = 0,
-			["time"] = 235.7,
-			["timeRange"] = false,
-			["timelineIndex"] = 35,
+			["time"] = 232.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 34,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -6,
 			["used"] = false,
-			["uuid"] = "8ca020b7-3154-033e-81a8-330b702d19ba",
+			["uuid"] = "fde9be8c-72b9-0bdd-ac90-f149f8367afd",
 		},
-		[2] = {
+	},
+	[35] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -424,7 +480,7 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "fdb7979b-004c-507f-9045-57ef35e5681a",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -551,9 +607,9 @@ return true\
 			["time"] = 245.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 37,
-			["timerEndOffset"] = 10,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -10,
+			["timerStartOffset"] = -3,
 			["used"] = false,
 			["uuid"] = "b6d5595e-bb27-5642-a46a-f95dade0f60e",
 		},
@@ -787,7 +843,7 @@ self.used = true",
 			["uuid"] = "98c78072-1875-103c-b77b-2b047f5c2718",
 		},
 	},
-	[44] = {
+	[43] = {
 		[1] = {
 			["actions"] = {
 			},
@@ -802,16 +858,18 @@ self.used = true",
 			["luaReturnsAction"] = false,
 			["name"] = "Feint",
 			["throttleTime"] = 0,
-			["time"] = 276.9,
-			["timeRange"] = false,
-			["timelineIndex"] = 44,
+			["time"] = 273.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 43,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -6,
 			["used"] = false,
-			["uuid"] = "af0d150e-6e90-483a-b887-83601f21cb24",
+			["uuid"] = "6f80eb6b-5a18-1371-b483-7cc5a5c2004c",
 		},
-		[2] = {
+	},
+	[44] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -834,6 +892,33 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "9eaeac30-3c3c-2c19-a21c-f83e6bf431cc",
+		},
+	},
+	[49] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 293.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 49,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "fa8f89f2-9bb4-1314-be19-281b14e4e0f9",
 		},
 	},
 	[50] = {
@@ -1070,6 +1155,33 @@ self.used = true",
 			["uuid"] = "7eca56d7-1f43-4fa8-b435-b784d1947dd7",
 		},
 	},
+	[63] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 361.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 63,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -3,
+			["used"] = false,
+			["uuid"] = "27624673-c3aa-ff91-9767-23d06dac3422",
+		},
+	},
 	[67] = {
 	},
 	[69] = {
@@ -1108,16 +1220,14 @@ self.used = table.size(markedClones) >= 4",
 			["uuid"] = "d861f9c2-8a96-c0d3-b655-8bf41017aa01",
 		},
 	},
-	[77] = {
+	[76] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1125,15 +1235,17 @@ end",
 			["luaReturnsAction"] = false,
 			["name"] = "Feint",
 			["throttleTime"] = 0,
-			["time"] = 423,
+			["time"] = 419.2,
 			["timeRange"] = false,
-			["timelineIndex"] = 77,
+			["timelineIndex"] = 76,
 			["timerEndOffset"] = 0,
-			["timerOffset"] = -4,
+			["timerOffset"] = -6,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "cbae185b-1947-4857-a19c-0beded46d920",
+			["uuid"] = "f8f5f0eb-5e58-833c-98d3-21e2b041e2c1",
 		},
+	},
+	[77] = {
 	},
 	[78] = {
 		[1] = {

@@ -3988,6 +3988,32 @@ end\
 			["uuid"] = "cb042221-ea8d-3956-b2d2-57f5a87cc19c",
 		},
 	},
+	[108] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Light 1, Dark 2\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark/Light TTS",
+			["throttleTime"] = 0,
+			["time"] = 677.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 108,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "3700face-3b04-2fba-a6b8-26f5fc1adca8",
+		},
+	},
 	[113] = {
 		[1] = {
 			["actions"] = {
@@ -4036,6 +4062,32 @@ end\
 			["timerStartOffset"] = -5,
 			["used"] = false,
 			["uuid"] = "1dd9bd81-5c50-3c73-a875-0b839255fad6",
+		},
+	},
+	[115] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Light 1, Dark 2\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark/Light TTS",
+			["throttleTime"] = 0,
+			["time"] = 755.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 115,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "997c7cf6-88d2-2134-b19c-cd7c1138a0dd",
 		},
 	},
 	[120] = {

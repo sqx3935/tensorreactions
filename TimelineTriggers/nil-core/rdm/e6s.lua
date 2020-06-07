@@ -31,6 +31,33 @@ self.used = true",
 			["uuid"] = "2f7aad3d-46f5-119f-b017-1b212d97f00c",
 		},
 	},
+	[5] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 39.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 5,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "0dc0aa31-afee-8d47-a552-78e53daaaa1c",
+		},
+	},
 	[8] = {
 		[1] = {
 			["actions"] = {
@@ -56,6 +83,29 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "373248a0-20df-5218-bd97-dcafba2dac35",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Knockback",
+			["throttleTime"] = 0,
+			["time"] = 73.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 8,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "74495655-4322-6d14-9017-ca229b24c25b",
 		},
 	},
 	[15] = {
@@ -333,6 +383,33 @@ self.used = table.size(markedClones) >= 4\
 			["uuid"] = "f50a40e7-6f94-8692-af48-d4c48e2b8df0",
 		},
 	},
+	[30] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 215.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 30,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "4f5a51fc-cbd2-47c6-bb3c-f8ed0070df6c",
+		},
+	},
 	[36] = {
 		[1] = {
 			["actions"] = {
@@ -460,9 +537,9 @@ return true\
 			["time"] = 245.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 37,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -3,
 			["used"] = false,
 			["uuid"] = "8fbe62ff-5c25-c7a0-be94-efefdfabcf02",
 		},
@@ -698,6 +775,33 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "46c554fc-624d-8f11-b511-c334d56d5ea5",
+		},
+	},
+	[49] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 293.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 49,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "3d50ae8b-1057-9559-ad98-f0306d7fa03d",
 		},
 	},
 	[50] = {
@@ -937,6 +1041,33 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "24956276-4355-9acd-90a8-a547afbe3b0b",
+		},
+	},
+	[63] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 361.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 63,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -3,
+			["used"] = false,
+			["uuid"] = "c37b7167-175f-05f3-a603-ad87373075f7",
 		},
 	},
 	[66] = {

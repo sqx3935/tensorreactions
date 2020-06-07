@@ -31,6 +31,33 @@ self.used = true",
 			["uuid"] = "beefb2a8-7719-9353-9738-687f258af5d4",
 		},
 	},
+	[5] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 39.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 5,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "14227f40-824f-2d4c-9104-8818a6ea15ca",
+		},
+	},
 	[8] = {
 		[1] = {
 			["actions"] = {
@@ -38,9 +65,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -49,7 +74,7 @@ end",
 			["name"] = "Knockback",
 			["throttleTime"] = 0,
 			["time"] = 73.6,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 8,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
@@ -310,6 +335,33 @@ self.used = table.size(markedClones) >= 4\
 			["uuid"] = "9f96a988-4528-5878-9705-0024e6ff59c2",
 		},
 	},
+	[30] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 215.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 30,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "ec98e361-b880-9689-99c6-ce9afa6a89af",
+		},
+	},
 	[35] = {
 		[1] = {
 			["actions"] = {
@@ -463,9 +515,9 @@ return true\
 			["time"] = 245.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 37,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -3,
 			["used"] = false,
 			["uuid"] = "846c1f3a-28c6-9255-a0e5-ef49bfdee73a",
 		},
@@ -674,6 +726,33 @@ end",
 			["timerStartOffset"] = -2,
 			["used"] = false,
 			["uuid"] = "db66c444-9e0d-0422-85f0-e1ea25f8c914",
+		},
+	},
+	[49] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 293.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 49,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "5798bd05-3bf7-7320-b7fe-7a4eaf9eb671",
 		},
 	},
 	[50] = {
@@ -1018,6 +1097,33 @@ end\
 			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "c8a5f3d2-dce9-1386-8b61-cf7baf60cc28",
+		},
+	},
+	[63] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 361.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 63,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -3,
+			["used"] = false,
+			["uuid"] = "44ad8a38-df03-0cfd-8ac9-49e7aaee4987",
 		},
 	},
 	[66] = {

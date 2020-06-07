@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-{},{},
+
 } -- multiRefObjects
 local obj1 = {
 	[1] = {
@@ -32,6 +32,31 @@ local obj1 = {
 			["uuid"] = "3d78170a-04ed-b3ee-8bed-dc123cd738dc",
 		},
 	},
+	[6] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 52.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 6,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "e02b1659-2143-9143-8ca0-53cd01b6e887",
+		},
+	},
 	[7] = {
 		[1] = {
 			["actions"] = {
@@ -61,7 +86,7 @@ local obj1 = {
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -73,11 +98,11 @@ local obj1 = {
 			["time"] = 63.3,
 			["timeRange"] = true,
 			["timelineIndex"] = 7,
-			["timerEndOffset"] = 6,
+			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = 2,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "5aee8689-76e7-628d-81b6-c2724c0f3f8b",
+			["uuid"] = "33035185-55f5-33cf-8cef-4d6f918236b0",
 		},
 	},
 	[9] = {
@@ -100,9 +125,9 @@ local obj1 = {
 			["timelineIndex"] = 9,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "ecb00345-ec02-f98b-b86d-6521bc2433eb",
+			["uuid"] = "1935f1e0-3852-789c-a814-9bbddd833b90",
 		},
 	},
 	[14] = {
@@ -125,9 +150,34 @@ local obj1 = {
 			["timelineIndex"] = 14,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -5,
 			["used"] = false,
-			["uuid"] = "140a27cf-fa87-4f3c-b561-b1acf1c670df",
+			["uuid"] = "536b6f36-7b83-0772-88a6-cc5c2bb3a298",
+		},
+	},
+	[15] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 110.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 15,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "48f48023-d771-b15b-9592-f8eb142db3b3",
 		},
 	},
 	[16] = {
@@ -259,12 +309,11 @@ end\
 					},
 					["category"] = 4,
 					["comparator"] = 1,
-					["conditionLua"] = "local target = Player:GetTarget()\
-if target ~= nil and table.valid(target) and target.attackable then return false end\
-return true\
-",
+					["conditionLua"] = "if not Player:GetTarget() then return true end\
+return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = {
+					},
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -305,15 +354,15 @@ return true\
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
 			["name"] = "target boss",
-			["throttleTime"] = 0,
+			["throttleTime"] = 100,
 			["time"] = 128.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 19,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -3,
 			["used"] = false,
-			["uuid"] = "97f69fbf-ddd3-bda9-bbd0-63b886d8921c",
+			["uuid"] = "a300373f-ca32-50fc-838c-9f6fe2c4a3b4",
 		},
 		[2] = {
 			["actions"] = {
@@ -398,7 +447,7 @@ end\
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -412,9 +461,9 @@ end\
 			["timelineIndex"] = 21,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -5,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "5eba3936-0910-f21a-88aa-c34423f67c63",
+			["uuid"] = "37d9e663-3f9f-37bd-b4bd-3411cdd61461",
 		},
 	},
 	[22] = {
@@ -442,13 +491,38 @@ end\
 			["uuid"] = "1b24f8d9-7714-3c51-a571-a1053af0bcca",
 		},
 	},
-	[28] = {
+	[23] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 155.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 23,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "c4f6363c-51aa-0e32-a708-12057ef4467e",
+		},
+	},
+	[28] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -462,9 +536,9 @@ end\
 			["timelineIndex"] = 28,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "2a523e03-109d-d392-8805-b0ed476cf853",
+			["uuid"] = "f3c36604-5f93-6d14-9a86-8a563c88ded1",
 		},
 	},
 	[31] = {
@@ -490,6 +564,31 @@ end\
 			["timerStartOffset"] = -6,
 			["used"] = false,
 			["uuid"] = "fe77cb69-7dcf-589b-bc25-a36c279b8e39",
+		},
+	},
+	[32] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 230.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 32,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "b829984f-f4d1-c7dd-937e-a53953300c73",
 		},
 	},
 	[33] = {
@@ -667,13 +766,15 @@ end\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = {
+					},
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = {
+					},
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -718,11 +819,11 @@ return false",
 			["time"] = 265.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 39,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -3,
 			["used"] = false,
-			["uuid"] = "fb520cff-69b5-f083-82c5-3669c9ba297b",
+			["uuid"] = "b4ce4ed8-2a27-23b5-a3ad-3b4309fcbb10",
 		},
 		[2] = {
 			["actions"] = {
@@ -801,13 +902,38 @@ end\
 			["uuid"] = "e7a79b4d-0e73-0b59-af6f-c4275ee6a0b0",
 		},
 	},
-	[47] = {
+	[43] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 279.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 43,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "ef3133e7-70f0-4382-bcf7-a451aa672e6a",
+		},
+	},
+	[47] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -821,9 +947,9 @@ end\
 			["timelineIndex"] = 47,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "4dbb67e0-df4b-4638-9611-d127e07dcc48",
+			["uuid"] = "1efaecaa-6116-a6e5-8d86-d532efbaed1a",
 		},
 	},
 	[52] = {
@@ -851,13 +977,38 @@ end\
 			["uuid"] = "d76ce8d8-6006-d318-9985-fbc7f17a3b0a",
 		},
 	},
-	[63] = {
+	[57] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 337,
+			["timeRange"] = true,
+			["timelineIndex"] = 57,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "d4eab711-494a-6bec-8994-9cbe3d240185",
+		},
+	},
+	[63] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -871,9 +1022,9 @@ end\
 			["timelineIndex"] = 63,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -5,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "bc8c8eec-dc7d-e51e-96ef-88035d3c48b9",
+			["uuid"] = "7eb5d23a-7280-046f-b540-84f2d9fa05f3",
 		},
 	},
 	[64] = {
@@ -899,6 +1050,31 @@ end\
 			["timerStartOffset"] = -5,
 			["used"] = false,
 			["uuid"] = "3aa8de2d-d924-38ba-95a0-0e551813d7a7",
+		},
+	},
+	[65] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 395.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 65,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "90ffdfd4-7985-c4d7-b326-c898976f9e87",
 		},
 	},
 	[66] = {
@@ -1026,13 +1202,15 @@ end\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = {
+					},
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = {
+					},
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1077,11 +1255,11 @@ return false",
 			["time"] = 432.7,
 			["timeRange"] = true,
 			["timelineIndex"] = 72,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -3,
 			["used"] = false,
-			["uuid"] = "32637a7a-9e21-b04c-a34d-72d08799ec24",
+			["uuid"] = "c14a3a82-9a41-6ae1-b881-22b1393dccd3",
 		},
 		[2] = {
 			["actions"] = {
@@ -1135,6 +1313,31 @@ self.used = true\
 	[73] = {
 	},
 	[74] = {
+	},
+	[75] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 440.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 75,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "8848c0fe-2ff3-616f-b5c8-a72b3c7561b4",
+		},
 	},
 	[76] = {
 		[1] = {
@@ -1209,9 +1412,9 @@ end",
 			["timelineIndex"] = 81,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -5,
 			["used"] = false,
-			["uuid"] = "3d51ea72-2080-10c8-9ad7-7bc480a8d137",
+			["uuid"] = "ecd04336-7367-9b43-8d48-922550896362",
 		},
 	},
 	[82] = {
@@ -1245,7 +1448,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -1259,9 +1462,9 @@ end",
 			["timelineIndex"] = 85,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -5,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "70303fbd-d910-6465-8f3a-b3069c3df9c4",
+			["uuid"] = "8a6b29a1-9fbe-b85a-9a88-b3014811ed61",
 		},
 	},
 	[90] = {
@@ -1287,6 +1490,31 @@ end",
 			["timerStartOffset"] = -6,
 			["used"] = false,
 			["uuid"] = "914875e8-af96-79a2-9e96-e75c126c5a41",
+		},
+	},
+	[95] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 545.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 95,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "1724f354-1d9e-035c-9a87-2d78a6ee24c7",
 		},
 	},
 	[96] = {
@@ -1337,6 +1565,31 @@ end",
 			["timerStartOffset"] = -6,
 			["used"] = false,
 			["uuid"] = "2b86333e-bc27-7400-9cd0-be4078d76bee",
+		},
+	},
+	[98] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 574.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 98,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "056cd7d7-74ca-4a85-a6f0-3b8b6db7eb98",
 		},
 	},
 	[99] = {
@@ -1412,6 +1665,31 @@ end",
 			["timerStartOffset"] = -6,
 			["used"] = false,
 			["uuid"] = "da69a46e-9742-df98-8f70-dc933f52e598",
+		},
+	},
+	[102] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Get Orb TTS",
+			["throttleTime"] = 0,
+			["time"] = 612.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 102,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "77eb4ace-e319-1e81-a37e-a6601758d1a2",
 		},
 	},
 	[103] = {

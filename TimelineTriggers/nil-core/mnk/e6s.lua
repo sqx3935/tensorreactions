@@ -31,6 +31,33 @@ self.used = true",
 			["uuid"] = "1f5bdc5f-b2a9-0c6b-850d-30903e7515bd",
 		},
 	},
+	[5] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 39.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 5,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "827b3324-6272-a624-a35f-00118158e823",
+		},
+	},
 	[6] = {
 		[1] = {
 			["actions"] = {
@@ -74,7 +101,7 @@ end",
 			["name"] = "Knockback",
 			["throttleTime"] = 0,
 			["time"] = 73.6,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 8,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
@@ -180,13 +207,13 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[3],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -316,7 +343,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -419,16 +446,14 @@ self.used = true\
 			["uuid"] = "5fe5362d-64df-94b2-a2a3-cced822b0a08",
 		},
 	},
-	[22] = {
+	[21] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -436,15 +461,17 @@ end",
 			["luaReturnsAction"] = false,
 			["name"] = "Feint",
 			["throttleTime"] = 0,
-			["time"] = 147.1,
-			["timeRange"] = false,
-			["timelineIndex"] = 22,
+			["time"] = 143.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 21,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -6,
 			["used"] = false,
-			["uuid"] = "161c9337-a01e-e377-9ee8-21ad64ba05a0",
+			["uuid"] = "70d35b04-fcd4-8bd4-a531-303d7c767675",
 		},
+	},
+	[22] = {
 	},
 	[23] = {
 		[1] = {
@@ -507,6 +534,58 @@ self.used = table.size(markedClones) >= 4",
 			["uuid"] = "20e831bb-550d-89a5-8258-a1b134d5c6e2",
 		},
 	},
+	[30] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 215.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 30,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "dde87c89-5523-6d7b-b781-ad3880a736e1",
+		},
+	},
+	[34] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Feint",
+			["throttleTime"] = 0,
+			["time"] = 232.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 34,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "f2584914-9232-e75b-93fa-8684efa04965",
+		},
+	},
 	[35] = {
 		[1] = {
 			["actions"] = {
@@ -532,31 +611,6 @@ self.used = true\
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "94fbd5e0-e033-db68-95c7-a9dcd8cee6ff",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Feint",
-			["throttleTime"] = 0,
-			["time"] = 235.7,
-			["timeRange"] = false,
-			["timelineIndex"] = 35,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
-			["used"] = false,
-			["uuid"] = "3f8002a2-a29f-4ae3-b8bb-b7cd65942ba0",
 		},
 	},
 	[37] = {
@@ -614,7 +668,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -659,9 +713,9 @@ return true\
 			["time"] = 245.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 37,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -3,
 			["used"] = false,
 			["uuid"] = "1da85f01-2032-83b6-b4ab-848da224f7c1",
 		},
@@ -771,12 +825,12 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[3],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -814,12 +868,12 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[3],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -894,16 +948,14 @@ self.used = true",
 			["uuid"] = "eae845b7-9cd7-3354-b2ce-691b1285c504",
 		},
 	},
-	[44] = {
+	[43] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -911,14 +963,43 @@ end",
 			["luaReturnsAction"] = false,
 			["name"] = "Feint",
 			["throttleTime"] = 0,
-			["time"] = 276.9,
-			["timeRange"] = false,
-			["timelineIndex"] = 44,
+			["time"] = 273.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 43,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
+			["timerStartOffset"] = -6,
+			["used"] = false,
+			["uuid"] = "5863d7a3-8e3b-93da-a85f-702471827be1",
+		},
+	},
+	[44] = {
+	},
+	[49] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 293.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 49,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "e1fd06ff-0910-ca54-bb2e-4d0f08d213c9",
+			["uuid"] = "9c8f387f-b35f-53d4-a86a-66cbc2cde133",
 		},
 	},
 	[50] = {
@@ -1032,7 +1113,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1136,6 +1217,33 @@ self.used = true\
 			["uuid"] = "bb00f990-9ac0-b78e-b5eb-f591239ddbc9",
 		},
 	},
+	[63] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 361.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 63,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -3,
+			["used"] = false,
+			["uuid"] = "6022863f-37d3-1309-a2e7-8986a9c1de3d",
+		},
+	},
 	[66] = {
 		[1] = {
 			["actions"] = {
@@ -1222,16 +1330,14 @@ self.used = table.size(markedClones) >= 4",
 			["uuid"] = "bf530bf8-48e4-3249-92ef-2ff13e1ffeb1",
 		},
 	},
-	[77] = {
+	[76] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then\
-self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Feint() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1239,15 +1345,17 @@ end",
 			["luaReturnsAction"] = false,
 			["name"] = "Feint",
 			["throttleTime"] = 0,
-			["time"] = 423,
+			["time"] = 419.2,
 			["timeRange"] = false,
-			["timelineIndex"] = 77,
+			["timelineIndex"] = 76,
 			["timerEndOffset"] = 0,
-			["timerOffset"] = -4,
+			["timerOffset"] = -6,
 			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "f5065ece-0613-23df-8737-109e1e35d94c",
+			["uuid"] = "e1d92604-083d-5039-9733-aca38d27569e",
 		},
+	},
+	[77] = {
 	},
 	[78] = {
 		[1] = {
@@ -1356,7 +1464,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1685,13 +1793,13 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[3],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,

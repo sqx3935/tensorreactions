@@ -31,7 +31,57 @@ self.used = true",
 			["uuid"] = "fd0dd580-b108-f9db-8ee2-b2b69c4b4f53",
 		},
 	},
+	[5] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 39.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 5,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "2db17d91-ac7e-4364-9fda-f39fcff21827",
+		},
+	},
 	[8] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Knockback",
+			["throttleTime"] = 0,
+			["time"] = 73.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 8,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -4,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "765b36ae-7633-a431-a67a-4c4c9dff00f8",
+		},
 	},
 	[15] = {
 		[1] = {
@@ -140,7 +190,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -333,6 +383,33 @@ self.used = table.size(markedClones) >= 4\
 			["uuid"] = "2e0229c0-76d7-ec2c-8fee-3f7ab9c82fc7",
 		},
 	},
+	[30] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 215.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 30,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "c04bcd1f-8fbb-aabf-b87b-21ddd3f64ac8",
+		},
+	},
 	[36] = {
 		[1] = {
 			["actions"] = {
@@ -415,7 +492,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -460,9 +537,9 @@ return true\
 			["time"] = 245.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 37,
-			["timerEndOffset"] = 8,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 1.375,
-			["timerStartOffset"] = -8,
+			["timerStartOffset"] = -3,
 			["used"] = false,
 			["uuid"] = "054181e7-4f80-60df-bbcb-d2f7dbf8b994",
 		},
@@ -573,12 +650,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -616,12 +693,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -674,6 +751,33 @@ end",
 		},
 	},
 	[44] = {
+	},
+	[49] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 293.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 49,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "f5dc8864-aea4-acb6-b9c9-1fd25de20dde",
+		},
 	},
 	[50] = {
 		[1] = {
@@ -784,7 +888,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -887,6 +991,33 @@ end\
 			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "a950d3e5-0ff8-3d3d-ab2b-ce09dd1ca125",
+		},
+	},
+	[63] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 361.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 63,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -3,
+			["used"] = false,
+			["uuid"] = "0124c641-0447-bec9-974d-b0375a29104b",
 		},
 	},
 	[66] = {
@@ -1084,7 +1215,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
