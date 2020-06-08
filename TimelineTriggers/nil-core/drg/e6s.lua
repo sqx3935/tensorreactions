@@ -78,9 +78,9 @@ self.used = true",
 			["timelineIndex"] = 8,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -5.5,
 			["used"] = false,
-			["uuid"] = "cb6a1421-a32e-6cea-9d97-a953339701e6",
+			["uuid"] = "00123fc9-b3e0-a88f-9a03-3c6deaf2ab33",
 		},
 		[2] = {
 			["actions"] = {
@@ -105,6 +105,41 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "4cdb8099-c78d-872a-b5fd-12b7d471dba0",
+		},
+	},
+	[11] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+for id, ent in pairs(EntityList(\"\")) do\
+  if ent.contentid == 9290 and not drawnOrbs[id] then\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 7",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "draw orb",
+			["throttleTime"] = 0,
+			["time"] = 95.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 11,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "6a334fcc-a44e-9213-9ac9-1d2d30ef7c18",
 		},
 	},
 	[15] = {
@@ -213,7 +248,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -562,7 +597,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -719,12 +754,12 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -762,12 +797,12 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -892,6 +927,41 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "9eaeac30-3c3c-2c19-a21c-f83e6bf431cc",
+		},
+	},
+	[47] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+for id, ent in pairs(EntityList(\"\")) do\
+  if ent.contentid == 9290 and not drawnOrbs[id] then\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 7",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "draw orb",
+			["throttleTime"] = 0,
+			["time"] = 284.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 47,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "4c1d3f0c-a510-761f-bb87-ee2eca73991e",
 		},
 	},
 	[49] = {
@@ -1028,7 +1098,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1254,9 +1324,7 @@ self.used = table.size(markedClones) >= 4",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
-  self.used = true\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1265,13 +1333,13 @@ end",
 			["name"] = "Knockback",
 			["throttleTime"] = 0,
 			["time"] = 436.7,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 78,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -5.5,
 			["used"] = false,
-			["uuid"] = "c7a7db6e-34bf-6933-adbb-f782eb49d4dc",
+			["uuid"] = "6eb518f2-5616-8bc8-81a1-c8b4cea3442a",
 		},
 		[2] = {
 			["actions"] = {
@@ -1296,6 +1364,34 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "28ff3087-1fbd-f803-aaaf-ae7110ff9b38",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
+  if NilsReactionCore.Logic.Toggles.BurnBossOn(NilsReactionCore.params.isTimeline) == true then\
+    self.used = true\
+  end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Burn Boss",
+			["throttleTime"] = 0,
+			["time"] = 436.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 78,
+			["timerEndOffset"] = 200,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "9173b4e6-db92-bf8e-a765-70cf8201158e",
 		},
 	},
 	[79] = {
@@ -1353,7 +1449,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1456,34 +1552,6 @@ self.used = true",
 		},
 	},
 	[92] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "local target = Player:GetTarget()\
-if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
-  if NilsReactionCore.Logic.Toggles.BurnBossOn(NilsReactionCore.params.isTimeline) == true then\
-    self.used = true\
-  end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Burn Boss",
-			["throttleTime"] = 0,
-			["time"] = 476,
-			["timeRange"] = true,
-			["timelineIndex"] = 92,
-			["timerEndOffset"] = 200,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "78eb3cbe-ef10-ae74-9391-cdb890f27947",
-		},
 	},
 	[93] = {
 		[1] = {
@@ -1552,13 +1620,13 @@ self.used = true",
 			["name"] = "Knockback",
 			["throttleTime"] = 0,
 			["time"] = 603.3,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 114,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -5.5,
 			["used"] = false,
-			["uuid"] = "892cf7c1-afcc-59e6-bf8c-14cdfbc46db0",
+			["uuid"] = "5bd45721-1db4-df93-90db-162d821dccc1",
 		},
 		[2] = {
 			["actions"] = {
@@ -1637,7 +1705,7 @@ self.used = true",
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
 return false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,

@@ -65,7 +65,9 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
+			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then\
+  self.used = true\
+end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -78,21 +80,52 @@ self.used = true",
 			["timelineIndex"] = 8,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -5.5,
 			["used"] = false,
-			["uuid"] = "c985b24f-bc12-1e62-b0fc-a89c4eff9088",
+			["uuid"] = "1c7102ab-938a-58dd-a6d6-a5115c8c8d19",
 		},
 	},
-	[15] = {
+	[11] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline) == true then\
-  self.used = true\
-end",
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+for id, ent in pairs(EntityList(\"\")) do\
+  if ent.contentid == 9290 and not drawnOrbs[id] then\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 7",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "draw orb",
+			["throttleTime"] = 0,
+			["time"] = 95.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 11,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "cf33e58d-4a05-2cbf-a321-af4caf3552c2",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline) == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -100,15 +133,17 @@ end",
 			["luaReturnsAction"] = false,
 			["name"] = "CD Off",
 			["throttleTime"] = 0,
-			["time"] = 110.8,
+			["time"] = 95.2,
 			["timeRange"] = true,
-			["timelineIndex"] = 15,
+			["timelineIndex"] = 11,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "31db5649-f691-94fe-9ec5-d6163e93f31e",
+			["uuid"] = "f10b4301-5e41-d05d-a12b-6b431e5b865d",
 		},
+	},
+	[15] = {
 	},
 	[16] = {
 	},
@@ -728,6 +763,41 @@ end",
 			["uuid"] = "db66c444-9e0d-0422-85f0-e1ea25f8c914",
 		},
 	},
+	[47] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+for id, ent in pairs(EntityList(\"\")) do\
+  if ent.contentid == 9290 and not drawnOrbs[id] then\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 7",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "draw orb",
+			["throttleTime"] = 0,
+			["time"] = 284.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 47,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "0a2fc6ed-2362-bff9-bd48-c378c7721f21",
+		},
+	},
 	[49] = {
 		[1] = {
 			["actions"] = {
@@ -1232,13 +1302,41 @@ end",
 			["name"] = "Knockback",
 			["throttleTime"] = 0,
 			["time"] = 436.7,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 78,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -5.5,
 			["used"] = false,
-			["uuid"] = "eedadd92-df76-7b97-b279-57731445d5f1",
+			["uuid"] = "6fcba3fa-fd33-57c7-8664-a5721c88d48c",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
+  if NilsReactionCore.Logic.Toggles.BurnBossOn(NilsReactionCore.params.isTimeline) == true then\
+    self.used = true\
+  end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Burn Boss",
+			["throttleTime"] = 0,
+			["time"] = 436.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 78,
+			["timerEndOffset"] = 200,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "d517ff44-6df2-fb79-859e-3fd77f6bc3fd",
 		},
 	},
 	[79] = {
@@ -1374,34 +1472,6 @@ end",
 		},
 	},
 	[92] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "local target = Player:GetTarget()\
-if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 2 then\
-  if NilsReactionCore.Logic.Toggles.BurnBossOn(NilsReactionCore.params.isTimeline) == true then\
-    self.used = true\
-  end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Burn Boss",
-			["throttleTime"] = 0,
-			["time"] = 476,
-			["timeRange"] = true,
-			["timelineIndex"] = 92,
-			["timerEndOffset"] = 200,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "91c651da-5906-ec35-897e-b1db26787c8e",
-		},
 	},
 	[97] = {
 		[1] = {
@@ -1446,13 +1516,13 @@ end",
 			["name"] = "Knockback",
 			["throttleTime"] = 0,
 			["time"] = 603.3,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 114,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -5.5,
 			["used"] = false,
-			["uuid"] = "ed5dfaf2-69a0-90d2-91cd-9c6271ad1370",
+			["uuid"] = "a6fe9f46-3631-27f6-8ddb-7dfed9ceaa32",
 		},
 	},
 	[115] = {

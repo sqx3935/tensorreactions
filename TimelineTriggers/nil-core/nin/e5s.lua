@@ -32,6 +32,56 @@ local obj1 = {
 			["uuid"] = "3d78170a-04ed-b3ee-8bed-dc123cd738dc",
 		},
 	},
+	[3] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Move to safe spot\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Move Out TTS",
+			["throttleTime"] = 0,
+			["time"] = 27.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 3,
+			["timerEndOffset"] = -2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -3,
+			["used"] = false,
+			["uuid"] = "76a6d4ce-36dc-4158-b092-7355d6f63255",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Gap Close\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Move In TTS",
+			["throttleTime"] = 0,
+			["time"] = 27.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 3,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "aa93815b-4def-7c57-a178-0186b15dfbdd",
+		},
+	},
 	[6] = {
 		[1] = {
 			["actions"] = {
