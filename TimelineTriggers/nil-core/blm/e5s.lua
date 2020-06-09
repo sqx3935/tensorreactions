@@ -208,29 +208,6 @@ self.used = true",
 		},
 	},
 	[10] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if data.allowManaWards and NilsReactionCore.Hotbar.Blackmage.ManaWard() == true then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "ManaWard",
-			["throttleTime"] = 0,
-			["time"] = 79.7,
-			["timeRange"] = true,
-			["timelineIndex"] = 10,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -5,
-			["timerStartOffset"] = -5,
-			["used"] = false,
-			["uuid"] = "04db4974-43cd-c3e1-9858-0ef062cefd2d",
-		},
 	},
 	[14] = {
 		[1] = {

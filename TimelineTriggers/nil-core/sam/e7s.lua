@@ -51,12 +51,12 @@ local obj1 = {
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -106,6 +106,41 @@ local obj1 = {
 			["timerStartOffset"] = -4,
 			["used"] = false,
 			["uuid"] = "c45700ed-8219-bfff-8ecc-4652ebdde8b3",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if HasBuff(Player.id, 2240) then\
+ NilsReactionCore.Alert.Send(\"Front Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2241) then\
+ NilsReactionCore.Alert.Send(\"Back Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2242) then\
+ NilsReactionCore.Alert.Send(\"Left Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2243) then\
+ NilsReactionCore.Alert.Send(\"Right Teleport\")\
+ self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Teleport TTS",
+			["throttleTime"] = 0,
+			["time"] = 116.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 22,
+			["timerEndOffset"] = 20,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "b46d669c-cf69-c886-9db7-94cebb0e88ff",
 		},
 	},
 	[24] = {
@@ -286,12 +321,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -341,6 +376,41 @@ end",
 			["timerStartOffset"] = -4,
 			["used"] = false,
 			["uuid"] = "5fa773c8-da01-f94a-9c19-3ff739e9c62f",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if HasBuff(Player.id, 2240) then\
+ NilsReactionCore.Alert.Send(\"Front Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2241) then\
+ NilsReactionCore.Alert.Send(\"Back Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2242) then\
+ NilsReactionCore.Alert.Send(\"Left Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2243) then\
+ NilsReactionCore.Alert.Send(\"Right Teleport\")\
+ self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Teleport TTS",
+			["throttleTime"] = 0,
+			["time"] = 177.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 38,
+			["timerEndOffset"] = 20,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "58f562b5-5675-6452-8899-2484a15543d1",
 		},
 	},
 	[40] = {
@@ -492,7 +562,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -500,7 +570,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -654,12 +724,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -709,6 +779,41 @@ end",
 			["timerStartOffset"] = -4,
 			["used"] = false,
 			["uuid"] = "28c5dbd8-2413-7aae-af41-35c9eda7ab4c",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if HasBuff(Player.id, 2240) then\
+ NilsReactionCore.Alert.Send(\"Front Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2241) then\
+ NilsReactionCore.Alert.Send(\"Back Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2242) then\
+ NilsReactionCore.Alert.Send(\"Left Teleport\")\
+ self.used = true\
+elseif HasBuff(Player.id, 2243) then\
+ NilsReactionCore.Alert.Send(\"Right Teleport\")\
+ self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Teleport TTS",
+			["throttleTime"] = 0,
+			["time"] = 264.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 58,
+			["timerEndOffset"] = 20,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "20239d57-f660-17d7-a1dc-17a01c8a9461",
 		},
 	},
 	[60] = {
@@ -904,7 +1009,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1185,7 +1290,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -1193,7 +1298,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
