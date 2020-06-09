@@ -98,7 +98,7 @@ local drawnOrbs = {}\
 for id, ent in pairs(EntityList(\"\")) do\
   if ent.contentid == 9290 and not drawnOrbs[id] then\
     drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
   end\
 end\
 \
@@ -117,7 +117,7 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "cf33e58d-4a05-2cbf-a321-af4caf3552c2",
+			["uuid"] = "0787f798-d51d-5160-ac78-6eced13f65f4",
 		},
 		[2] = {
 			["actions"] = {
@@ -202,7 +202,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -505,7 +505,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -663,12 +663,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -706,12 +706,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -776,7 +776,7 @@ local drawnOrbs = {}\
 for id, ent in pairs(EntityList(\"\")) do\
   if ent.contentid == 9290 and not drawnOrbs[id] then\
     drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
   end\
 end\
 \
@@ -795,7 +795,7 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "0a2fc6ed-2362-bff9-bd48-c378c7721f21",
+			["uuid"] = "47b9ff3e-49b8-aa9d-8d4a-581ae16324f3",
 		},
 	},
 	[49] = {
@@ -1064,7 +1064,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1394,7 +1394,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,

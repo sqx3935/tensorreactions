@@ -166,7 +166,7 @@ local drawnOrbs = {}\
 for id, ent in pairs(EntityList(\"\")) do\
   if ent.contentid == 9290 and not drawnOrbs[id] then\
     drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
   end\
 end\
 \
@@ -185,7 +185,7 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "b292a550-a23f-afcc-b229-499a8aaad433",
+			["uuid"] = "964c9d10-86fb-1027-b493-434c534d8b29",
 		},
 		[2] = {
 			["actions"] = {
@@ -959,7 +959,7 @@ local drawnOrbs = {}\
 for id, ent in pairs(EntityList(\"\")) do\
   if ent.contentid == 9290 and not drawnOrbs[id] then\
     drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
   end\
 end\
 \
@@ -978,7 +978,7 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "42bf1552-6f3e-02fe-afdb-4321389c978d",
+			["uuid"] = "7a619fe4-9be1-5f3f-94e6-c5f8c6b958c6",
 		},
 	},
 	[49] = {

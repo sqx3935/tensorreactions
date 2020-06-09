@@ -79,7 +79,9 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "a145ff51-6579-d873-a66e-bd51b2587e20",
 		},
-		[2] = {
+	},
+	[3] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -94,18 +96,16 @@ self.used = true",
 			["luaReturnsAction"] = false,
 			["name"] = "AM TTS",
 			["throttleTime"] = 0,
-			["time"] = 22.2,
+			["time"] = 27.1,
 			["timeRange"] = true,
-			["timelineIndex"] = 2,
+			["timelineIndex"] = 3,
 			["timerEndOffset"] = 4,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 1,
+			["timerStartOffset"] = -3,
 			["used"] = false,
-			["uuid"] = "b8cae3cf-6889-1df0-9f4e-741beb51e4ec",
+			["uuid"] = "c893ff45-c6b8-32f2-8d2e-7ccb89fa7330",
 		},
-	},
-	[3] = {
-		[1] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -125,35 +125,12 @@ self.used = true",
 			["timelineIndex"] = 3,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
+			["timerStartOffset"] = 3,
 			["used"] = false,
 			["uuid"] = "3916d47f-8223-06e0-b1c5-774532d210d5",
 		},
 	},
 	[4] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if data.allowAddles and NilsReactionCore.Hotbar.Addle() == true then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Addle",
-			["throttleTime"] = 0,
-			["time"] = 35.6,
-			["timeRange"] = true,
-			["timelineIndex"] = 4,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -5,
-			["timerStartOffset"] = -5,
-			["used"] = false,
-			["uuid"] = "98eeddde-6709-4e69-8bae-fb755166141e",
-		},
 	},
 	[6] = {
 		[1] = {
@@ -211,7 +188,7 @@ self.used = true",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 4 then NilsReactionCore.Alert.Send(\"Tank Buster\")  self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
