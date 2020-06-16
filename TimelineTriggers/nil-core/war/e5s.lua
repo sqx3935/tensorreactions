@@ -902,6 +902,47 @@ self.used = true",
 			["uuid"] = "1faef1f5-d59a-0ec1-ab27-ef0f71927000",
 		},
 	},
+	[37] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- 2264 buff id for brace\
+\
+if HasBuff(Player.id, 2264) then\
+  -- turn off arc/mcr for 8 seconds\
+  NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, NilsReactionCore.params.on, 8000)\
+  \
+  -- Invuln or CD's\
+  if NilsReactionCore.Hotbar.Actions.Holmgang.CoolDown() <= 1 then\
+    if NilsReactionCore.Helpers.Target.FacingNorth() or NilsReactionCore.Helpers.Target.FacingSouth() then\
+      NilsReactionCore.Hotbar.Actions.Holmgang.Execute()\
+      self.used = true\
+    end\
+  else\
+  -- no holmgange, use cooldowns and pray\
+    if NilsReactionCore.Helpers.Tanks.RampartOrHeavy() then self.used = true end\
+  end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Brace yourself",
+			["throttleTime"] = 0,
+			["time"] = 262.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 37,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "0f705aee-2a6f-8b3b-8a82-100f315d24f9",
+		},
+	},
 	[39] = {
 		[1] = {
 			["actions"] = {
@@ -1167,6 +1208,35 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
+			["execute"] = "-- if healer shield is missing, then pop a cooldown to be safe\
+\
+if NilsReactionCore.Helpers.Healer.HasShield(Player) or NilsReactionCore.Helpers.Tanks.HasCooldown() then\
+  self.used = true\
+else\
+  if NilsReactionCore.Helpers.Tanks.RampartOrHeavy() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Cooldown check if MT",
+			["throttleTime"] = 0,
+			["time"] = 305.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 47,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "f6ec48ce-64ef-134f-a675-564e891d54b5",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Hotbar.Actions.RawIntuition.Execute() then self.used = true end\
 end",
@@ -1186,7 +1256,7 @@ end",
 			["used"] = false,
 			["uuid"] = "128de988-a4a3-c176-8f46-a30fb08925f2",
 		},
-		[2] = {
+		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1505,6 +1575,45 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
+			["execute"] = "-- 2264 buff id for brace\
+\
+if HasBuff(Player.id, 2264) then\
+  -- turn off arc/mcr for 8 seconds\
+  NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, NilsReactionCore.params.on, 8000)\
+  \
+  -- Invuln or CD's\
+  if NilsReactionCore.Hotbar.Actions.Holmgang.CoolDown() <= 1 then\
+    if NilsReactionCore.Helpers.Target.FacingNorth() or NilsReactionCore.Helpers.Target.FacingSouth() then\
+      NilsReactionCore.Hotbar.Actions.Holmgang.Execute()\
+      self.used = true\
+    end\
+  else\
+  -- no holmgange, use cooldowns and pray\
+    if NilsReactionCore.Helpers.Tanks.RampartOrHeavy() then self.used = true end\
+  end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Brace yourself",
+			["throttleTime"] = 0,
+			["time"] = 429.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 70,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "e177fca1-99d0-f4ee-ae1b-e13445544c26",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -1522,7 +1631,7 @@ end",
 			["used"] = false,
 			["uuid"] = "0f252d4b-3991-696c-af29-cb0808c5a22f",
 		},
-		[2] = {
+		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1546,7 +1655,7 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "1804c8eb-79ab-7d86-aa6f-ef8e1a394529",
 		},
-		[3] = {
+		[4] = {
 			["actions"] = {
 			},
 			["conditions"] = {
