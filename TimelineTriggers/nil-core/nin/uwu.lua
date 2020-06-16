@@ -18,6 +18,7 @@ self.used = true",
 					["castPosZ"] = 0,
 					["conditions"] = {
 						[1] = 1,
+						[2] = 2,
 					},
 					["endIfUsed"] = true,
 					["gVar"] = "",
@@ -89,6 +90,52 @@ self.used = true",
 					["rangeSourceName"] = "",
 					["setEventTargetSubtype"] = 1,
 					["setFirstMatch"] = false,
+				},
+				[2] = {
+					["actionCDValue"] = 0,
+					["actionID"] = -1,
+					["buffCheckType"] = 1,
+					["buffDuration"] = 0,
+					["buffID"] = -1,
+					["buffIDList"] = {
+					},
+					["category"] = 4,
+					["comparator"] = 1,
+					["conditionLua"] = "return NilsReactionCore.Helpers.GetAttackablesByRange(15, Player.id) > 3",
+					["conditionType"] = 1,
+					["conditions"] = {
+					},
+					["contentid"] = -1,
+					["dequeueIfLuaFalse"] = false,
+					["enmityValue"] = 0,
+					["gaugeIndex"] = 1,
+					["gaugeValue"] = 0,
+					["hpType"] = 1,
+					["hpValue"] = 0,
+					["inCombatType"] = 1,
+					["inRangeValue"] = 0,
+					["lastSkillID"] = -1,
+					["localmapid"] = -1,
+					["matchAnyBuff"] = false,
+					["mpType"] = 1,
+					["mpValue"] = 0,
+					["name"] = "",
+					["partyHpType"] = 1,
+					["partyHpValue"] = 0,
+					["partyMpType"] = 1,
+					["partyMpValue"] = 0,
+					["partyTargetContentID"] = -1,
+					["partyTargetName"] = "",
+					["partyTargetNumber"] = 1,
+					["partyTargetSubType"] = 1,
+					["partyTargetType"] = 1,
+					["rangeCheckSourceSubType"] = 1,
+					["rangeCheckSourceType"] = 1,
+					["rangeSourceContentID"] = -1,
+					["rangeSourceName"] = "",
+					["setEventTargetSubtype"] = 1,
+					["setFirstMatch"] = false,
+					["targetName"] = "",
 				},
 			},
 			["enabled"] = true,
@@ -241,6 +288,34 @@ return false",
 			["used"] = false,
 			["uuid"] = "375fc861-9498-6eef-a5b0-dc0fa3565f11",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 20 then\
+  NilsReactionCore.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(NilsReactionCore.params.isTimeline, NilsReactionCore.params.off)\
+  NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
+  self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Off - Low Health",
+			["throttleTime"] = 0,
+			["time"] = 42,
+			["timeRange"] = true,
+			["timelineIndex"] = 11,
+			["timerEndOffset"] = 120,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "8d170fec-7e73-8288-aee8-76bca2bb05b7",
+		},
 	},
 	[13] = {
 		[1] = {
@@ -320,12 +395,12 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[3],
+					["buffIDList"] = multiRefObjects[4],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 4,
-					["conditions"] = multiRefObjects[4],
+					["conditions"] = multiRefObjects[3],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -363,12 +438,12 @@ self.used = true",
 					["buffCheckType"] = 2,
 					["buffDuration"] = 0,
 					["buffID"] = 507,
-					["buffIDList"] = multiRefObjects[3],
+					["buffIDList"] = multiRefObjects[4],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[4],
+					["conditions"] = multiRefObjects[3],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -406,12 +481,12 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[3],
+					["buffIDList"] = multiRefObjects[4],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "return NilsReactionCore.Buffs.Ninja.IsDoingMudra() == false",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[4],
+					["conditions"] = multiRefObjects[3],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -650,34 +725,6 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "local target = Player:GetTarget()\
-if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 5 then\
-  if NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline) == true then\
-    self.used = true\
-  end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "CD Off - Low Health",
-			["throttleTime"] = 0,
-			["time"] = 100,
-			["timeRange"] = true,
-			["timelineIndex"] = 19,
-			["timerEndOffset"] = 60,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "76e2ddbe-e1aa-8ef2-9f12-6a8e5ba97a3a",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "-- timeline control, if you want shadowfang to be enabled\
 if NilsReactionCore.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(NilsReactionCore.params.isTimeline, NilsReactionCore.params.off) then\
   self.used = true\
@@ -698,7 +745,7 @@ end",
 			["used"] = false,
 			["uuid"] = "0bb9037b-bfa4-f475-b661-e5f3afdd0304",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1102,62 +1149,6 @@ return false",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "local target = Player:GetTarget()\
-if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 5 then\
-  if NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline) == true then\
-    self.used = true\
-  end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "CD Off - Low Health",
-			["throttleTime"] = 0,
-			["time"] = 390,
-			["timeRange"] = true,
-			["timelineIndex"] = 57,
-			["timerEndOffset"] = 64,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "c4842fc6-c55c-05c6-a040-4ae8d8fb352d",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "local target = Player:GetTarget()\
-if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 5 then\
-  if NilsReactionCore.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(NilsReactionCore.params.isTimeline, NilsReactionCore.params.off) == true then\
-    self.used = true\
-  end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Trick Off - Low Health",
-			["throttleTime"] = 0,
-			["time"] = 390,
-			["timeRange"] = true,
-			["timelineIndex"] = 57,
-			["timerEndOffset"] = 64,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "a4fb7468-d39f-2d76-8e53-47f8edfed2fc",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "\
 -- might need tweaked, the goal is to suiton just before garuda dies so we can trick right away on ifit\
 \
@@ -1184,6 +1175,34 @@ end",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "4a4dd625-23e2-42b7-87cc-2a0d98babaf2",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local target = Player:GetTarget()\
+if target ~= nil and table.valid(target) and target.attackable and target.hp.percent < 20 then\
+  NilsReactionCore.Toggles.Ninja.Helpers.TurnOffTrickAttackWindow(NilsReactionCore.params.isTimeline, NilsReactionCore.params.off)\
+  NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
+  self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Off - Low Health",
+			["throttleTime"] = 0,
+			["time"] = 390,
+			["timeRange"] = true,
+			["timelineIndex"] = 57,
+			["timerEndOffset"] = 64,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "119bdde9-2119-382b-8da9-bb0c6d2bf46f",
 		},
 	},
 	[74] = {
