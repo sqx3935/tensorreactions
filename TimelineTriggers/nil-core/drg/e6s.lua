@@ -121,7 +121,7 @@ local drawnOrbs = {}\
 for id, ent in pairs(EntityList(\"\")) do\
   if ent.contentid == 9290 and not drawnOrbs[id] then\
     drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 7, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
   end\
 end\
 \

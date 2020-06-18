@@ -1173,6 +1173,38 @@ return true\
 			["used"] = false,
 			["uuid"] = "76e4198a-4c00-8829-a486-58e9f604ee75",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 297.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 45,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "6bab320a-d7d6-5e69-bda8-48f0b0e4823a",
+		},
 	},
 	[46] = {
 		[1] = {
@@ -1199,6 +1231,38 @@ end",
 			["timerStartOffset"] = -1.6000000238419,
 			["used"] = false,
 			["uuid"] = "fbbc8712-a3dc-866b-835b-0adcd026525c",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 301.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 46,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "e543d052-5328-ba64-8276-414fc16d4b1b",
 		},
 	},
 	[47] = {
@@ -1282,6 +1346,40 @@ end",
 			["uuid"] = "e213cb6b-1f8f-ff73-8a22-acdead07e4af",
 		},
 	},
+	[48] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 305.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 48,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "59bbca29-ee67-d9e3-8e00-26dceca36201",
+		},
+	},
 	[49] = {
 		[1] = {
 			["actions"] = {
@@ -1305,6 +1403,208 @@ end",
 			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "9b838a3c-205e-c2f9-a153-204a7930e9a8",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 309,
+			["timeRange"] = true,
+			["timelineIndex"] = 49,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "ddffd319-6d96-bc35-8b07-64971815d2a1",
+		},
+	},
+	[50] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 312.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 50,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "6d38c99c-c7e6-8e3f-8aba-ff7c84c861ff",
+		},
+	},
+	[51] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 316.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 51,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "4850335d-3074-9724-8f6e-567618484b44",
+		},
+	},
+	[53] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 320.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 53,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "18e00469-ff46-4c0e-94ee-bc2f2ac1e16c",
+		},
+	},
+	[54] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 323.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 54,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "9b7c8bff-fa30-6526-bbcc-c0dd7186b038",
+		},
+	},
+	[55] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 327.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 55,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "c277da3f-cc47-a9df-9374-9ad53b41caaa",
 		},
 	},
 	[56] = {
@@ -1938,6 +2238,38 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "662e5bd5-5b33-8928-b30c-738e243eb628",
 		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 502.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 83,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "663ad801-e3d3-cfc9-84d6-56a26fb90d1f",
+		},
 	},
 	[84] = {
 		[1] = {
@@ -1964,6 +2296,38 @@ end",
 			["timerStartOffset"] = -1.6000000238419,
 			["used"] = false,
 			["uuid"] = "f90fc584-d6d3-20b5-ab24-720b5a81759e",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 506.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 84,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "26978372-9c0c-0c21-bb7e-2134f9a83209",
 		},
 	},
 	[85] = {
@@ -2018,6 +2382,40 @@ end",
 			["uuid"] = "9ea00f3b-1128-153b-98b3-bd00b1bf4b4b",
 		},
 	},
+	[86] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 510.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 86,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "0bced53b-b8e2-3286-94b9-21b0c693fdb5",
+		},
+	},
 	[87] = {
 		[1] = {
 			["actions"] = {
@@ -2041,6 +2439,208 @@ end",
 			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "368d2ad7-5eaa-6924-96a8-4f2c5d9d70cd",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 513.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 87,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "b08c9a47-c8f3-0d0b-90e8-5f1905c74597",
+		},
+	},
+	[88] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 517.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 88,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "bea67702-b87f-c84b-a4dd-e1c653cefeff",
+		},
+	},
+	[89] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 521.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 89,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "f785e63d-b475-1daa-afd8-33152b1b4182",
+		},
+	},
+	[91] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 524.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 91,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "c04d13c2-c55d-6a58-9eb0-7b74941eb476",
+		},
+	},
+	[92] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 528.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 92,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "ca9bfa75-7c90-939b-bb06-cf171a29e79c",
+		},
+	},
+	[93] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+local electrify = 2233\
+\
+local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
+for _, ent in pairs(members) do\
+  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+end\
+\
+self.end = true\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Electrify",
+			["throttleTime"] = 0,
+			["time"] = 532.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 93,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "d73288a8-27ff-bc1f-81e9-f8b01efb8327",
 		},
 	},
 	[94] = {
