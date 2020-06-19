@@ -114,16 +114,16 @@ local obj1 = {
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -141,7 +141,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "cb05e24e-ec8f-ac98-ba7c-849d632ca558",
+			["uuid"] = "c11f5bb8-1059-1587-bdf9-f38d5d677404",
 		},
 	},
 	[27] = {
@@ -329,16 +329,16 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -356,7 +356,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "6f086d5f-2489-073d-8c60-97a2bd6c08dd",
+			["uuid"] = "989a242f-2fc4-4638-9435-08df065b9ac7",
 		},
 	},
 	[45] = {
@@ -625,16 +625,16 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -652,7 +652,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "8a2d864f-ae1c-9045-96a4-cf151b4c69ab",
+			["uuid"] = "09f9181f-ca76-18f5-b102-324bcc6ff74d",
 		},
 	},
 	[64] = {

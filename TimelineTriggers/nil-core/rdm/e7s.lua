@@ -429,12 +429,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2240,
-					["buffIDList"] = multiRefObjects[13],
+					["buffIDList"] = multiRefObjects[3],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[11],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -472,12 +472,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2241,
-					["buffIDList"] = multiRefObjects[13],
+					["buffIDList"] = multiRefObjects[3],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[11],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -515,12 +515,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2242,
-					["buffIDList"] = multiRefObjects[13],
+					["buffIDList"] = multiRefObjects[3],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[11],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -558,12 +558,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2243,
-					["buffIDList"] = multiRefObjects[13],
+					["buffIDList"] = multiRefObjects[3],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[11],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -699,12 +699,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 3,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[12],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[6],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -742,12 +742,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[12],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[6],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -804,16 +804,16 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -831,7 +831,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "1848de00-8c5d-a351-8881-bf146b1c07fb",
+			["uuid"] = "7637a179-34a3-b567-a9b8-ebb5ca6aded0",
 		},
 	},
 	[23] = {
@@ -1339,12 +1339,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2240,
-					["buffIDList"] = multiRefObjects[9],
+					["buffIDList"] = multiRefObjects[11],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[7],
+					["conditions"] = multiRefObjects[4],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1382,12 +1382,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2241,
-					["buffIDList"] = multiRefObjects[9],
+					["buffIDList"] = multiRefObjects[11],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[7],
+					["conditions"] = multiRefObjects[4],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1425,12 +1425,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2242,
-					["buffIDList"] = multiRefObjects[9],
+					["buffIDList"] = multiRefObjects[11],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[7],
+					["conditions"] = multiRefObjects[4],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1468,12 +1468,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2243,
-					["buffIDList"] = multiRefObjects[9],
+					["buffIDList"] = multiRefObjects[11],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[7],
+					["conditions"] = multiRefObjects[4],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1609,12 +1609,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 3,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[10],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[6],
+					["conditions"] = multiRefObjects[10],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1652,12 +1652,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[10],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[6],
+					["conditions"] = multiRefObjects[10],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1714,16 +1714,16 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -1741,7 +1741,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "de980dc3-1639-b02b-a741-fd36c0ef17ea",
+			["uuid"] = "a384e903-c3ec-1e47-8f08-b49093aa5721",
 		},
 	},
 	[40] = {
@@ -1857,7 +1857,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[8],
+					["conditions"] = multiRefObjects[5],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2383,12 +2383,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2240,
-					["buffIDList"] = multiRefObjects[4],
+					["buffIDList"] = multiRefObjects[7],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[12],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2426,12 +2426,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2241,
-					["buffIDList"] = multiRefObjects[4],
+					["buffIDList"] = multiRefObjects[7],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[12],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2469,12 +2469,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2242,
-					["buffIDList"] = multiRefObjects[4],
+					["buffIDList"] = multiRefObjects[7],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[12],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2512,12 +2512,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2243,
-					["buffIDList"] = multiRefObjects[4],
+					["buffIDList"] = multiRefObjects[7],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[12],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2653,12 +2653,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 3,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[5],
+					["buffIDList"] = multiRefObjects[13],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[3],
+					["conditions"] = multiRefObjects[9],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2696,12 +2696,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[5],
+					["buffIDList"] = multiRefObjects[13],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[3],
+					["conditions"] = multiRefObjects[9],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2758,16 +2758,16 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -2785,7 +2785,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "d8f28805-a79e-9e39-9706-d044fb2f1b1f",
+			["uuid"] = "9cee7d9e-8d6c-9706-bcb4-e0e23e8f9dc2",
 		},
 	},
 	[59] = {
@@ -2950,7 +2950,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[8],
+					["conditions"] = multiRefObjects[5],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -3187,7 +3187,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[8],
+					["conditions"] = multiRefObjects[5],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,

@@ -52,12 +52,12 @@ local obj1 = {
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -114,16 +114,16 @@ local obj1 = {
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -141,7 +141,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "b46d669c-cf69-c886-9db7-94cebb0e88ff",
+			["uuid"] = "04bafd95-1d1b-d00f-99f3-8c823f578d4a",
 		},
 	},
 	[24] = {
@@ -323,12 +323,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -385,16 +385,16 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -412,7 +412,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "58f562b5-5675-6452-8899-2484a15543d1",
+			["uuid"] = "ea31aae9-5778-ca39-bc6b-bade6cae2024",
 		},
 	},
 	[40] = {
@@ -565,7 +565,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -573,7 +573,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -728,12 +728,12 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -790,16 +790,16 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if HasBuff(Player.id, 2240) then\
+			["execute"] = "if HasBuff(Player, 2240) then\
  NilsReactionCore.Alert.Send(\"Front Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2241) then\
+elseif HasBuff(Player, 2241) then\
  NilsReactionCore.Alert.Send(\"Back Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2242) then\
+elseif HasBuff(Player, 2242) then\
  NilsReactionCore.Alert.Send(\"Left Teleport\")\
  self.used = true\
-elseif HasBuff(Player.id, 2243) then\
+elseif HasBuff(Player, 2243) then\
  NilsReactionCore.Alert.Send(\"Right Teleport\")\
  self.used = true\
 end",
@@ -817,7 +817,7 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "20239d57-f660-17d7-a1dc-17a01c8a9461",
+			["uuid"] = "791d73db-5af1-ee9c-b9a4-787282ede761",
 		},
 	},
 	[60] = {
@@ -1014,7 +1014,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1296,7 +1296,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "local target = Player:GetTarget()\
@@ -1304,7 +1304,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,

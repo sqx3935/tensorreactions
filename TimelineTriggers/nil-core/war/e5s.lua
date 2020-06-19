@@ -3,6 +3,37 @@ local multiRefObjects = {
 
 } -- multiRefObjects
 local obj1 = {
+	[1] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- allows for settings to be changed in the core\
+-- example because this is a timeline reaction we want to turn off onslaugh movement detection\
+\
+NilsReactionCore.coreparams.enableMoveDetection = false\
+\
+\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Nil-Core-Settings",
+			["throttleTime"] = 0,
+			["time"] = 12,
+			["timeRange"] = true,
+			["timelineIndex"] = 1,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -12,
+			["used"] = false,
+			["uuid"] = "b063d3f1-0f59-721a-9234-76ec3ffdcbb1",
+		},
+	},
 	[2] = {
 		[1] = {
 			["actions"] = {
@@ -113,14 +144,14 @@ local obj1 = {
 			},
 			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.Vengeance.Execute() then self.used = true end\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Vengeance if MT",
+			["name"] = "Big Cooldown if MT",
 			["throttleTime"] = 0,
 			["time"] = 63.3,
 			["timeRange"] = true,
@@ -682,14 +713,14 @@ end",
 			},
 			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.Vengeance.Execute() then self.used = true end\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Vengeance if MT",
+			["name"] = "Big cooldown if MT",
 			["throttleTime"] = 0,
 			["time"] = 189.1,
 			["timeRange"] = true,
@@ -923,7 +954,7 @@ if HasBuff(Player.id, 2264) then\
     end\
   else\
   -- no holmgange, use cooldowns and pray\
-    if NilsReactionCore.Helpers.Tanks.RampartOrHeavy() then self.used = true end\
+    if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
   end\
 end",
 			["executeType"] = 2,
@@ -1692,14 +1723,14 @@ end",
 			},
 			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.Vengeance.Execute() then self.used = true end\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Vengeance if MT",
+			["name"] = "Big cooldown if MT",
 			["throttleTime"] = 0,
 			["time"] = 368,
 			["timeRange"] = true,
@@ -1889,7 +1920,7 @@ if HasBuff(Player.id, 2264) then\
     end\
   else\
   -- no holmgange, use cooldowns and pray\
-    if NilsReactionCore.Helpers.Tanks.RampartOrHeavy() then self.used = true end\
+    if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
   end\
 end",
 			["executeType"] = 2,
