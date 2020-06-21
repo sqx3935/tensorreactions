@@ -106,6 +106,31 @@ end",
 			["uuid"] = "cf6e5aa1-04cd-6532-a285-fcbd1fd7999d",
 		},
 	},
+	[23] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOff(NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Gap closer OFF",
+			["throttleTime"] = 0,
+			["time"] = 131.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 23,
+			["timerEndOffset"] = 5,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 2,
+			["used"] = false,
+			["uuid"] = "9001b266-7c70-2c20-99b6-17468f0a295a",
+		},
+	},
 	[24] = {
 		[1] = {
 			["actions"] = {
@@ -195,6 +220,31 @@ self.used = table.size(drawnOrbs) >= 4",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "762d0c3c-a748-627d-8363-3ec524d0187b",
+		},
+	},
+	[29] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOn(NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Gap closer On",
+			["throttleTime"] = 0,
+			["time"] = 164.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 29,
+			["timerEndOffset"] = 5,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 1,
+			["used"] = false,
+			["uuid"] = "a2058359-4f89-e481-a2e3-c30901682da6",
 		},
 	},
 	[31] = {
