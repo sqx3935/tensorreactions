@@ -109,7 +109,7 @@ end",
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -213,7 +213,7 @@ end",
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -431,12 +431,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2240,
-					["buffIDList"] = multiRefObjects[11],
+					["buffIDList"] = multiRefObjects[9],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -474,12 +474,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2241,
-					["buffIDList"] = multiRefObjects[11],
+					["buffIDList"] = multiRefObjects[9],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -517,12 +517,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2242,
-					["buffIDList"] = multiRefObjects[11],
+					["buffIDList"] = multiRefObjects[9],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -560,12 +560,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2243,
-					["buffIDList"] = multiRefObjects[11],
+					["buffIDList"] = multiRefObjects[9],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -703,12 +703,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 3,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[9],
+					["buffIDList"] = multiRefObjects[4],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -746,12 +746,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[9],
+					["buffIDList"] = multiRefObjects[4],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1322,12 +1322,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2240,
-					["buffIDList"] = multiRefObjects[6],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[8],
+					["conditions"] = multiRefObjects[7],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1365,12 +1365,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2241,
-					["buffIDList"] = multiRefObjects[6],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[8],
+					["conditions"] = multiRefObjects[7],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1408,12 +1408,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2242,
-					["buffIDList"] = multiRefObjects[6],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[8],
+					["conditions"] = multiRefObjects[7],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1451,12 +1451,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2243,
-					["buffIDList"] = multiRefObjects[6],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[8],
+					["conditions"] = multiRefObjects[7],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1594,12 +1594,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 3,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[3],
+					["buffIDList"] = multiRefObjects[10],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[6],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1637,12 +1637,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[3],
+					["buffIDList"] = multiRefObjects[10],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[6],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1842,7 +1842,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2324,12 +2324,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2240,
-					["buffIDList"] = multiRefObjects[7],
+					["buffIDList"] = multiRefObjects[5],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[10],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2367,12 +2367,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2241,
-					["buffIDList"] = multiRefObjects[7],
+					["buffIDList"] = multiRefObjects[5],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[10],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2410,12 +2410,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2242,
-					["buffIDList"] = multiRefObjects[7],
+					["buffIDList"] = multiRefObjects[5],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[10],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2453,12 +2453,12 @@ self.used = true\
 					["buffCheckType"] = 3,
 					["buffDuration"] = 1.5,
 					["buffID"] = 2243,
-					["buffIDList"] = multiRefObjects[7],
+					["buffIDList"] = multiRefObjects[5],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[10],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2596,12 +2596,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 3,
 					["buffID"] = 149,
-					["buffIDList"] = multiRefObjects[4],
+					["buffIDList"] = multiRefObjects[11],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[5],
+					["conditions"] = multiRefObjects[3],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2639,12 +2639,12 @@ self.used = true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[4],
+					["buffIDList"] = multiRefObjects[11],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
 					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[5],
+					["conditions"] = multiRefObjects[3],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -2915,7 +2915,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -3103,7 +3103,7 @@ if target ~= nil and table.valid(target) and target.attackable then return false
 return true\
 ",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[8],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -3234,6 +3234,116 @@ self.used = true",
 			["uuid"] = "d3cdec3a-1a74-7b1c-9c1b-4439e44b91a3",
 		},
 	},
+	[109] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 1",
+			["throttleTime"] = 0,
+			["time"] = 683.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 109,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "49288dd3-f7b2-926b-b4c8-05210319ccb2",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 2",
+			["throttleTime"] = 0,
+			["time"] = 683.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 109,
+			["timerEndOffset"] = 12,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 11,
+			["used"] = false,
+			["uuid"] = "db098fb7-a7e3-ee40-bbd3-d9c4f2cbce13",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 3",
+			["throttleTime"] = 0,
+			["time"] = 683.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 109,
+			["timerEndOffset"] = 23,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 22,
+			["used"] = false,
+			["uuid"] = "6f3a8fd1-03cb-47a4-ac87-02268062631b",
+		},
+	},
 	[110] = {
 	},
 	[112] = {
@@ -3312,6 +3422,116 @@ self.used = true",
 			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "0a1d420e-69cb-0739-993e-6e8e80c97265",
+		},
+	},
+	[116] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 1",
+			["throttleTime"] = 0,
+			["time"] = 761.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 116,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "9fd96a26-01e9-f2bc-b723-367dac3f4c33",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 2",
+			["throttleTime"] = 0,
+			["time"] = 761.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 116,
+			["timerEndOffset"] = 12,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 11,
+			["used"] = false,
+			["uuid"] = "2308e22d-ca06-28f0-8d0e-407ff8ae3902",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 3",
+			["throttleTime"] = 0,
+			["time"] = 761.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 116,
+			["timerEndOffset"] = 23,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 22,
+			["used"] = false,
+			["uuid"] = "74a67075-0c63-948f-988e-b726efca594b",
 		},
 	},
 	[117] = {

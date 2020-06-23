@@ -908,6 +908,30 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "2f660f37-2450-6a54-a237-4ba8ef7a7504",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Use Meditation\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Meditate TTS",
+			["throttleTime"] = 0,
+			["time"] = 323.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 64,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "665eea2f-6b89-de2e-ba35-0183ec1df289",
+		},
 	},
 	[69] = {
 	},
@@ -1440,6 +1464,116 @@ self.used = true",
 			["uuid"] = "62f0a81a-9b58-6778-97fc-d8962488eda5",
 		},
 	},
+	[109] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 1",
+			["throttleTime"] = 0,
+			["time"] = 683.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 109,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "368be5a9-44fe-3d18-910b-ed2056a99de8",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 2",
+			["throttleTime"] = 0,
+			["time"] = 683.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 109,
+			["timerEndOffset"] = 12,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 11,
+			["used"] = false,
+			["uuid"] = "157ec3ad-14bd-b91f-a2a2-0439c8c3d80f",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 3",
+			["throttleTime"] = 0,
+			["time"] = 683.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 109,
+			["timerEndOffset"] = 23,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 22,
+			["used"] = false,
+			["uuid"] = "8dee94c7-8d2f-8d94-b222-bb2a9c2f8baf",
+		},
+	},
 	[110] = {
 	},
 	[111] = {
@@ -1524,6 +1658,116 @@ self.used = true",
 			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "b354d5c0-2a26-578c-abee-fe5fd2e1518e",
+		},
+	},
+	[116] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 1",
+			["throttleTime"] = 0,
+			["time"] = 761.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 116,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "b5c755fd-e18a-eae1-8f5b-bc3b5af549e5",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 2",
+			["throttleTime"] = 0,
+			["time"] = 761.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 116,
+			["timerEndOffset"] = 12,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 11,
+			["used"] = false,
+			["uuid"] = "31f86fd2-ebd6-79ce-9d4b-4e7362ae7c00",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil then self.used = true end\
+\
+local drawnOrbs = {}\
+\
+for id, ent in pairs(EntityList(\"\")) do\
+	if (ent.contentid == 9302 or ent.contentid == 9303) and not drawnOrbs[id] then\
+		if AnyoneCore.Settings.DrawOrbs == true then\
+			drawnOrbs[id] = true\
+			Argus.addTimedCircleFilled(20000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+		end\
+	end\
+end\
+\
+self.used = table.size(drawnOrbs) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Orbs Group 3",
+			["throttleTime"] = 0,
+			["time"] = 761.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 116,
+			["timerEndOffset"] = 23,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 22,
+			["used"] = false,
+			["uuid"] = "added143-ef94-c76b-9784-1152fe588def",
 		},
 	},
 	[117] = {
