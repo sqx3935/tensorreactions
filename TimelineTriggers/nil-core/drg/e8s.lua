@@ -596,10 +596,10 @@ return target == nil or target.hp.current == 0",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end",
+			["execute"] = "local target = Player:GetTarget()\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    if NilsReactionCore.Hotbar.Stun() then self.used = true end\
+ end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = true,
@@ -683,10 +683,10 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end",
+			["execute"] = "local target = Player:GetTarget()\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    if NilsReactionCore.Hotbar.Stun() then self.used = true end\
+ end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = true,
@@ -770,10 +770,10 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end",
+			["execute"] = "local target = Player:GetTarget()\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    if NilsReactionCore.Hotbar.Stun() then self.used = true end\
+ end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = true,
@@ -1090,10 +1090,10 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "wasSuccessful, action, targetID, ignoreWeaveRules, allowInterrupt = NilsReactionLibrary.Combat.Actions.LegSweep(0, 50)\
-  self.used = true\
-  return action, targetID, ignoreWeaveRules, allowInterrupt\
-end",
+			["execute"] = "local target = Player:GetTarget()\
+  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+    if NilsReactionCore.Hotbar.Stun() then self.used = true end\
+ end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = true,
