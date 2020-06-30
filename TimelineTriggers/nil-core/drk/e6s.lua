@@ -416,6 +416,31 @@ if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability(NilsReactionCore.Help
 	},
 	[15] = {
 	},
+	[16] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMind() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Mind",
+			["throttleTime"] = 0,
+			["time"] = 119.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 16,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "7eedd68c-cc92-d234-96c7-a4140cdf57d7",
+		},
+	},
 	[17] = {
 		[1] = {
 			["actions"] = {
@@ -423,15 +448,13 @@ if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability(NilsReactionCore.Help
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "TBN MT",
+			["name"] = "TBN",
 			["throttleTime"] = 0,
 			["time"] = 122,
 			["timeRange"] = true,
@@ -448,16 +471,14 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
-end\
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
  ",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "RampartorHeavy if MT",
+			["name"] = "RampartorHeavy",
 			["throttleTime"] = 0,
 			["time"] = 122,
 			["timeRange"] = true,
@@ -635,6 +656,29 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "25a870cd-f470-0b4d-8248-c36c0edebedb",
 		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.SaltedEarth() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Salted Earth",
+			["throttleTime"] = 0,
+			["time"] = 122.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 18,
+			["timerEndOffset"] = 7,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 5,
+			["used"] = false,
+			["uuid"] = "c9313556-9d7c-d7ef-8f6f-1dcf8eb9cad2",
+		},
 	},
 	[19] = {
 		[1] = {
@@ -643,22 +687,22 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Rampart() then self.used = true end\
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Rampart if OT",
+			["name"] = "Cooldown if MT",
 			["throttleTime"] = 0,
 			["time"] = 135.3,
 			["timeRange"] = true,
 			["timelineIndex"] = 19,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -0.5,
+			["timerStartOffset"] = -2.5,
 			["used"] = false,
 			["uuid"] = "07be62f3-1170-f169-8243-58ebda84bbf7",
 		},
@@ -695,24 +739,23 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.RawIntuition.Execute() then self.used = true end\
-end",
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+ ",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Raw Intuition if MT",
+			["name"] = "RampartorHeavy",
 			["throttleTime"] = 0,
 			["time"] = 139.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 20,
-			["timerEndOffset"] = 2,
+			["timerEndOffset"] = 1.5,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "b93b54b4-aac9-fc22-a2d3-d3fbe61e0909",
+			["uuid"] = "8f5f464a-cc58-3363-997e-8b1aac4925a0",
 		},
 		[3] = {
 			["actions"] = {
@@ -720,53 +763,26 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Flash if OT",
+			["name"] = "TBN",
 			["throttleTime"] = 0,
 			["time"] = 139.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 20,
-			["timerEndOffset"] = 2,
+			["timerEndOffset"] = 2.5,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = 1.5,
 			["used"] = false,
-			["uuid"] = "73dc55f0-9d4d-32d7-bd54-ac85a87db108",
+			["uuid"] = "72de47a5-1878-4b46-ae1c-b1f7de6f476f",
 		},
 	},
 	[21] = {
 		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Big Cooldown if MT",
-			["throttleTime"] = 0,
-			["time"] = 143.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 21,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0.5,
-			["used"] = false,
-			["uuid"] = "3ad71960-6c91-5a4e-a802-c15c099d220b",
-		},
-		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -797,6 +813,52 @@ self.used = true",
 		},
 	},
 	[23] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMissionary() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Missionary",
+			["throttleTime"] = 0,
+			["time"] = 159.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 23,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "a7264042-0d69-b31e-bc1a-0eec2a3a48e7",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Reprisal if MT",
+			["throttleTime"] = 0,
+			["time"] = 159.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 23,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4.8000001907349,
+			["used"] = false,
+			["uuid"] = "f40156bd-cb55-68c4-b129-5a3ec80e4d11",
+		},
 	},
 	[24] = {
 		[1] = {
@@ -845,6 +907,31 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "5fe4ca9a-1315-5804-bca1-b269edb5a5f2",
 		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 172.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 24,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "e71e0303-7ca6-4d5b-8011-e6132cd06904",
+		},
 	},
 	[26] = {
 		[1] = {
@@ -883,157 +970,34 @@ self.used = table.size(markedClones) >= 4",
 		},
 	},
 	[27] = {
+	},
+	[29] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.RawIntuition.Execute() then self.used = true end\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMissionary() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Raw Intuition if MT",
+			["name"] = "Dark Missionary",
 			["throttleTime"] = 0,
-			["time"] = 187.9,
+			["time"] = 198.5,
 			["timeRange"] = true,
-			["timelineIndex"] = 27,
-			["timerEndOffset"] = 2,
+			["timelineIndex"] = 29,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "ac754a53-290d-b5d4-a7d8-097fe11e6ea6",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Actions.Shake.Exeute() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Shake",
-			["throttleTime"] = 0,
-			["time"] = 187.9,
-			["timeRange"] = true,
-			["timelineIndex"] = 27,
-			["timerEndOffset"] = 4,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 2,
-			["used"] = false,
-			["uuid"] = "cf68b1b1-10f8-52ec-a3c5-2aec5f65ff05",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Flash if OT",
-			["throttleTime"] = 0,
-			["time"] = 187.9,
-			["timeRange"] = true,
-			["timelineIndex"] = 27,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "c64c92f9-7700-f58a-97ff-6833b5ebc7b0",
+			["uuid"] = "d92de3ff-4715-d9d3-8332-a18d049d173a",
 		},
 	},
 	[30] = {
 		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
-\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 215.1,
-			["timeRange"] = true,
-			["timelineIndex"] = 30,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = -9,
-			["used"] = false,
-			["uuid"] = "1c67a322-5658-c527-8811-1f924b003d29",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Flash if OT",
-			["throttleTime"] = 0,
-			["time"] = 215.1,
-			["timeRange"] = true,
-			["timelineIndex"] = 30,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "9c1c1c9d-b6f7-dd0c-83d5-e7baa4072be6",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.RawIntuition.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Raw Intuition if MT",
-			["throttleTime"] = 0,
-			["time"] = 215.1,
-			["timeRange"] = true,
-			["timelineIndex"] = 30,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "df0c8aad-5369-10f0-b72b-a1f0a322689b",
-		},
-		[4] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1056,7 +1020,7 @@ end",
 			["used"] = false,
 			["uuid"] = "c697bb89-a331-d8d4-b4a2-d5c356e63f35",
 		},
-		[5] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1088,109 +1052,6 @@ end",
 			},
 			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reprisal if MT",
-			["throttleTime"] = 0,
-			["time"] = 223.9,
-			["timeRange"] = true,
-			["timelineIndex"] = 32,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -0.5,
-			["used"] = false,
-			["uuid"] = "23bf9336-3ea1-8893-ad45-d0831aba3dc0",
-		},
-	},
-	[34] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reprisal if OT",
-			["throttleTime"] = 0,
-			["time"] = 232.1,
-			["timeRange"] = true,
-			["timelineIndex"] = 34,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -0.5,
-			["used"] = false,
-			["uuid"] = "29331e78-e64d-070b-b572-797f74a926f8",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Hotbar.Toggles.DOT.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, NilsReactionCore.params.on, 10000)\
-self.used = true",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Toggle Dots",
-			["throttleTime"] = 0,
-			["time"] = 232.1,
-			["timeRange"] = true,
-			["timelineIndex"] = 34,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = -10,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "4f840ef3-58b2-78d7-a26d-1ccf086403ff",
-		},
-	},
-	[35] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.RawIntuition.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Raw Intuition if MT",
-			["throttleTime"] = 0,
-			["time"] = 235.7,
-			["timeRange"] = true,
-			["timelineIndex"] = 35,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "bb9f219a-6b92-1aea-9554-a301086ad400",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   NilsReactionCore.Alert.Send(\"use shirk in 3\")\
 else\
   NilsReactionCore.Alert.Send(\"use provoke in 3\")\
@@ -1204,66 +1065,95 @@ self.used = true",
 			["luaReturnsAction"] = false,
 			["name"] = "Tank Swap TTS",
 			["throttleTime"] = 0,
-			["time"] = 235.7,
+			["time"] = 223.9,
 			["timeRange"] = true,
-			["timelineIndex"] = 35,
+			["timelineIndex"] = 32,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -3.7000000476837,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "e22aa6b1-460e-45c7-9c0f-927edec40d71",
+			["uuid"] = "83f0e966-260a-4747-acf4-13263ce92452",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
-end",
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+ ",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Flash if OT",
+			["name"] = "RampartorHeavy",
 			["throttleTime"] = 0,
-			["time"] = 235.7,
+			["time"] = 223.9,
 			["timeRange"] = true,
-			["timelineIndex"] = 35,
-			["timerEndOffset"] = 2,
+			["timelineIndex"] = 32,
+			["timerEndOffset"] = 2.5,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
+			["timerStartOffset"] = 1.5,
 			["used"] = false,
-			["uuid"] = "7d4f3307-9898-42ff-8602-5b8ecafb2fd8",
+			["uuid"] = "a53d6020-7b62-4e46-82fb-d92c4d2b5e0f",
 		},
 	},
-	[36] = {
+	[33] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.AOEOff(NilsReactionCore.params.isTimeline)\
-self.used = true",
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Turn off AOE",
+			["name"] = "TBN",
 			["throttleTime"] = 0,
-			["time"] = 240.9,
-			["timeRange"] = false,
-			["timelineIndex"] = 36,
-			["timerEndOffset"] = 0,
+			["time"] = 228.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 33,
+			["timerEndOffset"] = 2.2000000476837,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = 1.7999999523163,
 			["used"] = false,
-			["uuid"] = "4be3e186-8ee1-7a8e-b129-751cd0f0dc49",
+			["uuid"] = "f531849b-be70-ab26-877b-c0d3ffcd8bb9",
 		},
+	},
+	[34] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Cooldown if MT",
+			["throttleTime"] = 0,
+			["time"] = 232.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 34,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2.5,
+			["used"] = false,
+			["uuid"] = "0968fc08-c5f3-58e7-982f-d095d1252b4a",
+		},
+	},
+	[35] = {
+	},
+	[36] = {
 	},
 	[37] = {
 		[1] = {
@@ -1292,6 +1182,29 @@ self.used = true\
 			["uuid"] = "2ba76cec-a8d5-afdf-af62-8ce353148c93",
 		},
 		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMind() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Mind",
+			["throttleTime"] = 0,
+			["time"] = 245.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 37,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "266fdda4-f7fa-e94b-acb5-123ca14bc323",
+		},
+		[3] = {
 			["actions"] = {
 				[1] = {
 					["aType"] = 3,
@@ -1399,29 +1312,6 @@ return true\
 			["used"] = false,
 			["uuid"] = "4738e255-437e-1984-bd83-618b33e7c8be",
 		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Big Cooldown",
-			["throttleTime"] = 0,
-			["time"] = 245.1,
-			["timeRange"] = true,
-			["timelineIndex"] = 37,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0.5,
-			["used"] = false,
-			["uuid"] = "ba46dc46-c973-1c01-bdc4-d46d1b7495ea",
-		},
 	},
 	[38] = {
 		[1] = {
@@ -1508,12 +1398,12 @@ return true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1551,12 +1441,12 @@ return true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1607,8 +1497,57 @@ return true\
 			["used"] = false,
 			["uuid"] = "b2f2a2d2-9468-e3c1-902b-bbc13591aa8a",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Logic.Toggles.AOEOff(NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off AOE",
+			["throttleTime"] = 0,
+			["time"] = 248.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 38,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "e8f56fc3-bda3-3b9a-8104-148dfcefb45a",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.SaltedEarth() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Salted Earth",
+			["throttleTime"] = 0,
+			["time"] = 248.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 38,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1.6000000238419,
+			["used"] = false,
+			["uuid"] = "af508097-2638-d6b2-88e0-6a081c7e075e",
+		},
 	},
 	[39] = {
+	},
+	[40] = {
 		[1] = {
 			["actions"] = {
 			},
@@ -1616,23 +1555,46 @@ return true\
 			},
 			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Target.IsContentID(9287) then\
-  if NilsReactionCore.Hotbar.Rampart() then self.used = true end\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Rampart if Garuda",
+			["name"] = "Cooldown if Garuda",
 			["throttleTime"] = 0,
-			["time"] = 253.6,
+			["time"] = 262.7,
 			["timeRange"] = true,
-			["timelineIndex"] = 39,
+			["timelineIndex"] = 40,
+			["timerEndOffset"] = 4,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "831c7e10-f440-5cae-b3de-b3aa113b7c7f",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMissionary() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Missionary",
+			["throttleTime"] = 0,
+			["time"] = 262.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 40,
 			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 1.5,
+			["timerStartOffset"] = 0.5,
 			["used"] = false,
-			["uuid"] = "ff82b35f-c4e0-6217-9251-5cd7a2279bf2",
+			["uuid"] = "cc27d9d2-c356-126f-bc33-e789fc6ae02b",
 		},
 	},
 	[41] = {
@@ -1668,26 +1630,26 @@ end",
 			},
 			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Target.IsContentID(9288) then\
-  if NilsReactionCore.Hotbar.Rampart() then self.used = true end\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Rampart if Ifrit",
+			["name"] = "Cooldown if Ifrit",
 			["throttleTime"] = 0,
 			["time"] = 265.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 41,
 			["timerEndOffset"] = 4,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 2,
+			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "27748d8d-4538-fde8-8cbe-9a812f1dbbff",
 		},
 	},
-	[43] = {
+	[42] = {
 		[1] = {
 			["actions"] = {
 			},
@@ -1695,50 +1657,27 @@ end",
 			},
 			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Target.IsContentID(9288) then\
-  if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
+  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Raw if Ifrit",
+			["name"] = "TBN if Ifrit",
 			["throttleTime"] = 0,
-			["time"] = 273.3,
+			["time"] = 269.4,
 			["timeRange"] = true,
-			["timelineIndex"] = 43,
+			["timelineIndex"] = 42,
 			["timerEndOffset"] = 4,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 2,
+			["timerStartOffset"] = 0.5,
 			["used"] = false,
-			["uuid"] = "5da83041-dbdf-57ff-8296-dbf60a527ed4",
+			["uuid"] = "8ef9206a-8481-0e09-8be6-47f91ee8c096",
 		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Target.IsContentID(9287) then\
-  if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Flash if Garuda",
-			["throttleTime"] = 0,
-			["time"] = 273.3,
-			["timeRange"] = true,
-			["timelineIndex"] = 43,
-			["timerEndOffset"] = 3,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 1.5,
-			["used"] = false,
-			["uuid"] = "9e2f717d-3cfa-87ff-82b9-f4188ba69b3b",
-		},
-		[3] = {
+	},
+	[43] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1847,29 +1786,6 @@ self.used = true",
 		},
 	},
 	[48] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Actions.Shake.Exeute() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Shake",
-			["throttleTime"] = 0,
-			["time"] = 291.8,
-			["timeRange"] = true,
-			["timelineIndex"] = 48,
-			["timerEndOffset"] = 4,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 2,
-			["used"] = false,
-			["uuid"] = "35a23df5-328f-925e-b1d6-fbe0a4ae51e7",
-		},
 	},
 	[49] = {
 		[1] = {
@@ -1948,6 +1864,29 @@ end",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "c23f2341-5137-8841-aa68-aa78c2538fe3",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMind() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Mind",
+			["throttleTime"] = 0,
+			["time"] = 320.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 58,
+			["timerEndOffset"] = 4,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 2,
+			["used"] = false,
+			["uuid"] = "babeca6e-93dc-41e9-8d08-59145a8b271c",
 		},
 	},
 	[59] = {
@@ -2107,9 +2046,34 @@ self.used = true",
 			["timelineIndex"] = 59,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
+			["timerStartOffset"] = -3.5,
 			["used"] = false,
 			["uuid"] = "3a7a045e-9aee-aa0d-ae68-e8f9f43bd80f",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Cooldown if MT",
+			["throttleTime"] = 0,
+			["time"] = 324.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 59,
+			["timerEndOffset"] = 4,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "14c16f2a-b3f8-ae8b-8ffa-efde435fb6df",
 		},
 	},
 	[60] = {
@@ -2159,9 +2123,7 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "980e029b-25e8-d390-8fce-2350f4a1a47c",
 		},
-	},
-	[63] = {
-		[1] = {
+		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -2177,16 +2139,41 @@ self.used = true",
 			["luaReturnsAction"] = false,
 			["name"] = "Sprint",
 			["throttleTime"] = 0,
-			["time"] = 361.1,
+			["time"] = 343.8,
 			["timeRange"] = true,
-			["timelineIndex"] = 63,
+			["timelineIndex"] = 60,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -2,
 			["timerStartOffset"] = -3,
 			["used"] = false,
-			["uuid"] = "2ba539fd-df17-614a-9f08-d431a921d204",
+			["uuid"] = "0c0f4cae-3d30-3736-a943-3bbf66d2353c",
 		},
-		[2] = {
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.SaltedEarth() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Salted Earth",
+			["throttleTime"] = 0,
+			["time"] = 343.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 60,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "7a32e848-63e7-9ab2-99ef-f7757240835c",
+		},
+	},
+	[63] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -2209,7 +2196,7 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "ad551087-b4af-cd0e-8825-363e003c41cb",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -2240,6 +2227,29 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMissionary() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Missionary",
+			["throttleTime"] = 0,
+			["time"] = 376.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 66,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "9cf7121a-d15f-4b0a-a8a4-4a1657fce0d1",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -2253,7 +2263,7 @@ self.used = true",
 			["timelineIndex"] = 66,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2.5,
+			["timerStartOffset"] = 1.5,
 			["used"] = false,
 			["uuid"] = "1476cbc9-98db-bc81-a1ab-d160f965bddf",
 		},
@@ -2329,28 +2339,49 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Actions.Shake.Exeute() then self.used = true end",
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.HeavyOrRampart() then self.used = true end\
+end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Shake",
+			["name"] = "Heavy Cooldown if MT",
 			["throttleTime"] = 0,
 			["time"] = 407.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 71,
-			["timerEndOffset"] = 2,
+			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.7000000476837,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "59b3c127-e08e-e562-a147-f37451fea2b3",
+			["uuid"] = "3256a70f-065b-d6be-8187-df077cbd24dc",
 		},
-	},
-	[72] = {
-	},
-	[73] = {
-		[1] = {
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMind() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Mind",
+			["throttleTime"] = 0,
+			["time"] = 407.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 71,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2.2000000476837,
+			["used"] = false,
+			["uuid"] = "2a2a539c-f0c4-d2a3-a422-f2f4ee3be431",
+		},
+		[4] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -2370,17 +2401,21 @@ self.used = true",
 			["luaReturnsAction"] = false,
 			["name"] = "Tank Swap TTS",
 			["throttleTime"] = 0,
-			["time"] = 411,
+			["time"] = 407.2,
 			["timeRange"] = true,
-			["timelineIndex"] = 73,
-			["timerEndOffset"] = 2,
+			["timelineIndex"] = 71,
+			["timerEndOffset"] = 0.5,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -0.5,
 			["used"] = false,
-			["uuid"] = "37a76bad-89f3-f03e-95be-23aa1d5690f3",
+			["uuid"] = "98d95922-e886-668c-ab5c-1a83e6686e31",
 		},
 	},
-	[76] = {
+	[72] = {
+	},
+	[73] = {
+	},
+	[75] = {
 		[1] = {
 			["actions"] = {
 			},
@@ -2388,74 +2423,26 @@ self.used = true",
 			},
 			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.RawIntuition.Execute() then self.used = true end\
+  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Raw Intuition if MT",
+			["name"] = "TBN if MT",
 			["throttleTime"] = 0,
-			["time"] = 419.2,
+			["time"] = 415.3,
 			["timeRange"] = true,
-			["timelineIndex"] = 76,
+			["timelineIndex"] = 75,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 1.3999999761581,
 			["used"] = false,
-			["uuid"] = "8d02b2b6-0bae-f0e3-bda0-ca9e4cddcee9",
+			["uuid"] = "ebc98e58-62b1-3a1f-87ac-aeb91b130f96",
 		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Flash if OT",
-			["throttleTime"] = 0,
-			["time"] = 419.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 76,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
-			["used"] = false,
-			["uuid"] = "9a44d686-79b4-359a-a988-67ee95f50c5d",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Big Cooldown if MT",
-			["throttleTime"] = 0,
-			["time"] = 419.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 76,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0.5,
-			["used"] = false,
-			["uuid"] = "76ac0447-d49e-e985-badb-b2bb6e6b8b8c",
-		},
+	},
+	[76] = {
 	},
 	[78] = {
 		[1] = {
@@ -2591,32 +2578,32 @@ return true\
 			["used"] = false,
 			["uuid"] = "c54a05cf-f848-b12e-9aad-26157d7fa9fc",
 		},
-	},
-	[81] = {
-		[1] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.RampartBasicHeavy() then self.used = true end",
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.SaltedEarth() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Cooldown",
+			["name"] = "Salted Earth",
 			["throttleTime"] = 0,
-			["time"] = 449.2,
+			["time"] = 441,
 			["timeRange"] = true,
-			["timelineIndex"] = 81,
-			["timerEndOffset"] = 4,
+			["timelineIndex"] = 79,
+			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 2,
+			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "22e9a8af-10b7-af6c-93c7-d842f57402f1",
+			["uuid"] = "bc1c3b2a-6cbb-c709-acf6-46c100629142",
 		},
-		[2] = {
+	},
+	[81] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -2647,7 +2634,7 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.RampartBasicHeavy() then self.used = true end",
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.HeavyOrRampart() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2660,9 +2647,55 @@ return true\
 			["timelineIndex"] = 82,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -1.5,
 			["used"] = false,
 			["uuid"] = "51182a72-fb8a-d986-baab-6bf30c56e1f2",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMind() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Mind",
+			["throttleTime"] = 0,
+			["time"] = 457.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 82,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "622da397-cc1d-5199-9665-3cc172f5e073",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "TBN",
+			["throttleTime"] = 0,
+			["time"] = 457.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 82,
+			["timerEndOffset"] = 1.5,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -0.5,
+			["used"] = false,
+			["uuid"] = "5717c43b-8648-5d49-be05-5f16f228f8d1",
 		},
 	},
 	[85] = {
@@ -2672,7 +2705,7 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.RampartBasicHeavy() then self.used = true end",
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.HeavyOrRampart() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2697,7 +2730,7 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.RampartBasicHeavy() then self.used = true end",
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.HeavyOrRampart() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2787,6 +2820,29 @@ return true\
 			["used"] = false,
 			["uuid"] = "9dac0e64-3655-2157-a7be-e9aefaab3655",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMissionary() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Missionary",
+			["throttleTime"] = 0,
+			["time"] = 494.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 94,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -0.60000002384186,
+			["used"] = false,
+			["uuid"] = "22bcfc8e-4179-2950-8c0d-3b0cb5dbc6b4",
+		},
 	},
 	[96] = {
 		[1] = {
@@ -2811,6 +2867,31 @@ return true\
 			["timerStartOffset"] = 2,
 			["used"] = false,
 			["uuid"] = "16efb8b6-f4d5-22a1-a0f8-1d9861950290",
+		},
+	},
+	[97] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Reprisal",
+			["throttleTime"] = 0,
+			["time"] = 509.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 97,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -3,
+			["used"] = false,
+			["uuid"] = "6cd846a2-1a1f-c5ff-9a2c-4e07e0e1cc8b",
 		},
 	},
 	[100] = {
@@ -2910,81 +2991,6 @@ return true\
 		},
 	},
 	[110] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.RawIntuition.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Raw Intuition if MT",
-			["throttleTime"] = 0,
-			["time"] = 565,
-			["timeRange"] = true,
-			["timelineIndex"] = 110,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
-			["used"] = false,
-			["uuid"] = "d6cdfa7f-ade3-7336-ae44-82d3dacefbc5",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Flash if OT",
-			["throttleTime"] = 0,
-			["time"] = 565,
-			["timeRange"] = true,
-			["timelineIndex"] = 110,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
-			["used"] = false,
-			["uuid"] = "5f85b557-f16a-3778-bb68-5101ca80ddae",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Big Cooldown if MT",
-			["throttleTime"] = 0,
-			["time"] = 565,
-			["timeRange"] = true,
-			["timelineIndex"] = 110,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0.5,
-			["used"] = false,
-			["uuid"] = "6948ab6d-bccd-b63a-bdb5-22317074acbd",
-		},
 	},
 	[114] = {
 		[1] = {

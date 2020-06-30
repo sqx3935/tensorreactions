@@ -588,30 +588,6 @@ if NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline) == t
 		},
 	},
 	[36] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.AOEOff(NilsReactionCore.params.isTimeline)\
-self.used = true",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Turn off AOE",
-			["throttleTime"] = 0,
-			["time"] = 240.9,
-			["timeRange"] = false,
-			["timelineIndex"] = 36,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "766f992d-2a04-1d33-9ffd-dcfe98fae91e",
-		},
 	},
 	[37] = {
 		[1] = {
@@ -951,6 +927,30 @@ return true\
 			["timerStartOffset"] = -2,
 			["used"] = false,
 			["uuid"] = "14b7d2a2-df33-8497-bced-c1901530711e",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Logic.Toggles.AOEOff(NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off AOE",
+			["throttleTime"] = 0,
+			["time"] = 248.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 38,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "7c3ee6c7-0d6f-1614-94da-025efee8d528",
 		},
 	},
 	[44] = {

@@ -453,49 +453,23 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end\
-end",
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+ ",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Big Cooldown if MT",
+			["name"] = "RampartorHeavy",
 			["throttleTime"] = 0,
 			["time"] = 122,
 			["timeRange"] = true,
 			["timelineIndex"] = 17,
-			["timerEndOffset"] = 2,
+			["timerEndOffset"] = 1.5,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
+			["timerStartOffset"] = -0.5,
 			["used"] = false,
-			["uuid"] = "8ab23875-84b1-797f-8164-7f46a9a1aacc",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Rampart() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Rampart if MT",
-			["throttleTime"] = 0,
-			["time"] = 122,
-			["timeRange"] = true,
-			["timelineIndex"] = 17,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "154e3f05-a739-43b0-b06f-82a00a21aea7",
+			["uuid"] = "456fd080-91e9-7049-a506-9c0748fb5f80",
 		},
 	},
 	[18] = {
@@ -874,6 +848,31 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "423e4d30-d89e-ac67-a177-4f7d439dcac5",
 		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 172.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 24,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -9,
+			["used"] = false,
+			["uuid"] = "16fbb2ac-bfcd-f195-8faa-a2e4257aedbf",
+		},
 	},
 	[26] = {
 		[1] = {
@@ -993,31 +992,6 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
-\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 215.1,
-			["timeRange"] = true,
-			["timelineIndex"] = 30,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = -9,
-			["used"] = false,
-			["uuid"] = "d82c5405-22a7-b9cc-9619-e86d82b06b77",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
   if NilsReactionCore.Hotbar.Actions.NascentFlash.Execute() then self.used = true end\
 end",
@@ -1037,7 +1011,7 @@ end",
 			["used"] = false,
 			["uuid"] = "5ab18e28-cac6-6367-960a-44734f964120",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1062,7 +1036,7 @@ end",
 			["used"] = false,
 			["uuid"] = "4f98a903-78da-a16e-a603-bbad77942de8",
 		},
-		[4] = {
+		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1085,7 +1059,7 @@ end",
 			["used"] = false,
 			["uuid"] = "ef30e608-8a2e-c6d0-b85d-4e4a739de842",
 		},
-		[5] = {
+		[4] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1269,30 +1243,6 @@ end",
 		},
 	},
 	[36] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.AOEOff(NilsReactionCore.params.isTimeline)\
-self.used = true",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Turn off AOE",
-			["throttleTime"] = 0,
-			["time"] = 240.9,
-			["timeRange"] = false,
-			["timelineIndex"] = 36,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "899845ec-6160-a94e-8872-aee3733e3cd5",
-		},
 	},
 	[37] = {
 		[1] = {
@@ -1537,12 +1487,12 @@ return true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1580,12 +1530,12 @@ return true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[1],
+					["conditions"] = multiRefObjects[2],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1635,6 +1585,30 @@ return true\
 			["timerStartOffset"] = -2,
 			["used"] = false,
 			["uuid"] = "5723b214-00a6-c5cc-8d86-07ffcb90ac2d",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Logic.Toggles.AOEOff(NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off AOE",
+			["throttleTime"] = 0,
+			["time"] = 248.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 38,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "79044bd5-c3d7-7520-b0ae-4a97963c33a5",
 		},
 	},
 	[39] = {
