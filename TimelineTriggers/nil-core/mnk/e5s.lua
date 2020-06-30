@@ -919,13 +919,16 @@ return false",
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -936,7 +939,7 @@ self.end = true\
 			["time"] = 297.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 45,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -953,13 +956,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -970,7 +976,7 @@ self.end = true\
 			["time"] = 301.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 46,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1014,13 +1020,16 @@ end",
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1031,7 +1040,7 @@ self.end = true\
 			["time"] = 305.3,
 			["timeRange"] = true,
 			["timelineIndex"] = 48,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 4,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1071,13 +1080,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1088,7 +1100,7 @@ self.end = true\
 			["time"] = 309,
 			["timeRange"] = true,
 			["timelineIndex"] = 49,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1105,13 +1117,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1122,7 +1137,7 @@ self.end = true\
 			["time"] = 312.7,
 			["timeRange"] = true,
 			["timelineIndex"] = 50,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1139,13 +1154,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1156,7 +1174,7 @@ self.end = true\
 			["time"] = 316.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 51,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 4,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1198,13 +1216,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1215,7 +1236,7 @@ self.end = true\
 			["time"] = 320.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 53,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1232,13 +1253,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1249,7 +1273,7 @@ self.end = true\
 			["time"] = 323.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 54,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1266,13 +1290,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1283,7 +1310,7 @@ self.end = true\
 			["time"] = 327.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 55,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 4,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1769,13 +1796,16 @@ end",
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1786,7 +1816,7 @@ self.end = true\
 			["time"] = 502.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 83,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1803,13 +1833,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1820,7 +1853,7 @@ self.end = true\
 			["time"] = 506.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 84,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1864,13 +1897,16 @@ end",
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1881,7 +1917,7 @@ self.end = true\
 			["time"] = 510.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 86,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1898,13 +1934,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1915,7 +1954,7 @@ self.end = true\
 			["time"] = 513.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 87,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1932,13 +1971,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1949,7 +1991,7 @@ self.end = true\
 			["time"] = 517.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 88,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -1966,13 +2008,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1983,7 +2028,7 @@ self.end = true\
 			["time"] = 521.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 89,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -2025,13 +2070,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2042,7 +2090,7 @@ self.end = true\
 			["time"] = 524.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 91,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -2059,13 +2107,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2076,7 +2127,7 @@ self.end = true\
 			["time"] = 528.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 92,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
@@ -2093,13 +2144,16 @@ self.end = true\
 			["execute"] = "if Argus == nil then self.used = true end\
 local electrify = 2233\
 \
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+local drawnOrbs = {}\
+local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
+if table.size(members) > 0 then\
+  for id, ent in pairs(members) do\
+    drawnOrbs[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
 end\
 \
-self.end = true\
-",
+self.end = table.size(drawnOrbs) >= 2",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2110,7 +2164,7 @@ self.end = true\
 			["time"] = 532.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 93,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,

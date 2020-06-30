@@ -27,6 +27,108 @@ local obj1 = {
 			["used"] = false,
 			["uuid"] = "d7eff8ba-e200-2409-9a2f-47a869256d78",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Tank Buster\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster TTS",
+			["throttleTime"] = 0,
+			["time"] = 11.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 2,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "c21c3f39-5eab-8457-9174-d5062d2d08e1",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- might need to adjust the cleave draw\
+local liquidContentID = 9211\
+\
+local el = EntityList(\"targetable,contentid=\"..tostring(liquidContentID)..\",maxdistance=50\")\
+for id, ent in pairs(el) do\
+  local radius = 7\
+  local angle = 2\
+  local segments = 30\
+  local timeout = 3000\
+  local alphaMin = 0.2\
+  local alphaMax = 0.2\
+  local delay = 0\
+\
+  local fillRGB = {enemy = {r = 1,g = 0,b = 0},}\
+\
+  Argus.addTimedConeFilled(timeout, ent.pos.x, ent.pos.y, ent.pos.z, radius, angle, ent.pos.h, segments, fillRGB.enemy, alphaMin, alphaMax, delay,0,0, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.0)\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster LL TTS",
+			["throttleTime"] = 0,
+			["time"] = 11.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 2,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "3db38c16-2733-cf1b-9d89-d45546f90124",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- might need to adjust the cleave draw\
+local liquidContentID = 9212\
+\
+local el = EntityList(\"targetable,contentid=\"..tostring(liquidContentID)..\",maxdistance=50\")\
+for id, ent in pairs(el) do\
+  local radius = 7\
+  local angle = 2\
+  local segments = 30\
+  local timeout = 3000\
+  local alphaMin = 0.2\
+  local alphaMax = 0.2\
+  local delay = 0\
+\
+  local fillRGB = {enemy = {r = 1,g = 0,b = 0},}\
+\
+  Argus.addTimedConeFilled(timeout, ent.pos.x, ent.pos.y, ent.pos.z, radius, angle, ent.pos.h, segments, fillRGB.enemy, alphaMin, alphaMax, delay,0,0, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.0)\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster Hnad TTS",
+			["throttleTime"] = 0,
+			["time"] = 11.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 2,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "5162e7b1-cf2f-1329-b029-7bafce8e2643",
+		},
 	},
 	[3] = {
 		[1] = {
@@ -334,6 +436,227 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "f2d463a9-6825-301a-aa4e-f582927c428d",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Tank Buster\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster TTS",
+			["throttleTime"] = 0,
+			["time"] = 37.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 6,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "37ceabe5-9ed1-4648-9366-fd61cfc1b9ec",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- might need to adjust the cleave draw\
+local liquidContentID = 9211\
+\
+local el = EntityList(\"targetable,contentid=\"..tostring(liquidContentID)..\",maxdistance=50\")\
+for id, ent in pairs(el) do\
+  local radius = 7\
+  local angle = 2\
+  local segments = 30\
+  local timeout = 3000\
+  local alphaMin = 0.2\
+  local alphaMax = 0.2\
+  local delay = 0\
+\
+  local fillRGB = {enemy = {r = 1,g = 0,b = 0},}\
+\
+  Argus.addTimedConeFilled(timeout, ent.pos.x, ent.pos.y, ent.pos.z, radius, angle, ent.pos.h, segments, fillRGB.enemy, alphaMin, alphaMax, delay,0,0, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.0)\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster LL TTS",
+			["throttleTime"] = 0,
+			["time"] = 37.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 6,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "996ad849-a23b-6519-998e-d5566609eaeb",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- might need to adjust the cleave draw\
+local liquidContentID = 9212\
+\
+local el = EntityList(\"targetable,contentid=\"..tostring(liquidContentID)..\",maxdistance=50\")\
+for id, ent in pairs(el) do\
+  local radius = 7\
+  local angle = 2\
+  local segments = 30\
+  local timeout = 3000\
+  local alphaMin = 0.2\
+  local alphaMax = 0.2\
+  local delay = 0\
+\
+  local fillRGB = {enemy = {r = 1,g = 0,b = 0},}\
+\
+  Argus.addTimedConeFilled(timeout, ent.pos.x, ent.pos.y, ent.pos.z, radius, angle, ent.pos.h, segments, fillRGB.enemy, alphaMin, alphaMax, delay,0,0, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.0)\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster Hnad TTS",
+			["throttleTime"] = 0,
+			["time"] = 37.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 6,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "99564fdf-e3a3-0e8b-9a96-36ffcaab8e0c",
+		},
+	},
+	[9] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Exhaust\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Exhaust TTS",
+			["throttleTime"] = 0,
+			["time"] = 39.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 9,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "b37fe0aa-de08-b0c6-87a8-d1ccb07c1985",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil or data.DrawExhaust == false then self.used = true end\
+\
+local exhaust = {}\
+for id, ent in pairs(EntityList(\"\")) do\
+  if ent.contentid == 9214 and not exhaust[id] then\
+    exhaust[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
+end\
+\
+self.used = table.size(exhaust) >= 4",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "draw exhaust",
+			["throttleTime"] = 0,
+			["time"] = 39.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 9,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 15,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "131c1faf-3db9-5fba-9f50-26d738a6eff4",
+		},
+	},
+	[12] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Exhaust\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Exhaust TTS",
+			["throttleTime"] = 0,
+			["time"] = 50.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 12,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "c2235b5b-97b8-bb58-aaad-8077b33097d3",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if Argus == nil or data.DrawExhaust == false then self.used = true end\
+\
+local exhaust = {}\
+for id, ent in pairs(EntityList(\"\")) do\
+  if ent.contentid == 9214 and not exhaust[id] then\
+    exhaust[id] = true\
+    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
+  end\
+end\
+\
+-- varies by speed order so just going to close it\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "draw exhaust",
+			["throttleTime"] = 0,
+			["time"] = 50.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 12,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 15,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "691dcc90-d467-bf14-b704-3eadf11da81e",
+		},
 	},
 	[13] = {
 		[1] = {
@@ -382,6 +705,108 @@ self.used = true",
 			["timerStartOffset"] = 3,
 			["used"] = false,
 			["uuid"] = "a3528e71-8106-84c0-be5a-aed140e4bfe2",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Tank Buster\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster TTS",
+			["throttleTime"] = 0,
+			["time"] = 56.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 13,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "8daa3685-83fa-ecf2-a71a-70ffafead069",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- might need to adjust the cleave draw\
+local liquidContentID = 9211\
+\
+local el = EntityList(\"targetable,contentid=\"..tostring(liquidContentID)..\",maxdistance=50\")\
+for id, ent in pairs(el) do\
+  local radius = 7\
+  local angle = 2\
+  local segments = 30\
+  local timeout = 3000\
+  local alphaMin = 0.2\
+  local alphaMax = 0.2\
+  local delay = 0\
+\
+  local fillRGB = {enemy = {r = 1,g = 0,b = 0},}\
+\
+  Argus.addTimedConeFilled(timeout, ent.pos.x, ent.pos.y, ent.pos.z, radius, angle, ent.pos.h, segments, fillRGB.enemy, alphaMin, alphaMax, delay,0,0, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.0)\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster LL TTS",
+			["throttleTime"] = 0,
+			["time"] = 56.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 13,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "7b560a42-a688-9e21-ac97-a5368b0dc8de",
+		},
+		[5] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- might need to adjust the cleave draw\
+local liquidContentID = 9212\
+\
+local el = EntityList(\"targetable,contentid=\"..tostring(liquidContentID)..\",maxdistance=50\")\
+for id, ent in pairs(el) do\
+  local radius = 7\
+  local angle = 2\
+  local segments = 30\
+  local timeout = 3000\
+  local alphaMin = 0.2\
+  local alphaMax = 0.2\
+  local delay = 0\
+\
+  local fillRGB = {enemy = {r = 1,g = 0,b = 0},}\
+\
+  Argus.addTimedConeFilled(timeout, ent.pos.x, ent.pos.y, ent.pos.z, radius, angle, ent.pos.h, segments, fillRGB.enemy, alphaMin, alphaMax, delay,0,0, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.0)\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster Hnad TTS",
+			["throttleTime"] = 0,
+			["time"] = 56.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 13,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "d2ddf62d-64fd-1113-88ee-ca9ca5596248",
 		},
 	},
 	[15] = {
@@ -434,6 +859,108 @@ self.used = true",
 			["timerStartOffset"] = -4,
 			["used"] = false,
 			["uuid"] = "57fa514e-9a8f-1a79-b82f-a102edbc4fcf",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Alert.Send(\"Tank Buster\")\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster TTS",
+			["throttleTime"] = 0,
+			["time"] = 134.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 36,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "f260387b-5086-ba68-b6df-e79836af5be7",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- might need to adjust the cleave draw\
+local liquidContentID = 9211\
+\
+local el = EntityList(\"targetable,contentid=\"..tostring(liquidContentID)..\",maxdistance=50\")\
+for id, ent in pairs(el) do\
+  local radius = 7\
+  local angle = 2\
+  local segments = 30\
+  local timeout = 3000\
+  local alphaMin = 0.2\
+  local alphaMax = 0.2\
+  local delay = 0\
+\
+  local fillRGB = {enemy = {r = 1,g = 0,b = 0},}\
+\
+  Argus.addTimedConeFilled(timeout, ent.pos.x, ent.pos.y, ent.pos.z, radius, angle, ent.pos.h, segments, fillRGB.enemy, alphaMin, alphaMax, delay,0,0, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.0)\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster LL TTS",
+			["throttleTime"] = 0,
+			["time"] = 134.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 36,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "8698511c-bb6a-3e84-b9af-09e99dbe6b64",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- might need to adjust the cleave draw\
+local liquidContentID = 9212\
+\
+local el = EntityList(\"targetable,contentid=\"..tostring(liquidContentID)..\",maxdistance=50\")\
+for id, ent in pairs(el) do\
+  local radius = 7\
+  local angle = 2\
+  local segments = 30\
+  local timeout = 3000\
+  local alphaMin = 0.2\
+  local alphaMax = 0.2\
+  local delay = 0\
+\
+  local fillRGB = {enemy = {r = 1,g = 0,b = 0},}\
+\
+  Argus.addTimedConeFilled(timeout, ent.pos.x, ent.pos.y, ent.pos.z, radius, angle, ent.pos.h, segments, fillRGB.enemy, alphaMin, alphaMax, delay,0,0, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.0)\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Buster Hnad TTS",
+			["throttleTime"] = 0,
+			["time"] = 134.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 36,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "32c595c4-5405-6b76-b212-bc22b82e3d15",
 		},
 	},
 	[39] = {
