@@ -304,7 +304,7 @@ end\
 			["timelineIndex"] = 17,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = -2,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -6,
 			["used"] = false,
 			["uuid"] = "117b4505-dff0-875f-97e8-5ed33b4f1eb1",
 		},
