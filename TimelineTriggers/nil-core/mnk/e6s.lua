@@ -189,17 +189,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-\
-local drawnOrbs = {}\
-for id, ent in pairs(EntityList(\"\")) do\
-  if ent.contentid == 9290 and not drawnOrbs[id] then\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.used = table.size(drawnOrbs) >= 7",
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.OccludedFront() > 6 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -214,33 +204,10 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "95b65c55-0ca0-c45e-b43b-7412f5e94561",
+			["uuid"] = "896ad907-42c9-27f0-a187-73a4647fc650",
 		},
 	},
 	[14] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOn(NilsReactionCore.params.isTimeline) then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Gap closer On",
-			["throttleTime"] = 0,
-			["time"] = 105.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 14,
-			["timerEndOffset"] = 4,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "244d3180-e51d-be39-8f56-f49889586c8b",
-		},
 	},
 	[15] = {
 		[1] = {
@@ -259,7 +226,7 @@ self.used = true",
 			["name"] = "CD Off",
 			["throttleTime"] = 0,
 			["time"] = 110.8,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 15,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
@@ -289,6 +256,29 @@ self.used = true",
 			["timerStartOffset"] = -2,
 			["used"] = false,
 			["uuid"] = "3cb8bb13-efaf-f36d-adba-aba358b2a973",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOn(NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Gap closer On",
+			["throttleTime"] = 0,
+			["time"] = 110.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 15,
+			["timerEndOffset"] = 4,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "5a72a7d0-ec78-564e-979d-d129b0f9f409",
 		},
 	},
 	[16] = {
@@ -365,7 +355,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\
@@ -1134,7 +1124,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
@@ -1177,7 +1167,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
@@ -1274,9 +1264,9 @@ self.used = true",
 			["time"] = 248.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 38,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = 2,
 			["used"] = false,
 			["uuid"] = "cc15abfa-d50d-1d63-bd40-597746ece948",
 		},
@@ -1338,17 +1328,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-\
-local drawnOrbs = {}\
-for id, ent in pairs(EntityList(\"\")) do\
-  if ent.contentid == 9290 and not drawnOrbs[id] then\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.used = table.size(drawnOrbs) >= 7",
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.OccludedFront() > 6 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1363,7 +1343,7 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "03332db1-1ca5-b9de-a864-c7cd20597ab5",
+			["uuid"] = "b8121a66-f704-1ffb-866f-36766419bb8d",
 		},
 	},
 	[49] = {
@@ -1501,7 +1481,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "NilsReactionCore.Logic.Toggles.AOEon(NilsReactionCore.params.isTimeline)\
+			["execute"] = "NilsReactionCore.Logic.Toggles.AOEOn(NilsReactionCore.params.isTimeline)\
 self.used = true\
 ",
 			["executeType"] = 2,
@@ -2597,7 +2577,7 @@ end",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
+					["buffIDList"] = multiRefObjects[1],
 					["category"] = 4,
 					["comparator"] = 1,
 					["conditionLua"] = "if not Player:GetTarget() then return true end\

@@ -93,39 +93,6 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-\
-local drawnOrbs = {}\
-for id, ent in pairs(EntityList(\"\")) do\
-  if ent.contentid == 9290 and not drawnOrbs[id] then\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.used = table.size(drawnOrbs) >= 7",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "draw orb",
-			["throttleTime"] = 0,
-			["time"] = 95.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 11,
-			["timerEndOffset"] = 3,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
-			["used"] = false,
-			["uuid"] = "e9d5edce-4f33-5759-a99c-bcd17adc42d9",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline) == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -142,6 +109,29 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "2b3e2902-a000-d3d2-bf13-0a3d9498630a",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.OccludedFront() > 6 then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "draw orb",
+			["throttleTime"] = 0,
+			["time"] = 95.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 11,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "016b8a97-16ce-ead2-9371-eddf94773aca",
 		},
 	},
 	[15] = {
@@ -880,9 +870,9 @@ self.used = true",
 			["time"] = 248.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 38,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = 2,
 			["used"] = false,
 			["uuid"] = "c0db16af-dee8-e206-a63c-ee0e1550fb5a",
 		},
@@ -946,17 +936,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-\
-local drawnOrbs = {}\
-for id, ent in pairs(EntityList(\"\")) do\
-  if ent.contentid == 9290 and not drawnOrbs[id] then\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 6, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.used = table.size(drawnOrbs) >= 7",
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.OccludedFront() > 6 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -971,7 +951,7 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "8047e8c2-ea9f-79a7-9774-b265ea239cc1",
+			["uuid"] = "b036b449-56df-4e55-9570-ed53b95e9975",
 		},
 	},
 	[49] = {
@@ -1060,7 +1040,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NNilsReactionCore.Logic.Toggles.AOEon(NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NNilsReactionCore.Logic.Toggles.AOEOn(NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end",
 			["executeType"] = 2,

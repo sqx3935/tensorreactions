@@ -313,39 +313,6 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-\
-local drawnOrbs = {}\
-for id, ent in pairs(EntityList(\"\")) do\
-  if ent.contentid == 9290 and not drawnOrbs[id] then\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 7, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.used = table.size(drawnOrbs) >= 7",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "draw orb",
-			["throttleTime"] = 0,
-			["time"] = 95.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 11,
-			["timerEndOffset"] = 3,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
-			["used"] = false,
-			["uuid"] = "cc2679a5-b60a-a78e-bd47-8d59c2402c7a",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
 end",
@@ -364,6 +331,29 @@ end",
 			["timerStartOffset"] = 4,
 			["used"] = false,
 			["uuid"] = "29dcbff6-0c2b-d689-9663-60ab996f4ca0",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.OccludedFront() > 6 then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "draw orb",
+			["throttleTime"] = 0,
+			["time"] = 95.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 11,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "d2e6d252-0289-2749-be92-5a299ad2cb37",
 		},
 	},
 	[12] = {
@@ -396,29 +386,6 @@ if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability(NilsReactionCore.Help
 		},
 	},
 	[14] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOn(NilsReactionCore.params.isTimeline) then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Gap closer On",
-			["throttleTime"] = 0,
-			["time"] = 105.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 14,
-			["timerEndOffset"] = 4,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "407ee891-2cf3-e9f3-832b-eb31ceb421ce",
-		},
 	},
 	[15] = {
 		[1] = {
@@ -444,6 +411,29 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "98ba5611-325e-e983-b486-301c3451897a",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOn(NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Gap closer On",
+			["throttleTime"] = 0,
+			["time"] = 110.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 15,
+			["timerEndOffset"] = 4,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "aca0a4f2-5547-93ec-8c6a-b6021cbb98eb",
 		},
 	},
 	[17] = {
@@ -1487,12 +1477,12 @@ return true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2235,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1530,12 +1520,12 @@ return true\
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = 2236,
-					["buffIDList"] = multiRefObjects[1],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
 					["conditionType"] = 1,
-					["conditions"] = multiRefObjects[2],
+					["conditions"] = multiRefObjects[1],
 					["contentid"] = -1,
 					["dequeueIfLuaFalse"] = false,
 					["enmityValue"] = 0,
@@ -1604,9 +1594,9 @@ self.used = true",
 			["time"] = 248.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 38,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = 2,
 			["used"] = false,
 			["uuid"] = "79044bd5-c3d7-7520-b0ae-4a97963c33a5",
 		},
@@ -1636,6 +1626,37 @@ end",
 			["timerStartOffset"] = 1.5,
 			["used"] = false,
 			["uuid"] = "b67b4d12-993e-9c29-b1d6-7598d87c3c7a",
+		},
+	},
+	[40] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- my static likes to keep both on me so i can control the initial hit, if this happens to you we want to pop a cooldown\
+-- helps casters pre pos on 1 and not have to worry about moving.\
+\
+local attackableTargets = NilsReactionCore.Helpers.GetAggrolist(25, Player.id)\
+if table.size(attackableTargets) == 2 then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Cooldown if you have both",
+			["throttleTime"] = 0,
+			["time"] = 262.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 40,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -3,
+			["used"] = false,
+			["uuid"] = "790b600e-b338-2c96-9496-f4845b1ec333",
 		},
 	},
 	[41] = {
@@ -1772,17 +1793,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-\
-local drawnOrbs = {}\
-for id, ent in pairs(EntityList(\"\")) do\
-  if ent.contentid == 9290 and not drawnOrbs[id] then\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(11000, ent.pos.x, ent.pos.y, ent.pos.z, 7, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.used = table.size(drawnOrbs) >= 7",
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.OccludedFront() > 6 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1797,7 +1808,7 @@ self.used = table.size(drawnOrbs) >= 7",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "327633e9-0488-8485-8536-2bf1efdaae26",
+			["uuid"] = "e57cadb8-dd0d-ddf9-83a6-1eea4d9ceef5",
 		},
 		[2] = {
 			["actions"] = {
@@ -1933,7 +1944,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NNilsReactionCore.Logic.Toggles.AOEon(NilsReactionCore.params.isTimeline) == true then\
+			["execute"] = "if NNilsReactionCore.Logic.Toggles.AOEOn(NilsReactionCore.params.isTimeline) == true then\
   self.used = true\
 end",
 			["executeType"] = 2,
@@ -2666,6 +2677,30 @@ return true\
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "fed22ae8-0f57-2f43-8e91-8c71a8827e5d",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability() then self.used = true end\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Invulnerability",
+			["throttleTime"] = 0,
+			["time"] = 457.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 82,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "562c7156-b50b-059a-87e1-f6c2cccfcaef",
 		},
 	},
 	[85] = {

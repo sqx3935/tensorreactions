@@ -11,7 +11,7 @@ local obj1 = {
 			},
 			["enabled"] = true,
 			["execute"] = "-- allows for settings to be changed in the core\
--- example because this is a timeline reaction we want to turn off onslaugh movement detection\
+-- example because this is a timeline reaction we want to turn off movement detection\
 \
 NilsReactionCore.coreparams.enableMoveDetection = false\
 \
@@ -35,29 +35,6 @@ self.used = true",
 		},
 	},
 	[2] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Toggles.Darkknight.SaltedEarth(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Turn off Salted Earth",
-			["throttleTime"] = 0,
-			["time"] = 22.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 2,
-			["timerEndOffset"] = 4,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "8031348c-9152-752a-9d33-a5eaf504844e",
-		},
 	},
 	[3] = {
 		[1] = {
@@ -134,6 +111,31 @@ self.used = true",
 			["uuid"] = "297fd10e-196e-f2d0-89b7-5131ff589922",
 		},
 	},
+	[5] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.Plunge() then self.used == true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Burn Plunge",
+			["throttleTime"] = 0,
+			["time"] = 42.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 5,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "039dcaf8-a2fb-d116-a2c3-e5a67e1e6fd7",
+		},
+	},
 	[6] = {
 		[1] = {
 			["actions"] = {
@@ -141,7 +143,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -154,9 +156,9 @@ self.used = true",
 			["timelineIndex"] = 6,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "0aee588d-19ef-5b2e-8f9a-03ec12001557",
+			["uuid"] = "3b20dff4-25fe-86a5-ae52-06bb582457f9",
 		},
 		[2] = {
 			["actions"] = {
@@ -175,9 +177,9 @@ self.used = true",
 			["time"] = 52.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 6,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2.5,
+			["timerStartOffset"] = -1.5,
 			["used"] = false,
 			["uuid"] = "9db69e68-3968-1d05-9c40-e4eae8b44876",
 		},
@@ -189,7 +191,7 @@ self.used = true",
 			["enabled"] = true,
 			["execute"] = "local Raiden = 9286\
 \
-if NilsReactionCore.Helpers.Tanks.AmIMainTankByContengID(Raiden) then\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Raiden) then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end\
  ",
@@ -217,7 +219,7 @@ end\
 			["enabled"] = true,
 			["execute"] = "local Raiden = 9286\
 \
-if NilsReactionCore.Helpers.Tanks.AmIMainTankByContengID(Raiden) then\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Raiden) then\
   if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
 end",
 			["executeType"] = 2,
@@ -244,26 +246,27 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "local Ramuh = 9281\
+			["execute"] = "local Raiden = 9286\
 \
-if NilsReactionCore.Helpers.Tanks.AmIMainTankByContengID(Ramuh) then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.Heavy(NilsReactionCore.Helpers.Tanks.Cooldown.DoNotUseRampartAsBackup) then self.used = true end\
-end",
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Raiden) then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+end\
+ ",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Big Cooldown if MT",
+			["name"] = "Cooldown if Raiden",
 			["throttleTime"] = 0,
 			["time"] = 63.3,
 			["timeRange"] = true,
 			["timelineIndex"] = 7,
-			["timerEndOffset"] = 2,
+			["timerEndOffset"] = -1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.5,
+			["timerStartOffset"] = -4,
 			["used"] = false,
-			["uuid"] = "264747bc-b5ab-7691-85be-5be36b5e07b2",
+			["uuid"] = "fd233f72-da44-b829-8113-9b1f0d81c672",
 		},
 	},
 	[8] = {
@@ -273,7 +276,9 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
   if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
 end",
 			["executeType"] = 2,
@@ -281,7 +286,61 @@ end",
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Reprisal if MT",
+			["name"] = "Reprisal if Ramuh",
+			["throttleTime"] = 0,
+			["time"] = 69.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 8,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "66f22daf-d336-efad-aa6c-fe239d8b28be",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Cooldown if Ramuh",
+			["throttleTime"] = 0,
+			["time"] = 69.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 8,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "29b44a24-0ff8-51a6-93e8-ac1b46f92608",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "TBN if Ramuh",
 			["throttleTime"] = 0,
 			["time"] = 69.5,
 			["timeRange"] = true,
@@ -290,87 +349,11 @@ end",
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -2.5,
 			["used"] = false,
-			["uuid"] = "0a4653ae-7f7b-dab4-ae31-a8bcf51bbd5a",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "TBN MT",
-			["throttleTime"] = 0,
-			["time"] = 69.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 8,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.2000000476837,
-			["used"] = false,
-			["uuid"] = "59d4c4e0-a900-9b61-bf26-38f527486fe6",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
-end\
- ",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "RampartorHeavy if MT",
-			["throttleTime"] = 0,
-			["time"] = 69.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 8,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "8a9be677-bdda-a8e9-86fc-c0c2b765d734",
+			["uuid"] = "f708351d-adf3-fdac-b83c-37871b6bf9ad",
 		},
 	},
 	[11] = {
 		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Hotbar.Rampart() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Rampart if OT",
-			["throttleTime"] = 0,
-			["time"] = 84.8,
-			["timeRange"] = true,
-			["timelineIndex"] = 11,
-			["timerEndOffset"] = 2.5,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 1.2000000476837,
-			["used"] = false,
-			["uuid"] = "2ab4fdbb-6a48-4f45-8f2c-329cb73734e1",
-		},
-		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -393,7 +376,7 @@ end",
 			["used"] = false,
 			["uuid"] = "c19bfcb9-85e9-a341-8a89-c7e9de98781f",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -416,30 +399,28 @@ end",
 			["used"] = false,
 			["uuid"] = "aee1205b-ca78-38a6-b014-bdab5d1f3510",
 		},
-		[4] = {
+		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Argus.EntityInUnavoidableAOEs(Player) then\
-  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
-end",
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.ChaosStrike() > 4 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "TBN if in Unavoidable",
+			["name"] = "Draw Clouds",
 			["throttleTime"] = 0,
 			["time"] = 84.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 11,
-			["timerEndOffset"] = 12,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -5,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "ddd59088-1c92-3931-b57d-bd3068b0edde",
+			["uuid"] = "913f9140-b205-0cfa-ac87-d96670148639",
 		},
 	},
 	[13] = {
@@ -487,9 +468,32 @@ end",
 			["timelineIndex"] = 14,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = -4,
-			["timerStartOffset"] = -5.5,
+			["timerStartOffset"] = -5,
 			["used"] = false,
 			["uuid"] = "42d310da-32db-ad5b-95f6-209f3b179f94",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.Plunge() then self.used == true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Burn Plunge",
+			["throttleTime"] = 0,
+			["time"] = 96.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 14,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "a97c5f68-3a2e-b120-8d2a-4e268281a63b",
 		},
 	},
 	[15] = {
@@ -499,7 +503,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -512,32 +516,9 @@ end",
 			["timelineIndex"] = 15,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "7a7e29c0-7ddc-58f8-8183-8bb26d85c933",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.SaltedEarth() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Salted Earth",
-			["throttleTime"] = 0,
-			["time"] = 110.6,
-			["timeRange"] = true,
-			["timelineIndex"] = 15,
-			["timerEndOffset"] = -4,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -8,
-			["used"] = false,
-			["uuid"] = "a6211841-6e3e-3211-943f-ae6a49b92bd1",
+			["uuid"] = "7e66b97b-2e80-5e95-a00c-9a3459160ddf",
 		},
 	},
 	[17] = {
@@ -546,7 +527,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.CDOff(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -564,58 +545,6 @@ self.used = true",
 			["timerStartOffset"] = 1,
 			["used"] = false,
 			["uuid"] = "207e4832-74d9-4595-9b54-cb8ea84f5bb0",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-  self.used = true\
-end\
-\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 125.8,
-			["timeRange"] = true,
-			["timelineIndex"] = 17,
-			["timerEndOffset"] = 1,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "8b07d110-4384-a684-866a-28fd056bf29b",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "RampartorHeavy if OT",
-			["throttleTime"] = 0,
-			["time"] = 125.8,
-			["timeRange"] = true,
-			["timelineIndex"] = 17,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "eaa362c4-ab32-7716-88e9-0f5d94010c8b",
 		},
 	},
 	[19] = {
@@ -734,32 +663,7 @@ return true\
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reprisal if MT",
-			["throttleTime"] = 0,
-			["time"] = 128.9,
-			["timeRange"] = true,
-			["timelineIndex"] = 20,
-			["timerEndOffset"] = 5,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 2,
-			["used"] = false,
-			["uuid"] = "c919a697-2189-e25b-9cbd-02d759373dee",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "NilsReactionCore.Logic.Toggles.CDOn(NilsReactionCore.params.isTimeline)\
 self.used = true",
 			["executeType"] = 2,
@@ -778,6 +682,31 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "e8ddc67d-2581-7712-ae56-93c925f1abae",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() == false then\
+  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Reprisal if OT",
+			["throttleTime"] = 0,
+			["time"] = 128.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 20,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 1,
+			["used"] = false,
+			["uuid"] = "ea401cc6-cc75-b062-87d5-1ede93dc080b",
+		},
 	},
 	[21] = {
 		[1] = {
@@ -786,24 +715,26 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
-end",
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
+  self.used = true\
+end\
+\
+",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "RampartorHeavy if MT",
+			["name"] = "Sprint",
 			["throttleTime"] = 0,
 			["time"] = 138.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 21,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3.5,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "fe1c300c-cbc3-5b15-b04b-fa94ed475a84",
+			["uuid"] = "268384c1-ddc7-785d-92d4-9ba4f53c3793",
 		},
 		[2] = {
 			["actions"] = {
@@ -811,7 +742,36 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Cooldown if Ramuh",
+			["throttleTime"] = 0,
+			["time"] = 138.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 21,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -8,
+			["used"] = false,
+			["uuid"] = "e834e178-f966-815d-ab56-42ae5777c79f",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
 			["executeType"] = 2,
@@ -819,16 +779,16 @@ end",
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "TBN MT",
+			["name"] = "TBN if Ramuh",
 			["throttleTime"] = 0,
 			["time"] = 138.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 21,
-			["timerEndOffset"] = 0,
+			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -3.7999999523163,
+			["timerStartOffset"] = -5.8000001907349,
 			["used"] = false,
-			["uuid"] = "69c3aab0-933b-2517-928f-e8d3573f1232",
+			["uuid"] = "16942034-d15c-badf-8745-58f0d5142a17",
 		},
 	},
 	[22] = {
@@ -849,9 +809,9 @@ end",
 			["time"] = 148.3,
 			["timeRange"] = true,
 			["timelineIndex"] = 22,
-			["timerEndOffset"] = -4,
+			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -5,
+			["timerStartOffset"] = -2,
 			["used"] = false,
 			["uuid"] = "59170738-dae7-1f1d-b8a0-c554a271bcc2",
 		},
@@ -878,6 +838,29 @@ end",
 			["used"] = false,
 			["uuid"] = "301527b7-81dd-458e-91ec-8cc9413220f7",
 		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.Plunge() then self.used == true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Burn Plunge",
+			["throttleTime"] = 0,
+			["time"] = 148.3,
+			["timeRange"] = true,
+			["timelineIndex"] = 22,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "43cb1d85-7c1a-b8b1-8a4f-a16495752dad",
+		},
 	},
 	[23] = {
 		[1] = {
@@ -886,7 +869,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -899,9 +882,9 @@ end",
 			["timelineIndex"] = 23,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "48121da5-a008-73c7-b07b-e51f54a90cf1",
+			["uuid"] = "a5669116-9cec-93e1-b253-34e1b22b77fe",
 		},
 	},
 	[25] = {
@@ -934,7 +917,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "-- Requires Argus for this, no easy way I can find to detect if you are in in the first set or second set\
+			["execute"] = "-- Requires Argus for this, no easy way I can find to detect if you are in in the first or second set\
 if NilsReactionCore.Argus.EntityInUnavoidableAOEs(Player) then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
@@ -964,7 +947,7 @@ end",
 			["enabled"] = true,
 			["execute"] = "local Raiden = 9286\
 \
-if NilsReactionCore.Helpers.Tanks.AmIMainTankByContengID(Raiden) then\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Raiden) then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end\
  ",
@@ -992,7 +975,9 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
   if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
 end",
 			["executeType"] = 2,
@@ -1000,16 +985,16 @@ end",
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Reprisal if MT",
+			["name"] = "Reprisal if Ramuh",
 			["throttleTime"] = 0,
 			["time"] = 198.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 28,
-			["timerEndOffset"] = 2,
+			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2.5,
+			["timerStartOffset"] = -6,
 			["used"] = false,
-			["uuid"] = "c0489522-1375-8143-a7ba-5e1363cc93c3",
+			["uuid"] = "b837a809-9956-aa27-bc5e-643c07b170fc",
 		},
 		[2] = {
 			["actions"] = {
@@ -1017,30 +1002,9 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.SaltedEarth() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Salted Earth",
-			["throttleTime"] = 0,
-			["time"] = 198.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 28,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2.5,
-			["used"] = false,
-			["uuid"] = "2b4b0e26-0582-fd5a-94ea-a42e7ed9b124",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end",
 			["executeType"] = 2,
@@ -1048,24 +1012,26 @@ end",
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "RampartorHeavy if MT",
+			["name"] = "Cooldown if Ramuh",
 			["throttleTime"] = 0,
 			["time"] = 198.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 28,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -4.5,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "b98ef7c6-fa02-63d5-9a82-b4e1424818a6",
+			["uuid"] = "abb3ff58-aaf0-d3ff-a6cd-e4afadf50f18",
 		},
-		[4] = {
+		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
 			["executeType"] = 2,
@@ -1073,16 +1039,16 @@ end",
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "TBN MT",
+			["name"] = "TBN if Ramuh",
 			["throttleTime"] = 0,
 			["time"] = 198.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 28,
-			["timerEndOffset"] = 0,
+			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -4.5,
 			["used"] = false,
-			["uuid"] = "2f1859d2-9287-db36-bf15-5a4a2024d3c4",
+			["uuid"] = "1a381284-d570-49ed-9b83-a2c2e24d5d7e",
 		},
 	},
 	[30] = {
@@ -1094,7 +1060,7 @@ end",
 			["enabled"] = true,
 			["execute"] = "local Raiden = 9286\
 \
-if NilsReactionCore.Helpers.Tanks.AmIMainTankByContengID(Raiden) then\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Raiden) then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end\
  ",
@@ -1110,7 +1076,7 @@ end\
 			["timelineIndex"] = 30,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.5,
+			["timerStartOffset"] = -3.5,
 			["used"] = false,
 			["uuid"] = "45744798-5017-a3b9-8c24-84bbf6535484",
 		},
@@ -1139,29 +1105,6 @@ end\
 		},
 	},
 	[31] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reprisal",
-			["throttleTime"] = 0,
-			["time"] = 221.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 31,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "8ff697b2-b772-8d44-9ef7-6a65d6638051",
-		},
 	},
 	[32] = {
 		[1] = {
@@ -1170,7 +1113,7 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1183,9 +1126,34 @@ end\
 			["timelineIndex"] = 32,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "09ae1356-4df6-075a-b516-4cba33c7b024",
+			["uuid"] = "271dc2ce-ca4d-2744-9a3d-58d7b4cf7711",
+		},
+	},
+	[34] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Toggles.LivingShadow.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Living Shadow Off",
+			["throttleTime"] = 0,
+			["time"] = 249.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 34,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "49070ab2-399f-a307-b0cd-9f1a11b715f1",
 		},
 	},
 	[35] = {
@@ -1214,31 +1182,6 @@ self.used = true",
 			["uuid"] = "c7621894-0613-1983-a329-acfba6d9bd5f",
 		},
 		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
-\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 253,
-			["timeRange"] = true,
-			["timelineIndex"] = 35,
-			["timerEndOffset"] = 5,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = 4,
-			["used"] = false,
-			["uuid"] = "f9b0b673-8875-6748-92dd-5f8acd005dcf",
-		},
-		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1302,31 +1245,6 @@ end",
 			["timerStartOffset"] = -5,
 			["used"] = false,
 			["uuid"] = "0f705aee-2a6f-8b3b-8a82-100f315d24f9",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
-\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 262.3,
-			["timeRange"] = true,
-			["timelineIndex"] = 37,
-			["timerEndOffset"] = 3,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = -1,
-			["used"] = false,
-			["uuid"] = "aad93ccd-9ff8-b145-a36b-39ac9f6de8f8",
 		},
 	},
 	[39] = {
@@ -1486,6 +1404,58 @@ return true\
 			["uuid"] = "82796db2-942f-ebd0-a6be-7565205cc429",
 		},
 	},
+	[41] = {
+	},
+	[42] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 267.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 42,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = 1,
+			["used"] = false,
+			["uuid"] = "64226d8f-d3a9-36bf-9a13-23b64caea17f",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Toggles.LivingShadow.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Living Shadow On",
+			["throttleTime"] = 0,
+			["time"] = 267.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 42,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "1b45f444-ac75-82ef-a598-9e69e9a09e80",
+		},
+	},
 	[43] = {
 		[1] = {
 			["actions"] = {
@@ -1493,7 +1463,7 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1506,9 +1476,9 @@ return true\
 			["timelineIndex"] = 43,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "798be2dc-4223-ac67-8f6f-61b4f0de5aef",
+			["uuid"] = "10412b7d-c439-f373-9761-a32c27f5dd34",
 		},
 	},
 	[44] = {
@@ -1535,29 +1505,6 @@ return true\
 			["used"] = false,
 			["uuid"] = "adfd959f-4011-8d3b-9891-e8473dda5437",
 		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.SaltedEarth() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Salted Earth",
-			["throttleTime"] = 0,
-			["time"] = 287.9,
-			["timeRange"] = true,
-			["timelineIndex"] = 44,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "57b94d74-e808-c6e0-8e4c-7fa9f06a7b41",
-		},
 	},
 	[45] = {
 		[1] = {
@@ -1566,19 +1513,7 @@ return true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1603,44 +1538,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reprisal if MT",
-			["throttleTime"] = 0,
-			["time"] = 301.6,
-			["timeRange"] = true,
-			["timelineIndex"] = 46,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.6000000238419,
-			["used"] = false,
-			["uuid"] = "fbbc8712-a3dc-866b-835b-0adcd026525c",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1657,61 +1555,42 @@ self.end = table.size(drawnOrbs) >= 2",
 			["used"] = false,
 			["uuid"] = "e543d052-5328-ba64-8276-414fc16d4b1b",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Reprisal if Ramuh",
+			["throttleTime"] = 0,
+			["time"] = 301.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 46,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "7fc4ebaa-18d4-7769-83e5-523456b0ffe5",
+		},
 		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "TBN",
-			["throttleTime"] = 0,
-			["time"] = 301.6,
-			["timeRange"] = true,
-			["timelineIndex"] = 46,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "e7686fc5-a9e2-2f30-8072-0bf1c7661672",
-		},
-		[4] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Rampart() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Rampart",
-			["throttleTime"] = 0,
-			["time"] = 301.6,
-			["timeRange"] = true,
-			["timelineIndex"] = 46,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2.5,
-			["used"] = false,
-			["uuid"] = "66a9d74b-b18b-1636-bacf-2ab143889b95",
-		},
-	},
-	[47] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end",
 			["executeType"] = 2,
@@ -1719,18 +1598,47 @@ end",
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "RampartorHeavy if MT",
+			["name"] = "Cooldown if Ramuh",
 			["throttleTime"] = 0,
-			["time"] = 305.2,
+			["time"] = 301.6,
 			["timeRange"] = true,
-			["timelineIndex"] = 47,
+			["timelineIndex"] = 46,
 			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "81b99b11-eafd-588d-b2d8-bb53b7fd1209",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "TBN if Ramuh",
+			["throttleTime"] = 0,
+			["time"] = 301.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 46,
+			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = -2.5,
 			["used"] = false,
-			["uuid"] = "3d13c642-016e-1433-a3f9-a00c0cf96da7",
+			["uuid"] = "4d6f1b0b-a6ab-a017-ba12-8dec667e8628",
 		},
-		[2] = {
+	},
+	[47] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1747,9 +1655,9 @@ end",
 			["time"] = 305.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 47,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.5,
+			["timerStartOffset"] = 1,
 			["used"] = false,
 			["uuid"] = "dbdc5605-1d7f-7b18-bf7f-5875b38450fe",
 		},
@@ -1761,19 +1669,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1798,19 +1694,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1835,19 +1719,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1895,19 +1767,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1932,19 +1792,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1969,19 +1817,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2006,19 +1842,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2045,7 +1869,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["enabled"] = true,
 			["execute"] = "local Raiden = 9286\
 \
-if NilsReactionCore.Helpers.Tanks.AmIMainTankByContengID(Raiden) then\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Raiden) then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end\
  ",
@@ -2059,9 +1883,9 @@ end\
 			["time"] = 329.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 56,
-			["timerEndOffset"] = 0,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
+			["timerStartOffset"] = 2,
 			["used"] = false,
 			["uuid"] = "feb77ce1-ce15-1e88-a474-c516254f726d",
 		},
@@ -2096,7 +1920,7 @@ end\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2109,9 +1933,9 @@ end\
 			["timelineIndex"] = 57,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "c97d1bad-4ff0-d45a-a56d-b13c256d5b5c",
+			["uuid"] = "23948e10-4014-fba6-9e93-78b66c517664",
 		},
 	},
 	[59] = {
@@ -2123,7 +1947,7 @@ end\
 			["enabled"] = true,
 			["execute"] = "local Raiden = 9286\
 \
-if NilsReactionCore.Helpers.Tanks.AmIMainTankByContengID(Raiden) then\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Raiden) then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end\
  ",
@@ -2139,7 +1963,7 @@ end\
 			["timelineIndex"] = 59,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.5,
+			["timerStartOffset"] = -3.5,
 			["used"] = false,
 			["uuid"] = "6b84bbee-e548-dea0-a54c-f5b3cffafa1f",
 		},
@@ -2171,31 +1995,6 @@ end",
 		},
 	},
 	[62] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Big cooldown if MT",
-			["throttleTime"] = 0,
-			["time"] = 368,
-			["timeRange"] = true,
-			["timelineIndex"] = 62,
-			["timerEndOffset"] = 11,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 8,
-			["used"] = false,
-			["uuid"] = "745ec565-b073-d3f8-bebb-8a936cba3f4a",
-		},
 	},
 	[63] = {
 		[1] = {
@@ -2204,7 +2003,63 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Cooldown if Ramuh",
+			["throttleTime"] = 0,
+			["time"] = 380.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 63,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -8,
+			["used"] = false,
+			["uuid"] = "921fa2d4-3774-9818-b1a0-87ccb3230648",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Reprisal if Ramuh",
+			["throttleTime"] = 0,
+			["time"] = 380.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 63,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -7,
+			["used"] = false,
+			["uuid"] = "0574f591-72c9-509e-994e-dc97d3502310",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
 			["executeType"] = 2,
@@ -2212,42 +2067,19 @@ end",
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "TBN MT",
+			["name"] = "TBN if Ramuh",
 			["throttleTime"] = 0,
 			["time"] = 380.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 63,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -4.5,
 			["used"] = false,
-			["uuid"] = "fb24d830-0539-d90c-a801-f99917384d58",
+			["uuid"] = "4bb842b9-7abe-c6b8-9fd0-515a32594228",
 		},
 	},
 	[64] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reprisal",
-			["throttleTime"] = 0,
-			["time"] = 388.3,
-			["timeRange"] = true,
-			["timelineIndex"] = 64,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2.2999999523163,
-			["used"] = false,
-			["uuid"] = "dc4d6028-290c-6ef7-9ae5-cdfa626eba34",
-		},
 	},
 	[65] = {
 		[1] = {
@@ -2256,7 +2088,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2269,32 +2101,9 @@ end",
 			["timelineIndex"] = 65,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "a24910e8-3d6f-6f6e-8339-848e82b5b43f",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.SaltedEarth() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Salted Earth",
-			["throttleTime"] = 0,
-			["time"] = 395.6,
-			["timeRange"] = true,
-			["timelineIndex"] = 65,
-			["timerEndOffset"] = 7,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 5,
-			["used"] = false,
-			["uuid"] = "c76cf883-4521-28db-83a0-de220d7e8c98",
+			["uuid"] = "63d9442d-7ce4-f5c7-908a-665847bea8a4",
 		},
 	},
 	[66] = {
@@ -2334,31 +2143,6 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
-\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 420.1,
-			["timeRange"] = true,
-			["timelineIndex"] = 68,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = -1,
-			["used"] = false,
-			["uuid"] = "d4b74328-2863-28c0-bef4-a7ac7a645bf6",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOff(NilsReactionCore.params.isTimeline) then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -2375,6 +2159,52 @@ end",
 			["timerStartOffset"] = 1,
 			["used"] = false,
 			["uuid"] = "b05449c3-4f41-86a1-9359-a24e0c6797eb",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Toggles.BloodWeapon.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off Blood Weapon",
+			["throttleTime"] = 0,
+			["time"] = 420.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 68,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "cf558729-cb6c-3477-86db-e2ce742110f9",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Toggles.Delirium.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off Delirium",
+			["throttleTime"] = 0,
+			["time"] = 420.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 68,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "91609b65-a2d4-90d2-a419-c77947ff0483",
 		},
 	},
 	[70] = {
@@ -2441,33 +2271,6 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "1804c8eb-79ab-7d86-aa6f-ef8e1a394529",
-		},
-		[3] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then\
-  self.used = true\
-end\
-\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 429.4,
-			["timeRange"] = true,
-			["timelineIndex"] = 70,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = -2,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "059d627a-a617-6bd7-827c-a78091d1f065",
 		},
 	},
 	[72] = {
@@ -2595,13 +2398,84 @@ self.used = true",
 			["name"] = "CD On",
 			["throttleTime"] = 0,
 			["time"] = 432.7,
-			["timeRange"] = false,
+			["timeRange"] = true,
 			["timelineIndex"] = 72,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -4,
+			["timerStartOffset"] = -1,
 			["used"] = false,
 			["uuid"] = "b032583a-6da7-8961-ab70-3075ff8f4b39",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
+\
+",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Sprint",
+			["throttleTime"] = 0,
+			["time"] = 432.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 72,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = -2,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "d1bb8dbb-ce03-0365-ac95-6071ebe0b6b6",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Toggles.BloodWeapon.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn on Blood Weapon",
+			["throttleTime"] = 0,
+			["time"] = 432.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 72,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "655ba791-142f-c28e-9b44-16f6df331fbd",
+		},
+		[5] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Toggles.Delirium.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn on Delirium",
+			["throttleTime"] = 0,
+			["time"] = 432.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 72,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "9a855ec7-c52e-ba7f-a077-1e9e3e55b2b3",
 		},
 	},
 	[74] = {
@@ -2636,7 +2510,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2649,9 +2523,84 @@ self.used = true",
 			["timelineIndex"] = 75,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "d43956c9-faab-856e-a18e-bc45caac711d",
+			["uuid"] = "dffb091f-ce4b-134a-8e5f-89c22486c90b",
+		},
+	},
+	[76] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Toggles.Darkknight.SaltedEarth(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn off Salted Earth",
+			["throttleTime"] = 0,
+			["time"] = 450.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 76,
+			["timerEndOffset"] = 4,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "b6f4785a-f99f-0ad0-8db7-52ed4dc25e3d",
+		},
+	},
+	[77] = {
+	},
+	[78] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.ChaosStrike() > 4 then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Clouds",
+			["throttleTime"] = 0,
+			["time"] = 465.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 78,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "dfcc6fb6-52b2-858f-abbe-9c6d4cece35e",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Toggles.Darkknight.SaltedEarth(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Turn on Salted Earth",
+			["throttleTime"] = 0,
+			["time"] = 465.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 78,
+			["timerEndOffset"] = 4,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "75f76c7f-d12e-93c1-840e-2f5d6f36032d",
 		},
 	},
 	[81] = {
@@ -2686,29 +2635,6 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Rampart() then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Rampart",
-			["throttleTime"] = 0,
-			["time"] = 502.6,
-			["timeRange"] = true,
-			["timelineIndex"] = 83,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
-			["used"] = false,
-			["uuid"] = "b6cc328b-bf9a-1c18-906e-5c880eff44d0",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOff(NilsReactionCore.params.isTimeline) then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -2726,25 +2652,13 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "662e5bd5-5b33-8928-b30c-738e243eb628",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2769,44 +2683,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Reprisal if MT",
-			["throttleTime"] = 0,
-			["time"] = 506.4,
-			["timeRange"] = true,
-			["timelineIndex"] = 84,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.6000000238419,
-			["used"] = false,
-			["uuid"] = "f90fc584-d6d3-20b5-ab24-720b5a81759e",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2817,38 +2694,11 @@ self.end = table.size(drawnOrbs) >= 2",
 			["time"] = 506.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 84,
-			["timerEndOffset"] = 3,
+			["timerEndOffset"] = 4,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2,
+			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "26978372-9c0c-0c21-bb7e-2134f9a83209",
-		},
-	},
-	[85] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
-end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "TBN MT",
-			["throttleTime"] = 0,
-			["time"] = 510,
-			["timeRange"] = true,
-			["timelineIndex"] = 85,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -4,
-			["used"] = false,
-			["uuid"] = "9bb236c1-6e0f-1b07-a0dc-0e125104be22",
+			["uuid"] = "c9bd20ae-fa1c-1975-9323-2bfa98891041",
 		},
 		[2] = {
 			["actions"] = {
@@ -2856,24 +2706,26 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Hotbar.Actions.Reprisal.Execute() then self.used = true end\
 end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "RampartorHeavy if MT",
+			["name"] = "Reprisal if Ramuh",
 			["throttleTime"] = 0,
-			["time"] = 510,
+			["time"] = 506.4,
 			["timeRange"] = true,
-			["timelineIndex"] = 85,
+			["timelineIndex"] = 84,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2.5,
+			["timerStartOffset"] = -5,
 			["used"] = false,
-			["uuid"] = "c7feb77e-e1f2-01c8-904d-5e5fcf6f255b",
+			["uuid"] = "ebc5ec2e-7771-5f7c-a36a-c9c8f3e1336c",
 		},
 		[3] = {
 			["actions"] = {
@@ -2881,23 +2733,56 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMissionary() then self.used = true end",
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
+end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Dark Missionary",
+			["name"] = "Cooldown if Ramuh",
 			["throttleTime"] = 0,
-			["time"] = 510,
+			["time"] = 506.4,
 			["timeRange"] = true,
-			["timelineIndex"] = 85,
+			["timelineIndex"] = 84,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "4dfb483d-d01f-51ad-8ca5-f23c0d042a7b",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "local Ramuh = 9281\
+\
+if NilsReactionCore.Helpers.Tanks.AmIMainTankByContentID(Ramuh) then\
+  if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "TBN if Ramuh",
+			["throttleTime"] = 0,
+			["time"] = 506.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 84,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1.5,
+			["timerStartOffset"] = -2.5,
 			["used"] = false,
-			["uuid"] = "e5f02744-090d-de6f-b267-78d1569d6fd7",
+			["uuid"] = "3800f5b1-0852-4e79-8f5b-7756fcb98d60",
 		},
+	},
+	[85] = {
 	},
 	[86] = {
 		[1] = {
@@ -2906,19 +2791,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2943,19 +2816,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2980,19 +2841,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -3009,6 +2858,29 @@ self.end = table.size(drawnOrbs) >= 2",
 			["used"] = false,
 			["uuid"] = "bea67702-b87f-c84b-a4dd-e1c653cefeff",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Hotbar.Darkknight.DarkMissionary() then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Dark Missionary",
+			["throttleTime"] = 0,
+			["time"] = 517.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 88,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1.5,
+			["used"] = false,
+			["uuid"] = "53b646a0-3d29-70a4-bfd4-08e08b212e61",
+		},
 	},
 	[89] = {
 		[1] = {
@@ -3017,19 +2889,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -3054,19 +2914,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -3091,19 +2939,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -3128,19 +2964,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local drawnOrbs = {}\
-local members = NilsReactionCore.Buffs.MembersWithBuff(electrify)\
-if table.size(members) > 0 then\
-  for id, ent in pairs(members) do\
-    drawnOrbs[id] = true\
-    Argus.addTimedCircleFilled(3000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-  end\
-end\
-\
-self.end = table.size(drawnOrbs) >= 2",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -3190,7 +3014,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -3203,10 +3027,12 @@ self.end = table.size(drawnOrbs) >= 2",
 			["timelineIndex"] = 95,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "2a1b78e2-1d0c-8bee-a9ec-def84a9f2e43",
+			["uuid"] = "3eace494-1cd4-26b8-adda-baa25bb6ebed",
 		},
+	},
+	[96] = {
 	},
 	[98] = {
 		[1] = {
@@ -3215,7 +3041,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -3228,9 +3054,9 @@ self.end = table.size(drawnOrbs) >= 2",
 			["timelineIndex"] = 98,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "e0401f5d-24a3-7ddb-a42a-3e7b5b6a65ba",
+			["uuid"] = "491983ef-adff-75c7-8dd3-c67f0ca79403",
 		},
 	},
 	[102] = {
@@ -3240,7 +3066,7 @@ self.end = table.size(drawnOrbs) >= 2",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player.id) < 10 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -3253,9 +3079,9 @@ self.end = table.size(drawnOrbs) >= 2",
 			["timelineIndex"] = 102,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "b7441ab9-07f5-476d-abc1-9fe0ae26047b",
+			["uuid"] = "192a17c0-4358-42b4-9dae-ac3df2f18ca1",
 		},
 	},
 	["mapID"] = 906,

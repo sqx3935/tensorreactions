@@ -64,7 +64,7 @@ local obj1 = {
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -77,9 +77,9 @@ local obj1 = {
 			["timelineIndex"] = 6,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "20124a92-908b-5b70-952c-a1e8a62687aa",
+			["uuid"] = "f55c65cb-e650-c7bf-a4dd-2f5c8c8914cf",
 		},
 	},
 	[7] = {
@@ -105,6 +105,31 @@ local obj1 = {
 			["timerStartOffset"] = -5,
 			["used"] = false,
 			["uuid"] = "9036aac1-2475-1d3d-ab0d-49cd626cc7bb",
+		},
+	},
+	[11] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.ChaosStrike() > 4 then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Clouds",
+			["throttleTime"] = 0,
+			["time"] = 84.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 11,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "f9eb8456-f627-ee91-bebe-55cd1766b82a",
 		},
 	},
 	[14] = {
@@ -139,7 +164,7 @@ local obj1 = {
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -152,9 +177,9 @@ local obj1 = {
 			["timelineIndex"] = 15,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "eddcf867-4405-d097-810e-d790eaeb0f9f",
+			["uuid"] = "3cf04b09-ec98-1056-a727-4e9ebb6fd2fd",
 		},
 	},
 	[17] = {
@@ -403,7 +428,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -416,9 +441,9 @@ self.used = true",
 			["timelineIndex"] = 23,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "18748680-83c6-4c2c-a577-083f00ed0802",
+			["uuid"] = "8d274db6-ea4d-8d14-948c-78a57f06bd4d",
 		},
 	},
 	[31] = {
@@ -453,7 +478,7 @@ self.used = true",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -466,9 +491,9 @@ self.used = true",
 			["timelineIndex"] = 32,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "ce9e5fab-018c-6919-9c18-8c6ecbb1cdee",
+			["uuid"] = "e866b8ad-19dc-fc6c-bc86-6e248a62c5d9",
 		},
 	},
 	[33] = {
@@ -769,7 +794,7 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -782,9 +807,9 @@ self.used = true\
 			["timelineIndex"] = 43,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "909968bc-5d16-e04f-9ab5-651529e4f156",
+			["uuid"] = "784a1737-7865-8c6d-9c36-4fa5dcd74424",
 		},
 	},
 	[45] = {
@@ -794,16 +819,7 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -814,11 +830,11 @@ self.end = true\
 			["time"] = 297.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 45,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "6ea09dc5-db4b-d107-b38c-19ccf91d66a9",
+			["uuid"] = "22143e3b-4c97-903e-9d2a-7e5068339c6f",
 		},
 	},
 	[46] = {
@@ -828,16 +844,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -848,11 +855,11 @@ self.end = true\
 			["time"] = 301.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 46,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "443e6091-4630-5d6e-b427-4079aa5c85de",
+			["uuid"] = "bd76b6cc-9eb8-2525-9bb4-863e114f8580",
 		},
 	},
 	[48] = {
@@ -862,16 +869,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -882,11 +880,11 @@ self.end = true\
 			["time"] = 305.3,
 			["timeRange"] = true,
 			["timelineIndex"] = 48,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "7b60d546-3ac1-989c-af57-be8927dfcc77",
+			["uuid"] = "6d83fa96-2970-4eeb-941a-c816c06c8742",
 		},
 	},
 	[49] = {
@@ -896,16 +894,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -916,11 +905,11 @@ self.end = true\
 			["time"] = 309,
 			["timeRange"] = true,
 			["timelineIndex"] = 49,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "5a823ae2-542f-3288-aa8a-86412db951d5",
+			["uuid"] = "b69404b6-0ed7-f26d-83d2-039da7a7c2e7",
 		},
 	},
 	[50] = {
@@ -930,16 +919,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -950,11 +930,11 @@ self.end = true\
 			["time"] = 312.7,
 			["timeRange"] = true,
 			["timelineIndex"] = 50,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "e2b67498-2821-aab2-a725-86f1121fc176",
+			["uuid"] = "645fee00-656d-f008-ad84-3e46922aa63f",
 		},
 	},
 	[51] = {
@@ -964,16 +944,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -984,11 +955,11 @@ self.end = true\
 			["time"] = 316.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 51,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "c116156b-512f-fb8c-9cd0-ece9d3d41076",
+			["uuid"] = "674bc57f-edd8-8b0d-ac0f-df80dee9795b",
 		},
 	},
 	[52] = {
@@ -1023,16 +994,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1043,11 +1005,11 @@ self.end = true\
 			["time"] = 320.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 53,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "0ded6940-7e06-05ea-a540-92f156687305",
+			["uuid"] = "ab6ec834-2532-8e52-8d81-9c6821833075",
 		},
 	},
 	[54] = {
@@ -1057,16 +1019,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1077,11 +1030,11 @@ self.end = true\
 			["time"] = 323.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 54,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "2a36e68d-c216-5beb-a7b5-9d3be280acaf",
+			["uuid"] = "c13b708a-2af2-44f0-8225-d79d4d594e5a",
 		},
 	},
 	[55] = {
@@ -1091,16 +1044,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1111,11 +1055,11 @@ self.end = true\
 			["time"] = 327.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 55,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "ad34c13e-0ab5-c36e-9462-4d95f7dc907e",
+			["uuid"] = "b865dc8e-e11c-ac4b-8d67-ef32905ecf33",
 		},
 	},
 	[57] = {
@@ -1125,7 +1069,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1138,9 +1082,9 @@ self.end = true\
 			["timelineIndex"] = 57,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "8d97cb6f-e451-04a1-85db-c60e36c1a593",
+			["uuid"] = "803bbe4f-d7b0-adea-8b15-1ed714ea6cae",
 		},
 	},
 	[64] = {
@@ -1175,7 +1119,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1188,9 +1132,9 @@ self.end = true\
 			["timelineIndex"] = 65,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "129e0239-34a7-88fe-bcc7-b42ba33d58dd",
+			["uuid"] = "9d829bdb-0e2c-3336-b906-944c766911a2",
 		},
 	},
 	[66] = {
@@ -1464,7 +1408,7 @@ self.used = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1477,9 +1421,9 @@ self.used = true\
 			["timelineIndex"] = 75,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "09a2b343-e1fb-e6b4-8532-315be004224a",
+			["uuid"] = "b018236c-0503-d554-9476-5938d4bb7b7d",
 		},
 	},
 	[76] = {
@@ -1505,6 +1449,31 @@ self.used = true\
 			["timerStartOffset"] = -5,
 			["used"] = false,
 			["uuid"] = "32540ba6-cf99-8110-995c-8d1e3e6d5af2",
+		},
+	},
+	[78] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.ChaosStrike() > 4 then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Draw Clouds",
+			["throttleTime"] = 0,
+			["time"] = 465.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 78,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "49920bf5-ec14-460f-b5d8-dda3a5e09cdd",
 		},
 	},
 	[81] = {
@@ -1592,16 +1561,7 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1612,11 +1572,11 @@ self.end = true\
 			["time"] = 502.6,
 			["timeRange"] = true,
 			["timelineIndex"] = 83,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "be1d6a83-495c-578e-9946-a0887e3ba502",
+			["uuid"] = "c3de7b55-16f3-daa2-95f6-2d1a3ecaad7c",
 		},
 	},
 	[84] = {
@@ -1626,16 +1586,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1646,11 +1597,11 @@ self.end = true\
 			["time"] = 506.4,
 			["timeRange"] = true,
 			["timelineIndex"] = 84,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "82a0d11b-1b38-1b07-bed4-08fb0bd857e0",
+			["uuid"] = "257391c4-0fea-2508-bfb9-5197f2f55934",
 		},
 	},
 	[86] = {
@@ -1660,16 +1611,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1680,11 +1622,11 @@ self.end = true\
 			["time"] = 510.1,
 			["timeRange"] = true,
 			["timelineIndex"] = 86,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "cd4becbf-b279-d3c8-b32c-a481035b3643",
+			["uuid"] = "8b9c65d3-6cb2-2b8e-b0a7-eb2cd0a84a47",
 		},
 	},
 	[87] = {
@@ -1694,16 +1636,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1714,11 +1647,11 @@ self.end = true\
 			["time"] = 513.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 87,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "f9707c12-67ca-18ee-9672-897b9440c5e7",
+			["uuid"] = "97f8d8a1-6731-3fa5-b55a-8d898d0d7b82",
 		},
 	},
 	[88] = {
@@ -1728,16 +1661,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1748,11 +1672,11 @@ self.end = true\
 			["time"] = 517.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 88,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "fc0980c6-9e41-92c9-aa04-e8359df74af6",
+			["uuid"] = "59e2357b-6279-d56c-9d05-6413d6308512",
 		},
 	},
 	[89] = {
@@ -1762,16 +1686,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1782,11 +1697,11 @@ self.end = true\
 			["time"] = 521.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 89,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "231b3f8e-4d1e-2c2b-8f5f-a7267fbc6aea",
+			["uuid"] = "2167effb-b30d-8a0e-a882-ad1e6e4467a3",
 		},
 	},
 	[90] = {
@@ -1821,16 +1736,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1841,11 +1747,11 @@ self.end = true\
 			["time"] = 524.8,
 			["timeRange"] = true,
 			["timelineIndex"] = 91,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "f6e7f899-1729-ecea-a345-f84bbc3c9522",
+			["uuid"] = "2b89a44b-cfb0-d40e-bfb9-942243b22241",
 		},
 	},
 	[92] = {
@@ -1855,16 +1761,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1875,11 +1772,11 @@ self.end = true\
 			["time"] = 528.5,
 			["timeRange"] = true,
 			["timelineIndex"] = 92,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "ff4603df-b948-7349-80e4-cc2de6da50a6",
+			["uuid"] = "4c509006-dfa4-687f-869a-6fffb149d0bf",
 		},
 	},
 	[93] = {
@@ -1889,16 +1786,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if Argus == nil then self.used = true end\
-local electrify = 2233\
-\
-local members = NilsReactionCore.Buffs.MembersWithBuff(2233)\
-for _, ent in pairs(members) do\
-  Argus.addTimedCircleFilled(4000, ent.pos.x, ent.pos.y, ent.pos.z, 1.5, 30, {r = 1, g = 0, b = 0}, 0.2, 0.2, 0, ent.id, GUI:ColorConvertFloat4ToU32(1, 0, 0, 1), 1.5)\
-end\
-\
-self.end = true\
-",
+			["execute"] = "if NilsReactionCore.Raid.ChainLightning() > 1 then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1909,11 +1797,11 @@ self.end = true\
 			["time"] = 532.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 93,
-			["timerEndOffset"] = 1,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "1e8b36de-5984-8f20-8676-3fccafd23eda",
+			["uuid"] = "cd0ac8a3-de8a-e55a-aa5c-d9eae517cacb",
 		},
 	},
 	[95] = {
@@ -1923,7 +1811,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -1936,9 +1824,9 @@ self.end = true\
 			["timelineIndex"] = 95,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "b32ed0b7-fb84-b4a3-a53f-4591ce4d7da7",
+			["uuid"] = "4bcba63e-efb6-7896-b406-98f1c33a8897",
 		},
 	},
 	[96] = {
@@ -1998,7 +1886,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2011,9 +1899,9 @@ self.end = true\
 			["timelineIndex"] = 98,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "a8a1e407-7401-bc3d-8153-8edfc975186c",
+			["uuid"] = "fb637540-e2e0-b4ac-894c-19810f982849",
 		},
 	},
 	[99] = {
@@ -2098,7 +1986,7 @@ self.end = true\
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Buffs.Duration(2228, Player) < 4 then NilsReactionCore.Alert.Send(\"Grab an Orb\")  self.used = true end",
+			["execute"] = "if NilsReactionCore.Raid.TTS.GrabOrb() then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -2111,9 +1999,9 @@ self.end = true\
 			["timelineIndex"] = 102,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -6,
+			["timerStartOffset"] = -7,
 			["used"] = false,
-			["uuid"] = "2938ccca-dbf3-aea2-96a2-f7e6fd7a7b0f",
+			["uuid"] = "6814e016-bed3-8077-b00d-04a9a54be5e1",
 		},
 	},
 	["mapID"] = 906,
