@@ -79,7 +79,7 @@ local obj1 = {
 			["timelineIndex"] = 10,
 			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -1,
+			["timerStartOffset"] = -3,
 			["used"] = false,
 			["uuid"] = "0a4acd4b-6ec0-2a84-9242-19843afd642f",
 		},
