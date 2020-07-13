@@ -1,6 +1,6 @@
 -- Persistent Data
 local multiRefObjects = {
-{},{},{},{},{},{},
+{},{},
 } -- multiRefObjects
 local obj1 = {
 	[2] = {
@@ -225,35 +225,6 @@ end",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
-  NilsReactionCore.Alert.Send(\"use shirk in 3\")\
-else\
-  NilsReactionCore.Alert.Send(\"use provoke in 3\")\
-end\
-\
-self.used = true",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Tank Swap TTS",
-			["throttleTime"] = 0,
-			["time"] = 92.9,
-			["timeRange"] = true,
-			["timelineIndex"] = 19,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 1.8999999761581,
-			["used"] = false,
-			["uuid"] = "004d576a-00a6-2a10-bec6-737aab09cde6",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOn(NilsReactionCore.params.isTimeline) then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -271,7 +242,7 @@ self.used = true",
 			["used"] = false,
 			["uuid"] = "0d0769cf-23a7-0715-ac4c-66397b48cb4a",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -296,7 +267,7 @@ end",
 			["used"] = false,
 			["uuid"] = "94c6bed8-1cdd-1469-aa13-6ad736296a6f",
 		},
-		[4] = {
+		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -320,6 +291,83 @@ end",
 			["timerStartOffset"] = 2.5,
 			["used"] = false,
 			["uuid"] = "8da11d74-281e-93be-bab4-bd5503816f36",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+  NilsReactionCore.Alert.Send(\"use shirk in 3\")\
+else\
+  NilsReactionCore.Alert.Send(\"use provoke in 3\")\
+end\
+\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Tank Swap TTS",
+			["throttleTime"] = 0,
+			["time"] = 92.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 19,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "a683bc2a-4e87-61ae-adc2-6d1e7c581028",
+		},
+		[5] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.coreparams.reactions.timeline.actions.autoShirk.enabled = true\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shirk Listener on",
+			["throttleTime"] = 0,
+			["time"] = 92.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 19,
+			["timerEndOffset"] = 1,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "3b75c65d-36f4-4b37-b5ed-462f674cef83",
+		},
+		[6] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.coreparams.reactions.timeline.actions.autoShirk.enabled = true\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Shirk Listener off",
+			["throttleTime"] = 0,
+			["time"] = 92.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 19,
+			["timerEndOffset"] = 7,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 6,
+			["used"] = false,
+			["uuid"] = "4bc40b4e-b195-3289-b532-ad36275788d4",
 		},
 	},
 	[20] = {
@@ -525,30 +573,6 @@ self.used = table.size(drawnOrbs) >= 4",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
-",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Sprint",
-			["throttleTime"] = 0,
-			["time"] = 185.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 31,
-			["timerEndOffset"] = 2,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
-			["used"] = false,
-			["uuid"] = "85ff34ce-bfcb-de3f-a447-3e4f941ed938",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
 			["execute"] = "if TensorCore.isAnyEntityCasting(19821) then\
   NilsReactionCore.Hotbar.Sprint()\
   if NilsReactionCore.Logic.Toggles.GapClosersOff(NilsReactionCore.params.isTimeline) then self.used = true end\
@@ -569,28 +593,30 @@ end",
 			["used"] = false,
 			["uuid"] = "bbc0897b-bf5b-d3c1-b25c-a5c1071bd075",
 		},
-		[3] = {
+		[2] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
-			["enabled"] = false,
-			["execute"] = "if NilsReactionCore.Logic.Toggles.GapClosersOff(NilsReactionCore.params.isTimeline) then self.used = true end",
+			["enabled"] = true,
+			["execute"] = "-- if sythe is first\
+NilsReactionCore.Hotbar.Sprint()\
+self.used = true",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Gap closer OFF",
+			["name"] = "Sprint",
 			["throttleTime"] = 0,
 			["time"] = 185.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 31,
-			["timerEndOffset"] = 0,
+			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -5.1999998092651,
+			["timerStartOffset"] = 1,
 			["used"] = false,
-			["uuid"] = "bea95b26-77f4-6f74-bb2a-899cfb8e181a",
+			["uuid"] = "31923307-081e-241d-8518-baae3b3d60e3",
 		},
 	},
 	[32] = {
@@ -841,266 +867,10 @@ end",
 		},
 		[2] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 4,
-					["actionID"] = -1,
-					["actionLua"] = "if NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000) then\
-  self.used = true\
-end",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-						[1] = 1,
-						[2] = 2,
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "ACR_TensorMagnum_CD",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = false,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = -1,
-					["targetName"] = "",
-					["targetSubType"] = 1,
-					["targetType"] = 1,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
-			},
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0,
-					["actionID"] = -1,
-					["buffCheckType"] = 1,
-					["buffDuration"] = 0,
-					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[6],
-					["category"] = 2,
-					["comparator"] = 2,
-					["conditionLua"] = "",
-					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[4],
-					["contentid"] = -1,
-					["dequeueIfLuaFalse"] = false,
-					["enmityValue"] = 0,
-					["gaugeIndex"] = 1,
-					["gaugeValue"] = 0,
-					["hpType"] = 1,
-					["hpValue"] = 30,
-					["inCombatType"] = 1,
-					["inRangeValue"] = 0,
-					["lastSkillID"] = -1,
-					["localmapid"] = -1,
-					["matchAnyBuff"] = false,
-					["mpType"] = 1,
-					["mpValue"] = 0,
-					["name"] = "",
-					["partyHpType"] = 1,
-					["partyHpValue"] = 0,
-					["partyMpType"] = 1,
-					["partyMpValue"] = 0,
-					["partyTargetContentID"] = -1,
-					["partyTargetName"] = "",
-					["partyTargetNumber"] = 1,
-					["partyTargetSubType"] = 1,
-					["partyTargetType"] = 1,
-					["rangeCheckSourceSubType"] = 1,
-					["rangeCheckSourceType"] = 1,
-					["rangeSourceContentID"] = -1,
-					["rangeSourceName"] = "",
-					["setEventTargetSubtype"] = 1,
-					["setFirstMatch"] = false,
-				},
-				[2] = {
-					["actionCDValue"] = 0,
-					["actionID"] = -1,
-					["buffCheckType"] = 1,
-					["buffDuration"] = 0,
-					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[6],
-					["category"] = 1,
-					["comparator"] = 1,
-					["conditionLua"] = "",
-					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[4],
-					["contentid"] = 9319,
-					["dequeueIfLuaFalse"] = false,
-					["enmityValue"] = 0,
-					["gaugeIndex"] = 1,
-					["gaugeValue"] = 0,
-					["hpType"] = 1,
-					["hpValue"] = 0,
-					["inCombatType"] = 1,
-					["inRangeValue"] = 0,
-					["lastSkillID"] = -1,
-					["localmapid"] = -1,
-					["matchAnyBuff"] = false,
-					["mpType"] = 1,
-					["mpValue"] = 0,
-					["name"] = "",
-					["partyHpType"] = 1,
-					["partyHpValue"] = 0,
-					["partyMpType"] = 1,
-					["partyMpValue"] = 0,
-					["partyTargetContentID"] = -1,
-					["partyTargetName"] = "",
-					["partyTargetNumber"] = 1,
-					["partyTargetSubType"] = 1,
-					["partyTargetType"] = 1,
-					["rangeCheckSourceSubType"] = 1,
-					["rangeCheckSourceType"] = 1,
-					["rangeSourceContentID"] = -1,
-					["rangeSourceName"] = "",
-					["setEventTargetSubtype"] = 1,
-					["setFirstMatch"] = false,
-				},
-			},
-			["enabled"] = true,
-			["execute"] = "",
-			["executeType"] = 1,
-			["lastUse"] = 0,
-			["loop"] = true,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "do not suicide on electric aether",
-			["throttleTime"] = 0,
-			["time"] = 229.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 37,
-			["timerEndOffset"] = 40,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
-			["used"] = false,
-			["uuid"] = "7f5a2c29-95a0-8843-b2d9-08a07e762824",
-		},
-		[3] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 3,
-					["actionID"] = -1,
-					["actionLua"] = "",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-						[1] = 2,
-						[2] = 1,
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = true,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = -1,
-					["targetName"] = "Aqueous Aether",
-					["targetSubType"] = 1,
-					["targetType"] = 5,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
-			},
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0,
-					["actionID"] = -1,
-					["buffCheckType"] = 1,
-					["buffDuration"] = 0,
-					["buffID"] = -1,
-					["buffIDList"] = {
-					},
-					["category"] = 4,
-					["comparator"] = 1,
-					["conditionLua"] = "local target = Player:GetTarget()\
-return target == nil or target.hp.current == 0",
-					["conditionType"] = 1,
-					["conditions"] = {
-					},
-					["contentid"] = -1,
-					["dequeueIfLuaFalse"] = false,
-					["enmityValue"] = 0,
-					["gaugeIndex"] = 1,
-					["gaugeValue"] = 0,
-					["hpType"] = 1,
-					["hpValue"] = 0,
-					["inCombatType"] = 1,
-					["inRangeValue"] = 0,
-					["lastSkillID"] = -1,
-					["localmapid"] = -1,
-					["matchAnyBuff"] = false,
-					["mpType"] = 1,
-					["mpValue"] = 0,
-					["name"] = "",
-					["partyHpType"] = 1,
-					["partyHpValue"] = 0,
-					["partyMpType"] = 1,
-					["partyMpValue"] = 0,
-					["partyTargetContentID"] = -1,
-					["partyTargetName"] = "",
-					["partyTargetNumber"] = 1,
-					["partyTargetSubType"] = 1,
-					["partyTargetType"] = 1,
-					["rangeCheckSourceSubType"] = 1,
-					["rangeCheckSourceType"] = 1,
-					["rangeSourceContentID"] = -1,
-					["rangeSourceName"] = "",
-					["setEventTargetSubtype"] = 1,
-					["setFirstMatch"] = false,
-				},
-			},
-			["enabled"] = true,
-			["execute"] = "",
-			["executeType"] = 1,
-			["lastUse"] = 0,
-			["loop"] = true,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "target others",
-			["throttleTime"] = 0,
-			["time"] = 229.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 37,
-			["timerEndOffset"] = 65,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
-			["used"] = false,
-			["uuid"] = "dfe04d23-71c5-a922-999b-a9f133b944e4",
-		},
-		[4] = {
-			["actions"] = {
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "local target = Player:GetTarget()\
   if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
     if NilsReactionCore.Hotbar.Stun() then self.used = true end\
@@ -1121,7 +891,7 @@ return target == nil or target.hp.current == 0",
 			["used"] = false,
 			["uuid"] = "52c91b84-8bdb-dad8-8355-3697fec74878",
 		},
-		[5] = {
+		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1140,266 +910,144 @@ return target == nil or target.hp.current == 0",
 			["timelineIndex"] = 37,
 			["timerEndOffset"] = 0,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -4.5,
+			["timerStartOffset"] = -3.5,
 			["used"] = false,
 			["uuid"] = "6ec436cd-a0b3-b075-9d7d-66d33c2478aa",
 		},
-		[6] = {
+		[4] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 3,
-					["actionID"] = -1,
-					["actionLua"] = "",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = true,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = 9320,
-					["targetName"] = "Aqueous Aether",
-					["targetSubType"] = 1,
-					["targetType"] = 3,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
 			},
 			["conditions"] = {
 			},
-			["enabled"] = false,
-			["execute"] = "",
-			["executeType"] = 1,
-			["lastUse"] = 0,
-			["loop"] = true,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "target aqueous aether",
-			["throttleTime"] = 500,
-			["time"] = 229.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 37,
-			["timerEndOffset"] = 40,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
-			["used"] = false,
-			["uuid"] = "aeb894e7-9cba-cfd5-8986-0cdb99b44e1d",
-		},
-		[7] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 3,
-					["actionID"] = -1,
-					["actionLua"] = "",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-						[1] = 2,
-						[2] = 1,
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = true,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = 9321,
-					["targetName"] = "Aqueous Aether",
-					["targetSubType"] = 1,
-					["targetType"] = 3,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
-			},
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0,
-					["actionID"] = -1,
-					["buffCheckType"] = 1,
-					["buffDuration"] = 0,
-					["buffID"] = -1,
-					["buffIDList"] = {
-					},
-					["category"] = 4,
-					["comparator"] = 1,
-					["conditionLua"] = "local target = Player:GetTarget()\
-return target == nil or (target.contentid ~= 9320 and target.hp.current == 0)",
-					["conditionType"] = 1,
-					["conditions"] = {
-					},
-					["contentid"] = -1,
-					["dequeueIfLuaFalse"] = false,
-					["enmityValue"] = 0,
-					["gaugeIndex"] = 1,
-					["gaugeValue"] = 0,
-					["hpType"] = 1,
-					["hpValue"] = 0,
-					["inCombatType"] = 1,
-					["inRangeValue"] = 0,
-					["lastSkillID"] = -1,
-					["localmapid"] = -1,
-					["matchAnyBuff"] = false,
-					["mpType"] = 1,
-					["mpValue"] = 0,
-					["name"] = "",
-					["partyHpType"] = 1,
-					["partyHpValue"] = 0,
-					["partyMpType"] = 1,
-					["partyMpValue"] = 0,
-					["partyTargetContentID"] = -1,
-					["partyTargetName"] = "",
-					["partyTargetNumber"] = 1,
-					["partyTargetSubType"] = 1,
-					["partyTargetType"] = 1,
-					["rangeCheckSourceSubType"] = 1,
-					["rangeCheckSourceType"] = 1,
-					["rangeSourceContentID"] = -1,
-					["rangeSourceName"] = "",
-					["setEventTargetSubtype"] = 1,
-					["setFirstMatch"] = false,
-				},
-			},
-			["enabled"] = false,
-			["execute"] = "",
-			["executeType"] = 1,
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Raid.Mechanics.E8SDetermineLeftOrRight() then self.used = true end",
+			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "target earthen after aqua",
+			["name"] = "Determine Side",
 			["throttleTime"] = 0,
 			["time"] = 229.2,
 			["timeRange"] = true,
 			["timelineIndex"] = 37,
-			["timerEndOffset"] = 20,
+			["timerEndOffset"] = 3,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 1,
+			["timerStartOffset"] = -1,
 			["used"] = false,
-			["uuid"] = "f387b343-2469-65c5-9b5b-41dbafcbfca4",
+			["uuid"] = "5097baa6-9e93-070a-a5a7-681ed8c0fa7b",
+		},
+		[5] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- 1x Aqueous Aether (9320)\
+-- 2x Electric Aether (9319)\
+\
+if NilsReactionCore.Raid.Params.Adds.E8S.AreYouLeft then\
+  local jobID = NilsReactionCore.jobs.GetJobID()\
+  local target = Player:GetTarget()\
+\
+  -- Aqueous Aether\
+  NilsReactionCore.Helpers.Target.SetTargetByContentID(9320)\
+\
+  if NilsReactionCore.Helpers.ReturnValueOrDefault(NilsReactionCore.Settings.jobs[jobID].Raid.Mechanics.Adds.E8S.StunLeftFirst, true, \"boolean\") then\
+    if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+      NilsReactionCore.Hotbar.Stun()\
+    end\
+  end\
+\
+  -- Electric Suicide Prevention, toggle off assist if health gets to low\
+  if NilsReactionCore.Helpers.Target.IsContentID(9319) and Player.hp.percent <= 30 then\
+    NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000)\
+  end\
+\
+  -- if no auto target, then priority attacks\
+  -- Aqueous\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9320) end\
+  -- Electric\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9319) end\
+\
+  self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = true,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Left Side",
+			["throttleTime"] = 0,
+			["time"] = 229.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 37,
+			["timerEndOffset"] = 14,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "9327e871-672e-a687-963a-3c5316659700",
+		},
+		[6] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- 1x Earthen Aether (9321)\
+-- 1x Aqueous Aether (9320)\
+\
+if NilsReactionCore.Raid.Params.Adds.E8S.AreYouRight then\
+  local jobID = NilsReactionCore.jobs.GetJobID()\
+  local target = Player:GetTarget()\
+\
+  -- if first Silence then first Target it Earthen\
+  if NilsReactionCore.Helpers.ReturnValueOrDefault(NilsReactionCore.Settings.jobs[jobID].Raid.Mechanics.Adds.E8S.SilenceRightFirst, true, \"boolean\") then\
+    NilsReactionCore.coreparams.enableAutoInterrupt = true\
+    NilsReactionCore.Hotbar.Toggles.Interject.Execute(NilsReactionCore.params.on)\
+    NilsReactionCore.Helpers.Target.SetTargetByContentID(9321)\
+  else\
+    NilsReactionCore.coreparams.enableAutoInterrupt = false\
+    NilsReactionCore.Hotbar.Toggles.Interject.Execute(NilsReactionCore.params.off)\
+    -- Aqueous Aether\
+    NilsReactionCore.Helpers.Target.SetTargetByContentID(9320)\
+\
+    if NilsReactionCore.Helpers.ReturnValueOrDefault(NilsReactionCore.Settings.jobs[jobID].Raid.Mechanics.Adds.E8S.StunRightFirst, true, \"boolean\") then\
+      if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
+        NilsReactionCore.Hotbar.Stun()\
+      end\
+    end\
+  end\
+\
+  -- if no auto target, then priority attacks\
+  -- Aqueous\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9320) end\
+  -- Earthen\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9321) end\
+\
+  self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = true,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Right Side",
+			["throttleTime"] = 0,
+			["time"] = 229.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 37,
+			["timerEndOffset"] = 14,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "5dc35789-7544-2a92-b268-f1d6a15e4dd7",
 		},
 	},
 	[38] = {
 	},
 	[39] = {
 		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 3,
-					["actionID"] = -1,
-					["actionLua"] = "",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = true,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = 9320,
-					["targetName"] = "Aqueous Aether",
-					["targetSubType"] = 1,
-					["targetType"] = 3,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
-			},
-			["conditions"] = {
-			},
-			["enabled"] = false,
-			["execute"] = "",
-			["executeType"] = 1,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "target aqueous aether",
-			["throttleTime"] = 0,
-			["time"] = 243.3,
-			["timeRange"] = true,
-			["timelineIndex"] = 39,
-			["timerEndOffset"] = 10,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
-			["used"] = false,
-			["uuid"] = "8dfcb74c-e087-6b1e-b852-de2e74ea5334",
-		},
-		[2] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "local target = Player:GetTarget()\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    if NilsReactionCore.Hotbar.Stun() then self.used = true end\
- end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = true,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "Leg Sweep",
-			["throttleTime"] = 0,
-			["time"] = 243.3,
-			["timeRange"] = true,
-			["timelineIndex"] = 39,
-			["timerEndOffset"] = 10,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
-			["used"] = false,
-			["uuid"] = "ee3d3cfd-3aa6-0780-a35e-c373ac53c185",
-		},
-		[3] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1422,173 +1070,63 @@ return target == nil or (target.contentid ~= 9320 and target.hp.current == 0)",
 			["used"] = false,
 			["uuid"] = "da14317e-425d-952a-ba94-881b9ce8d529",
 		},
-	},
-	[41] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 3,
-					["actionID"] = -1,
-					["actionLua"] = "",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = true,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = 9320,
-					["targetName"] = "Aqueous Aether",
-					["targetSubType"] = 1,
-					["targetType"] = 3,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
-			},
-			["conditions"] = {
-			},
-			["enabled"] = false,
-			["execute"] = "",
-			["executeType"] = 1,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "target aqueous aether",
-			["throttleTime"] = 0,
-			["time"] = 257.4,
-			["timeRange"] = true,
-			["timelineIndex"] = 41,
-			["timerEndOffset"] = 10,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
-			["used"] = false,
-			["uuid"] = "8e92e33a-f9ef-b755-97d4-8463216fd024",
-		},
 		[2] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 3,
-					["actionID"] = -1,
-					["actionLua"] = "",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-						[1] = 2,
-						[2] = 1,
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = true,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = -1,
-					["targetName"] = "Aqueous Aether",
-					["targetSubType"] = 1,
-					["targetType"] = 5,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
 			},
 			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0,
-					["actionID"] = -1,
-					["buffCheckType"] = 1,
-					["buffDuration"] = 0,
-					["buffID"] = -1,
-					["buffIDList"] = {
-					},
-					["category"] = 4,
-					["comparator"] = 1,
-					["conditionLua"] = "local target = Player:GetTarget()\
-return target == nil or target.hp.current == 0",
-					["conditionType"] = 1,
-					["conditions"] = {
-					},
-					["contentid"] = -1,
-					["dequeueIfLuaFalse"] = false,
-					["enmityValue"] = 0,
-					["gaugeIndex"] = 1,
-					["gaugeValue"] = 0,
-					["hpType"] = 1,
-					["hpValue"] = 0,
-					["inCombatType"] = 1,
-					["inRangeValue"] = 0,
-					["lastSkillID"] = -1,
-					["localmapid"] = -1,
-					["matchAnyBuff"] = false,
-					["mpType"] = 1,
-					["mpValue"] = 0,
-					["name"] = "",
-					["partyHpType"] = 1,
-					["partyHpValue"] = 0,
-					["partyMpType"] = 1,
-					["partyMpValue"] = 0,
-					["partyTargetContentID"] = -1,
-					["partyTargetName"] = "",
-					["partyTargetNumber"] = 1,
-					["partyTargetSubType"] = 1,
-					["partyTargetType"] = 1,
-					["rangeCheckSourceSubType"] = 1,
-					["rangeCheckSourceType"] = 1,
-					["rangeSourceContentID"] = -1,
-					["rangeSourceName"] = "",
-					["setEventTargetSubtype"] = 1,
-					["setFirstMatch"] = false,
-				},
 			},
 			["enabled"] = true,
-			["execute"] = "",
-			["executeType"] = 1,
+			["execute"] = "-- 1x Earthen Aether (9321)\
+\
+if NilsReactionCore.Raid.Params.Adds.E8S.AreYouLeft then\
+  local jobID = NilsReactionCore.jobs.GetJobID()\
+  local target = Player:GetTarget()\
+\
+  -- if First Silence target earthen\
+  if NilsReactionCore.Helpers.ReturnValueOrDefault(NilsReactionCore.Settings.jobs[jobID].Raid.Mechanics.Adds.E8S.SilenceLeftFirst, true, \"boolean\") then\
+    NilsReactionCore.coreparams.enableAutoInterrupt = true\
+    NilsReactionCore.Hotbar.Toggles.Interject.Execute(NilsReactionCore.params.on)\
+    NilsReactionCore.Helpers.Target.SetTargetByContentID(9321)\
+  else\
+    NilsReactionCore.coreparams.enableAutoInterrupt = false\
+    NilsReactionCore.Hotbar.Toggles.Interject.Execute(NilsReactionCore.params.off)\
+  end\
+\
+  -- Electric Suicide Prevention, toggle off assist if health gets to low\
+  if NilsReactionCore.Helpers.Target.IsContentID(9319) and Player.hp.percent <= 30 then\
+    NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000)\
+  end\
+\
+  -- Stun Aqueous\
+  if NilsReactionCore.Helpers.Target.IsContentID(9320) and not HasBuff(target.id, 2) and target.action == 50 then\
+    NilsReactionCore.Hotbar.Stun()\
+  end\
+\
+  -- if no auto target, then priority attacks\
+  -- Aqueous\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9320) end\
+  -- Earthen\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9321) end\
+  -- Electric\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9319) end\
+\
+  self.used = true\
+end",
+			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = true,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "target others",
+			["name"] = "Left Side",
 			["throttleTime"] = 0,
-			["time"] = 257.4,
+			["time"] = 243.3,
 			["timeRange"] = true,
-			["timelineIndex"] = 41,
-			["timerEndOffset"] = 65,
+			["timelineIndex"] = 39,
+			["timerEndOffset"] = 14,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
+			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "c85d2a20-03b6-d12c-9949-dd1332c10dbf",
+			["uuid"] = "1074d406-75ab-c017-9c50-a7e84e8dedd8",
 		},
 		[3] = {
 			["actions"] = {
@@ -1596,27 +1134,51 @@ return target == nil or target.hp.current == 0",
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "local target = Player:GetTarget()\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    if NilsReactionCore.Hotbar.Stun() then self.used = true end\
- end",
+			["execute"] = "-- 2x Electric Aether (9319)\
+\
+if NilsReactionCore.Raid.Params.Adds.E8S.AreYouRight then\
+  local jobID = NilsReactionCore.jobs.GetJobID()\
+  local target = Player:GetTarget()\
+\
+  -- Electric Suicide Prevention, toggle off assist if health gets to low\
+  if NilsReactionCore.Helpers.Target.IsContentID(9319) and Player.hp.percent <= 30 then\
+    NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000)\
+  end\
+\
+  -- Stun Aqueous\
+  if NilsReactionCore.Helpers.Target.IsContentID(9320) and not HasBuff(target.id, 2) and target.action == 50 then\
+    NilsReactionCore.Hotbar.Stun()\
+  end\
+\
+  -- priority attacks\
+  -- Aqueous\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9320) end\
+  -- Earthen\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9321) end\
+  -- Electric\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9319) end\
+\
+  self.used = true\
+end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = true,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Leg Sweep",
+			["name"] = "Right Side",
 			["throttleTime"] = 0,
-			["time"] = 257.4,
+			["time"] = 243.3,
 			["timeRange"] = true,
-			["timelineIndex"] = 41,
-			["timerEndOffset"] = 10,
+			["timelineIndex"] = 39,
+			["timerEndOffset"] = 14,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "ad7ce9c2-2962-0933-87be-6362f8d0f731",
+			["uuid"] = "3e5c3fbe-c109-8d55-93b1-239e16f4af33",
 		},
-		[4] = {
+	},
+	[41] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -1639,350 +1201,109 @@ return target == nil or target.hp.current == 0",
 			["used"] = false,
 			["uuid"] = "f48de7eb-f58f-e4b2-839a-063ddcac6f4a",
 		},
-	},
-	[43] = {
-		[1] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 4,
-					["actionID"] = -1,
-					["actionLua"] = "if NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000) then\
-  self.used = true\
-end",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-						[1] = 1,
-						[2] = 2,
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "ACR_TensorMagnum_CD",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = false,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = -1,
-					["targetName"] = "",
-					["targetSubType"] = 1,
-					["targetType"] = 1,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
-			},
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0,
-					["actionID"] = -1,
-					["buffCheckType"] = 1,
-					["buffDuration"] = 0,
-					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
-					["category"] = 2,
-					["comparator"] = 2,
-					["conditionLua"] = "",
-					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[3],
-					["contentid"] = -1,
-					["dequeueIfLuaFalse"] = false,
-					["enmityValue"] = 0,
-					["gaugeIndex"] = 1,
-					["gaugeValue"] = 0,
-					["hpType"] = 1,
-					["hpValue"] = 30,
-					["inCombatType"] = 1,
-					["inRangeValue"] = 0,
-					["lastSkillID"] = -1,
-					["localmapid"] = -1,
-					["matchAnyBuff"] = false,
-					["mpType"] = 1,
-					["mpValue"] = 0,
-					["name"] = "",
-					["partyHpType"] = 1,
-					["partyHpValue"] = 0,
-					["partyMpType"] = 1,
-					["partyMpValue"] = 0,
-					["partyTargetContentID"] = -1,
-					["partyTargetName"] = "",
-					["partyTargetNumber"] = 1,
-					["partyTargetSubType"] = 1,
-					["partyTargetType"] = 1,
-					["rangeCheckSourceSubType"] = 1,
-					["rangeCheckSourceType"] = 1,
-					["rangeSourceContentID"] = -1,
-					["rangeSourceName"] = "",
-					["setEventTargetSubtype"] = 1,
-					["setFirstMatch"] = false,
-				},
-				[2] = {
-					["actionCDValue"] = 0,
-					["actionID"] = -1,
-					["buffCheckType"] = 1,
-					["buffDuration"] = 0,
-					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[2],
-					["category"] = 1,
-					["comparator"] = 1,
-					["conditionLua"] = "",
-					["conditionType"] = 2,
-					["conditions"] = multiRefObjects[3],
-					["contentid"] = 9319,
-					["dequeueIfLuaFalse"] = false,
-					["enmityValue"] = 0,
-					["gaugeIndex"] = 1,
-					["gaugeValue"] = 0,
-					["hpType"] = 1,
-					["hpValue"] = 0,
-					["inCombatType"] = 1,
-					["inRangeValue"] = 0,
-					["lastSkillID"] = -1,
-					["localmapid"] = -1,
-					["matchAnyBuff"] = false,
-					["mpType"] = 1,
-					["mpValue"] = 0,
-					["name"] = "",
-					["partyHpType"] = 1,
-					["partyHpValue"] = 0,
-					["partyMpType"] = 1,
-					["partyMpValue"] = 0,
-					["partyTargetContentID"] = -1,
-					["partyTargetName"] = "",
-					["partyTargetNumber"] = 1,
-					["partyTargetSubType"] = 1,
-					["partyTargetType"] = 1,
-					["rangeCheckSourceSubType"] = 1,
-					["rangeCheckSourceType"] = 1,
-					["rangeSourceContentID"] = -1,
-					["rangeSourceName"] = "",
-					["setEventTargetSubtype"] = 1,
-					["setFirstMatch"] = false,
-				},
-			},
-			["enabled"] = true,
-			["execute"] = "",
-			["executeType"] = 1,
-			["lastUse"] = 0,
-			["loop"] = true,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "do not suicide on electric aether",
-			["throttleTime"] = 0,
-			["time"] = 271.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 43,
-			["timerEndOffset"] = 40,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
-			["used"] = false,
-			["uuid"] = "fb6652dc-544a-af57-8da4-6f24885ffc10",
-		},
 		[2] = {
 			["actions"] = {
-				[1] = {
-					["aType"] = 3,
-					["actionID"] = -1,
-					["actionLua"] = "",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = true,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = 9320,
-					["targetName"] = "Aqueous Aether",
-					["targetSubType"] = 1,
-					["targetType"] = 3,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
-			},
-			["conditions"] = {
-			},
-			["enabled"] = false,
-			["execute"] = "",
-			["executeType"] = 1,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "target aqueous aether",
-			["throttleTime"] = 0,
-			["time"] = 271.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 43,
-			["timerEndOffset"] = 10,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = -3,
-			["used"] = false,
-			["uuid"] = "4ce10a3f-cb7e-4ca7-b330-57ab789943cc",
-		},
-		[3] = {
-			["actions"] = {
-				[1] = {
-					["aType"] = 3,
-					["actionID"] = -1,
-					["actionLua"] = "",
-					["allowInterrupt"] = false,
-					["atomicPriority"] = false,
-					["castAtMouse"] = false,
-					["castPosX"] = 0,
-					["castPosY"] = 0,
-					["castPosZ"] = 0,
-					["conditions"] = {
-						[1] = 2,
-						[2] = 1,
-					},
-					["endIfUsed"] = false,
-					["gVar"] = "",
-					["gVarIndex"] = 1,
-					["gVarValue"] = 1,
-					["ignoreWeaveRules"] = false,
-					["isAreaTarget"] = false,
-					["luaNeedsWeaveWindow"] = false,
-					["luaReturnsAction"] = false,
-					["name"] = "",
-					["potType"] = 1,
-					["setTarget"] = true,
-					["showPositionPreview"] = false,
-					["stopCasting"] = false,
-					["stopMoving"] = false,
-					["targetContentID"] = 9321,
-					["targetName"] = "Aqueous Aether",
-					["targetSubType"] = 1,
-					["targetType"] = 3,
-					["untarget"] = false,
-					["useForWeaving"] = false,
-					["usePot"] = false,
-					["used"] = false,
-					["variableTogglesType"] = 1,
-				},
-			},
-			["conditions"] = {
-				[1] = {
-					["actionCDValue"] = 0,
-					["actionID"] = -1,
-					["buffCheckType"] = 1,
-					["buffDuration"] = 0,
-					["buffID"] = -1,
-					["buffIDList"] = {
-					},
-					["category"] = 4,
-					["comparator"] = 1,
-					["conditionLua"] = "local target = Player:GetTarget()\
-return target == nil or (target.contentid ~= 9320 and target.hp.current == 0)",
-					["conditionType"] = 1,
-					["conditions"] = {
-					},
-					["contentid"] = -1,
-					["dequeueIfLuaFalse"] = false,
-					["enmityValue"] = 0,
-					["gaugeIndex"] = 1,
-					["gaugeValue"] = 0,
-					["hpType"] = 1,
-					["hpValue"] = 0,
-					["inCombatType"] = 1,
-					["inRangeValue"] = 0,
-					["lastSkillID"] = -1,
-					["localmapid"] = -1,
-					["matchAnyBuff"] = false,
-					["mpType"] = 1,
-					["mpValue"] = 0,
-					["name"] = "",
-					["partyHpType"] = 1,
-					["partyHpValue"] = 0,
-					["partyMpType"] = 1,
-					["partyMpValue"] = 0,
-					["partyTargetContentID"] = -1,
-					["partyTargetName"] = "",
-					["partyTargetNumber"] = 1,
-					["partyTargetSubType"] = 1,
-					["partyTargetType"] = 1,
-					["rangeCheckSourceSubType"] = 1,
-					["rangeCheckSourceType"] = 1,
-					["rangeSourceContentID"] = -1,
-					["rangeSourceName"] = "",
-					["setEventTargetSubtype"] = 1,
-					["setFirstMatch"] = false,
-				},
-			},
-			["enabled"] = false,
-			["execute"] = "",
-			["executeType"] = 1,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "target earthen after aqua",
-			["throttleTime"] = 0,
-			["time"] = 271.5,
-			["timeRange"] = true,
-			["timelineIndex"] = 43,
-			["timerEndOffset"] = 20,
-			["timerOffset"] = 0,
-			["timerStartOffset"] = 1,
-			["used"] = false,
-			["uuid"] = "8d4a354f-f14f-c68d-a02e-215edc84a3ee",
-		},
-		[4] = {
-			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "local target = Player:GetTarget()\
-  if target ~= nil and table.valid(target) and target.attackable and target.contentid == 9320 and not HasBuff(target.id, 2) and target.action == 50 then\
-    if NilsReactionCore.Hotbar.Stun() then self.used = true end\
- end",
+			["execute"] = "-- 1x Earthen Aether (9321)\
+-- 1x Aqueous Aether (9320)\
+\
+if NilsReactionCore.Raid.Params.Adds.E8S.AreYouLeft then\
+  local target = Player:GetTarget()\
+\
+  NilsReactionCore.coreparams.enableAutoInterrupt = true\
+  NilsReactionCore.Hotbar.Toggles.Interject.Execute(NilsReactionCore.params.on)\
+  NilsReactionCore.Helpers.Target.SetTargetByContentID(9321)\
+\
+  -- Electric Suicide Prevention, toggle off assist if health gets to low\
+  if NilsReactionCore.Helpers.Target.IsContentID(9319) and Player.hp.percent <= 30 then\
+    NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000)\
+  end\
+\
+  -- Stun Aqueous\
+  if NilsReactionCore.Helpers.Target.IsContentID(9320) and not HasBuff(target.id, 2) and target.action == 50 then\
+    NilsReactionCore.Hotbar.Stun()\
+  end\
+\
+  -- if no auto target, then priority attacks\
+  -- Aqueous\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9320) end\
+  -- Earthen\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9321) end\
+  -- Electric\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9319) end\
+\
+  self.used = true\
+end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = true,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "Leg Sweep",
+			["name"] = "Left Side",
 			["throttleTime"] = 0,
-			["time"] = 271.5,
+			["time"] = 257.4,
 			["timeRange"] = true,
-			["timelineIndex"] = 43,
-			["timerEndOffset"] = 10,
+			["timelineIndex"] = 41,
+			["timerEndOffset"] = 14,
 			["timerOffset"] = 0,
 			["timerStartOffset"] = 0,
 			["used"] = false,
-			["uuid"] = "a702d051-55cb-db7e-9b4d-4c36a79d0e29",
+			["uuid"] = "0e6a78e0-6759-99a4-92b7-bce15ef0a233",
 		},
-		[5] = {
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- 2x Electric Aether (9319)\
+-- 1x Aqueous Aether (9320)\
+\
+if NilsReactionCore.Raid.Params.Adds.E8S.AreYouRight then\
+  local target = Player:GetTarget()\
+\
+  -- Electric Suicide Prevention, toggle off assist if health gets to low\
+  if NilsReactionCore.Helpers.Target.IsContentID(9319) and Player.hp.percent <= 30 then\
+    NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000)\
+  end\
+\
+  -- Stun Aqueous\
+  if NilsReactionCore.Helpers.Target.IsContentID(9320) and not HasBuff(target.id, 2) and target.action == 50 then\
+    NilsReactionCore.Hotbar.Stun()\
+  end\
+\
+  -- priority attacks\
+  -- Aqueous\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9320) end\
+  -- Earthen\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9321) end\
+  -- Electric\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9319) end\
+\
+  self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Right Side",
+			["throttleTime"] = 0,
+			["time"] = 257.4,
+			["timeRange"] = true,
+			["timelineIndex"] = 41,
+			["timerEndOffset"] = 14,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "c381c0d0-d70e-2bc3-86a5-f570825b389c",
+		},
+	},
+	[43] = {
+		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
@@ -2006,6 +1327,113 @@ end",
 			["timerStartOffset"] = 3,
 			["used"] = false,
 			["uuid"] = "f0dd8172-e872-622a-adb2-7d42b4a5adc5",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- 2x Electric Aether (9319)\
+\
+if NilsReactionCore.Raid.Params.Adds.E8S.AreYouLeft then\
+  local target = Player:GetTarget()\
+\
+  NilsReactionCore.coreparams.enableAutoInterrupt = true\
+  NilsReactionCore.Hotbar.Toggles.Interject.Execute(NilsReactionCore.params.on)\
+  NilsReactionCore.Helpers.Target.SetTargetByContentID(9321)\
+\
+  -- Electric Suicide Prevention, toggle off assist if health gets to low\
+  if NilsReactionCore.Helpers.Target.IsContentID(9319) and Player.hp.percent <= 30 then\
+    NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000)\
+  end\
+\
+  -- Stun Aqueous\
+  if NilsReactionCore.Helpers.Target.IsContentID(9320) and not HasBuff(target.id, 2) and target.action == 50 then\
+    NilsReactionCore.Hotbar.Stun()\
+  end\
+\
+  -- if no auto target, then priority attacks\
+  -- Aqueous\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9320) end\
+  -- Earthen\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9321) end\
+  -- Electric\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9319) end\
+\
+  self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = true,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Left Side",
+			["throttleTime"] = 0,
+			["time"] = 271.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 43,
+			["timerEndOffset"] = 14,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "985140d5-5bb6-eab1-a488-cdf046f8c030",
+		},
+		[3] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- 1x Earthen Aether (9321)\
+\
+if NilsReactionCore.Raid.Params.Adds.E8S.AreYouRight then\
+  local jobID = NilsReactionCore.jobs.GetJobID()\
+  local target = Player:GetTarget()\
+\
+  NilsReactionCore.coreparams.enableAutoInterrupt = true\
+  NilsReactionCore.Hotbar.Toggles.Interject.Execute(NilsReactionCore.params.on)\
+\
+  -- if not first silence then you are second, priority earthen then\
+  if NilsReactionCore.Helpers.ReturnValueOrDefault(NilsReactionCore.Settings.jobs[jobID].Raid.Mechanics.Adds.E8S.SilenceLeftFirst, true, \"boolean\") == false then\
+    NilsReactionCore.Helpers.Target.SetTargetByContentID(9321)\
+  end\
+\
+  -- Electric Suicide Prevention, toggle off assist if health gets to low\
+  if NilsReactionCore.Helpers.Target.IsContentID(9319) and Player.hp.percent <= 30 then\
+    NilsReactionCore.Random.Toggles.Assist.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline, true, 2000)\
+  end\
+\
+  -- Stun Aqueous\
+  if NilsReactionCore.Helpers.Target.IsContentID(9320) and not HasBuff(target.id, 2) and target.action == 50 then\
+    NilsReactionCore.Hotbar.Stun()\
+  end\
+\
+  -- priority attacks\
+  -- Aqueous\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9320) end\
+  -- Earthen\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9321) end\
+  -- Electric\
+  if target == nil or target.hp.current == 0 then NilsReactionCore.Helpers.Target.SetTargetByContentID(9319) end\
+\
+  self.used = true\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = true,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Right Side",
+			["throttleTime"] = 0,
+			["time"] = 271.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 43,
+			["timerEndOffset"] = 14,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "2683d85a-a292-b36f-9124-fd58fe270169",
 		},
 	},
 	[44] = {
@@ -2506,7 +1934,7 @@ self.used = table.size(drawnOrbs) >= 1",
 			["enabled"] = true,
 			["execute"] = "local buffDir = NilsReactionCore.Buffs.Duration(2258, Player)\
 \
-if buffDir > 0 and buffDir < 4 then\
+if buffDir > 0 and buffDir < 10 then\
   NilsReactionCore.Toggles.Darkknight.Plunge(NilsReactionCore.params.off, NilsReactionCore.params.isNotTimeline,NilsReactionCore.params.on, 4500)\
   self.used = true\
 end",
@@ -2534,7 +1962,7 @@ end",
 			["enabled"] = true,
 			["execute"] = "local buffDir = NilsReactionCore.Buffs.Duration(2258, Player)\
 \
-if buffDir > 0 and buffDir < 4 then\
+if buffDir > 0 and buffDir < 10 then\
   if NilsReactionCore.Hotbar.Sprint() == true then self.used = true end\
   self.used = true\
 end",
@@ -3099,7 +2527,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 3,
 					["buffID"] = 1209,
-					["buffIDList"] = multiRefObjects[5],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
@@ -3142,7 +2570,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[5],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 2,
 					["conditionLua"] = "",
@@ -3185,7 +2613,7 @@ self.used = true",
 					["buffCheckType"] = 1,
 					["buffDuration"] = 0,
 					["buffID"] = -1,
-					["buffIDList"] = multiRefObjects[5],
+					["buffIDList"] = multiRefObjects[2],
 					["category"] = 2,
 					["comparator"] = 1,
 					["conditionLua"] = "",
