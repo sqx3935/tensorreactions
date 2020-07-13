@@ -107,6 +107,33 @@ local obj1 = {
 			["uuid"] = "9036aac1-2475-1d3d-ab0d-49cd626cc7bb",
 		},
 	},
+	[10] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump off",
+			["throttleTime"] = 0,
+			["time"] = 79.7,
+			["timeRange"] = true,
+			["timelineIndex"] = 10,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "868fcf7f-a2e0-43c0-8519-b109669de8ee",
+		},
+	},
 	[11] = {
 		[1] = {
 			["actions"] = {
@@ -130,6 +157,31 @@ local obj1 = {
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "f9eb8456-f627-ee91-bebe-55cd1766b82a",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump on",
+			["throttleTime"] = 0,
+			["time"] = 84.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 11,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "708c6dd6-3c43-cabf-88f2-e9cfa256590c",
 		},
 	},
 	[14] = {
@@ -444,6 +496,60 @@ self.used = true",
 			["timerStartOffset"] = -7,
 			["used"] = false,
 			["uuid"] = "8d274db6-ea4d-8d14-948c-78a57f06bd4d",
+		},
+	},
+	[24] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump off",
+			["throttleTime"] = 0,
+			["time"] = 163.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 24,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "e25ee9fb-40e7-4bc2-b27c-1eea25212151",
+		},
+	},
+	[27] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump on",
+			["throttleTime"] = 0,
+			["time"] = 189.1,
+			["timeRange"] = true,
+			["timelineIndex"] = 27,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "51e7aa49-afb0-cf29-bbf5-b693eb2add29",
 		},
 	},
 	[31] = {
@@ -836,6 +942,31 @@ self.used = true\
 			["used"] = false,
 			["uuid"] = "22143e3b-4c97-903e-9d2a-7e5068339c6f",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump off",
+			["throttleTime"] = 0,
+			["time"] = 297.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 45,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "ddcfc75b-a0cc-eeac-81c1-c052371d83d9",
+		},
 	},
 	[46] = {
 		[1] = {
@@ -1061,6 +1192,31 @@ self.used = true\
 			["used"] = false,
 			["uuid"] = "b865dc8e-e11c-ac4b-8d67-ef32905ecf33",
 		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump on",
+			["throttleTime"] = 0,
+			["time"] = 327.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 55,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "6c7ef93e-f8dc-da95-a05e-8e80387d1bbd",
+		},
 	},
 	[57] = {
 		[1] = {
@@ -1085,6 +1241,60 @@ self.used = true\
 			["timerStartOffset"] = -7,
 			["used"] = false,
 			["uuid"] = "803bbe4f-d7b0-adea-8b15-1ed714ea6cae",
+		},
+	},
+	[58] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump off",
+			["throttleTime"] = 0,
+			["time"] = 346.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 58,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -4,
+			["used"] = false,
+			["uuid"] = "38f7a9b2-33ec-571d-b00d-201bc6321c65",
+		},
+	},
+	[62] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump on",
+			["throttleTime"] = 0,
+			["time"] = 368,
+			["timeRange"] = true,
+			["timelineIndex"] = 62,
+			["timerEndOffset"] = 3,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 2,
+			["used"] = false,
+			["uuid"] = "d8986f69-667e-52ed-aeff-cc56d8841803",
 		},
 	},
 	[64] = {
@@ -1451,6 +1661,33 @@ self.used = true\
 			["uuid"] = "32540ba6-cf99-8110-995c-8d1e3e6d5af2",
 		},
 	},
+	[77] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump off",
+			["throttleTime"] = 0,
+			["time"] = 460.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 77,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "db2a613e-4550-b443-82fb-1c012e6648e7",
+		},
+	},
 	[78] = {
 		[1] = {
 			["actions"] = {
@@ -1474,6 +1711,31 @@ self.used = true\
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "49920bf5-ec14-460f-b5d8-dda3a5e09cdd",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump on",
+			["throttleTime"] = 0,
+			["time"] = 465.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 78,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "dd9119d3-bbed-137d-a3b6-17154d7a3bab",
 		},
 	},
 	[81] = {
@@ -1577,6 +1839,31 @@ end",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "c3de7b55-16f3-daa2-95f6-2d1a3ecaad7c",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump off",
+			["throttleTime"] = 0,
+			["time"] = 502.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 83,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "85944d8e-4b81-8839-9854-c15e65e91487",
 		},
 	},
 	[84] = {
@@ -1802,6 +2089,31 @@ end",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "cd0ac8a3-de8a-e55a-aa5c-d9eae517cacb",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "NilsReactionCore.Hotbar.Toggles.CorpsMelee.Execute(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline)\
+NilsReactionCore.Hotbar.Toggles.JumpIn.Execute(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline)\
+self.used = true",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Jump on",
+			["throttleTime"] = 0,
+			["time"] = 532.2,
+			["timeRange"] = true,
+			["timelineIndex"] = 93,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "cddf8674-8a1d-f232-ad38-8a5dd42a471b",
 		},
 	},
 	[95] = {

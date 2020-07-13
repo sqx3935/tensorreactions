@@ -10,7 +10,7 @@ local obj1 = {
 			["conditions"] = {
 			},
 			["enabled"] = false,
-			["execute"] = "Huge Thank you to MattyICE for the assist with tweaking the times !!!!!!!!!!!!!!",
+			["execute"] = "-- Huge Thank you to MattyICE for the assist with tweaking the times !!!!!!!!!!!!!!",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
@@ -232,6 +232,54 @@ self.used = true",
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "52a7c06f-38b6-893a-b8a2-306f2c3b27ff",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Toggles.Blackmage.LeyLines(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "LeyLines Off",
+			["throttleTime"] = 0,
+			["time"] = 84.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 11,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "6c76e6bf-f0dd-bb7b-9375-0029e687931a",
+		},
+	},
+	[13] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Toggles.Blackmage.LeyLines(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "LeyLines On",
+			["throttleTime"] = 0,
+			["time"] = 89.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 13,
+			["timerEndOffset"] = 0.5,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1.5,
+			["used"] = false,
+			["uuid"] = "7bbe0b1e-6e68-a4b2-ad60-fbe31936bb89",
 		},
 	},
 	[14] = {
@@ -496,6 +544,34 @@ return true\
 			["uuid"] = "e9a2b915-d14a-2b40-8abb-bb9302bab8e3",
 		},
 	},
+	[25] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "-- Requires Argus for this, no easy way I can find to detect if you are in in the first or second set\
+if NilsReactionCore.Argus.EntityInUnavoidableAOEs(Player) then\
+  if NilsReactionCore.Hotbar.Blackmage.ManaWard() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "ManaWard if in Unavoidable",
+			["throttleTime"] = 0,
+			["time"] = 174.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 25,
+			["timerEndOffset"] = 12,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -5,
+			["used"] = false,
+			["uuid"] = "1feee4f0-2434-fe8f-8bb5-575efba3cf41",
+		},
+	},
 	[31] = {
 		[1] = {
 			["actions"] = {
@@ -705,7 +781,7 @@ return true\
 			["timelineIndex"] = 39,
 			["timerEndOffset"] = 1,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0,
+			["timerStartOffset"] = -0.5,
 			["used"] = false,
 			["uuid"] = "a5c5038c-15a9-8fa6-be6c-3f972ad1900f",
 		},
@@ -760,6 +836,31 @@ return true\
 			["uuid"] = "0f4a447f-b2fa-3809-be5f-fb2f91995db2",
 		},
 	},
+	[44] = {
+		[1] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Toggles.Blackmage.LeyLines(NilsReactionCore.params.off, NilsReactionCore.params.isTimeline) == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "LeyLines Off",
+			["throttleTime"] = 0,
+			["time"] = 287.9,
+			["timeRange"] = true,
+			["timelineIndex"] = 44,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -1,
+			["used"] = false,
+			["uuid"] = "ad22d239-d131-aa68-9ce7-b039129b80ae",
+		},
+	},
 	[45] = {
 		[1] = {
 			["actions"] = {
@@ -783,6 +884,29 @@ return true\
 			["timerStartOffset"] = 0,
 			["used"] = false,
 			["uuid"] = "27e36d74-c1f3-df13-9107-24f3b2e8b582",
+		},
+		[2] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Toggles.Blackmage.LeyLines(NilsReactionCore.params.on, NilsReactionCore.params.isTimeline) == true then self.used = true end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "LeyLines On",
+			["throttleTime"] = 0,
+			["time"] = 297.8,
+			["timeRange"] = true,
+			["timelineIndex"] = 45,
+			["timerEndOffset"] = 2,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = 0,
+			["used"] = false,
+			["uuid"] = "b461d66d-3299-e131-b6e9-8706f4951285",
 		},
 	},
 	[46] = {
@@ -811,29 +935,6 @@ return true\
 		},
 	},
 	[47] = {
-		[1] = {
-			["actions"] = {
-			},
-			["conditions"] = {
-			},
-			["enabled"] = true,
-			["execute"] = "if data.allowManaWards and NilsReactionCore.Hotbar.Blackmage.ManaWard() == true then self.used = true end",
-			["executeType"] = 2,
-			["lastUse"] = 0,
-			["loop"] = false,
-			["luaNeedsWeaveWindow"] = false,
-			["luaReturnsAction"] = false,
-			["name"] = "ManaWard",
-			["throttleTime"] = 0,
-			["time"] = 305.2,
-			["timeRange"] = true,
-			["timelineIndex"] = 47,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -5,
-			["timerStartOffset"] = -5,
-			["used"] = false,
-			["uuid"] = "7006f330-e416-0b20-9688-b7d56b3d302c",
-		},
 	},
 	[48] = {
 		[1] = {
@@ -1061,28 +1162,33 @@ return true\
 		},
 	},
 	[59] = {
+	},
+	[60] = {
 		[1] = {
 			["actions"] = {
 			},
 			["conditions"] = {
 			},
 			["enabled"] = true,
-			["execute"] = "if data.allowManaWards and NilsReactionCore.Hotbar.Blackmage.ManaWard() == true then self.used = true end",
+			["execute"] = "-- Requires Argus for this, no easy way I can find to detect if you are in in the first or second set\
+if NilsReactionCore.Argus.EntityInUnavoidableAOEs(Player) then\
+  if NilsReactionCore.Hotbar.Blackmage.ManaWard() then self.used = true end\
+end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
 			["luaNeedsWeaveWindow"] = false,
 			["luaReturnsAction"] = false,
-			["name"] = "ManaWard",
+			["name"] = "ManaWard if in Unavoidable",
 			["throttleTime"] = 0,
-			["time"] = 356.4,
+			["time"] = 357.1,
 			["timeRange"] = true,
-			["timelineIndex"] = 59,
-			["timerEndOffset"] = 0,
-			["timerOffset"] = -5,
+			["timelineIndex"] = 60,
+			["timerEndOffset"] = 12,
+			["timerOffset"] = 0,
 			["timerStartOffset"] = -5,
 			["used"] = false,
-			["uuid"] = "790764e1-77c9-bc4a-824d-0d1ad2849339",
+			["uuid"] = "7cfeb567-9a8b-0550-8445-928eae301479",
 		},
 	},
 	[64] = {
