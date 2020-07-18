@@ -38,7 +38,7 @@ self.used = true",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end",
@@ -54,7 +54,7 @@ end",
 			["timelineIndex"] = 3,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -5,
+			["timerStartOffset"] = -6,
 			["used"] = false,
 			["uuid"] = "feb3dc92-21e5-c1e3-8670-13d51ff8c19c",
 		},
@@ -63,7 +63,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
@@ -79,9 +79,34 @@ end",
 			["timelineIndex"] = 3,
 			["timerEndOffset"] = 2,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = -2.5,
+			["timerStartOffset"] = -3.5,
 			["used"] = false,
 			["uuid"] = "ba5ce48b-5c69-97e8-9b24-29ea2a4f7bf6",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Invuln if MT",
+			["throttleTime"] = 0,
+			["time"] = 16,
+			["timeRange"] = true,
+			["timelineIndex"] = 3,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "126560c7-c966-aac8-a92f-fb8881d3a71e",
 		},
 	},
 	[4] = {
@@ -90,7 +115,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability() then self.used = true end\
 end",
@@ -595,7 +620,7 @@ self.used = true",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end",
@@ -620,7 +645,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
@@ -640,6 +665,31 @@ end",
 			["used"] = false,
 			["uuid"] = "c16e8f0d-a562-d70c-8a84-2e19e0aa0ce7",
 		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = false,
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Invuln if MT",
+			["throttleTime"] = 0,
+			["time"] = 675.6,
+			["timeRange"] = true,
+			["timelineIndex"] = 49,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "359a72c3-4b03-b6d9-9e73-2e9fed2aa4d6",
+		},
 	},
 	[50] = {
 		[1] = {
@@ -647,7 +697,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability() then self.used = true end\
 end",
@@ -674,7 +724,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Hotbar.Knockback() == true then self.used = true end",
 			["executeType"] = 2,
 			["lastUse"] = 0,
@@ -711,9 +761,9 @@ end",
 			["time"] = 1000,
 			["timeRange"] = true,
 			["timelineIndex"] = 61,
-			["timerEndOffset"] = 3,
+			["timerEndOffset"] = 17,
 			["timerOffset"] = 0,
-			["timerStartOffset"] = 0.5,
+			["timerStartOffset"] = 12,
 			["used"] = false,
 			["uuid"] = "c3b31ab6-3654-13ad-ada4-1e7056f962d8",
 		},
@@ -1184,7 +1234,7 @@ self.used = true",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Helpers.Tanks.Cooldown.RampartOrHeavy() then self.used = true end\
 end",
@@ -1209,7 +1259,7 @@ end",
 			},
 			["conditions"] = {
 			},
-			["enabled"] = true,
+			["enabled"] = false,
 			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
   if NilsReactionCore.Hotbar.Darkknight.TheBlackestNight() then self.used = true end\
 end",
@@ -1228,6 +1278,31 @@ end",
 			["timerStartOffset"] = -2.5,
 			["used"] = false,
 			["uuid"] = "94cce528-80e2-0b00-9acf-b1cedb16f332",
+		},
+		[4] = {
+			["actions"] = {
+			},
+			["conditions"] = {
+			},
+			["enabled"] = true,
+			["execute"] = "if NilsReactionCore.Helpers.Tanks.AmIMainTank() then\
+  if NilsReactionCore.Helpers.Tanks.Cooldown.Invulnerability() then self.used = true end\
+end",
+			["executeType"] = 2,
+			["lastUse"] = 0,
+			["loop"] = false,
+			["luaNeedsWeaveWindow"] = false,
+			["luaReturnsAction"] = false,
+			["name"] = "Invuln if MT",
+			["throttleTime"] = 0,
+			["time"] = 1479.5,
+			["timeRange"] = true,
+			["timelineIndex"] = 110,
+			["timerEndOffset"] = 0,
+			["timerOffset"] = 0,
+			["timerStartOffset"] = -2,
+			["used"] = false,
+			["uuid"] = "b76dae8c-51af-19b3-87df-f9b5c0ab105e",
 		},
 	},
 	[111] = {
