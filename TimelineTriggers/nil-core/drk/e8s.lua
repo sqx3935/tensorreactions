@@ -1753,7 +1753,7 @@ return true\
 			},
 			["enabled"] = true,
 			["execute"] = "-- might be temperary for testing\
-if table.valid(SallyDRK) then\
+if table.valid(SallyDRK) and SallyDRK.openerAvailable() then\
   data.NilsPlaygroundOpenerIndex = SallyDRK.openerInfo.index\
   SallyDRK.openerInfo.index = 2\
 \
