@@ -35,7 +35,8 @@ local obj1 = {
 			["enabled"] = true,
 			["execute"] = "data.allowManaWards = true\
 data.allowAddles = true\
-self.used = true",
+self.used = true\
+",
 			["executeType"] = 2,
 			["lastUse"] = 0,
 			["loop"] = false,
